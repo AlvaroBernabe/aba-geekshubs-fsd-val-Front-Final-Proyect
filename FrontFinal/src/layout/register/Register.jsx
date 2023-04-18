@@ -9,6 +9,7 @@ import "./Register.css";
 // import { useNavigate } from "react-router-dom";
 import NavBar from "../../components/NavBar";
 import { InputText } from "../../components/InputText/InputText";
+import { registerUser } from "../services/apiCalls";
 
 export function Register() {
 //   const navigate = useNavigate();
@@ -76,16 +77,15 @@ export function Register() {
     }));
   };
 
-  const registerUser = () => {
-    <p>All Working as it should</p>;
-    // newUser(credenciales)
-    //   .then(() => {
-    //     setWelcome(`Correctly registered ${credenciales.email}`);
-    //     setTimeout(() => {
-    //       navigate("/login");
-    //     }, 2500);
-    //   })
-    //   .catch((error) => console.log(error));
+  const newUser = () => {
+    registerUser(credenciales)
+      .then(() => {
+        setWelcome(`Correctly registered ${credenciales.email}`);
+        // setTimeout(() => {
+        //   navigate("/login");
+        // }, 2500);
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -145,7 +145,7 @@ export function Register() {
                   className={
                     registerAct ? "registerSendDeac" : "registerSendAct"
                   }
-                  onClick={registerUser}
+                  onClick={newUser}
                 >
                   Register User
                 </Button>
