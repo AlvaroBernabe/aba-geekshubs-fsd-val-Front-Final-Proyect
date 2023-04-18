@@ -6,12 +6,12 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./Register.css";
 // import { newUser } from "../services/apiCalls";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import NavBar from "../../components/NavBar";
 import { InputText } from "../../components/InputText/InputText";
 
 export function Register() {
-  const navigate = useNavigate();
+//   const navigate = useNavigate();
   //   const [welcome, setWelcome] = useState("");
 
   const [credenciales, setCredenciales] = useState({
