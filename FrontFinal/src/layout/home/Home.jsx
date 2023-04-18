@@ -1,12 +1,12 @@
 import React from "react";
 import './Home.css'
+import NavBar from "../../components/NavBar";
 
 export const Home = () => {
-  return (
-    <>
-  <div>Home</div>
-  <p>
-    hello world
-  </p>
-    </>
-)};
+    return (
+        <>
+        < NavBar />
+        <div>Home</div>,
+        <p>This is Home</p>
+        </>
+      )};
