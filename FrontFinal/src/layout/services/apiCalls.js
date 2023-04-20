@@ -16,11 +16,28 @@ export const loginUser = async (body) => {
 
 
 export const getMyProfile = async (token) => {
-
   let config = {
     headers: { 
       'Authorization': 'Bearer '+ token,  
     }
     };
     return await axios.get(`${root}/profile`, config)
+}
+
+export const getAllUsers = async (token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+    };
+    return await axios.get(`${root}/users/all`, config)
+}
+
+export const getAllUsersDetails = async (id, token ) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+    };
+    return await axios.get(`${root}/users/all/details/${id}`, config)
 }

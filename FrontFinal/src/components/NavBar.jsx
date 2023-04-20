@@ -62,17 +62,14 @@ function NavBar() {
                   <Nav.Link as={Link} to="/profile">
                     profile
                   </Nav.Link>
+                  <Nav.Link as={Link} to="/users/all">
+                    Get All Users
+                  </Nav.Link>
                 </>
               ) : (
                 <>
                   <Nav.Link as={Link} to="/" onClick={() => logout()}>
                     Eres Nadie
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/" onClick={() => logout()}>
-                    Logout
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/profile">
-                    profile
                   </Nav.Link>
                 </>
               )}
