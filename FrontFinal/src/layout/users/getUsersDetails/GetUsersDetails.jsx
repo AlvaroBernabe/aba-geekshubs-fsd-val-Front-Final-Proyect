@@ -13,19 +13,19 @@ export const GetUsersDetails = () => {
             <hr />
             <div className="">
                 <div className="texto">Name : </div>
-                {detailRedux?.choosenObject?.perfil.name}
+                {detailRedux?.choosenObject?.perfil?.name}
                 <div className="texto">Surname: </div>
-                {detailRedux?.choosenObject?.perfil.surname}
+                {detailRedux?.choosenObject?.perfil?.surname}
                 <div className="texto">Phone Number: </div>
-                {detailRedux?.choosenObject?.perfil.phone_number}
+                {detailRedux?.choosenObject?.perfil?.phone_number}
                 <div className="texto">Email: </div>
                 {detailRedux?.choosenObject?.email}
                 <div className="texto">Direction: </div>
-                {detailRedux?.choosenObject?.perfil.direction}
+                {detailRedux?.choosenObject?.perfil?.direction}
                 <div className="texto">Role Id: </div>
                 {detailRedux?.choosenObject?.role_id}
                 <div className="texto">Birth Date: </div>
-                {detailRedux?.choosenObject?.perfil.birth_date}
+                {detailRedux?.choosenObject?.perfil?.birth_date}
             </div>
         </>
     );
