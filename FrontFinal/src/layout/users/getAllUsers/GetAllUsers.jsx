@@ -20,8 +20,8 @@ export const GetAllUsers = () => {
             getAllUsers(ReduxCredentials.credentials?.token)
                 .then(
                     result => {
-                        setUsers(result.data.data)
-                        console.log(result.data.data)
+                        setUsers(result.data.data.resultado)
+                        console.log(result.data.data.resultado)
                     }
                 )
                 .catch(error => console.log(error));

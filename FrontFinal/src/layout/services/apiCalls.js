@@ -32,12 +32,3 @@ export const getAllUsers = async (token) => {
     };
     return await axios.get(`${root}/users/all`, config)
 }
-
-export const getAllUsersDetails = async (id, token ) => {
-  let config = {
-    headers: { 
-      'Authorization': 'Bearer '+ token,  
-    }
-    };
-    return await axios.get(`${root}/users/all/details/${id}`, config)
-}
