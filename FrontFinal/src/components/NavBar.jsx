@@ -47,6 +47,9 @@ function NavBar() {
                   <Nav.Link as={Link} to="/" onClick={() => logout()}>
                     Logout
                   </Nav.Link>
+                  <Nav.Link as={Link} to="/profile">
+                    profile
+                  </Nav.Link>
                 </>
               ) : credencialesRedux?.credentials?.usuario?.role_id === 1 ? (
                 <>
@@ -56,6 +59,9 @@ function NavBar() {
                   <Nav.Link as={Link} to="/" onClick={() => logout()}>
                     Logout
                   </Nav.Link>
+                  <Nav.Link as={Link} to="/profile">
+                    profile
+                  </Nav.Link>
                 </>
               ) : (
                 <>
@@ -64,6 +70,9 @@ function NavBar() {
                   </Nav.Link>
                   <Nav.Link as={Link} to="/" onClick={() => logout()}>
                     Logout
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/profile">
+                    profile
                   </Nav.Link>
                 </>
               )}

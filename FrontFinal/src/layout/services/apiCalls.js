@@ -14,3 +14,13 @@ export const loginUser = async (body) => {
   return await api.post(`${root}/login`, body)
 }
 
+
+export const getMyProfile = async (token) => {
+
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+    };
+    return await axios.get(`${root}/profile`, config)
+}
