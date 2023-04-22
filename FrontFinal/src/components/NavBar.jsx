@@ -47,6 +47,12 @@ function NavBar() {
                   <Nav.Link as={Link} to="/profile">
                     Get My Profile
                   </Nav.Link>
+                  <Nav.Link as={Link} to="/profile/update">
+                    Profile Update
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/login/update">
+                    Update Password
+                  </Nav.Link>
                   <Nav.Link as={Link} to="/games/all">
                     Get All Games
                   </Nav.Link>

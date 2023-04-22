@@ -42,3 +42,27 @@ export const getAllGames = async (token) => {
     };
     return await axios.get(`${root}/games/all/`, config)
 }
+
+export const loginUpdate = async (body, token) => {
+  // console.log(body, "esto es body");
+  // console.log(token, "esto es token");
+  let config = {
+
+    headers: { 
+      'Authorization': `Bearer ${token}`,  
+    }
+  };
+  return await axios.put(`${root}/updatelogin`, body, config)
+}
+
+export const profileUpdate = async (body, token) => {
+  // console.log(body, "esto es body");
+  // console.log(token, "esto es token");
+  let config = {
+
+    headers: { 
+      'Authorization': `Bearer ${token}`,  
+    }
+  };
+  return await axios.put(`${root}/profile/update`, body, config)
+}
