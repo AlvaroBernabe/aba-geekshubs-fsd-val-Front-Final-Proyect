@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { getMyFavourites } from "../services/apiCalls";
 import NavBar from "../../components/NavBar";
 import { Col, Container, Row } from "react-bootstrap";
-import CardAppointment from "../../components/CardReviews";
+import CardReviews from "../../components/CardReviews";
 
 export const GetMyFavourites = () => {
     
@@ -49,7 +49,7 @@ export const GetMyFavourites = () => {
                     {favourites.map((game) => {
                         return (
                             <Col onClick={() => gameSelect(game)} key={game.id}>
-                                <CardAppointment appo={game} />
+                                <CardReviews appo={game} />
                             </Col>
                         );
                     })}

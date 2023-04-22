@@ -4,13 +4,15 @@ import { useNavigate } from "react-router-dom";
 import { getAllGames } from "../../services/apiCalls";
 import NavBar from "../../../components/NavBar";
 import { userData } from "../../userSlice";
+import { Col, Container, Row } from "react-bootstrap";
+import CardGames from "../../../components/CardGames";
 
 export const GetAllGames = () => {
 
     const [games, setGames] = useState([]);
       const ReduxCredentials = useSelector(userData);
-      const dispatch = useDispatch();
-      const navigate = useNavigate();
+    //   const dispatch = useDispatch();
+    //   const navigate = useNavigate();
 
       useEffect(()=>{
         // console.log("console log de users", users)      // Este saca los el array con los usuarios
@@ -25,6 +27,7 @@ export const GetAllGames = () => {
                 .catch(error => console.log(error));
         }
     },[games])
+    console.log(games);
 
     // const selected = (persona) => {
     //     dispatch(addChoosen({ choosenObject: persona }))
@@ -38,28 +41,17 @@ export const GetAllGames = () => {
         <>
         <NavBar />
         <hr />
-        <div className='usersDesign'>
-            {  games.length > 0 ? 
-                (<div>
-                    {
-                        games.map(
-                            juego => {
-                                return (
-                                    <div 
-                                        // onClick={()=>selected(juego)} 
-                                        key={juego.id}>
-                                        {juego.name}
-                                        {juego.publisher}
-                                    </div>
-                                )
-                            }
-                        )
-                    }
-                </div>)
-                : 
-                (<div>Estos Son Todos Los Juegos</div>)
-            }
-         </div>
+            <Container fluid>
+                <Row>
+                    {games.map((game) => {
+                        return (
+                            <Col onClick={() => gameSelect(game)} key={game.id}>
+                                <CardGames appo={game} />
+                            </Col>
+                        );
+                    })}
+                </Row>
+            </Container>
       </>
     );
 }
