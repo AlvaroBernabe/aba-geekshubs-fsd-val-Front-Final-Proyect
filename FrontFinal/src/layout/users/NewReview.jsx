@@ -15,7 +15,7 @@ export const NewReview = () => {
 
     const navigate = useNavigate();
 
-    const [user, setUser] = useState({
+    const [review, setReview] = useState({
         player_score: "",
         player_review: "",
         favourite: "",
@@ -24,48 +24,46 @@ export const NewReview = () => {
     });
 
     const inputHandler = (e) => {
-        setUser((prevState) => ({
+        setReview((prevState) => ({
             ...prevState,
             [e.target.name]: e.target.value,
         }));
     };
 
-    const [valiuser, setValiuser] = useState({
-        nameVali: true,
-        surnameVali: true,
+    const [valireview, setValireview] = useState({
+        player_scoreVali: true,
+        player_reviewVali: true,
         phone_numberVali: true,
-        directionVali: true,
-        birth_dateVali: true,
+        favouriteVali: true,
     });
 
-    const [userError, setUserError] = useState({
-        nameError: "",
-        surnameError: "",
+    const [reviewError, setReviewError] = useState({
+        player_scoreError: "",
+        player_reviewError: "",
         phone_numberError: "",
-        directionError: "",
-        birth_dateError: "",
+        favouriteError: "",
     });
 
     const [registerAct, setRegisterAct] = useState(false);
     const [welcome, setWelcome] = useState("");
 
     useEffect(() => {
-        for (let error in userError) {
-            if (userError[error] != "") {
+        for (let error in reviewError) {
+            if (reviewError[error] != "") {
                 setRegisterAct(false);
                 return;
             }
         }
 
-        for (let empty in user) {
-            if (user[empty] === "") {
+        for (let empty in review) {
+            if (review[empty] === "") {
                 setRegisterAct(false);
                 return;
             }
         }
 
-        for (let validated in valiuser) {
-            if (valiuser[validated] === false) {
+        for (let validated in valireview) {
+            if (valireview[validated] === false) {
                 setRegisterAct(false);
                 return;
             }
@@ -74,41 +72,24 @@ export const NewReview = () => {
     });
 
     const checkError = (e) => {
-        let error = "";
-        let checked = validate(
-            e.target.name,
-            e.target.value,
-            e.target.required
-        );
-
-        error = checked.message;
-        setValiuser((prevState) => ({
-            ...prevState,
-            [e.target.name + "Vali"]: checked.validated,
-        }));
-
-        setUserError((prevState) => ({
-            ...prevState,
-            [e.target.name + "Error"]: error,
-        }));
-    };
+    }
 
 
     const reviewNew = () => {
-        newReview(appointments, ReduxUserData.credentials.token)
+        newReview(review, ReduxUserData.credentials.token)
             .then( (resultado) => {
-                setAppointments(resultado.data)
+                setReview(resultado.data)
                 // setWelcome(`Cita creada correctamente para el día: ${appointments.date}`);
                 // setTimeout(()=>{
                 //     navigate('/user/myprofile');
                 // },3500);
             })
             .catch(error => {
-                setAppointments(error.message);
+                setReview(error.message);
             });
     }
 
-    // console.log(user, "hola soy user");
+    console.log(review, "hola soy review");
     // console.log(valiuser, "hola soy vali user");
 
     return (
@@ -127,14 +108,14 @@ export const NewReview = () => {
                                         <Form>
                                             <Form.Group>
                                                 <Form.Label>
-                                                    Enter your name:
+                                                    Enter your player_score:
                                                 </Form.Label>
                                                 <InputText
                                                     className={"inputLogin"}
-                                                    type={"text"}
-                                                    name={"name"}
+                                                    type={"float"}
+                                                    name={"player_score"}
                                                     maxLength={70}
-                                                    placeholder={user.name}
+                                                    placeholder={"Player Score"}
                                                     changeFunction={(e) =>
                                                         inputHandler(e)
                                                     }
@@ -143,17 +124,17 @@ export const NewReview = () => {
                                                     }
                                                 />
                                             </Form.Group>
-                                            <div>{userError.nameError}</div>
+                                            {/* <div>{reviewError.nameError}</div> */}
                                             <Form.Group>
                                                 <Form.Label>
-                                                    Enter your surname:
+                                                    Enter your player_review:
                                                 </Form.Label>
                                                 <InputText
                                                     className={"inputLogin"}
                                                     type={"text"}
-                                                    name={"surname"}
+                                                    name={"player_review"}
                                                     maxLength={70}
-                                                    placeholder={user.surname}
+                                                    placeholder={review.surname}
                                                     changeFunction={(e) =>
                                                         inputHandler(e)
                                                     }
@@ -162,17 +143,36 @@ export const NewReview = () => {
                                                     }
                                                 />
                                             </Form.Group>
-                                            <div>{userError.surnameError}</div>
+                                            {/* <div>{reviewError.surnameError}</div> */}
                                             <Form.Group>
                                                 <Form.Label>
-                                                    Enter your phone_number:
+                                                    Enter your favourite:
+                                                </Form.Label>
+                                                <InputText
+                                                    className={"inputLogin"}
+                                                    type={"boolean"}
+                                                    name={"favourite"}
+                                                    maxLength={70}
+                                                    placeholder={"Favorito?"}
+                                                    changeFunction={(e) =>
+                                                        inputHandler(e)
+                                                    }
+                                                    blurFunction={(e) =>
+                                                        checkError(e)
+                                                    }
+                                                />
+                                            </Form.Group>
+                                            {/* <div>{reviewError.phone_numberError}</div> */}
+                                            <Form.Group>
+                                                <Form.Label>
+                                                    Enter the game_id:
                                                 </Form.Label>
                                                 <InputText
                                                     className={"inputLogin"}
                                                     type={"integer"}
-                                                    name={"phone_number"}
+                                                    name={"game_id"}
                                                     maxLength={70}
-                                                    placeholder={user.phone_number}
+                                                    placeholder={"Introduce el Juego"}
                                                     changeFunction={(e) =>
                                                         inputHandler(e)
                                                     }
@@ -181,44 +181,7 @@ export const NewReview = () => {
                                                     }
                                                 />
                                             </Form.Group>
-                                            <div>{userError.phone_numberError}</div>
-                                            <Form.Group>
-                                                <Form.Label>
-                                                    Enter your direction:
-                                                </Form.Label>
-                                                <InputText
-                                                    className={"inputLogin"}
-                                                    type={"text"}
-                                                    name={"direction"}
-                                                    maxLength={70}
-                                                    placeholder={user.direction}
-                                                    changeFunction={(e) =>
-                                                        inputHandler(e)
-                                                    }
-                                                    blurFunction={(e) =>
-                                                        checkError(e)
-                                                    }
-                                                />
-                                            </Form.Group>
-                                            <div>{userError.directionError}</div>
-                                            <Form.Group>
-                                                <Form.Label>
-                                                    Enter your birth_date:
-                                                </Form.Label>
-                                                <InputText
-                                                    className={"inputLogin"}
-                                                    type={"date"}
-                                                    name={"birth_date"}
-                                                    maxLength={70}
-                                                    placeholder={user.birth_date}
-                                                    changeFunction={(e) =>
-                                                        inputHandler(e)
-                                                    }
-                                                    blurFunction={(e) =>
-                                                        checkError(e)
-                                                    }
-                                                />
-                                            </Form.Group>
+                                            {/* <div>{reviewError.directionError}</div> */}
                                             <br />
                                             <Button
                                                 className="botonLog"
