@@ -15,7 +15,6 @@ export const GetAllUsers = () => {
       const navigate = useNavigate();
 
       useEffect(()=>{
-        // console.log("console log de users", users)      // Este saca los el array con los usuarios
         if(users.length === 0){
             getAllUsers(ReduxCredentials.credentials?.token)
                 .then(
