@@ -7,6 +7,7 @@ import { Login } from "./layout/login/Login";
 import { Profile } from "./layout/profile/Profile";
 import { GetAllUsers } from "./layout/users/getAllUsers/GetAllUsers";
 import { GetUsersDetails } from "./layout/users/getUsersDetails/GetUsersDetails";
+import { GetAllGames } from "./layout/games/getAllGames/GetAllGames";
 
 export const Router = () => {
     return (
@@ -20,6 +21,7 @@ export const Router = () => {
             <Route path="/profile" element={<Profile />} />
             <Route path="/users/all" element={<GetAllUsers />} />
             <Route path="/users/all/details" element={<GetUsersDetails />} />
+            <Route path="/games/all" element={<GetAllGames />} />
         </Routes>
         </>
     )

@@ -32,3 +32,13 @@ export const getAllUsers = async (token) => {
     };
     return await axios.get(`${root}/users/all`, config)
 }
+
+
+export const getAllGames = async (token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+    };
+    return await axios.get(`${root}/games/all/`, config)
+}

@@ -42,22 +42,19 @@ function NavBar() {
               ) : credencialesRedux?.credentials?.usuario?.role_id === 2 ? (
                 <>
                   <Nav.Link as={Link} to="/" onClick={() => logout()}>
-                    Eres user
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/" onClick={() => logout()}>
-                    Logout
+                    Eres user Logout
                   </Nav.Link>
                   <Nav.Link as={Link} to="/profile">
-                    profile
+                    Get My Profile
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/games/all">
+                    Get All Games
                   </Nav.Link>
                 </>
               ) : credencialesRedux?.credentials?.usuario?.role_id === 1 ? (
                 <>
                   <Nav.Link as={Link} to="/" onClick={() => logout()}>
-                    Eres Admin
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/" onClick={() => logout()}>
-                    Logout
+                    Eres Admin Logout
                   </Nav.Link>
                   <Nav.Link as={Link} to="/profile">
                     profile
