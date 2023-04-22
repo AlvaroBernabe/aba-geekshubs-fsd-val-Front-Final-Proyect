@@ -62,6 +62,9 @@ function NavBar() {
                   <Nav.Link as={Link} to="/review/new">
                     New Review
                   </Nav.Link>
+                  <Nav.Link as={Link} to="/review/all">
+                    All Reviews
+                  </Nav.Link>
                 </>
               ) : credencialesRedux?.credentials?.usuario?.role_id === 1 ? (
                 <>

@@ -87,3 +87,13 @@ export const newReview = async ( body, token) => {
     }};
         return await axios.post(`${root}/review/new`,body, config)
 }
+
+
+export const getMyReviews = async (token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+    };
+    return await axios.get(`${root}/review/myreviews`, config)
+}
