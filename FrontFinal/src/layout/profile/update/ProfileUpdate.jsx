@@ -29,9 +29,9 @@ export const ProfileUpdate = () => {
 
     const [valiuser, setValiuser] = useState({
         nameVali: true,
-        surnameVali: false,
+        surnameVali: true,
         phone_numberVali: true,
-        directionVali: false,
+        directionVali: true,
         birth_dateVali: true,
     });
 
@@ -95,8 +95,8 @@ export const ProfileUpdate = () => {
         if (user.name === "") {
             getMyProfile(credentialsRdx.credentials.token)
                 .then((result) => {
-                    console.log(result.data.data);
-                    console.log("esto es name", result.data.data[1][0].name);
+                    // console.log(result.data.data);
+                    // console.log("esto es name", result.data.data[1][0].name);
                     setUser({
                         name: result.data.data[1][0].name,
                         surname: result.data.data[1][0].surname,
@@ -119,8 +119,8 @@ export const ProfileUpdate = () => {
         }, 2500);
     };
 
-    console.log(user, "hola soy user");
-    console.log(valiuser, "hola soy vali user");
+    // console.log(user, "hola soy user");
+    // console.log(valiuser, "hola soy vali user");
 
     return (
         <>
@@ -183,7 +183,7 @@ export const ProfileUpdate = () => {
                                                     type={"integer"}
                                                     name={"phone_number"}
                                                     maxLength={70}
-                                                    placeholder={"phone_number..."}
+                                                    placeholder={user.phone_number}
                                                     changeFunction={(e) =>
                                                         inputHandler(e)
                                                     }
@@ -202,7 +202,7 @@ export const ProfileUpdate = () => {
                                                     type={"text"}
                                                     name={"direction"}
                                                     maxLength={70}
-                                                    placeholder={""}
+                                                    placeholder={user.direction}
                                                     changeFunction={(e) =>
                                                         inputHandler(e)
                                                     }
@@ -221,7 +221,7 @@ export const ProfileUpdate = () => {
                                                     type={"date"}
                                                     name={"birth_date"}
                                                     maxLength={70}
-                                                    placeholder={"Card, paypal, efective, whatever you want"}
+                                                    placeholder={user.birth_date}
                                                     changeFunction={(e) =>
                                                         inputHandler(e)
                                                     }

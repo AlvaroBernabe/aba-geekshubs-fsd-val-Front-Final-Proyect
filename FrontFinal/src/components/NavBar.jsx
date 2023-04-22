@@ -63,7 +63,10 @@ function NavBar() {
                     Eres Admin Logout
                   </Nav.Link>
                   <Nav.Link as={Link} to="/profile">
-                    profile
+                    Get My Profile
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/profile/update">
+                    Profile Update
                   </Nav.Link>
                   <Nav.Link as={Link} to="/users/all">
                     Get All Users
