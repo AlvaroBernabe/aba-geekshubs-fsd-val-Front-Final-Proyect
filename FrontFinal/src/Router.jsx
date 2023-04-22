@@ -10,6 +10,7 @@ import { GetUsersDetails } from "./layout/users/getUsersDetails/GetUsersDetails"
 import { GetAllGames } from "./layout/games/getAllGames/GetAllGames";
 import { ChangeLogin } from "./layout/users/changeLogin/ChangeLogin";
 import { ProfileUpdate } from "./layout/profile/update/ProfileUpdate";
+import { GetMyFavourites } from "./layout/users/GetMyFavourites";
 
 export const Router = () => {
     return (
@@ -26,6 +27,7 @@ export const Router = () => {
             <Route path="/games/all" element={<GetAllGames />} />
             <Route path="/login/update" element={<ChangeLogin />} />
             <Route path="/profile/update" element={<ProfileUpdate />} />
+            <Route path="/games/favourites" element={<GetMyFavourites />} />
         </Routes>
         </>
     )

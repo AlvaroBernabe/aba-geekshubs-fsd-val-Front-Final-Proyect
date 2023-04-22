@@ -66,3 +66,12 @@ export const profileUpdate = async (body, token) => {
   };
   return await axios.put(`${root}/profile/update`, body, config)
 }
+
+export const getMyFavourites = async (token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+    };
+    return await axios.get(`${root}/review/favourites`, config)
+}

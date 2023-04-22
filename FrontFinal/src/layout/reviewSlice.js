@@ -17,6 +17,6 @@ export const reviewSlice = createSlice({
 
 export const { addChoosenReview } = reviewSlice.actions;
 
-export const appointmentData = (state) => state.review;
+export const reviewData = (state) => state.review;
 
 export default reviewSlice.reducer;
