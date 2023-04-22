@@ -12,7 +12,8 @@ import { ChangeLogin } from "./layout/users/changeLogin/ChangeLogin";
 import { ProfileUpdate } from "./layout/profile/update/ProfileUpdate";
 import { GetMyFavourites } from "./layout/users/GetMyFavourites";
 import { NewReview } from "./layout/users/NewReview";
-import { GetAllReviews } from "./layout/users/GetAllReviews";
+import { GetAllMyReviews } from "./layout/users/GetMyReviews";
+import { GetAllAdminReviews } from "./layout/Reviews/GetAllAdminReviews";
 
 export const Router = () => {
     return (
@@ -31,7 +32,8 @@ export const Router = () => {
             <Route path="/profile/update" element={<ProfileUpdate />} />
             <Route path="/games/favourites" element={<GetMyFavourites />} />
             <Route path="/review/new" element={<NewReview />} />
-            <Route path="/review/all" element={<GetAllReviews />} />
+            <Route path="/review/all" element={<GetAllMyReviews />} />
+            <Route path="/reviews/all" element={<GetAllAdminReviews />} />
         </Routes>
         </>
     )

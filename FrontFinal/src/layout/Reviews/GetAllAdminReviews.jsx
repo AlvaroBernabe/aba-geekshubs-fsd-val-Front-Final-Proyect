@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { getAllReviewsAdmin } from "../services/apiCalls";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getMyReviews } from "../services/apiCalls";
 import { userData } from "../userSlice";
 import NavBar from "../../components/NavBar";
 import { Col, Container, Row } from "react-bootstrap";
 import CardReviews from "../../components/CardReviews";
 
-export const GetAllReviews = () => {
+export const GetAllAdminReviews = () => {
     const ReduxUserData = useSelector(userData);
     // const ReduxReviewData = useSelector(reviewData);
     const [reviews, setReviews] = useState([]);
@@ -17,10 +17,10 @@ export const GetAllReviews = () => {
 
     useEffect(() => {
         if (reviews.length === 0) {
-            getMyReviews(ReduxUserData?.credentials?.token)
+            getAllReviewsAdmin(ReduxUserData?.credentials?.token)
                 .then((result) => {
                     console.log(result);
-                    setReviews(result.data.data.Reviews);
+                    setReviews(result.data.data0);
                 })
                 .catch((error) => {
                     console.log(error);

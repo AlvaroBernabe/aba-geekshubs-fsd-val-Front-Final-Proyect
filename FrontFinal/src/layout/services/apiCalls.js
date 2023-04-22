@@ -97,3 +97,12 @@ export const getMyReviews = async (token) => {
     };
     return await axios.get(`${root}/review/myreviews`, config)
 }
+
+export const getAllReviewsAdmin = async (token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+    };
+    return await axios.get(`${root}/reviews/all/`, config)
+}
