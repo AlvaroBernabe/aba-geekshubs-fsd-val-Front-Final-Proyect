@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { userData } from "../userSlice";
 import { useSelector } from "react-redux";
 import { gameUpdate } from "../services/apiCalls";
-import NavBar from "../../components/NavBar";
 import { Button, Form } from "react-bootstrap";
 import { InputText } from "../../components/InputText/InputText";
 import { detailData } from "../detailSlice";
@@ -66,13 +65,6 @@ export const UpdateGame = () => {
   console.log(games, "esto vale juegos");
 
     return (
-        <>
-        <NavBar />
-        <hr />
-        <div style={{ display: 'block', 
-                    width: 700, 
-                    padding: 30 }}>
-        <h4>Update Game</h4>
         <Form>
            <Form.Group>
               <Form.Label>name:</Form.Label>
@@ -117,7 +109,5 @@ export const UpdateGame = () => {
                   </Button>
               </div>
           </Form>
-        </div>
-        </>
     );
 }

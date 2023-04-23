@@ -48,7 +48,7 @@ export const GetAllGames = () => {
                     {games.map((game) => {
                         return (
                             <Col onClick={() => selected(game)} key={game.id}>
-                                <CardGames appo={game} />
+                                <CardGames games={game} />
                             </Col>
                         );
                     })}
