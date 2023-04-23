@@ -143,3 +143,11 @@ export const gameUpdate = async (id, body, token) => {
     }}
   return await axios.put(`${root}/game/update/${id}`,  body, config);
 }
+
+export const gameDelete = async (id, token) => {
+  const config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }}
+  return await axios.delete(`${root}/game/${id}`, config);
+}

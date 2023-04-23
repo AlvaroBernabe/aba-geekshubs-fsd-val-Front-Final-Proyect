@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import { UpdateGame } from "../layout/games/UpdateGame";
+import { gameDelete } from "../layout/services/apiCalls";
 
 function CardGames({ games }) {
   const [remove, setRemove] = useState(false);
@@ -12,6 +13,15 @@ function CardGames({ games }) {
   const [update, setUpdate] = useState(false);
   const handleCloseUpdate = () => setUpdate(false);
   const handleShowUpdate = () => setUpdate(true);
+
+
+const GamesDelete = async (appointment) => {
+    await     gameDelete(params, games, ReduxCredentials.credentials.token)
+    setAppointments((prevAppointments) =>
+      prevAppointments.filter((app) => app.id !== appointment.id)
+    );
+    // setAppointments([])
+  };
 
   return (
     <Card style={{ width: "18rem" }}>
@@ -59,7 +69,7 @@ function CardGames({ games }) {
             <Button variant="primary" onClick={handleCloseRemove}>
               Nope
             </Button>
-            <Button variant="danger" onClick={handleCloseRemove}>
+            <Button variant="danger" onClick={[handleCloseRemove, GamesDelete]}>
               Yes Delete Game
             </Button>
           </Modal.Footer>

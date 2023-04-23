@@ -6,6 +6,7 @@ import { Button, Form } from "react-bootstrap";
 import { InputText } from "../../components/InputText/InputText";
 import { detailData } from "../detailSlice";
 import { useNavigate } from "react-router-dom";
+import "./UpdateGame.css";
 
 export const UpdateGame = () => {
 
