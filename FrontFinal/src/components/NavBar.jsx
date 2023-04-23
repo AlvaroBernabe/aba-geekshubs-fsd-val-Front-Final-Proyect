@@ -89,6 +89,9 @@ function NavBar() {
                   <Nav.Link as={Link} to="/games/all">
                     Get All Games
                   </Nav.Link>
+                  <Nav.Link as={Link} to="/games/update">
+                    Update Games
+                  </Nav.Link>
                 </>
               ) : (
                 <>

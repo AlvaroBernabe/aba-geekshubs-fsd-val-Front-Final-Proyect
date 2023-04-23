@@ -135,3 +135,11 @@ export const changeRole = async (body, token) => {
     }}
   return await axios.put(`${root}/user/role/update`,  bodyParameters, config);
 }
+
+export const gameUpdate = async (id, body, token) => {
+  const config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }}
+  return await axios.put(`${root}/game/update/${id}`,  body, config);
+}
