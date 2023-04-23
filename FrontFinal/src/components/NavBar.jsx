@@ -83,6 +83,9 @@ function NavBar() {
                   <Nav.Link as={Link} to="/reviews/all">
                     Get All Reviews
                   </Nav.Link>
+                  <Nav.Link as={Link} to="/games/new">
+                    New Game
+                  </Nav.Link>
                 </>
               ) : (
                 <>

@@ -106,3 +106,14 @@ export const getAllReviewsAdmin = async (token) => {
     };
     return await axios.get(`${root}/reviews/all/`, config)
 }
+
+export const postNewGame = async ( body, token) => {
+  // console.log("----------------------------------------------",)
+  // console.log("esto vale body", body)
+  // console.log("Esto vale tokensss:",token)
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }};
+        return await axios.post(`${root}/game/new`,body, config)
+}
