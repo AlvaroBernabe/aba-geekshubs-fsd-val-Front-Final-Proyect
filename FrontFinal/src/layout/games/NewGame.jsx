@@ -6,12 +6,13 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { InputText } from "../../components/InputText/InputText";
 import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
+import { useNavigate } from "react-router-dom";
 
 export const NewGame = () => {
     const ReduxUserData = useSelector(userData);
 
-    //   const navigate = useNavigate();
-    //   const [welcome, setWelcome] = useState("");
+      const navigate = useNavigate();
+      const [welcome, setWelcome] = useState("");
 
     const [credenciales, setCredenciales] = useState({
         name: "",

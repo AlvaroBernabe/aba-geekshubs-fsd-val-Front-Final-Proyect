@@ -6,12 +6,16 @@ import NavBar from "../../components/NavBar";
 import { Button, Form } from "react-bootstrap";
 import { InputText } from "../../components/InputText/InputText";
 import { detailData } from "../detailSlice";
+import { useNavigate } from "react-router-dom";
 
 export const UpdateGame = () => {
 
     const ReduxCredentials = useSelector(userData);
     const ReduxAppointment = useSelector(detailData)
     // console.log(ReduxAppointment.choosenObject.id);
+
+    const navigate = useNavigate();
+    const [welcome, setWelcome] = useState("");
 
     let params = ReduxAppointment.choosenObject.id;
 
@@ -52,9 +56,10 @@ export const UpdateGame = () => {
       gameUpdate(params, games, ReduxCredentials.credentials.token)
           .then((resultado) => {
             setGames(resultado.data)
-            //   setTimeout(() => {
-            //       navigate("/");
-            //   }, 2000);
+            setWelcome(`Correctly updated ${games.name}`);
+              setTimeout(() => {
+                  navigate("/games/all");
+              }, 2000);
           })
           .catch((error) => console.log(error));
   };
