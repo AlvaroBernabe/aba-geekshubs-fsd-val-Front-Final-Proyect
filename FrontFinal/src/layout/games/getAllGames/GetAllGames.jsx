@@ -38,7 +38,6 @@ export const GetAllGames = () => {
         //   }, 500);
     }
 
-
     return (
         <>
         <NavBar />
@@ -46,6 +45,7 @@ export const GetAllGames = () => {
             <Container fluid>
                 <Row>
                     {games.map((game) => {
+                        console.log(game, "hola soy game");
                         return (
                             <Col onClick={() => selected(game)} key={game.id}>
                                 <CardGames games={game} />

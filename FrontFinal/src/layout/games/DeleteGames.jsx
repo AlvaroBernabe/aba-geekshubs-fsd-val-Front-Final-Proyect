@@ -1,0 +1,40 @@
+import React, { useState } from "react";
+import { gameDelete } from "../services/apiCalls";
+import { useSelector } from "react-redux";
+import { userData } from "../userSlice";
+import { detailData } from "../detailSlice";
+import { Button } from "react-bootstrap";
+
+export const DeleteGames = () => {
+    const ReduxCredentials = useSelector(userData);
+    const ReduxAppointment = useSelector(detailData);
+    // console.log(ReduxAppointment.choosenObject.id);
+
+    // const navigate = useNavigate();
+    const [welcome, setWelcome] = useState("");
+
+    let params = ReduxAppointment.choosenObject.id;
+
+    const [games, setGames] = useState({
+        id: params,
+    });
+
+    const GamesDelete = async () => {
+        gameDelete(params, ReduxCredentials.credentials.token)
+            .then(() => {
+                setWelcome(`Correctly Deleted ${games.name}`);
+                // setTimeout(() => {
+                //     navigate("/games/all");
+                // }, 2000);
+            })
+            .catch((error) => console.log(error));
+    };
+    console.log(games, "esto deberia ser id de game a borrar");
+    return (
+            <div className="botonModificar">
+                <Button variant="Light" onClick={GamesDelete}>
+                    Delete Game Forever
+                </Button>
+            </div>
+    );
+};

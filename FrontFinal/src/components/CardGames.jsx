@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
 import { UpdateGame } from "../layout/games/UpdateGame";
-import { gameDelete } from "../layout/services/apiCalls";
+import { DeleteGames } from "../layout/games/DeleteGames";
 
 function CardGames({ games }) {
   const [remove, setRemove] = useState(false);
@@ -15,13 +15,7 @@ function CardGames({ games }) {
   const handleShowUpdate = () => setUpdate(true);
 
 
-const GamesDelete = async (appointment) => {
-    await     gameDelete(params, games, ReduxCredentials.credentials.token)
-    setAppointments((prevAppointments) =>
-      prevAppointments.filter((app) => app.id !== appointment.id)
-    );
-    // setAppointments([])
-  };
+
 
   return (
     <Card style={{ width: "18rem" }}>
@@ -64,21 +58,16 @@ const GamesDelete = async (appointment) => {
           <Modal.Header closeButton>
             <Modal.Title>You Sure?</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Are You Sure of Deleting The Game</Modal.Body>
+          <Modal.Body><DeleteGames></DeleteGames></Modal.Body>
           <Modal.Footer>
             <Button variant="primary" onClick={handleCloseRemove}>
               Nope
             </Button>
-            <Button variant="danger" onClick={[handleCloseRemove, GamesDelete]}>
-              Yes Delete Game
-            </Button>
           </Modal.Footer>
         </Modal>
-
         <Button variant="primary" onClick={handleShowUpdate}>
         Update Game
       </Button>
-
       <Modal show={update} onHide={handleCloseUpdate}>
         <Modal.Header closeButton>
           <Modal.Title>Update Game</Modal.Title>
@@ -87,9 +76,6 @@ const GamesDelete = async (appointment) => {
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloseUpdate }>
             Close
-          </Button>
-          <Button variant="primary" onClick={handleCloseUpdate}>
-            Save Changes
           </Button>
         </Modal.Footer>
       </Modal>
