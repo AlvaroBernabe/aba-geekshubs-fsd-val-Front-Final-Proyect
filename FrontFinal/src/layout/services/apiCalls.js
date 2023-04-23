@@ -117,3 +117,21 @@ export const postNewGame = async ( body, token) => {
     }};
         return await axios.post(`${root}/game/new`,body, config)
 }
+
+export const changeRole = async (body, token) => {
+  const { id, role_id } = body;
+  // const userId = req.params.id
+  const bodyParameters = {
+    id: id,
+    role_id: role_id,
+          //       where: {
+          // id: userId
+          // }
+    };
+    
+  const config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }}
+  return await axios.put(`${root}/user/role/update`,  bodyParameters, config);
+}

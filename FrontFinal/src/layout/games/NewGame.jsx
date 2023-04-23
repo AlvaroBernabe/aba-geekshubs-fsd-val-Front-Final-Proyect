@@ -91,10 +91,10 @@ export const NewGame = () => {
         postNewGame(credenciales, ReduxUserData.credentials.token)
             .then((resultado) => {
                 setCredenciales(resultado.data)
-                setWelcome(`Correctly registered ${credenciales.email}`);
-                // setTimeout(() => {
-                //   navigate("/login");
-                // }, 2500);
+                setWelcome(`Correctly registered ${credenciales.name}`);
+                setTimeout(() => {
+                  navigate("/games/all");
+                }, 2500);
             })
             .catch((error) => console.log(error));
     };

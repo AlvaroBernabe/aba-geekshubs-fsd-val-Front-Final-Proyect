@@ -27,9 +27,6 @@ function NavBar() {
               <Nav.Link as={Link} to="/">
                 Home
               </Nav.Link>
-              <Nav.Link as={Link} to="/about">
-                About Us
-              </Nav.Link>
               {!credencialesRedux.credentials?.usuario?.role_id ? (
                 <>
                   <Nav.Link as={Link} to="/register">
@@ -77,6 +74,9 @@ function NavBar() {
                   <Nav.Link as={Link} to="/profile/update">
                     Profile Update
                   </Nav.Link>
+                  <Nav.Link as={Link} to="/profile/update/rol">
+                    Role Update
+                  </Nav.Link>
                   <Nav.Link as={Link} to="/users/all">
                     Get All Users
                   </Nav.Link>
@@ -85,6 +85,9 @@ function NavBar() {
                   </Nav.Link>
                   <Nav.Link as={Link} to="/games/new">
                     New Game
+                  </Nav.Link>
+                  <Nav.Link as={Link} to="/games/all">
+                    Get All Games
                   </Nav.Link>
                 </>
               ) : (
