@@ -5,11 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { userData } from "../userSlice";
 import NavBar from "../../components/NavBar";
 import { Col, Container, Row } from "react-bootstrap";
-import CardReviews from "../../components/CardReviews";
+import { addChoosenReview } from "../reviewSlice";
+import CardAllReviews from "../../components/CardAllReviews";
 
 export const GetAllAdminReviews = () => {
     const ReduxUserData = useSelector(userData);
-    // const ReduxReviewData = useSelector(reviewData);
     const [reviews, setReviews] = useState([]);
     
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ export const GetAllAdminReviews = () => {
             getAllReviewsAdmin(ReduxUserData?.credentials?.token)
                 .then((result) => {
                     console.log(result);
-                    setReviews(result.data.data0);
+                    setReviews(result.data.data);
                 })
                 .catch((error) => {
                     console.log(error);
@@ -31,8 +31,8 @@ export const GetAllAdminReviews = () => {
 
 
     const gameSelect = (review) => {
-        console.log(review)
-        // dispatch(addChoosenAppointment({ choosenAppointment: favourite }));
+        console.log(review.Reviews.id)
+        dispatch(addChoosenReview({ choosenReview: review }));
         // setTimeout(() => {
         //   navigate("/appointment/update");
         // }, 1000);
@@ -47,7 +47,7 @@ export const GetAllAdminReviews = () => {
                     {reviews.map((game) => {
                         return (
                             <Col onClick={() => gameSelect(game)} key={game.id}>
-                                <CardReviews appo={game} />
+                                <CardAllReviews appo={game} />
                             </Col>
                         );
                     })}

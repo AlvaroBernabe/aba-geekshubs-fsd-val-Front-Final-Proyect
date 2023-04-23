@@ -8,9 +8,6 @@ import { Button } from "react-bootstrap";
 export const DeleteGames = () => {
     const ReduxCredentials = useSelector(userData);
     const ReduxAppointment = useSelector(detailData);
-    // console.log(ReduxAppointment.choosenObject.id);
-
-    // const navigate = useNavigate();
     const [welcome, setWelcome] = useState("");
 
     let params = ReduxAppointment.choosenObject.id;
@@ -23,9 +20,6 @@ export const DeleteGames = () => {
         gameDelete(params, ReduxCredentials.credentials.token)
             .then(() => {
                 setWelcome(`Correctly Deleted ${games.name}`);
-                // setTimeout(() => {
-                //     navigate("/games/all");
-                // }, 2000);
             })
             .catch((error) => console.log(error));
     };

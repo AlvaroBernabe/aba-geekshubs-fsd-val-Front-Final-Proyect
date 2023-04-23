@@ -5,7 +5,7 @@ import { getMyReviews } from "../services/apiCalls";
 import { userData } from "../userSlice";
 import NavBar from "../../components/NavBar";
 import { Col, Container, Row } from "react-bootstrap";
-import CardReviews from "../../components/CardReviews";
+import CardMyReviews from "../../components/CardMyReviews";
 
 export const GetAllMyReviews = () => {
     const ReduxUserData = useSelector(userData);
@@ -47,7 +47,7 @@ export const GetAllMyReviews = () => {
                     {reviews.map((game) => {
                         return (
                             <Col onClick={() => gameSelect(game)} key={game.id}>
-                                <CardReviews appo={game} />
+                                <CardMyReviews appo={game} />
                             </Col>
                         );
                     })}
