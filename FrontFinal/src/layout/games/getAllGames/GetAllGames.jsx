@@ -6,12 +6,13 @@ import NavBar from "../../../components/NavBar";
 import { userData } from "../../userSlice";
 import { Col, Container, Row } from "react-bootstrap";
 import CardGames from "../../../components/CardGames";
+import { addChoosen } from "../../detailSlice";
 
 export const GetAllGames = () => {
 
     const [games, setGames] = useState([]);
       const ReduxCredentials = useSelector(userData);
-    //   const dispatch = useDispatch();
+      const dispatch = useDispatch();
     //   const navigate = useNavigate();
 
       useEffect(()=>{
@@ -29,12 +30,13 @@ export const GetAllGames = () => {
     },[games])
     console.log(games);
 
-    // const selected = (persona) => {
-    //     dispatch(addChoosen({ choosenObject: persona }))
-    //     setTimeout(() => {
-    //         navigate("/users/all/details");
-    //       }, 500);
-    // }
+    const selected = (juego) => {
+        dispatch(addChoosen({ choosenObject: juego }))
+        console.log(juego)
+        // setTimeout(() => {
+        //     navigate("/users/all/details");
+        //   }, 500);
+    }
 
 
     return (
@@ -45,7 +47,7 @@ export const GetAllGames = () => {
                 <Row>
                     {games.map((game) => {
                         return (
-                            <Col onClick={() => gameSelect(game)} key={game.id}>
+                            <Col onClick={() => selected(game)} key={game.id}>
                                 <CardGames appo={game} />
                             </Col>
                         );
