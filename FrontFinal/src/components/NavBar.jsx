@@ -19,13 +19,13 @@ function NavBar() {
 
   return (
     <div className="navbarstyle">
-      <Navbar bg="light" expand="lg">
+      <Navbar collapseOnSelect  expand="lg" bg="light" variant="light" sticky="top">
         <Container>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/">
-                Home
+              GAMES&OLD
               </Nav.Link>
               {!credencialesRedux.credentials?.usuario?.role_id ? (
                 <>

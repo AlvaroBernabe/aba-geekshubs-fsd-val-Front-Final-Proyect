@@ -64,11 +64,11 @@ export const GetAllAdminReviews = () => {
 //       <NavBar />
 //       <hr />
 //       <Container fluid>
-//         <Form.Select  onClick={gameSelect}>
-//             {reviews.map(game =>
-//             <option key={game.Reviews.id} value={game.Reviews.id}>{game.game_name}</option>
-//             )};
-//         </Form.Select >
+        <Form.Select  onClick={gameSelect}>
+            {reviews.map(game =>
+            <option key={game.Reviews.id} value={game.Reviews.id}>{game.game_name}</option>
+            )};
+        </Form.Select >
 //       </Container>
 //     </>
 //   );
