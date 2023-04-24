@@ -46,7 +46,7 @@ export const GetAllAdminReviews = () => {
                 <Row>
                     {reviews.map((game) => {
                         return (
-                            <Col onClick={() => gameSelect(game)} key={game.id}>
+                            <Col onClick={() => gameSelect(game)} key={game.Reviews.id}>
                                 <CardAllReviews appo={game} />
                             </Col>
                         );
@@ -56,3 +56,20 @@ export const GetAllAdminReviews = () => {
         </>
     );
 };
+
+    //Mapeo en forma de select del game.name
+
+// return (
+//     <>
+//       <NavBar />
+//       <hr />
+//       <Container fluid>
+//         <Form.Select  onClick={gameSelect}>
+//             {reviews.map(game =>
+//             <option key={game.Reviews.id} value={game.Reviews.id}>{game.game_name}</option>
+//             )};
+//         </Form.Select >
+//       </Container>
+//     </>
+//   );
+// };

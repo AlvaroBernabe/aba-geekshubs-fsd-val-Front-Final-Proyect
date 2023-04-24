@@ -14,7 +14,6 @@ export const loginUser = async (body) => {
   return await api.post(`${root}/login`, body)
 }
 
-
 export const getMyProfile = async (token) => {
   let config = {
     headers: { 
