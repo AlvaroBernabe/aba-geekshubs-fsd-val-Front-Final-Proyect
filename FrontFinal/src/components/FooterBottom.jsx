@@ -43,19 +43,19 @@ export const FooterBottom = () => {
                         <ul className="list-unstyled">
                             <li>
                                 <a href="http://github.com/AlvaroBernabe/aba-geekshubs-fsd-val-Projecto-Consola">
-                                    Proyecto 1 - VideoConsola
+                                    Proyect 1 - GameConsole
                                 </a>
                             </li>
                             <li>
                                 {" "}
                                 <a href="https://github.com/AlvaroBernabe/aba-geekshubs-fsd-val-Projecto2-Carta-Restauracion">
-                                    Proyecto 2 - Carta Restauración
+                                    Proyect 2 - Menu Restaurant
                                 </a>
                             </li>
                             <li>
                                 {" "}
                                 <a href="https://github.com/AlvaroBernabe/aba-geekshubs-fsd-val-Projecto4---TicTacToe">
-                                    Proyecto 3 - TicTacToe
+                                    Proyect 3 - TicTacToe
                                 </a>
                             </li>
                         </ul>
@@ -72,19 +72,19 @@ export const FooterBottom = () => {
                             <li>
                                 {" "}
                                 <a href="https://github.com/AlvaroBernabe/Project04-DentalClinic">
-                                    Proyecto 4 Backend Clínica Dental
+                                    Proyect 4 - Backend Dental Clinic
                                 </a>
                             </li>
                             <li>
                                 {" "}
                                 <a href="https://github.com/AlvaroBernabe/aba-geekshubs-fsd-val-Project5---DentalClinic-Front">
-                                    Proyecto 5 - FrontEnd Clínica Dental
+                                    Proyect 5 - FrontEnd Dental Clinic
                                 </a>
                             </li>
                             <li>
                                 {" "}
                                 <a href="https://github.com/AlvaroBernabe/-aba-geekshubs-fsd-val-Project6---Laravel">
-                                    Proyecto 6 Backend Laravel Api tipo Discord
+                                    Proyect 6 - Backend Laravel Api (Discord)
                                 </a>
                             </li>
                         </ul>
