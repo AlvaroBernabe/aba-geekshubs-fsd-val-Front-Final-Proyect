@@ -10,7 +10,6 @@ function NavBar() {
   const credencialesRedux = useSelector(userData);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const logout = () => {
     dispatch(userout({ credentials: {}, token: "" }));
     return navigate("/");
@@ -18,13 +17,13 @@ function NavBar() {
 
   return (
     <div className="navbarstyle">
-      <Navbar collapseOnSelect  expand="lg" bg="light" variant="light" sticky="top">
+      <Navbar collapseOnSelect expand="lg" bg="light" variant="light" sticky="top">
         <Container>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/">
-              GAMES&OLD
+                GAMES&OLD
               </Nav.Link>
               {!credencialesRedux.credentials?.usuario?.role_id ? (
                 <>
@@ -43,23 +42,23 @@ function NavBar() {
                   <Nav.Link as={Link} to="/profile">
                     Get My Profile
                   </Nav.Link>
-                    <NavDropdown title="Profile" id="basic-nav-dropdown">
-                      <NavDropdown.Item as={Link} to="/profile/update">
-                        Profile Update</NavDropdown.Item>
-                      <NavDropdown.Item as={Link} to="/login/update">
-                        Update Password</NavDropdown.Item>
-                    </NavDropdown>
-                  <Nav.Link as={Link} to="/games/all">
-                    Get All Games
-                  </Nav.Link>
+                  <NavDropdown title="Profile Update" id="basic-nav-dropdown">
+                    <NavDropdown.Item as={Link} to="/profile/update">
+                      Profile Update</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/login/update">
+                      Update Password</NavDropdown.Item>
+                  </NavDropdown>
+                  <NavDropdown title="Get All" id="basic-nav-dropdown">
+                    <NavDropdown.Item as={Link} to="/review/all">
+                      Get All Reviews</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/games/all">
+                      Get All Games</NavDropdown.Item>
+                  </NavDropdown>
                   <Nav.Link as={Link} to="/games/favourites">
                     Get Favourites Games
                   </Nav.Link>
                   <Nav.Link as={Link} to="/review/new">
                     New Review
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/review/all">
-                    All Reviews
                   </Nav.Link>
                 </>
               ) : credencialesRedux?.credentials?.usuario?.role_id === 1 ? (
@@ -68,30 +67,29 @@ function NavBar() {
                     Eres Admin Logout
                   </Nav.Link>
                   <NavDropdown title="Profile" id="basic-nav-dropdown">
-                  <NavDropdown.Item as={Link} to="/profile">
-                    Get My Profile</NavDropdown.Item>
-                      <NavDropdown.Item as={Link} to="/profile/update">
-                        Profile Update</NavDropdown.Item>
-                      <NavDropdown.Item as={Link} to="/profile/update/rol">
-                    Role Update</NavDropdown.Item>
-                    </NavDropdown>
-                  <Nav.Link as={Link} to="/users/all">
-                    Get All Users
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/reviews/all">
-                    Get All Reviews
-                  </Nav.Link>
+                    <NavDropdown.Item as={Link} to="/profile">
+                      Get My Profile</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/profile/update">
+                      Profile Update</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/profile/update/rol">
+                      Role Update</NavDropdown.Item>
+                  </NavDropdown>
+                  <NavDropdown title="Get All" id="basic-nav-dropdown">
+                    <NavDropdown.Item as={Link} to="/users/all">
+                      Get All Users</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/reviews/all">
+                      Get All Reviews</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/games/all">
+                      Get All Games</NavDropdown.Item>
+                  </NavDropdown>
                   <Nav.Link as={Link} to="/games/new">
                     New Game
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/games/all">
-                    Get All Games
                   </Nav.Link>
                 </>
               ) : (
                 <>
                   <Nav.Link as={Link} to="/" onClick={() => logout()}>
-                    Eres Nadie
+                    You Don´t Exist
                   </Nav.Link>
                 </>
               )}
