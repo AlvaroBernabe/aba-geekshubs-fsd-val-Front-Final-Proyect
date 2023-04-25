@@ -12,7 +12,8 @@ export const Home = () => {
         <h4>
           <b>Wellcome to my First Serious Proyect in life called GAMES&OLD</b>
         </h4>
-        <p style={{ backgroundColor: "lightblue" }}>
+        {/* <p style={{ backgroundColor: "lightblue" }}> */}
+        <p>
           GAMES&OLD, is an abandonware games information archive for Amiga, Atari
           8-bit, Atari ST, Commodore C64, PC (DOS / Windows), Macintosh, SEGA
           Genesis / MegaDrive and ZX Spectrum. On our pages, we want to show you

@@ -23,7 +23,7 @@ function NavBar() {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/">
-                GAMES&OLD
+                Home
               </Nav.Link>
               {!credencialesRedux.credentials?.usuario?.role_id ? (
                 <>

@@ -9,9 +9,21 @@ body {
   justify-content: center;
   background-color:rgb(59, 59, 87);
   font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+  border-bottom: 5px solid #839294;
+
 }
 
 .footerBottom {
   background-color:rgb(59, 59, 87);
   font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+  border-top: 5px solid #839294;
+
 }
+
+.Header {
+  background-color: #3AC2D0;
+  color: white;
+  border-bottom: 5px solid #839294;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+

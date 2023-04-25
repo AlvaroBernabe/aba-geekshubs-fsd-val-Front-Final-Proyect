@@ -5,14 +5,13 @@ import { validate } from "../../helpers/useful";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./Register.css";
-// import { newUser } from "../services/apiCalls";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { InputText } from "../../components/InputText/InputText";
 import { registerUser } from "../services/apiCalls";
 
 export function Register() {
-//   const navigate = useNavigate();
-  //   const [welcome, setWelcome] = useState("");
+    const navigate = useNavigate();
+    const [welcome, setWelcome] = useState("");
 
   const [credenciales, setCredenciales] = useState({
     email: "",
@@ -80,80 +79,80 @@ export function Register() {
     registerUser(credenciales)
       .then(() => {
         setWelcome(`Correctly registered ${credenciales.email}`);
-        // setTimeout(() => {
-        //   navigate("/login");
-        // }, 2500);
+        setTimeout(() => {
+          navigate("/login");
+        }, 2500);
       })
       .catch((error) => console.log(error));
   };
 
   return (
     <>
-      {/* <div className="divPrincipal">
-            <div className="loginDesign">
-                {welcome !== "" ? (
-            <div>{welcome}</div>
-        ) : ( */}
       <div className="divPrincipal">
-        <Container>
-          <Row className="registerForm">
-            <Col lg={6}>
-              <Form className="formRegister">
-                <Form.Group>
-                  <Form.Label>Enter your email address:</Form.Label>
-                  <InputText
-                    className={
-                      credencialesError.emailError === ""
-                        ? "inputBasicDesign"
-                        : "inputBasicDesign inputErrorDesign"
-                    }
-                    type={"email"}
-                    name={"email"}
-                    maxLength={50}
-                    placeholder={"Enter your email"}
-                    required={true}
-                    changeFunction={(e) => inputHandler(e)}
-                    blurFunction={(e) => checkError(e)}
-                  />
-                </Form.Group>
-                <div className="errorDiv">{credencialesError.emailError}</div>
-                <Form.Group>
-                  <Form.Label>Enter your password:</Form.Label>
-                  <InputText
-                    className={
-                      credencialesError.passwordError === ""
-                        ? "inputBasicDesign"
-                        : "inputBasicDesign inputErrorDesign"
-                    }
-                    type={"password"}
-                    name={"password"}
-                    maxLength={64}
-                    placeholder={"Enter your password"}
-                    required={true}
-                    changeFunction={(e) => inputHandler(e)}
-                    blurFunction={(e) => checkError(e)}
-                  />
-                </Form.Group>
-                <div className="errorDiv">
-                  {credencialesError.passwordError}
-                </div>
-                <br />
-                <Button
-                  className={
-                    registerAct ? "registerSendDeac" : "registerSendAct"
-                  }
-                  onClick={newUser}
-                >
-                  Register User
-                </Button>
-              </Form>
-            </Col>
-          </Row>
-        </Container>
+        <div className="loginDesign">
+          {welcome !== "" ? (
+            <div>{welcome}</div>
+          ) : (
+            <div className="divPrincipal">
+              <Container>
+                <Row className="registerForm">
+                  <Col lg={6}>
+                    <Form className="formRegister">
+                      <Form.Group>
+                        <Form.Label>Enter your email address:</Form.Label>
+                        <InputText
+                          className={
+                            credencialesError.emailError === ""
+                              ? "inputBasicDesign"
+                              : "inputBasicDesign inputErrorDesign"
+                          }
+                          type={"email"}
+                          name={"email"}
+                          maxLength={70}
+                          placeholder={"Enter your email"}
+                          required={true}
+                          changeFunction={(e) => inputHandler(e)}
+                          blurFunction={(e) => checkError(e)}
+                        />
+                      </Form.Group>
+                      <div className="errorDiv">{credencialesError.emailError}</div>
+                      <Form.Group>
+                        <Form.Label>Enter your password:</Form.Label>
+                        <InputText
+                          className={
+                            credencialesError.passwordError === ""
+                              ? "inputBasicDesign"
+                              : "inputBasicDesign inputErrorDesign"
+                          }
+                          type={"password"}
+                          name={"password"}
+                          maxLength={64}
+                          placeholder={"Enter your password"}
+                          required={true}
+                          changeFunction={(e) => inputHandler(e)}
+                          blurFunction={(e) => checkError(e)}
+                        />
+                      </Form.Group>
+                      <div className="errorDiv">
+                        {credencialesError.passwordError}
+                      </div>
+                      <br />
+                      <Button
+                        className={
+                          registerAct ? "registerSendDeac" : "registerSendAct"
+                        }
+                        onClick={newUser}
+                      >
+                        Register User
+                      </Button>
+                    </Form>
+                  </Col>
+                </Row>
+              </Container>
+            </div>
+          )}
+        </div>
       </div>
-      {/* )} */}
-      {/* </div> */}
-      {/* </div> */}
     </>
   );
 }
