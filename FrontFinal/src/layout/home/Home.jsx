@@ -35,7 +35,7 @@ export const Home = () => {
           </b>
         </p>
         <div className="row">
-          <h5>Latest Reviews</h5>
+          <h5>LATEST REVIEWS</h5>
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
             <ul className="list-unstyled mb-0">
               <li><h6><em>Tarzan</em> </h6></li>
@@ -62,7 +62,7 @@ export const Home = () => {
           </div>
         </div>
         <p>You can find more in the News Section</p>
-        <h3>Latest Games Added</h3>
+        <h3>LATEST GAMES ADDED</h3>
       </div>
     </>
   );
