@@ -6,6 +6,7 @@ import img2 from "../../assets/images/commandos.png";
 import img3 from "../../assets/images/contra.png";
 import img4 from "../../assets/images/sidcivilization.png";
 import { Col, Container, Row } from "react-bootstrap";
+import { FooterBottom } from "../../components/FooterBottom";
 
 export const Home = () => {
   return (
@@ -38,7 +39,6 @@ export const Home = () => {
           will be removed from our sites.
         </b>
       </p>
-
       <Container fluid>
         <Row>
           <Col>
@@ -54,11 +54,10 @@ export const Home = () => {
           </Col>
         </Row>
       </Container>
-
       <p>You can find more in the Reviews Section</p>
-
       <h3>Latest Games Added</h3>
       <p></p>
+      <FooterBottom />
     </>
   );
 };

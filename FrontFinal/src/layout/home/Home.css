@@ -1,4 +1,30 @@
-
+/* 
 body {
     background-color: aqua;
+} */
+
+/* body {
+    background-image: url('');
+    background-size: cover;
+    background-position: center;
+  } */
+
+.container-fluid {
+  background-color: #f2f2f2;
+}
+
+h3 {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+h5 {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+img {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px #ccc;
 }
