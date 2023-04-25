@@ -4,7 +4,6 @@ import img1 from "../../assets/images/tarzanreview.png";
 import img2 from "../../assets/images/commandos.png";
 import img3 from "../../assets/images/contra.png";
 import img4 from "../../assets/images/sidcivilization.png";
-import { Col, Container, Row } from "react-bootstrap";
 
 export const Home = () => {
   return (
@@ -36,21 +35,35 @@ export const Home = () => {
           will be removed from our sites.
         </b>
       </p>
-      <Container fluid>
-        <Row>
-          <Col>
-            <h3>Latest Games Reviewed:</h3>
-            <h5> Tarzan</h5>
-            <img src={img1} alt="" height={200} />
-            <h5>Commandos: Behind Enemy Lines</h5>
-            <img src={img2} alt="" height={200} />
-            <h5>Contra</h5>
-            <img src={img3} alt="" height={200} />
-            <h5>Sid Meier's Civilization II</h5>
-            <img src={img4} alt="" height={200} />
-          </Col>
-        </Row>
-      </Container>
+      <div className="container p-4">
+        <div className="row">
+          <h5>Latest Reviews</h5>
+          <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <ul className="list-unstyled mb-0">
+              <li><h6><em>Tarzan</em> </h6></li>
+              <li><img src={img1} alt="" height={200} /></li>
+            </ul>
+          </div>
+          <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <ul className="list-unstyled mb-0">
+              <li><h6><em>Commandos: Behind Enemy Lines</em> </h6></li>
+              <li><img src={img2} alt="" height={200} /></li>
+            </ul>
+          </div>
+          <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <ul className="list-unstyled mb-0">
+              <li><h6><em>Contra</em> </h6></li>
+              <li><img src={img3} alt="" height={200} /></li>
+            </ul>
+          </div>
+          <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <ul className="list-unstyled mb-0">
+              <li><h6><em>Sid Meier's Civilization II</em> </h6></li>
+              <li><img src={img4} alt="" height={200} /></li>
+            </ul>
+          </div>
+          </div>
+      </div>
       <p>You can find more in the Reviews Section</p>
       <h3>Latest Games Added</h3>
       <p></p>
