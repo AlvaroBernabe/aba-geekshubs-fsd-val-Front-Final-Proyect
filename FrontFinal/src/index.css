@@ -1,9 +1,17 @@
 body {
-  background-color: aqua;
+  background-color: rgb(182, 206, 214);
+  font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
 }
 
 .navbarstyle {
   font-size:large;
   display: flex;
   justify-content: center;
+  background-color:rgb(59, 59, 87);
+  font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+}
+
+.footerBottom {
+  background-color:rgb(59, 59, 87);
+  font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
 }

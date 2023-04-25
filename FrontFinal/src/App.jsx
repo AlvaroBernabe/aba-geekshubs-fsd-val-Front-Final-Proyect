@@ -9,6 +9,7 @@ export const App = () => {
   return (
     <div className="App">
       <NavBar/>
+      <hr />
       <Router/>
       <FooterBottom/>
     </div>

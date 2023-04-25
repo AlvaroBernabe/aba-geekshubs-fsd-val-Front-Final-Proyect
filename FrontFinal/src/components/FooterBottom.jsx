@@ -9,7 +9,7 @@ import {
 
 export const FooterBottom = () => {
   return (
-    <footer className="bg-light text-center text-lg-start">
+    <footer className="footerBottom text-center text-lg-start">
       <div className="container p-4">
         <div className="row">
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
@@ -36,25 +36,25 @@ export const FooterBottom = () => {
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
             <h5 className="text-uppercase mb-0">
               Other Proyects{" "}
-              <a className="text-black" href="https://github.com/AlvaroBernabe">
+              <a className="text-danger" href="https://github.com/AlvaroBernabe">
                 <Github />
               </a>
             </h5>
             <ul className="list-unstyled">
               <li>
-                <a href="http://github.com/AlvaroBernabe/aba-geekshubs-fsd-val-Projecto-Consola">
+                <a className="text-success" href="http://github.com/AlvaroBernabe/aba-geekshubs-fsd-val-Projecto-Consola">
                   Proyect 1 - GameConsole
                 </a>
               </li>
               <li>
                 {" "}
-                <a href="https://github.com/AlvaroBernabe/aba-geekshubs-fsd-val-Projecto2-Carta-Restauracion">
+                <a className="text-success" href="https://github.com/AlvaroBernabe/aba-geekshubs-fsd-val-Projecto2-Carta-Restauracion">
                   Proyect 2 - Menu Restaurant
                 </a>
               </li>
               <li>
                 {" "}
-                <a href="https://github.com/AlvaroBernabe/aba-geekshubs-fsd-val-Projecto4---TicTacToe">
+                <a className="text-success" href="https://github.com/AlvaroBernabe/aba-geekshubs-fsd-val-Projecto4---TicTacToe">
                   Proyect 3 - TicTacToe
                 </a>
               </li>
@@ -64,26 +64,26 @@ export const FooterBottom = () => {
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
             <h5 className="text-uppercase mb-0">
               Other Proyects{" "}
-              <a className="text-black" href="https://github.com/AlvaroBernabe">
+              <a className="text-danger" href="https://github.com/AlvaroBernabe">
                 <Github />
               </a>
             </h5>
             <ul className="list-unstyled mb-0">
               <li>
                 {" "}
-                <a href="https://github.com/AlvaroBernabe/Project04-DentalClinic">
+                <a className="text-success" href="https://github.com/AlvaroBernabe/Project04-DentalClinic">
                   Proyect 4 - Backend Dental Clinic
                 </a>
               </li>
               <li>
                 {" "}
-                <a href="https://github.com/AlvaroBernabe/aba-geekshubs-fsd-val-Project5---DentalClinic-Front">
+                <a className="text-success" href="https://github.com/AlvaroBernabe/aba-geekshubs-fsd-val-Project5---DentalClinic-Front">
                   Proyect 5 - FrontEnd Dental Clinic
                 </a>
               </li>
               <li>
                 {" "}
-                <a href="https://github.com/AlvaroBernabe/-aba-geekshubs-fsd-val-Project6---Laravel">
+                <a className="text-success" href="https://github.com/AlvaroBernabe/-aba-geekshubs-fsd-val-Project6---Laravel">
                   Proyect 6 - Backend Laravel Api (Discord)
                 </a>
               </li>
@@ -135,7 +135,7 @@ export const FooterBottom = () => {
               </li>
             </ul>
 
-            <div className="text-center">GAMES&OLD 2023</div>
+            <div className="text-center text-success ">GAMES&OLD 2023</div>
           </div>
         </div>
       </div>

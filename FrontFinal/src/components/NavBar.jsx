@@ -94,7 +94,7 @@ function NavBar() {
                 </>
               )}
               <Nav.Link as={Link} to="/about">
-                About Us
+                About Me
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
