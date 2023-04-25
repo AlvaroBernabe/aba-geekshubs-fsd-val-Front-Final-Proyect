@@ -3,7 +3,6 @@ import { getAllReviewsAdmin } from "../services/apiCalls";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { userData } from "../userSlice";
-import NavBar from "../../components/NavBar";
 import { Col, Container, Row } from "react-bootstrap";
 import { addChoosenReview } from "../reviewSlice";
 import CardAllReviews from "../../components/CardAllReviews";
@@ -40,8 +39,6 @@ export const GetAllAdminReviews = () => {
 
     return (
         <>
-            <NavBar />
-            <hr />
             <Container fluid>
                 <Row>
                     {reviews.map((game) => {

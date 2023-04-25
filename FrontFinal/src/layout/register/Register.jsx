@@ -7,7 +7,6 @@ import Col from "react-bootstrap/Col";
 import "./Register.css";
 // import { newUser } from "../services/apiCalls";
 // import { useNavigate } from "react-router-dom";
-import NavBar from "../../components/NavBar";
 import { InputText } from "../../components/InputText/InputText";
 import { registerUser } from "../services/apiCalls";
 
@@ -90,8 +89,6 @@ export function Register() {
 
   return (
     <>
-      <NavBar />
-      <hr />
       {/* <div className="divPrincipal">
             <div className="loginDesign">
                 {welcome !== "" ? (

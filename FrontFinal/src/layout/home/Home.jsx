@@ -1,12 +1,10 @@
 import React from "react";
 import "./Home.css";
-import NavBar from "../../components/NavBar";
 import img1 from "../../assets/images/tarzanreview.png";
 import img2 from "../../assets/images/commandos.png";
 import img3 from "../../assets/images/contra.png";
 import img4 from "../../assets/images/sidcivilization.png";
 import { Col, Container, Row } from "react-bootstrap";
-import { FooterBottom } from "../../components/FooterBottom";
 
 export const Home = () => {
   return (
