@@ -1,4 +1,9 @@
 body {
-  background-color: lightblue;
+  background-color: aqua;
+}
 
+.navbarstyle {
+  font-size:large;
+  display: flex;
+  justify-content: center;
 }

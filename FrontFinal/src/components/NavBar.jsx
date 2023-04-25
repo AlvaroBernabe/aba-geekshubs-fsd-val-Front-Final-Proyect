@@ -2,7 +2,6 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import "./NavBar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userData, userout } from "../layout/userSlice";
@@ -44,12 +43,12 @@ function NavBar() {
                   <Nav.Link as={Link} to="/profile">
                     Get My Profile
                   </Nav.Link>
-                  <Nav.Link as={Link} to="/profile/update">
-                    Profile Update
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/login/update">
-                    Update Password
-                  </Nav.Link>
+                    <NavDropdown title="Profile" id="basic-nav-dropdown">
+                      <NavDropdown.Item as={Link} to="/profile/update">
+                        Profile Update</NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to="/login/update">
+                        Update Password</NavDropdown.Item>
+                    </NavDropdown>
                   <Nav.Link as={Link} to="/games/all">
                     Get All Games
                   </Nav.Link>
@@ -68,15 +67,14 @@ function NavBar() {
                   <Nav.Link as={Link} to="/" onClick={() => logout()}>
                     Eres Admin Logout
                   </Nav.Link>
-                  <Nav.Link as={Link} to="/profile">
-                    Get My Profile
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/profile/update">
-                    Profile Update
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/profile/update/rol">
-                    Role Update
-                  </Nav.Link>
+                  <NavDropdown title="Profile" id="basic-nav-dropdown">
+                  <NavDropdown.Item as={Link} to="/profile">
+                    Get My Profile</NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to="/profile/update">
+                        Profile Update</NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to="/profile/update/rol">
+                    Role Update</NavDropdown.Item>
+                    </NavDropdown>
                   <Nav.Link as={Link} to="/users/all">
                     Get All Users
                   </Nav.Link>
