@@ -21,7 +21,6 @@ import { UpdateGame } from "./layout/games/UpdateGame";
 export const Router = () => {
     return (
         <>
-        <hr />
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

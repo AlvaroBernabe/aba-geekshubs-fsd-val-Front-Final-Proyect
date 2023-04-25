@@ -11,7 +11,6 @@ import { FooterBottom } from "../../components/FooterBottom";
 export const Home = () => {
   return (
     <>
-      <NavBar />
       <h4>
         <b>Wellcome to my First Serious Proyect in life called GAMES&OLD</b>
       </h4>
@@ -57,7 +56,6 @@ export const Home = () => {
       <p>You can find more in the Reviews Section</p>
       <h3>Latest Games Added</h3>
       <p></p>
-      <FooterBottom />
     </>
   );
 };

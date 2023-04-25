@@ -1,7 +1,5 @@
 import React from "react";
 import {
-    Instagram,
-    Facebook,
     Twitter,
     Youtube,
     Linkedin,
