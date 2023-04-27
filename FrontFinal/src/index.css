@@ -96,4 +96,17 @@ body {
 
 .getAllUsers {
   font-family:'Segoe UI', Tahoma, Verdana, sans-serif ;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.CardUserDetails{
+  font-family:'Segoe UI', Tahoma, Verdana, sans-serif ;
+  font-size: larger;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

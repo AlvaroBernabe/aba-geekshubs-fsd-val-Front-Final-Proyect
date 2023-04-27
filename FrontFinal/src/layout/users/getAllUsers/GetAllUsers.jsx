@@ -34,6 +34,7 @@ export const GetAllUsers = () => {
     }, 500);
   }
 
+  console.log(users)
 
   return (
     <>
@@ -44,19 +45,21 @@ export const GetAllUsers = () => {
               users.map(
                 persona => {
                   return (
-
                     <div
                       onClick={() => selected(persona)}
                       key={persona.id}>
                       <Card>
                         <ListGroup variant="flush">
                           <ListGroup.Item>
+                            <span className="text1"> Id:</span>
+                            <span className="text2"> {persona.id}</span>
+                          </ListGroup.Item>
+                          <ListGroup.Item>
                             <span className="text1"> Email:</span>
                             <span className="text2"> {persona.email}</span>
                           </ListGroup.Item>
                         </ListGroup>
                       </Card>
-
                     </div>
                   )
                 }
