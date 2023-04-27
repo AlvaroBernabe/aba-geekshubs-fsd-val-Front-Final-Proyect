@@ -57,9 +57,9 @@ export const UpdateGame = () => {
           .then((resultado) => {
             setGames(resultado.data)
             setWelcome(`Correctly updated ${games.name}`);
-              setTimeout(() => {
-                  navigate("/games/all");
-              }, 2000);  
+            setTimeout(() => {
+              window.location.reload(true);
+            }, 1500);
           })
           .catch((error) => console.log(error));
   };
