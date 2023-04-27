@@ -9,13 +9,13 @@ body {
   justify-content: center;
   background-color: rgb(59, 59, 87);
   font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
-  border-bottom: 5px solid #839294;
+  /* border-bottom: 5px solid #839294; */
 }
 
 .footerBottom {
   background-color: rgb(59, 59, 87);
   font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
-  border-top: 5px solid #839294;
+  /* border-top: 5px solid #839294; */
   position:static;
   left: 0;
   bottom: 0;
@@ -23,8 +23,25 @@ body {
 }
 
 .Header {
-  background-color: #3ac2d0;
+  background-color: #4239a8;
   color: white;
-  border-bottom: 5px solid #839294;
+  border-bottom: 5px solid #363942;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.CardGames {
+  margin-top: 2rem;
+  width: 20rem;
+  /* gap: 20rem; */
+  margin-bottom: 2rem;
+}
+
+.ButtonModalGames {
+  justify-content: space-between;
+  display: flex;
+}
+
+.textoHeader {
+  font-family:fantasy;
+  color: rgb(133, 129, 129);
 }

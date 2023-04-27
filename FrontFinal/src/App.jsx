@@ -10,7 +10,7 @@ export const App = () => {
     <div className="App">
       <Header />
       <NavBar/>
-      <hr />
+      {/* <hr /> */}
       <Router/>
       <FooterBottom/>
     </div>

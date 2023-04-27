@@ -18,7 +18,7 @@ function CardGames({ games }) {
 
 
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card  className="CardGames">
       <Card.Img variant="top" src={games.game_image} />
       <Card.Body>
         <ul>
@@ -51,6 +51,7 @@ function CardGames({ games }) {
             {games.release_date}
           </li>
         </ul>
+        <div className="ButtonModalGames">
         <Button variant="danger" onClick={handleShowRemove}>
           Delete Game
         </Button>
@@ -79,6 +80,7 @@ function CardGames({ games }) {
           </Button>
         </Modal.Footer>
       </Modal>
+      </div>
       </Card.Body>
     </Card>
   );
