@@ -1,29 +1,30 @@
 body {
   background-color: rgb(182, 206, 214);
-  font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
 }
 
 .navbarstyle {
-  font-size:large;
+  font-size: large;
   display: flex;
   justify-content: center;
-  background-color:rgb(59, 59, 87);
-  font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+  background-color: rgb(59, 59, 87);
+  font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
   border-bottom: 5px solid #839294;
-
 }
 
 .footerBottom {
-  background-color:rgb(59, 59, 87);
-  font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+  background-color: rgb(59, 59, 87);
+  font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
   border-top: 5px solid #839294;
-
+  position:static;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .Header {
-  background-color: #3AC2D0;
+  background-color: #3ac2d0;
   color: white;
   border-bottom: 5px solid #839294;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-

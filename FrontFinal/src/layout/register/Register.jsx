@@ -139,11 +139,11 @@ export function Register() {
                       <br />
                       <Button
                         className={
-                          registerAct ? "registerSendDeac" : "registerSendAct"
+                          registerAct ? "registerSendAct" : "registerSendDeac"
                         }
                         onClick={newUser}
                       >
-                        Register User
+                        Register
                       </Button>
                     </Form>
                   </Col>

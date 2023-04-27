@@ -1,7 +1,9 @@
-.divCartas {
+.divProfile {
     display: flex;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 71px;
+    margin-bottom: 71px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .card {

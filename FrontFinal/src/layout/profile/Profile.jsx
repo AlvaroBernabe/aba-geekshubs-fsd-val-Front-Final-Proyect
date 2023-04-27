@@ -37,7 +37,7 @@ export const Profile = () => {
 
   return (
     <>
-      <div className="divCartas">
+      <div className="divProfile">
         <Card style={{ width: "20rem" }}>
           <ListGroup variant="flush">
             <ListGroup.Item>

@@ -1,7 +1,12 @@
 
 
+.registerSendAct {
+    background-color: rgb(0, 106, 125);
+}
+
 .registerSendDeac {
-    background-color: rgb(163, 10, 10);
+    cursor: not-allowed;
+    background-color: rgb(143, 7, 7);
     border-radius: 0.2em;
     color: white;
     display: flex;
@@ -9,22 +14,15 @@
     align-items: center;
 }
 
-.registerSendAct {
-    cursor: not-allowed;
-    background-color: rgb(0, 106, 125);
-}
-
-.registerSendAct:hover {
+.registerSendDeac:hover {
     transition: 1s;
     background-color: rgb(9, 0, 75);
 }
-
 
 .errorDiv {
     color: rgb(231, 62, 0);
     font-family:'Times New Roman', Times, serif
 }
-
 
 .formRegister {
     justify-content: center;

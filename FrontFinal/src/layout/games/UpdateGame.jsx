@@ -59,7 +59,7 @@ export const UpdateGame = () => {
             setWelcome(`Correctly updated ${games.name}`);
               setTimeout(() => {
                   navigate("/games/all");
-              }, 2000);
+              }, 2000);  
           })
           .catch((error) => console.log(error));
   };
