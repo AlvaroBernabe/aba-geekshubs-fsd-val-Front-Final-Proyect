@@ -19,7 +19,9 @@ export const DeleteGames = () => {
   const GamesDelete = async () => {
     gameDelete(params, ReduxCredentials.credentials.token)
       .then(() => {
-        setWelcome(`Correctly Deleted ${games.name}`);
+        setTimeout(() => {
+          window.location.reload(true);
+        }, 1500);
       })
       .catch((error) => console.log(error));
   };
