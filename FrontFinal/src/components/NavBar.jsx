@@ -51,7 +51,7 @@ function NavBar() {
                   <NavDropdown title="Get All" id="basic-nav-dropdown">
                     <NavDropdown.Item as={Link} to="/review/all">
                       Get All Reviews</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/games/all">
+                    <NavDropdown.Item as={Link} to="/gamesUser/all">
                       Get All Games</NavDropdown.Item>
                   </NavDropdown>
                   <Nav.Link as={Link} to="/games/favourites">
