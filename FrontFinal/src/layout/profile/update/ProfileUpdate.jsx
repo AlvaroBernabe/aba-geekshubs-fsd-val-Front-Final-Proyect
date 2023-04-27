@@ -94,7 +94,7 @@ export const ProfileUpdate = () => {
     if (user.name === "") {
       getMyProfile(credentialsRdx.credentials.token)
         .then((result) => {
-          // console.log(result.data.data);
+          console.log(result);
           // console.log("esto es name", result.data.data[1][0].name);
           setUser({
             name: result.data.data[1][0].name,
@@ -228,7 +228,7 @@ export const ProfileUpdate = () => {
                         />
                       </Form.Group>
                       <br />
-                      <div className="botonUpdate">
+                      <div className="buttonUpdate">
                       <Button
                         className=""
                         variant="primary"

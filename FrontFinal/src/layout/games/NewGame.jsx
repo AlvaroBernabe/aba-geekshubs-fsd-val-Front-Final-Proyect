@@ -109,9 +109,9 @@ export const NewGame = () => {
                 {welcome !== "" ? (
             <div>{welcome}</div>
         ) : ( */}
-      <div className="divPrincipal">
+      <div >
         <Container>
-          <Row className="registerForm">
+          <Row className="divNewGame">
             <Col lg={6}>
               <Form className="formRegister">
                 <Form.Group>
@@ -229,14 +229,14 @@ export const NewGame = () => {
                                 {credencialesError.passwordError}
                                 </div> */}
                 <br />
+                <div className="buttonRegisterGame">
                 <Button
-                  className={
-                    registerAct ? "registerSendDeac" : "registerSendAct"
-                  }
+                  className=""
+                  variant="primary"
                   onClick={newJuego}
                 >
                   Register User
-                </Button>
+                </Button></div>
               </Form>
             </Col>
           </Row>

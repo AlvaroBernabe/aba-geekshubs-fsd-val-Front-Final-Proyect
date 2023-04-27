@@ -56,7 +56,25 @@ body {
   font-style: italic;
 }
 
-.botonUpdate {
+.buttonUpdateUpdate {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+
+.divNewGame {
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  /* gap: 20rem; */
+  margin-bottom: 2rem;
+  color: rgb(5, 5, 196);
+  font-family:'Segoe UI', Tahoma, Verdana, sans-serif ;
+  font-style: italic;
+}
+
+.buttonRegisterGame {
   justify-content: center;
   align-items: center;
   display: flex;
