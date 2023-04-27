@@ -130,7 +130,7 @@ export const ProfileUpdate = () => {
           ) : (
             <div>
               <Container>
-                <Row className="LoginForm">
+                <Row className="updateProfile">
                   <Col lg={6}>
                     <Form>
                       <Form.Group>
@@ -228,14 +228,15 @@ export const ProfileUpdate = () => {
                         />
                       </Form.Group>
                       <br />
+                      <div className="botonUpdate">
                       <Button
-                        className="botonLog"
+                        className=""
                         variant="primary"
                         onClick={() => updateUser()}
                       >
                         {" "}
                         Update User
-                      </Button>
+                      </Button></div>
                     </Form>
                   </Col>
                 </Row>

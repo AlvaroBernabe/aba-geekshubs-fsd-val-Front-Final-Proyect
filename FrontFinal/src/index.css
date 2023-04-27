@@ -32,7 +32,6 @@ body {
 .CardGames {
   margin-top: 2rem;
   width: 20rem;
-  /* gap: 20rem; */
   margin-bottom: 2rem;
 }
 
@@ -44,4 +43,21 @@ body {
 .textoHeader {
   font-family:fantasy;
   color: rgb(133, 129, 129);
+}
+
+.updateProfile {
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  /* gap: 20rem; */
+  margin-bottom: 2rem;
+  color: rgb(5, 5, 196);
+  font-family:'Segoe UI', Tahoma, Verdana, sans-serif ;
+  font-style: italic;
+}
+
+.botonUpdate {
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
