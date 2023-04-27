@@ -5,6 +5,7 @@ import { userData } from "../../userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addChoosen } from "../../detailSlice";
+import { Card, Col, ListGroup, Row } from "react-bootstrap";
 
 export const GetAllUsers = () => {
 
@@ -36,17 +37,26 @@ export const GetAllUsers = () => {
 
   return (
     <>
-      <div className='usersDesign'>
+      <div className='getAllUsers'>
         {users.length > 0 ?
           (<div>
             {
               users.map(
                 persona => {
                   return (
+
                     <div
                       onClick={() => selected(persona)}
                       key={persona.id}>
-                      {persona.email}
+                      <Card>
+                        <ListGroup variant="flush">
+                          <ListGroup.Item>
+                            <span className="text1"> Email:</span>
+                            <span className="text2"> {persona.email}</span>
+                          </ListGroup.Item>
+                        </ListGroup>
+                      </Card>
+
                     </div>
                   )
                 }

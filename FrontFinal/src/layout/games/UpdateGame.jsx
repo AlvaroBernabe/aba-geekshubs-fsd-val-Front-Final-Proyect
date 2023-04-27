@@ -55,7 +55,7 @@ export const UpdateGame = () => {
     const updateGames = () => {
       gameUpdate(params, games, ReduxCredentials.credentials.token)
           .then((resultado) => {
-            setGames(resultado.data)
+            setGames(resultado.data);
             setWelcome(`Correctly updated ${games.name}`);
             setTimeout(() => {
               window.location.reload(true);
