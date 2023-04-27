@@ -17,7 +17,7 @@ function NavBar() {
 
   return (
     <div className="navbarstyle">
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="light" sticky="top">
+      <Navbar className="NavBar" collapseOnSelect expand="lg" bg="light" variant="light" sticky="top">
         <Container>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">

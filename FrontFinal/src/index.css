@@ -79,3 +79,16 @@ body {
   align-items: center;
   display: flex;
 }
+
+.NavBar {
+  /* position: fixed;
+  top: 6rem; */
+  /* width: 60%;
+  position: fixed; */
+  /* position: absolute;
+  position: fixed; */
+}
+/* .navbarstyle {
+  width: 100%;
+  position: fixed;
+} */

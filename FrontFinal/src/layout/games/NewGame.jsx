@@ -12,6 +12,7 @@ export const NewGame = () => {
 
   const navigate = useNavigate();
   const [welcome, setWelcome] = useState("");
+  
 
   const [credenciales, setCredenciales] = useState({
     name: "",
@@ -20,6 +21,7 @@ export const NewGame = () => {
     genre: "",
     publisher: "",
     release_date: "",
+    game_image: ""
   });
 
   const [credencialesError, setCredencialesError] = useState({
@@ -225,18 +227,38 @@ export const NewGame = () => {
                     blurFunction={(e) => checkError(e)}
                   />
                 </Form.Group>
+                {/* <Form.Group controlId="formFileSm" className="mb-3"> */}
                 {/* <div className="errorDiv">
                                 {credencialesError.passwordError}
-                                </div> */}
+                              </div> */}
+                              {/* <Form.Label>Enter Game Image</Form.Label>
+                              <Form.Control type="file" size="sm" />
+                            </Form.Group> */}
+                                            <Form.Group>
+                  <Form.Label>Enter game release_date:</Form.Label>
+                  <InputText
+                    className={
+                      credencialesError.passwordError === ""
+                        ? "inputBasicDesign"
+                        : "inputBasicDesign inputErrorDesign"
+                    }
+                    type={"text"}
+                    name={"game_image"}
+                    placeholder={"Enter image URL"}
+                    required={true}
+                    changeFunction={(e) => inputHandler(e)}
+                    blurFunction={(e) => checkError(e)}
+                  />
+                </Form.Group>
                 <br />
                 <div className="buttonRegisterGame">
-                <Button
-                  className=""
-                  variant="primary"
-                  onClick={newJuego}
-                >
-                  Register User
-                </Button></div>
+                  <Button
+                    className=""
+                    variant="primary"
+                    onClick={newJuego}
+                  >
+                    New Game
+                  </Button></div>
               </Form>
             </Col>
           </Row>
