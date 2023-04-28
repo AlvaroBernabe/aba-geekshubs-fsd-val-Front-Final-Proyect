@@ -31,8 +31,8 @@ body {
 
 .CardGames {
   margin-top: 2rem;
-  width: 20rem;
   margin-bottom: 2rem;
+  width: 20rem;
 }
 
 .ButtonModalGames {
@@ -110,3 +110,71 @@ body {
   flex-direction: row;
   justify-content: center;
 }
+
+
+
+
+
+/* Register Layout */
+.registerSendAct {
+  background-color: rgb(0, 106, 125);
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.registerSendDeac {
+  cursor: not-allowed;
+  background-color: rgb(143, 7, 7);
+  border-radius: 0.2em;
+  color: white;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.registerSendDeac:hover {
+  transition: 1s;
+  background-color: rgb(9, 0, 75);
+  cursor: not-allowed;
+}
+
+.errorDiv {
+  color: rgb(231, 62, 0);
+  font-family:'Times New Roman', Times, serif
+}
+
+.formRegister {
+  justify-content: center;
+  width: 20em auto;
+  padding: 1em;
+  color: rgb(4, 4, 225);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* .divPrincipal {
+  color: red;
+} */
+
+.registerForm {
+  color: aqua;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.registerrForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ButtonRegister{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

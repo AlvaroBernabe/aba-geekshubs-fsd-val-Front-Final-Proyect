@@ -4,7 +4,6 @@ import Button from "react-bootstrap/Button";
 import { validate } from "../../helpers/useful";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import { InputText } from "../../components/InputText/InputText";
 import { registerUser } from "../services/apiCalls";
@@ -88,14 +87,12 @@ export function Register() {
 
   return (
     <>
-      <div className="divPrincipal">
-        <div className="loginDesign">
+        <div className="RegisterForm">
           {welcome !== "" ? (
             <div>{welcome}</div>
           ) : (
-            <div className="divPrincipal">
               <Container>
-                <Row className="registerForm">
+                <Row className="registerrForm">
                   <Col lg={6}>
                     <Form className="formRegister">
                       <Form.Group>
@@ -137,6 +134,7 @@ export function Register() {
                         {credencialesError.passwordError}
                       </div>
                       <br />
+                      <div className="ButtonRegister">
                       <Button
                         className={
                           registerAct ? "registerSendAct" : "registerSendDeac"
@@ -144,15 +142,13 @@ export function Register() {
                         onClick={newUser}
                       >
                         Register
-                      </Button>
+                      </Button></div>
                     </Form>
                   </Col>
                 </Row>
               </Container>
-            </div>
           )}
         </div>
-      </div>
     </>
   );
 }
