@@ -102,9 +102,8 @@ export function Register() {
             <Row className="AllRegisterForm">
               <Col lg={6}>
                 <Form className="FormRegister">
-                  <div className="FormDivRegister">
                   <Form.Group>
-                    <Form.Label>Enter your email address:</Form.Label>
+                    <Form.Label>Enter email address:</Form.Label>
                     <InputText
                       className={
                         credencialesError.emailError === ""
@@ -114,7 +113,7 @@ export function Register() {
                       type={"email"}
                       name={"email"}
                       maxLength={70}
-                      placeholder={"Enter your email"}
+                      placeholder={"Enter a valid email"}
                       required={true}
                       changeFunction={(e) => inputHandler(e)}
                       blurFunction={(e) => checkError(e)}
@@ -122,7 +121,7 @@ export function Register() {
                   </Form.Group>
                   <div className="errorDiv">{credencialesError.emailError}</div>
                   <Form.Group>
-                    <Form.Label>Enter your password:</Form.Label>
+                    <Form.Label>Enter password:</Form.Label>
                     <InputText
                       className={
                         credencialesError.passwordError === ""
@@ -132,7 +131,7 @@ export function Register() {
                       type={"password"}
                       name={"password"}
                       maxLength={64}
-                      placeholder={"Enter your password"}
+                      placeholder={"Enter a valid password"}
                       required={true}
                       changeFunction={(e) => inputHandler(e)}
                       blurFunction={(e) => checkError(e)}
@@ -140,7 +139,7 @@ export function Register() {
                   </Form.Group>
                   <div className="errorDiv">
                     {credencialesError.passwordError}
-                  </div></div>
+                  </div>
                   <br />
                   <div className="ButtonRegister">
                     <OverlayTrigger

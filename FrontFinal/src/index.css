@@ -112,7 +112,7 @@ body {
 }
 
 
-/* Register Layout */
+/* Register Layout ....................................................*/
 .registerSendAct {
   background-color: rgb(0, 106, 125);
   /* display: flex;
@@ -142,16 +142,16 @@ body {
 }
 
 
-.AllRegisterForm{
+.AllRegisterForm, .AllLoginForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
-.FormRegister {
+.FormRegister, .FormLogin {
   justify-content: center;
   width: 20em auto;
   /* padding: 2em; */
@@ -168,4 +168,5 @@ body {
   align-items: center;
 }
 
+/* Login Layout ....................................................*/
 

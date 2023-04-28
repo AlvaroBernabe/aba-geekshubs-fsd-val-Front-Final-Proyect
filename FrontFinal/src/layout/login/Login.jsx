@@ -1,16 +1,21 @@
 import React, { useState } from "react";
-import "./Login.css";
 import { login } from "../userSlice";
 import { InputText } from "../../components/InputText/InputText";
 import { loginUser } from "../services/apiCalls";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
 
 export const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [welcome, setWelcome] = useState("");
+
+  const renderTooltip = (props) => (
+    <Tooltip id="ButtonRegister-tooltip" {...props}>
+      You must enter a Valid User First
+    </Tooltip>
+  )
 
   const [credenciales, setCredenciales] = useState({
     email: "",
@@ -23,6 +28,8 @@ export const Login = () => {
       [e.target.name]: e.target.value,
     }));
   };
+  const [registerAct, setRegisterAct] = useState(false);
+
 
   const checkError = (e) => { };
 
@@ -46,16 +53,15 @@ export const Login = () => {
   };
   return (
     <>
-      <div className="divPrincipal">
-        <div className="loginDesign">
+        <div>
           {welcome !== "" ? (
             <div>{welcome}</div>
           ) : (
             <div>
               <Container>
-                <Row className="LoginForm">
+                <Row className="AllLoginForm">
                   <Col lg={6}>
-                    <Form className="formLogin">
+                    <Form className="FormLogin">
                       <Form.Group>
                         <Form.Label>Enter your email account:</Form.Label>
                         <InputText
@@ -83,14 +89,21 @@ export const Login = () => {
                         />
                       </Form.Group>
                       <br />
+                      <div className="ButtonLogin">
+                      <OverlayTrigger
+                      placement="right"
+                      delay={{ show: 100, hide: 300 }}
+                      overlay={renderTooltip}
+                    >
                       <Button
-                        className="botonLog"
-                        variant="primary"
+                        className={
+                          registerAct ? "registerSendAct" : "registerSendDeac"
+                        }
                         onClick={() => logMe()}
                       >
                         {" "}
                         Login User
-                      </Button>
+                      </Button></OverlayTrigger></div>
                     </Form>
                   </Col>
                 </Row>
@@ -98,7 +111,6 @@ export const Login = () => {
             </div>
           )}
         </div>
-      </div>
     </>
   );
 };
