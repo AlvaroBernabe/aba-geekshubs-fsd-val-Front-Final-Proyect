@@ -82,7 +82,7 @@ export const Login = () => {
                           type={"password"}
                           name={"password"}
                           maxLength={64}
-                          placeholder={""}
+                          placeholder={"password..."}
                           required={true}
                           changeFunction={(e) => inputHandler(e)}
                           blurFunction={(e) => checkError(e)}

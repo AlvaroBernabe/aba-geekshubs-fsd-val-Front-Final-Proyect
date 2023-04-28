@@ -112,7 +112,7 @@ body {
 }
 
 
-/* Register Layout ....................................................*/
+/* Register and Login Layout ....................................................*/
 .registerSendAct {
   background-color: rgb(0, 106, 125);
   /* display: flex;
@@ -162,11 +162,10 @@ body {
   justify-content: center;
 }
 
-.ButtonRegister{
+.ButtonRegister, .ButtonLogin{
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Login Layout ....................................................*/
 
