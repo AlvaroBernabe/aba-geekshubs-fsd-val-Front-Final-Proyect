@@ -112,9 +112,6 @@ body {
 }
 
 
-
-
-
 /* Register Layout */
 .registerSendAct {
   background-color: rgb(0, 106, 125);
@@ -144,10 +141,20 @@ body {
   font-family:'Times New Roman', Times, serif
 }
 
-.formRegister {
+
+.AllRegisterForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.FormRegister {
   justify-content: center;
   width: 20em auto;
-  padding: 1em;
+  /* padding: 2em; */
   color: rgb(4, 4, 225);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   display: flex;
@@ -155,26 +162,10 @@ body {
   justify-content: center;
 }
 
-/* .divPrincipal {
-  color: red;
-} */
-
-.registerForm {
-  color: aqua;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
-.registerrForm{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .ButtonRegister{
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 

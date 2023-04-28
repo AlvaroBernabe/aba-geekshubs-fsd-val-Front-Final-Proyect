@@ -94,14 +94,15 @@ export function Register() {
 
   return (
     <>
-      <div className="RegisterForm">
+      <div>
         {welcome !== "" ? (
           <div>{welcome}</div>
         ) : (
           <Container>
-            <Row className="registerrForm">
+            <Row className="AllRegisterForm">
               <Col lg={6}>
-                <Form className="formRegister">
+                <Form className="FormRegister">
+                  <div className="FormDivRegister">
                   <Form.Group>
                     <Form.Label>Enter your email address:</Form.Label>
                     <InputText
@@ -139,7 +140,7 @@ export function Register() {
                   </Form.Group>
                   <div className="errorDiv">
                     {credencialesError.passwordError}
-                  </div>
+                  </div></div>
                   <br />
                   <div className="ButtonRegister">
                     <OverlayTrigger
