@@ -4,15 +4,16 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { validate } from "../../helpers/useful";
 import { getAllGamesWithoutReviewUser, newReview } from "../services/apiCalls";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { InputText } from "../../components/InputText/InputText";
 
 export const NewReview = () => {
-
+  
   const ReduxUserData = useSelector(userData);
   // console.log( ReduxUserData.credentials.usuario.id, "esto es id en teoria");
-
+  
   const navigate = useNavigate();
+  const [welcome, setWelcome] = useState("");
   const [games, setGames] = useState([]);
 
   const [review, setReview] = useState({
@@ -37,7 +38,6 @@ export const NewReview = () => {
   };
 
 
-  const [welcome, setWelcome] = useState("");
 
 
 
@@ -51,7 +51,7 @@ export const NewReview = () => {
           result => {
             const sortedGames = result.data.data.sort((a, b) => a.name.localeCompare(b.name));
             setGames(sortedGames)
-            console.log(sortedGames, "soy ShortedGames")
+            // console.log(sortedGames, "soy ShortedGames")
           }
         )
         .catch(error => console.log(error));
@@ -62,28 +62,31 @@ export const NewReview = () => {
   const reviewNew = () => {
     newReview(review, ReduxUserData.credentials.token)
     .then((resultado) => {
-        console.log(ReduxUserData.credentials.token);
-        console.log(resultado);
+        // console.log(ReduxUserData.credentials.token);
+        // console.log(resultado);
         setReview(resultado.data)
-        // setWelcome(`Cita creada correctamente para el día: ${appointments.date}`);
-        // setTimeout(()=>{
-        //     navigate('/user/myprofile');
-        // },3500);
+        setWelcome(`Review Created Correctly`);
+        setTimeout(()=>{
+            navigate('/games/favourites');
+        },1500);
       })
       .catch(error => {
         setReview(error.message);
       });
   }
 
-  console.log(review, "hola soy review");
+  // console.log(review, "hola soy review");
 
   return (
     <>
-      <div className="divPrincipal">
-        <div className="loginDesign">
-          {welcome !== "" ? (
-            <div>{welcome}</div>
-          ) : (
+      <div>
+        {welcome !== "" ? (
+          <div className="divWellcome">
+            <Card>
+              <Card.Header>{welcome}</Card.Header>
+            </Card>
+          </div>
+        ) : (
             <div>
               <Container>
                 <Row className="NewReview">
@@ -161,7 +164,6 @@ export const NewReview = () => {
             </div>
           )}
         </div>
-      </div>
     </>
   );
 };
