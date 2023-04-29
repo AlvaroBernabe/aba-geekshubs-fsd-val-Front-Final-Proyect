@@ -19,7 +19,7 @@ function CardGames({ games }) {
 
   return (
     <Card  className="CardGames">
-      <Card.Img variant="top" src={games.game_image} />
+      <Card.Img className="imgtest" variant="top" src={games.game_image}  />
       <Card.Body>
         <ul>
           <li>

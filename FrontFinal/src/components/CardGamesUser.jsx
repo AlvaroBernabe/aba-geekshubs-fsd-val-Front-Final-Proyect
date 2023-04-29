@@ -19,7 +19,7 @@ function CardGamesUser({ games }) {
   }
 
   return (
-    <Card className="CardGamesUser">
+    <Card className="CardGames">
       <Card.Img variant="top" src={games.game_image} />
       <Card.Body>
         <ul>

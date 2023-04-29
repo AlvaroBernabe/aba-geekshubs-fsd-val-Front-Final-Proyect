@@ -171,3 +171,11 @@ export const getAllGamesWithoutReviewUser = async (token) => {
     };
     return await axios.get(`${root}/games/all/user`, config)
 }
+
+export const reviewUpdate = async ( body, token) => {
+  const config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }}
+  return await axios.put(`${root}/review/new`,  body, config);
+}
