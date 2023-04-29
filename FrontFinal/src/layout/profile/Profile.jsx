@@ -2,10 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
 import { getMyProfile } from "../services/apiCalls";
-import { Card, ListGroup } from "react-bootstrap";
+import { Button, Card, ListGroup, Modal } from "react-bootstrap";
+import { ChangeLogin } from "../users/changeLogin/ChangeLogin";
+import { ProfileUpdate } from "./update/ProfileUpdate";
 
 export const Profile = () => {
   const ReduxCredentials = useSelector(userData);
+  const [password, setPassword] = useState(false);
+  const handleClosePassword = () => setPassword(false);
+  const handleShowPassword = () => setPassword(true);
+
+  const [update, setUpdate] = useState(false);
+  const handleCloseUpdate = () => setUpdate(false);
+  const handleShowUpdate = () => setUpdate(true);
+
 
   const [users, setUsers] = useState({
     name: "",
@@ -64,6 +74,36 @@ export const Profile = () => {
               <span className="text2"> {users.birth_date}</span>
             </ListGroup.Item>
           </ListGroup>
+          <div className="ButtonModalProfile">
+            <Button variant="primary" onClick={handleShowUpdate}>
+              Update Game
+            </Button>
+            <Modal show={update} onHide={handleCloseUpdate}>
+              <Modal.Header closeButton>
+                <Modal.Title>Update Game</Modal.Title>
+              </Modal.Header>
+              <Modal.Body><ProfileUpdate /></Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleCloseUpdate}>
+                  Close
+                </Button>
+              </Modal.Footer>
+            </Modal>
+            <Button variant="danger" onClick={handleShowPassword}>
+              Change Password
+            </Button>
+            <Modal show={password} onHide={handleClosePassword}>
+              <Modal.Header closeButton>
+                <Modal.Title>You Sure?</Modal.Title>
+              </Modal.Header>
+              <Modal.Body><ChangeLogin /></Modal.Body>
+              <Modal.Footer>
+                <Button variant="primary" onClick={handleClosePassword}>
+                  Nope
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </div>
         </Card>
       </div>
     </>

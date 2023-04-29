@@ -38,7 +38,7 @@ body {
   width: 20rem;
 }
 
-.ButtonModalGames {
+.ButtonModalGames , .ButtonModalProfile{
   justify-content: space-between;
   display: flex;
 }

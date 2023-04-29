@@ -42,12 +42,6 @@ function NavBar() {
                   <Nav.Link as={Link} to="/profile">
                     Get My Profile
                   </Nav.Link>
-                  <NavDropdown title="Profile Update" id="basic-nav-dropdown">
-                    <NavDropdown.Item as={Link} to="/profile/update">
-                      Profile Update</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/login/update">
-                      Update Password</NavDropdown.Item>
-                  </NavDropdown>
                   <NavDropdown title="Get All" id="basic-nav-dropdown">
                     <NavDropdown.Item as={Link} to="/review/all">
                       Get All Reviews</NavDropdown.Item>
@@ -66,14 +60,9 @@ function NavBar() {
                   <Nav.Link as={Link} to="/" onClick={() => logout()}>
                     Eres Admin Logout
                   </Nav.Link>
-                  <NavDropdown title="Profile" id="basic-nav-dropdown">
-                    <NavDropdown.Item as={Link} to="/profile">
-                      Get My Profile</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/profile/update">
-                      Profile Update</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/profile/update/rol">
-                      Role Update</NavDropdown.Item>
-                  </NavDropdown>
+                  <Nav.Link as={Link} to="/profile">
+                    Get My Profile
+                  </Nav.Link>
                   <NavDropdown title="Get All" id="basic-nav-dropdown">
                     <NavDropdown.Item as={Link} to="/users/all">
                       Get All Users</NavDropdown.Item>
