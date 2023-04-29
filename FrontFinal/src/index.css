@@ -114,7 +114,8 @@ body {
 }
 
 .AllRegisterForm,
-.AllLoginForm {
+.AllLoginForm, 
+.NewReview {
   display: flex;
   flex-direction: column;
   justify-content: center;

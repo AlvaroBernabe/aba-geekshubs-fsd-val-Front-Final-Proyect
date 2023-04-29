@@ -25,8 +25,8 @@ export const NewReview = () => {
 
   const [favouriteOptions, setFavouriteOptions] = useState([
     { value: "", label: "-- Choose an option --" },
-    { value: "true", label: "Yes" },
-    { value: "false", label: "No" },
+    { value: "1", label: "Yes" },
+    { value: "0", label: "No" },
   ]);
 
   const inputHandler = (e) => {
@@ -36,46 +36,10 @@ export const NewReview = () => {
     }));
   };
 
-  const [valireview, setValireview] = useState({
-    player_scoreVali: true,
-    player_reviewVali: true,
-    phone_numberVali: true,
-    favouriteVali: true,
-  });
 
-  const [reviewError, setReviewError] = useState({
-    player_scoreError: "",
-    player_reviewError: "",
-    phone_numberError: "",
-    favouriteError: "",
-  });
-
-  const [registerAct, setRegisterAct] = useState(false);
   const [welcome, setWelcome] = useState("");
 
-  useEffect(() => {
-    for (let error in reviewError) {
-      if (reviewError[error] != "") {
-        setRegisterAct(false);
-        return;
-      }
-    }
 
-    for (let empty in review) {
-      if (review[empty] === "") {
-        setRegisterAct(false);
-        return;
-      }
-    }
-
-    for (let validated in valireview) {
-      if (valireview[validated] === false) {
-        setRegisterAct(false);
-        return;
-      }
-    }
-    setRegisterAct(true);
-  });
 
   const checkError = (e) => {
   }
@@ -86,7 +50,6 @@ export const NewReview = () => {
         .then(
           result => {
             const sortedGames = result.data.data.sort((a, b) => a.name.localeCompare(b.name));
-
             setGames(sortedGames)
             console.log(sortedGames, "soy ShortedGames")
           }
@@ -94,11 +57,13 @@ export const NewReview = () => {
         .catch(error => console.log(error));
     }
   }, [games])
-  console.log(games, "soy GAmes");
+  // console.log(games, "soy GAmes");
 
   const reviewNew = () => {
     newReview(review, ReduxUserData.credentials.token)
-      .then((resultado) => {
+    .then((resultado) => {
+        console.log(ReduxUserData.credentials.token);
+        console.log(resultado);
         setReview(resultado.data)
         // setWelcome(`Cita creada correctamente para el día: ${appointments.date}`);
         // setTimeout(()=>{
@@ -111,7 +76,6 @@ export const NewReview = () => {
   }
 
   console.log(review, "hola soy review");
-  // console.log(valiuser, "hola soy vali user");
 
   return (
     <>
@@ -122,27 +86,33 @@ export const NewReview = () => {
           ) : (
             <div>
               <Container>
-                <Row className="LoginForm">
+                <Row className="NewReview">
                   <Col lg={6}>
                     <Form>
                       <Form.Group>
-                        <Form.Label>
-                          Enter your player_score:
-                        </Form.Label>
-                        <InputText
-                          className={"inputLogin"}
-                          type={"float"}
-                          name={"player_score"}
-                          maxLength={5}
-                          placeholder={"Player Score"}
-                          changeFunction={(e) =>
-                            inputHandler(e)
-                          }
-                          blurFunction={(e) =>
-                            checkError(e)
-                          }
-                        />
+                        <Form.Label>Select Game:</Form.Label>
+                        <Form.Select
+                          name="game_id"
+                          value={review.game_id}
+                          onChange={(e) => inputHandler(e)}
+                          onBlur={(e) => checkError(e)}
+                        >
+                          <option value="">-- Select a game --</option>
+                          {games.map((game) => (
+                            <option key={game.id} value={game.id}>
+                              {game.name}
+                            </option>
+                          ))}
+                        </Form.Select>
                       </Form.Group>
+                      <Form.Label>Score: {review.player_score}</Form.Label>
+                      <Form.Range
+                        min={0}
+                        max={10}
+                        step={0.05}
+                        name={"player_score"}
+                        onChange={(e) => inputHandler(e)}
+                      />
                       {/* <div>{reviewError.nameError}</div> */}
                       <Form.Group>
                         <Form.Label>Enter Your Review:</Form.Label>
@@ -152,7 +122,7 @@ export const NewReview = () => {
                           rows={3}
                           name={"player_review"}
                           maxLength={300}
-                          placeholder={review.surname}
+                          placeholder={"Enter Review"}
                           value={review.player_review}
                           onChange={inputHandler}
                         />
@@ -169,22 +139,6 @@ export const NewReview = () => {
                           {favouriteOptions.map((option) => (
                             <option key={option.value} value={option.value}>
                               {option.label}
-                            </option>
-                          ))}
-                        </Form.Select>
-                      </Form.Group>
-                      <Form.Group>
-                        <Form.Label>Select a game:</Form.Label>
-                        <Form.Select
-                          name="game_id"
-                          value={review.game_id}
-                          onChange={(e) => inputHandler(e)}
-                          onBlur={(e) => checkError(e)}
-                        >
-                          <option value="">-- Select a game --</option>
-                          {games.map((game) => (
-                            <option key={game.id} value={game.id}>
-                              {game.name}
                             </option>
                           ))}
                         </Form.Select>
