@@ -20,7 +20,7 @@ export const GetMyFavourites = () => {
     if (favourites.length === 0) {
       getMyFavourites(ReduxUserData?.credentials?.token)
         .then((result) => {
-          console.log(result);
+          console.log(result, "esto es result");
           setFavourites(result.data.data);
         })
         .catch((error) => {
@@ -28,7 +28,7 @@ export const GetMyFavourites = () => {
         });
     }
   }, [favourites]);
-  console.log(favourites);
+  console.log(favourites, "esto son favourites");
 
 
   const gameSelect = (favourite) => {

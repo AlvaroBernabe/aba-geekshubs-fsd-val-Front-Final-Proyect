@@ -18,7 +18,7 @@ export const GetAllMyReviews = () => {
     if (reviews.length === 0) {
       getMyReviews(ReduxUserData?.credentials?.token)
         .then((result) => {
-          console.log(result);
+          // console.log(result, "hola soy result");
           setReviews(result.data.data.Reviews);
         })
         .catch((error) => {
@@ -26,7 +26,7 @@ export const GetAllMyReviews = () => {
         });
     }
   }, [reviews]);
-  console.log(reviews);
+  console.log(reviews, "hola soy reviews");
 
 
   const gameSelect = (review) => {

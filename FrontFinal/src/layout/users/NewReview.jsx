@@ -37,10 +37,6 @@ export const NewReview = () => {
     }));
   };
 
-
-
-
-
   const checkError = (e) => {
   }
 
