@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { validate } from "../../../helpers/useful";
 import { getMyProfile, profileUpdate } from "../../services/apiCalls";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { InputText } from "../../../components/InputText/InputText";
 
 export const ProfileUpdate = () => {
@@ -111,13 +111,19 @@ export const ProfileUpdate = () => {
 
 
   const updateUser = () => {
-    profileUpdate(user, credentialsRdx.credentials.token);
-    setWelcome(`Correctly Updated Profile`);
-    setTimeout(() => {
-      navigate("/profile");
-    }, 2500);
+    try {
+      profileUpdate(user, credentialsRdx.credentials.token);
+      setWelcome(`Correctly Updated Profile`);
+      setTimeout(() => {
+        window.location.reload(true);
+      }, 1500);
+    } catch (error) {
+      setWelcome(`Updated Profile Error`);
+      setTimeout(() => {
+        window.location.reload(true);
+      }, 2000);
+    }
   };
-
   // console.log(user, "hola soy user");
   // console.log(valiuser, "hola soy vali user");
 
@@ -134,7 +140,7 @@ export const ProfileUpdate = () => {
           <div>
             <Container>
               <Row className="updateProfile">
-                <Col lg={6}>
+                <Col>
                   <Form>
                     <Form.Group>
                       <Form.Label>
