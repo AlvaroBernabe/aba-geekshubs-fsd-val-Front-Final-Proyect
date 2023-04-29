@@ -4,10 +4,40 @@ import img1 from "../../assets/images/tarzanreview.png";
 import img2 from "../../assets/images/commandos.png";
 import img3 from "../../assets/images/contra.png";
 import img4 from "../../assets/images/sidcivilization.png";
+import { logoutUser } from "../services/apiCalls";
+import { userData, userout } from "../userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import axios from 'axios';
+
 
 export const Home = () => {
+  const credencialesRedux = useSelector(userData);
+  const dispatch = useDispatch();
+
+  console.log(credencialesRedux);
+  const logout = () => {
+    axios.post('http://localhost:8000/api/logout', credencialesRedux.credentials.token)
+      .then(response => {
+        // Limpiar los datos del usuario en el estado de la aplicación
+        // y redirigir al usuario a la página de inicio de sesión
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  // const logout = () => {
+    
+  //   logoutUser(credencialesRedux.credentials.token)
+  //   .then(() => {
+  //       dispatch(userout({ credentials: {}, token: ""  }));
+  //       console.log("Token Borrado Correctamente")
+  //     })
+  //     .catch((error) => console.log(error));
+  //   }
   return (
     <>
+    <button onClick={logout}>delete token</button>
       <div className="container p-4">
         <h4>
           <b>Wellcome to my First Serious Proyect in life called GAMES&OLD</b>
@@ -63,6 +93,7 @@ export const Home = () => {
         </div>
         <p>You can find more in the News Section</p>
         <h3>LATEST GAMES ADDED</h3>
+
       </div>
     </>
   );

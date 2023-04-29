@@ -5,15 +5,26 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userData, userout } from "../layout/userSlice";
+import { logoutUser } from "../layout/services/apiCalls";
 
 function NavBar() {
   const credencialesRedux = useSelector(userData);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const logout = () => {
-    dispatch(userout({ credentials: {}, token: "" }));
+    dispatch(userout({ credentials: {}, token: ""  }));
     return navigate("/");
   };
+  // console.log(credencialesRedux.credentials.token, "hoalas toappk");
+
+  // const logout = () => {
+  //   logoutUser(credencialesRedux.credentials.token)
+  //     .then(() => {
+  //       console.log("Token Borrado Correctamente")
+  //       // return navigate("/");
+  //     })
+  //     .catch((error) => console.log(error));
+  //   }
 
   return (
     <div className="navbarstyle">

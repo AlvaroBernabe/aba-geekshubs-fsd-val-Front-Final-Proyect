@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Form, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Card, Container, Form, OverlayTrigger, Tooltip } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { validate } from "../../helpers/useful";
 import Row from "react-bootstrap/Row";
@@ -96,7 +96,11 @@ export function Register() {
     <>
       <div>
         {welcome !== "" ? (
-          <div>{welcome}</div>
+          <div className="divWellcome">
+            <Card>
+              <Card.Header>{welcome}</Card.Header>
+            </Card>
+          </div>
         ) : (
           <Container>
             <Row className="AllRegisterForm">

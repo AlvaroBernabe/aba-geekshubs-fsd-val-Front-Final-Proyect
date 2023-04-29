@@ -150,3 +150,14 @@ export const gameDelete = async (id, token) => {
     }}
   return await axios.delete(`${root}/game/${id}`, config);
 }
+
+export const logoutUser = async (token) => {
+  // console.log(token, "soy apicalls token");
+  let config = {
+
+    headers: { 
+      'Authorization': `Bearer ${token}`,  
+    }
+  };
+    return await axios.post(`${root}/logout`, config)
+}
