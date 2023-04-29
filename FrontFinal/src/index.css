@@ -83,20 +83,6 @@ body {
   display: flex;
 }
 
-.NavBar {
-  /* position: fixed;
-  top: 6rem; */
-  /* width: 60%;
-  position: fixed; */
-  /* position: absolute;
-  position: fixed; */
-}
-/* .navbarstyle {
-  width: 100%;
-  position: fixed;
-} */
-
-
 .getAllUsers {
   font-family:'Segoe UI', Tahoma, Verdana, sans-serif ;
   display: flex;
@@ -178,4 +164,29 @@ body {
   margin-top: 3rem;
   margin-bottom: 3rem;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+/* Profile Layout ....................................................*/
+
+.divProfile {
+  display: flex;
+  justify-content: center;
+  margin-top: 71px;
+  margin-bottom: 71px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.card {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 2px #ccc;
+  padding: 20px;
+}
+
+.text1 {
+  font-weight: bold;
+}
+
+.text2 {
+  margin-left: 10px;
 }

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./Profile.css";
 import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
 import { getMyProfile } from "../services/apiCalls";
@@ -53,7 +52,7 @@ export const Profile = () => {
               <span className="text2"> {users.surname}</span>
             </ListGroup.Item>
             <ListGroup.Item>
-              <span className="text1"> Phone_number: </span>
+              <span className="text1"> Phone Number: </span>
               <span className="text2"> {users.phone_number}</span>
             </ListGroup.Item>
             <ListGroup.Item>
@@ -61,7 +60,7 @@ export const Profile = () => {
               <span className="text2"> {users.direction}</span>
             </ListGroup.Item>
             <ListGroup.Item>
-              <span className="text1">Birth_date </span>
+              <span className="text1">Birth Date: </span>
               <span className="text2"> {users.birth_date}</span>
             </ListGroup.Item>
           </ListGroup>
