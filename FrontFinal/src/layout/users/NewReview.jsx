@@ -3,7 +3,7 @@ import { userData } from "../userSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { validate } from "../../helpers/useful";
-import { newReview } from "../services/apiCalls";
+import { getAllGamesWithoutReviewUser, newReview } from "../services/apiCalls";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { InputText } from "../../components/InputText/InputText";
 
@@ -13,6 +13,7 @@ export const NewReview = () => {
   // console.log( ReduxUserData.credentials.usuario.id, "esto es id en teoria");
 
   const navigate = useNavigate();
+  const [games, setGames] = useState([]);
 
   const [review, setReview] = useState({
     player_score: "",
@@ -23,7 +24,7 @@ export const NewReview = () => {
   });
 
   const [favouriteOptions, setFavouriteOptions] = useState([
-    { value: "", label: "Choose an option" },
+    { value: "", label: "-- Choose an option --" },
     { value: "true", label: "Yes" },
     { value: "false", label: "No" },
   ]);
@@ -79,6 +80,21 @@ export const NewReview = () => {
   const checkError = (e) => {
   }
 
+  useEffect(() => {
+    if (games.length === 0) {
+      getAllGamesWithoutReviewUser(ReduxUserData.credentials?.token)
+        .then(
+          result => {
+            const sortedGames = result.data.data.sort((a, b) => a.name.localeCompare(b.name));
+
+            setGames(sortedGames)
+            console.log(sortedGames, "soy ShortedGames")
+          }
+        )
+        .catch(error => console.log(error));
+    }
+  }, [games])
+  console.log(games, "soy GAmes");
 
   const reviewNew = () => {
     newReview(review, ReduxUserData.credentials.token)
@@ -158,22 +174,20 @@ export const NewReview = () => {
                         </Form.Select>
                       </Form.Group>
                       <Form.Group>
-                        <Form.Label>
-                          Enter the game_id:
-                        </Form.Label>
-                        <InputText
-                          className={"inputLogin"}
-                          type={"integer"}
-                          name={"game_id"}
-                          maxLength={70}
-                          placeholder={"Introduce el Juego"}
-                          changeFunction={(e) =>
-                            inputHandler(e)
-                          }
-                          blurFunction={(e) =>
-                            checkError(e)
-                          }
-                        />
+                        <Form.Label>Select a game:</Form.Label>
+                        <Form.Select
+                          name="game_id"
+                          value={review.game_id}
+                          onChange={(e) => inputHandler(e)}
+                          onBlur={(e) => checkError(e)}
+                        >
+                          <option value="">-- Select a game --</option>
+                          {games.map((game) => (
+                            <option key={game.id} value={game.id}>
+                              {game.name}
+                            </option>
+                          ))}
+                        </Form.Select>
                       </Form.Group>
                       {/* <div>{reviewError.directionError}</div> */}
                       <br />

@@ -161,3 +161,13 @@ export const logoutUser = async (token) => {
   };
     return await axios.post(`${root}/logout`, config)
 }
+
+
+export const getAllGamesWithoutReviewUser = async (token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+    };
+    return await axios.get(`${root}/games/all/user`, config)
+}
