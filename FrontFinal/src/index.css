@@ -10,6 +10,9 @@ body {
   background-color: rgb(59, 59, 87);
   font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
   /* border-bottom: 5px solid #839294; */
+  top: 0;
+  position: sticky;
+  z-index: 1;
 }
 
 .footerBottom {

@@ -11,7 +11,7 @@ function NavBar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const logout = () => {
-    dispatch(userout({ credentials: {}, token: ""  }));
+    dispatch(userout({ credentials: {}, token: "" }));
     return navigate("/");
   };
 
