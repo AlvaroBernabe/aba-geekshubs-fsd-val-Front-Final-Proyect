@@ -41,7 +41,7 @@ export const GetAllMyReviews = () => {
   return (
     <>
       <Container fluid>
-        <Row>
+        <Row className="bodyGetFavourites">
           {reviews.map((gamesData) => {
                         console.log(gamesData, "hola soy test");
             return (

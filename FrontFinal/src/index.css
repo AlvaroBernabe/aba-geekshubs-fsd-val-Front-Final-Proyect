@@ -38,6 +38,13 @@ body {
   width: 20rem;
 }
 
+.bodyGetFavourites {
+  background-color: rgb(182, 206, 214);
+
+}
+
+
+
 .ButtonModalGames,
 .ButtonModalProfile {
   justify-content: space-between;
@@ -300,3 +307,4 @@ body {
   font-style: italic;
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
+

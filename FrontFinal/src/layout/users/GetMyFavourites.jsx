@@ -42,7 +42,7 @@ export const GetMyFavourites = () => {
   return (
     <>
       <Container fluid>
-        <Row>
+        <Row className="bodyGetFavourites">
           {favourites.map((game) => {
             return (
               <Col onClick={() => gameSelect(game)} key={game.id}>

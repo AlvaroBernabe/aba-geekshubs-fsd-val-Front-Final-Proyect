@@ -40,7 +40,7 @@ export const GetAllGamesUser = () => {
   return (
     <>
       <Container fluid>
-        <Row>
+        <Row  className="bodyGetFavourites">
           {games.map((game) => {
             console.log(game, "hola soy game");
             return (
