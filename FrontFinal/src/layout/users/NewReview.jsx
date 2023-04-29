@@ -145,6 +145,7 @@ export const NewReview = () => {
                       </Form.Group>
                       {/* <div>{reviewError.directionError}</div> */}
                       <br />
+                      <div className='botonNewReview'>
                       <Button
                         className="botonLog"
                         variant="primary"
@@ -152,7 +153,7 @@ export const NewReview = () => {
                       >
                         {" "}
                         New Review
-                      </Button>
+                      </Button></div>
                     </Form>
                   </Col>
                 </Row>
