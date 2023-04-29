@@ -12,6 +12,12 @@ export const detailSlice = createSlice({
           ...state,
           ...action.payload
         }
+      },
+      detailGame: (state, action) => {
+        return {
+          ...state,
+          ...action.payload
+        }
       }
     }
     
@@ -19,6 +25,7 @@ export const detailSlice = createSlice({
 
 //exporto las ACCIONES.....
 export const { addChoosen } = detailSlice.actions;
+export const { detailGame } = detailSlice.actions;
 
 export const detailData = (state) => state.detail;
 

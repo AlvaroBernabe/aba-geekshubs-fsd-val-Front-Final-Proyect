@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { Button, Card, Modal } from "react-bootstrap";
-import { useDispatch } from "react-redux";
-import { isFavouriteReview } from "../layout/reviewSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { UpdateReviewUser } from "../layout/Reviews/UpdateReviewUser";
+import { detailData } from "../layout/detailSlice";
 
-function CardMyReviews({ appo }) {
+function CardMyReviews({ reviewUpdate }) {
 
   const dispatch = useDispatch();
+  const gameDataUpdate = useSelector(detailData);
+console.log(gameDataUpdate, "esto es detail data");
 
-  console.log(appo, "soy appo")
+  // console.log(reviewUpdate, "soy appo")
   const isFavorite = (favorite) => {
     return favorite ? "Yes" : "No";
   };
@@ -17,38 +20,34 @@ function CardMyReviews({ appo }) {
   const handleCloseUpdate = () => setUpdate(false);
   const handleShowUpdate = () => setUpdate(true);
 
-  // const updateReview = (games) => {
-  //   dispatch(isFavouriteReview({ choosenReview: games }))
-  //   // console.log(games, "esto es review en teoria");
-  //   setTimeout(() => {
-  //     navigate('/review/new');
-  //   }, 500);
-
+//   const selected = (ejemplo) => {
+//     // console.log(ejemplo, "esto es game en teoria");
+//     dispatch(addChoosenReview({ choosenReview: ejemplo }))
+// }
 
 
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card className="CardGamesReview" >
       <Card.Body>
-        <Card.Img variant="top" src={appo.game_image} />
+        <Card.Img variant="top" src={reviewUpdate.game_image} />
         <ul>
-          <li><span className="textColor">ID: </span>{appo.id}</li>
-          <li><span className="textColor">Game ID: </span>{appo.game_id}</li>
-          <li><span className="textColor">Favorite: </span> {isFavorite(appo.favourite)}</li>
-          <li><span className="textColor">Your Review: </span>{appo.player_review}</li>
-          <li><span className="textColor">Player Score: </span>{appo.player_score}</li>
+          <span className="gameTitle">{reviewUpdate.game_title}</span>
+          <li><span className="textColor">Favorite: </span> {isFavorite(reviewUpdate.favourite)}</li>
+          <li><span className="textColor">Your Review: </span>{reviewUpdate.player_review}</li>
+          <li><span className="textColor">Your Score: </span>{reviewUpdate.player_score}</li>
         </ul>
         <div className="ButtonDivFavouriteGame">
-          <Button variant="primary" onClick={handleShowUpdate}>
+          <Button variant="info" onClick={handleShowUpdate}>
             Update Review
           </Button>
           <Modal show={update} onHide={handleCloseUpdate}>
             <Modal.Header closeButton>
-              <Modal.Title>Update Review</Modal.Title>
+              <Modal.Title>{reviewUpdate.game_title}</Modal.Title>
             </Modal.Header>
-            <Modal.Body></Modal.Body>
+            <Modal.Body><UpdateReviewUser /> </Modal.Body>
             <Modal.Footer>
-              <Button variant="secondary" onClick={handleCloseUpdate}>
-                Close
+              <Button variant="info" onClick={handleCloseUpdate}>
+                Nope
               </Button>
             </Modal.Footer>
           </Modal>

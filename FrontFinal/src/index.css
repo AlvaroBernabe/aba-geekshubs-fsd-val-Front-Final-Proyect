@@ -32,7 +32,7 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.CardGames, .CardGamesUser {
+.CardGames, .CardGamesUser, .CardGamesReview {
   margin-top: 2rem;
   margin-bottom: 2rem;
   width: 20rem;
@@ -282,6 +282,21 @@ body {
   cursor: pointer;
   border-radius: 25px;
   background-color: rgb(174, 78, 9);
+  font-style: italic;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+}
+
+
+
+
+
+/* Get ALl Reviews User Layout ....................................................*/
+
+.gameTitle {
+  color: rgb(21, 0, 249);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-style: italic;
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
