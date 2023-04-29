@@ -261,3 +261,9 @@ body {
   background-color: #0069d9;
   border-color: #0062cc;
 }
+
+
+.inputtest{
+  color: red;
+  height: 20rem;
+}

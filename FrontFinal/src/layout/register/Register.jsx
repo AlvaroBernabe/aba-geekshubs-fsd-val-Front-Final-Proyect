@@ -161,6 +161,11 @@ export function Register() {
                       </Button>
                     </OverlayTrigger>
                   </div>
+                  {/* <div className="AcceptCondition">
+                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                      <Form.Check type="checkbox" label="By Creating an account, you agree to our User Agreement and acknowledge reading our User Privacy Notice ." />
+                    </Form.Group>
+                  </div> */}
                 </Form>
               </Col>
             </Row>

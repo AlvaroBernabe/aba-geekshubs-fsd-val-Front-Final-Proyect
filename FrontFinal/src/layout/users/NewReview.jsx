@@ -22,6 +22,12 @@ export const NewReview = () => {
     user_id: ReduxUserData.credentials.usuario.id,
   });
 
+  const [favouriteOptions, setFavouriteOptions] = useState([
+    { value: "", label: "Choose an option" },
+    { value: "true", label: "Yes" },
+    { value: "false", label: "No" },
+  ]);
+
   const inputHandler = (e) => {
     setReview((prevState) => ({
       ...prevState,
@@ -111,7 +117,7 @@ export const NewReview = () => {
                           className={"inputLogin"}
                           type={"float"}
                           name={"player_score"}
-                          maxLength={70}
+                          maxLength={5}
                           placeholder={"Player Score"}
                           changeFunction={(e) =>
                             inputHandler(e)
@@ -123,43 +129,34 @@ export const NewReview = () => {
                       </Form.Group>
                       {/* <div>{reviewError.nameError}</div> */}
                       <Form.Group>
-                        <Form.Label>
-                          Enter your player_review:
-                        </Form.Label>
-                        <InputText
+                        <Form.Label>Enter Your Review:</Form.Label>
+                        <Form.Control
                           className={"inputLogin"}
-                          type={"text"}
+                          as={"textarea"}
+                          rows={3}
                           name={"player_review"}
-                          maxLength={70}
+                          maxLength={300}
                           placeholder={review.surname}
-                          changeFunction={(e) =>
-                            inputHandler(e)
-                          }
-                          blurFunction={(e) =>
-                            checkError(e)
-                          }
+                          value={review.player_review}
+                          onChange={inputHandler}
                         />
                       </Form.Group>
                       {/* <div>{reviewError.surnameError}</div> */}
                       <Form.Group>
-                        <Form.Label>
-                          Enter your favourite:
-                        </Form.Label>
-                        <InputText
+                        <Form.Label>Is Favourite?</Form.Label>
+                        <Form.Select
                           className={"inputLogin"}
-                          type={"boolean"}
                           name={"favourite"}
-                          maxLength={70}
-                          placeholder={"Favorito?"}
-                          changeFunction={(e) =>
-                            inputHandler(e)
-                          }
-                          blurFunction={(e) =>
-                            checkError(e)
-                          }
-                        />
+                          value={review.favourite}
+                          onChange={inputHandler}
+                        >
+                          {favouriteOptions.map((option) => (
+                            <option key={option.value} value={option.value}>
+                              {option.label}
+                            </option>
+                          ))}
+                        </Form.Select>
                       </Form.Group>
-                      {/* <div>{reviewError.phone_numberError}</div> */}
                       <Form.Group>
                         <Form.Label>
                           Enter the game_id:

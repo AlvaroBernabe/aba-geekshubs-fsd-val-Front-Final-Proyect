@@ -49,7 +49,7 @@ export const Login = () => {
         setWelcome(`Bienvenid@ de nuevo ${nombre}`);
         setTimeout(() => {
           navigate("/");
-        }, 3000);
+        }, 1200);
       })
       .catch((error) => {
         console.log(error);

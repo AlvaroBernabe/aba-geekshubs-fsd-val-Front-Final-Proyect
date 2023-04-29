@@ -70,7 +70,7 @@ export const Profile = () => {
               <span className="text2"> {users.direction}</span>
             </ListGroup.Item>
             <ListGroup.Item>
-              <span className="text1">Birth Date: </span>
+              <span className="text1"> Birth Date: </span>
               <span className="text2"> {users.birth_date}</span>
             </ListGroup.Item>
           </ListGroup>

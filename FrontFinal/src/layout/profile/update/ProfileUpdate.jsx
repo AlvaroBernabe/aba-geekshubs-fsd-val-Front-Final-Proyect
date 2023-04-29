@@ -124,8 +124,8 @@ export const ProfileUpdate = () => {
       }, 2000);
     }
   };
-  // console.log(user, "hola soy user");
-  // console.log(valiuser, "hola soy vali user");
+  console.log(user, "hola soy user");
+  console.log(valiuser, "hola soy vali user");
 
   return (
     <>
