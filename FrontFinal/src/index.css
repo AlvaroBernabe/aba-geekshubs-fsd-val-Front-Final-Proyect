@@ -41,6 +41,7 @@ body {
 .ButtonModalGames , .ButtonModalProfile{
   justify-content: space-between;
   display: flex;
+  margin-top: 1em;
 }
 
 .textoHeader {
@@ -189,4 +190,16 @@ body {
 
 .text2 {
   margin-left: 10px;
+}
+
+/* .buttonChangePassword, .buttonProfileUpdate {
+  border-radius: 25px 25px 25px 25px;
+}
+.buttonChangePassword {
+  background-color: rgb(118, 2, 2);
+} */
+
+.ChangePassword {
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  justify-content: center;
 }

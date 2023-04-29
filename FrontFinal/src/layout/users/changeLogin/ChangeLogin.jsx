@@ -3,7 +3,7 @@ import { userData } from "../../userSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loginUpdate } from "../../services/apiCalls";
-import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { InputText } from "../../../components/InputText/InputText";
 import { validate } from "../../../helpers/useful";
 
@@ -11,6 +11,7 @@ export const ChangeLogin = () => {
   const credentialsRdx = useSelector(userData);
   let email = credentialsRdx?.credentials?.usuario?.email;
   const navigate = useNavigate();
+  const [welcome, setWelcome] = useState("");
 
   const [user, setUser] = useState({
     email: email,
@@ -35,7 +36,6 @@ export const ChangeLogin = () => {
   });
 
   const [registerAct, setRegisterAct] = useState(false);
-  const [welcome, setWelcome] = useState("");
 
   useEffect(() => {
     for (let error in userError) {
@@ -82,70 +82,69 @@ export const ChangeLogin = () => {
   };
 
   const updateLogin = () => {
-
     try {
       loginUpdate(user, credentialsRdx.credentials?.token);
-
+      setWelcome(`Correctly Updated Password`);
+      setTimeout(() => {
+        window.location.reload(true);
+      }, 1500);
     } catch (error) {
-
+      setWelcome(`Password Error`);
+      setTimeout(() => {
+        window.location.reload(true);
+      }, 2000);
     }
-    console.log("victoria");
-    // setWelcome(`Correctly Updated Profile`);
-    // setTimeout(() => {
-    //     navigate("/user/myprofile");
-    // }, 2500);
   };
-
-  // console.log(user, "hola soy user");
-  // console.log(valiuser, "hola soy vali user");
 
   return (
     <>
-      <div className="divPrincipal">
-        <div className="loginDesign">
-          {welcome !== "" ? (
-            <div>{welcome}</div>
-          ) : (
-            <div>
-              <Container>
-                <Row className="LoginForm">
-                  <Col lg={6}>
-                    <Form>
-                      <Form.Group>
-                        <Form.Label>
-                          Enter your new password:
-                        </Form.Label>
-                        <InputText
-                          className={"inputLogin"}
-                          type={"password"}
-                          name={"password"}
-                          maxLength={70}
-                          placeholder={""}
-                          changeFunction={(e) =>
-                            inputHandler(e)
-                          }
-                          blurFunction={(e) =>
-                            checkError(e)
-                          }
-                        />
-                      </Form.Group>
-                      <div>{userError.passwordError}</div>
-                      <br />
-                      <Button
-                        className="botonLog"
-                        // variant="primary"
-                        onClick={() => updateLogin()}
-                      >
-                        {" "}
-                        Update Password
-                      </Button>
-                    </Form>
-                  </Col>
-                </Row>
-              </Container>
-            </div>
-          )}
-        </div>
+      <div>
+        {welcome !== "" ? (
+          <div className="divWellcome">
+            <Card>
+              <Card.Header>{welcome}</Card.Header>
+            </Card>
+          </div>
+        ) : (
+          <div>
+            <Container>
+              <Row className="ChangePassword">
+                <Col lg={6}>
+                  <Form>
+                    <Form.Group>
+                      <Form.Label>
+                        Enter your new password:
+                      </Form.Label>
+                      <InputText
+                        className={"inputLogin"}
+                        type={"password"}
+                        name={"password"}
+                        maxLength={70}
+                        placeholder={""}
+                        changeFunction={(e) =>
+                          inputHandler(e)
+                        }
+                        blurFunction={(e) =>
+                          checkError(e)
+                        }
+                      />
+                    </Form.Group>
+                    <div>{userError.passwordError}</div>
+                    <br />
+                    <Button
+                      className="botonLog"
+                      variant="warning"
+                      onClick={() => updateLogin()}
+                    >
+                      {" "}
+                      Update Password
+                    </Button>
+                  </Form>
+                </Col>
+              </Row>
+            </Container>
+          </div>
+        )}
       </div>
     </>
   );

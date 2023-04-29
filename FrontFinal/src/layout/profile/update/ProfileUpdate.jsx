@@ -123,112 +123,115 @@ export const ProfileUpdate = () => {
 
   return (
     <>
-      <div className="divPrincipal">
-        <div className="loginDesign">
-          {welcome !== "" ? (
-            <div>{welcome}</div>
-          ) : (
-            <div>
-              <Container>
-                <Row className="updateProfile">
-                  <Col lg={6}>
-                    <Form>
-                      <Form.Group>
-                        <Form.Label>
-                          Enter your name:
-                        </Form.Label>
-                        <InputText
-                          className={"inputLogin"}
-                          type={"text"}
-                          name={"name"}
-                          maxLength={70}
-                          placeholder={user.name}
-                          changeFunction={(e) =>
-                            inputHandler(e)
-                          }
-                          blurFunction={(e) =>
-                            checkError(e)
-                          }
-                        />
-                      </Form.Group>
-                      <div>{userError.nameError}</div>
-                      <Form.Group>
-                        <Form.Label>
-                          Enter your surname:
-                        </Form.Label>
-                        <InputText
-                          className={"inputLogin"}
-                          type={"text"}
-                          name={"surname"}
-                          maxLength={70}
-                          placeholder={user.surname}
-                          changeFunction={(e) =>
-                            inputHandler(e)
-                          }
-                          blurFunction={(e) =>
-                            checkError(e)
-                          }
-                        />
-                      </Form.Group>
-                      <div>{userError.surnameError}</div>
-                      <Form.Group>
-                        <Form.Label>
-                          Enter your phone_number:
-                        </Form.Label>
-                        <InputText
-                          className={"inputLogin"}
-                          type={"integer"}
-                          name={"phone_number"}
-                          maxLength={70}
-                          placeholder={user.phone_number}
-                          changeFunction={(e) =>
-                            inputHandler(e)
-                          }
-                          blurFunction={(e) =>
-                            checkError(e)
-                          }
-                        />
-                      </Form.Group>
-                      <div>{userError.phone_numberError}</div>
-                      <Form.Group>
-                        <Form.Label>
-                          Enter your direction:
-                        </Form.Label>
-                        <InputText
-                          className={"inputLogin"}
-                          type={"text"}
-                          name={"direction"}
-                          maxLength={70}
-                          placeholder={user.direction}
-                          changeFunction={(e) =>
-                            inputHandler(e)
-                          }
-                          blurFunction={(e) =>
-                            checkError(e)
-                          }
-                        />
-                      </Form.Group>
-                      <div>{userError.directionError}</div>
-                      <Form.Group>
-                        <Form.Label>
-                          Enter your birth_date:
-                        </Form.Label>
-                        <InputText
-                          className={"inputLogin"}
-                          type={"date"}
-                          name={"birth_date"}
-                          maxLength={70}
-                          placeholder={user.birth_date}
-                          changeFunction={(e) =>
-                            inputHandler(e)
-                          }
-                          blurFunction={(e) =>
-                            checkError(e)
-                          }
-                        />
-                      </Form.Group>
-                      <br />
-                      <div className="buttonUpdate">
+      <div>
+        {welcome !== "" ? (
+          <div className="divWellcome">
+            <Card>
+              <Card.Header>{welcome}</Card.Header>
+            </Card>
+          </div>
+        ) : (
+          <div>
+            <Container>
+              <Row className="updateProfile">
+                <Col lg={6}>
+                  <Form>
+                    <Form.Group>
+                      <Form.Label>
+                        Enter your name:
+                      </Form.Label>
+                      <InputText
+                        className={"inputLogin"}
+                        type={"text"}
+                        name={"name"}
+                        maxLength={70}
+                        placeholder={user.name}
+                        changeFunction={(e) =>
+                          inputHandler(e)
+                        }
+                        blurFunction={(e) =>
+                          checkError(e)
+                        }
+                      />
+                    </Form.Group>
+                    <div>{userError.nameError}</div>
+                    <Form.Group>
+                      <Form.Label>
+                        Enter your surname:
+                      </Form.Label>
+                      <InputText
+                        className={"inputLogin"}
+                        type={"text"}
+                        name={"surname"}
+                        maxLength={70}
+                        placeholder={user.surname}
+                        changeFunction={(e) =>
+                          inputHandler(e)
+                        }
+                        blurFunction={(e) =>
+                          checkError(e)
+                        }
+                      />
+                    </Form.Group>
+                    <div>{userError.surnameError}</div>
+                    <Form.Group>
+                      <Form.Label>
+                        Enter your phone_number:
+                      </Form.Label>
+                      <InputText
+                        className={"inputLogin"}
+                        type={"integer"}
+                        name={"phone_number"}
+                        maxLength={70}
+                        placeholder={user.phone_number}
+                        changeFunction={(e) =>
+                          inputHandler(e)
+                        }
+                        blurFunction={(e) =>
+                          checkError(e)
+                        }
+                      />
+                    </Form.Group>
+                    <div>{userError.phone_numberError}</div>
+                    <Form.Group>
+                      <Form.Label>
+                        Enter your direction:
+                      </Form.Label>
+                      <InputText
+                        className={"inputLogin"}
+                        type={"text"}
+                        name={"direction"}
+                        maxLength={70}
+                        placeholder={user.direction}
+                        changeFunction={(e) =>
+                          inputHandler(e)
+                        }
+                        blurFunction={(e) =>
+                          checkError(e)
+                        }
+                      />
+                    </Form.Group>
+                    <div>{userError.directionError}</div>
+                    <Form.Group>
+                      <Form.Label>
+                        Enter your birth_date:
+                      </Form.Label>
+                      <InputText
+                        className={"inputLogin"}
+                        type={"date"}
+                        name={"birth_date"}
+                        maxLength={70}
+                        placeholder={user.birth_date}
+                        changeFunction={(e) =>
+                          inputHandler(e)
+                        }
+                        blurFunction={(e) =>
+                          checkError(e)
+                        }
+                      />
+                    </Form.Group>
+                    <br />
+                    <div className="buttonUpdate">
                       <Button
                         className=""
                         variant="primary"
@@ -237,13 +240,12 @@ export const ProfileUpdate = () => {
                         {" "}
                         Update User
                       </Button></div>
-                    </Form>
-                  </Col>
-                </Row>
-              </Container>
-            </div>
-          )}
-        </div>
+                  </Form>
+                </Col>
+              </Row>
+            </Container>
+          </div>
+        )}
       </div>
     </>
   );

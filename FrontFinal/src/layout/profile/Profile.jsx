@@ -47,7 +47,7 @@ export const Profile = () => {
   return (
     <>
       <div className="divProfile">
-        <Card style={{ width: "20rem" }}>
+        <Card style={{ width: "21rem" }}>
           <ListGroup variant="flush">
             <ListGroup.Item>
               <span className="text1"> Name:</span>
@@ -76,11 +76,11 @@ export const Profile = () => {
           </ListGroup>
           <div className="ButtonModalProfile">
             <Button variant="primary" onClick={handleShowUpdate}>
-              Update Game
+              Update Profile
             </Button>
             <Modal show={update} onHide={handleCloseUpdate}>
               <Modal.Header closeButton>
-                <Modal.Title>Update Game</Modal.Title>
+                <Modal.Title>Update Profile</Modal.Title>
               </Modal.Header>
               <Modal.Body><ProfileUpdate /></Modal.Body>
               <Modal.Footer>
