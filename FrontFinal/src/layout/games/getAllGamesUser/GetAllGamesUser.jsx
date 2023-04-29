@@ -6,6 +6,7 @@ import { userData } from "../../userSlice";
 import { Col, Container, Row } from "react-bootstrap";
 import { addChoosen } from "../../detailSlice";
 import CardGamesUser from "../../../components/CardGamesUser";
+import { getAllGamesWithoutReviewUser } from "../../services/apiCalls";
 
 export const GetAllGamesUser = () => {
 

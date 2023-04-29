@@ -6,15 +6,19 @@ import { validate } from "../../helpers/useful";
 import { getAllGamesWithoutReviewUser, newReview } from "../services/apiCalls";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { InputText } from "../../components/InputText/InputText";
+import { reviewData } from "../reviewSlice";
 
 export const NewReview = () => {
   
   const ReduxUserData = useSelector(userData);
-  // console.log( ReduxUserData.credentials.usuario.id, "esto es id en teoria");
+  const isFavourite = useSelector(reviewData);
+  console.log( isFavourite.choosenReview, "esto es is favourite en teoria");
   
   const navigate = useNavigate();
   const [welcome, setWelcome] = useState("");
   const [games, setGames] = useState([]);
+
+  
 
   const [review, setReview] = useState({
     player_score: "",
@@ -71,7 +75,7 @@ export const NewReview = () => {
       });
   }
 
-  // console.log(review, "hola soy review");
+  console.log(review, "hola soy review");
 
   return (
     <>

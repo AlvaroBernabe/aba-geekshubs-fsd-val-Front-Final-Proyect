@@ -12,10 +12,17 @@ export const reviewSlice = createSlice({
                 ...action.payload
             } 
         },
+        isFavouriteReview: (state, action) => {
+            return {
+                ...state,
+                ...action.payload
+            } 
+        },
     }
 })
 
 export const { addChoosenReview } = reviewSlice.actions;
+export const { isFavouriteReview } = reviewSlice.actions;
 
 export const reviewData = (state) => state.review;
 
