@@ -12,7 +12,7 @@ export const NewReview = () => {
   
   const ReduxUserData = useSelector(userData);
   const isFavourite = useSelector(reviewData);
-  console.log( isFavourite.choosenReview, "esto es is favourite en teoria");
+  console.log( isFavourite?.choosenReview, "esto es is favourite en teoria");
   
   const navigate = useNavigate();
   const [welcome, setWelcome] = useState("");
@@ -24,8 +24,8 @@ export const NewReview = () => {
     player_score: "",
     player_review: "",
     favourite: "",
-    game_id: isFavourite.choosenReview.id,
-    user_id: ReduxUserData.credentials.usuario.id,
+    game_id: isFavourite?.choosenReview?.id,
+    user_id: ReduxUserData?.credentials?.usuario?.id,
   });
 
   const [favouriteOptions, setFavouriteOptions] = useState([
@@ -45,7 +45,7 @@ export const NewReview = () => {
   }
 
   useEffect(() => {
-    if (isFavourite.choosenReview.id === "") { 
+    if (isFavourite?.choosenReview?.id === "") { 
     setReview((prevState) => ({
       ...prevState,
       game_id: isFavourite.choosenReview.id, 
@@ -54,10 +54,10 @@ export const NewReview = () => {
 
   useEffect(() => {
     if (games.length === 0) {
-      getAllGamesWithoutReviewUser(ReduxUserData.credentials?.token)
+      getAllGamesWithoutReviewUser(ReduxUserData?.credentials?.token)
         .then(
           result => {
-            const sortedGames = result.data.data.sort((a, b) => a.name.localeCompare(b.name));
+            const sortedGames = result?.data?.data?.sort((a, b) => a.name.localeCompare(b.name));
             setGames(sortedGames)
             // console.log(sortedGames, "soy ShortedGames")
           }
@@ -68,11 +68,11 @@ export const NewReview = () => {
   // console.log(games, "soy GAmes");
 
   const reviewNew = () => {
-    newReview(review, ReduxUserData.credentials.token)
+    newReview(review, ReduxUserData?.credentials?.token)
     .then((resultado) => {
         // console.log(ReduxUserData.credentials.token);
         // console.log(resultado);
-        setReview(resultado.data)
+        setReview(resultado?.data)
         setWelcome(`Review Created Correctly`);
         setTimeout(()=>{
             navigate('/games/favourites');
@@ -104,7 +104,7 @@ export const NewReview = () => {
                         <Form.Label>Select Game:</Form.Label>
                         <Form.Select
                           name="game_id"
-                          value={review.game_id}
+                          value={review?.game_id}
                           onChange={(e) => inputHandler(e)}
                           onBlur={(e) => checkError(e)}
                         >
@@ -116,7 +116,7 @@ export const NewReview = () => {
                           ))}
                         </Form.Select>
                       </Form.Group>
-                      <Form.Label>Score: {review.player_score}</Form.Label>
+                      <Form.Label>Score: {review?.player_score}</Form.Label>
                       <Form.Range
                         min={0}
                         max={10}
@@ -134,7 +134,7 @@ export const NewReview = () => {
                           name={"player_review"}
                           maxLength={300}
                           placeholder={"Enter Review"}
-                          value={review.player_review}
+                          value={review?.player_review}
                           onChange={inputHandler}
                         />
                       </Form.Group>
@@ -144,7 +144,7 @@ export const NewReview = () => {
                         <Form.Select
                           className={"inputLogin"}
                           name={"favourite"}
-                          value={review.favourite}
+                          value={review?.favourite}
                           onChange={inputHandler}
                         >
                           {favouriteOptions.map((option) => (

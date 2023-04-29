@@ -7,10 +7,10 @@ import { detailData } from "../layout/detailSlice";
 function CardMyReviews({ reviewUpdate }) {
 
   const dispatch = useDispatch();
-  const gameDataUpdate = useSelector(detailData);
-console.log(gameDataUpdate, "esto es detail data");
+//   const gameDataUpdate = useSelector(detailData);
+// console.log(gameDataUpdate, "esto es detail data");
 
-  // console.log(reviewUpdate, "soy appo")
+  console.log(reviewUpdate, "soy appo")
   const isFavorite = (favorite) => {
     return favorite ? "Yes" : "No";
   };
@@ -29,12 +29,13 @@ console.log(gameDataUpdate, "esto es detail data");
   return (
     <Card className="CardGamesReview" >
       <Card.Body>
-        <Card.Img variant="top" src={reviewUpdate.game_image} />
+        <Card.Img variant="top" src={reviewUpdate?.game_image} />
         <ul>
-          <span className="gameTitle">{reviewUpdate.game_title}</span>
-          <li><span className="textColor">Favorite: </span> {isFavorite(reviewUpdate.favourite)}</li>
-          <li><span className="textColor">Your Review: </span>{reviewUpdate.player_review}</li>
-          <li><span className="textColor">Your Score: </span>{reviewUpdate.player_score}</li>
+          <span className="gameTitle">{reviewUpdate?.game_title}</span>
+          <li><span className="textColor"> Favorite: </span> {isFavorite(reviewUpdate?.favourite)}</li>
+          <li><span className="textColor"> Your Review: </span>{reviewUpdate?.player_review}</li>
+          <li><span className="textColor"> Your Score: </span>{reviewUpdate?.player_score}</li>
+          <li><span className="textColor"> Score: </span>{reviewUpdate?.game_score}</li>
         </ul>
         <div className="ButtonDivFavouriteGame">
           <Button variant="info" onClick={handleShowUpdate}>
@@ -42,7 +43,7 @@ console.log(gameDataUpdate, "esto es detail data");
           </Button>
           <Modal show={update} onHide={handleCloseUpdate}>
             <Modal.Header closeButton>
-              <Modal.Title>{reviewUpdate.game_title}</Modal.Title>
+              <Modal.Title>{reviewUpdate?.game_title}</Modal.Title>
             </Modal.Header>
             <Modal.Body><UpdateReviewUser /> </Modal.Body>
             <Modal.Footer>

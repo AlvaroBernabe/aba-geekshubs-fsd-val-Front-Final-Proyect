@@ -4,7 +4,7 @@ import { userData } from "../userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getMyFavourites } from "../services/apiCalls";
-import { Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row } from "react-bootstrap";
 import CardMyReviews from "../../components/CardMyReviews";
 
 export const GetMyFavourites = () => {
@@ -46,7 +46,17 @@ export const GetMyFavourites = () => {
           {favourites.map((game) => {
             return (
               <Col onClick={() => gameSelect(game)} key={game.id}>
-                <CardMyReviews appo={game} />
+                <Card className="CardGamesReview" >
+                  <Card.Body>
+                    <Card.Img variant="top" src={game?.game_image} />
+                    <ul>
+                      <span className="gameTitle">{game?.game_title}</span>
+                      <li><span className="textColor"> Your Review: </span>{game?.player_review}</li>
+                      <li><span className="textColor"> Your Score: </span>{game?.player_score}</li>
+                      <li><span className="textColor"> Score: </span>{game?.game_score}</li>
+                    </ul>
+                  </Card.Body>
+                </Card>
               </Col>
             );
           })}
