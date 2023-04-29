@@ -32,7 +32,7 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.CardGames {
+.CardGames, .CardGamesUser {
   margin-top: 2rem;
   margin-bottom: 2rem;
   width: 20rem;
@@ -267,4 +267,21 @@ body {
 .inputtest{
   color: red;
   height: 20rem;
+}
+
+/* Get ALl Games User Layout ....................................................*/
+
+
+.ButtonDivFavouriteGame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonFavorite {
+  cursor: pointer;
+  border-radius: 25px;
+  background-color: rgb(174, 78, 9);
+  font-style: italic;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }

@@ -24,7 +24,7 @@ export const NewReview = () => {
     player_score: "",
     player_review: "",
     favourite: "",
-    game_id: "",
+    game_id: isFavourite.choosenReview.id,
     user_id: ReduxUserData.credentials.usuario.id,
   });
 
@@ -43,6 +43,14 @@ export const NewReview = () => {
 
   const checkError = (e) => {
   }
+
+  useEffect(() => {
+    if (isFavourite.choosenReview.id === "") { 
+    setReview((prevState) => ({
+      ...prevState,
+      game_id: isFavourite.choosenReview.id, 
+    }));
+  }}, [review])
 
   useEffect(() => {
     if (games.length === 0) {
