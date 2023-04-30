@@ -44,7 +44,7 @@ export const GetAllGames = () => {
           {games.map((game) => {
             console.log(game, "hola soy game");
             return (
-              <Col onClick={() => selected(game)} key={game.id}>
+              <Col className="ContainerAllGamesAdmin" onClick={() => selected(game)} key={game.id}>
                 <CardGames games={game} />
               </Col>
             );
