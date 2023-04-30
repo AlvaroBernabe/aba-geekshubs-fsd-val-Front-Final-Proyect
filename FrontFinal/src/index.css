@@ -76,12 +76,18 @@ body {
 
 .getAllUsers {
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  display: flex;
+  background-color: rgb(182, 206, 214) !important;
+  justify-content: center;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
   margin-bottom: 2rem;
   margin-top: 2rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+
 }
+
+
+
+
 
 .CardUserDetails {
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
@@ -177,6 +183,8 @@ body {
 
 .text1 {
   font-weight: bold;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color: rgb(142, 91, 91);
 }
 
 .text2 {

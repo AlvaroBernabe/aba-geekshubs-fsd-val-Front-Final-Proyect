@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import './GetAllUsers.css';
 import { getAllUsers } from "../../services/apiCalls";
 import { userData } from "../../userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addChoosen } from "../../detailSlice";
-import { Card, Col, ListGroup, Row } from "react-bootstrap";
+import { Button, Card, Col, ListGroup, Modal, Row } from "react-bootstrap";
+import { DeleteUser } from "./DeleteUser";
 
 export const GetAllUsers = () => {
 
@@ -13,6 +13,12 @@ export const GetAllUsers = () => {
   const ReduxCredentials = useSelector(userData);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [remove, setRemove] = useState(false);
+  const handleCloseRemove = () => setRemove(false);
+  const handleShowRemove = () => setRemove(true);
+
+
 
   useEffect(() => {
     if (users.length === 0) {
@@ -48,18 +54,37 @@ export const GetAllUsers = () => {
                     <div
                       onClick={() => selected(persona)}
                       key={persona.id}>
-                      <Card>
-                        <ListGroup variant="flush">
-                          <ListGroup.Item>
-                            <span className="text1"> Id:</span>
-                            <span className="text2"> {persona.id}</span>
-                          </ListGroup.Item>
-                          <ListGroup.Item>
-                            <span className="text1"> Email:</span>
-                            <span className="text2"> {persona.email}</span>
-                          </ListGroup.Item>
-                        </ListGroup>
-                      </Card>
+                      <Row >
+                        <Card>
+                          <ListGroup className="ListGroupAllUsers" variant="flush">
+                            <ListGroup.Item>
+                              <span className="text1"> Id:</span>
+                              <span className="text2"> {persona.id}</span>
+                              <span className="text1"> Role Id:</span>
+                              <span className="text2"> {persona.role_id}</span>
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                              <span className="text1"> Email:</span>
+                              <span className="text2"> {persona.email}</span>
+                            </ListGroup.Item>
+                            <div className="ButtonModalGames">
+                              <Button variant="danger" onClick={handleShowRemove}>
+                                Delete User
+                              </Button>
+                              <Modal show={remove} onHide={handleCloseRemove}>
+                                <Modal.Header closeButton>
+                                  <Modal.Title>You Sure?</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body><DeleteUser></DeleteUser></Modal.Body>
+                                <Modal.Footer>
+                                  <Button variant="primary" onClick={handleCloseRemove}>
+                                    Nope
+                                  </Button>
+                                </Modal.Footer>
+                              </Modal> </div>
+                          </ListGroup>
+                        </Card>
+                      </Row>
                     </div>
                   )
                 }

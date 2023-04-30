@@ -179,3 +179,12 @@ export const reviewUpdate = async ( body, token) => {
     }}
   return await axios.put(`${root}/review/new`,  body, config);
 }
+
+
+export const userDelete = async (id, token) => {
+  const config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }}
+  return await axios.delete(`${root}/users/all/destroy/${id}`, config);
+}
