@@ -348,3 +348,27 @@ body {
   color: rgb(142, 91, 91);
   margin-right: 0.5rem;
 }
+
+.CardNewGame {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  background-color: #fff;
+  border-radius: 15px;
+  border-color: #0069d9;
+  border-style:groove;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  width: 50rem;
+  display: flex;
+  justify-content: center;
+}
+
+.NewGameDiv {
+  display: flex;
+  justify-content: center;
+}
+
+.FormNewGame {
+  color: rgb(142, 91, 91);
+}
