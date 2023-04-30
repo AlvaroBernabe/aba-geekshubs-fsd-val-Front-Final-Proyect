@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Button, Card, Col, Container, Row } from "react-bootstrap";
+import { Button, Card, Col, Container, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
 import { getAllGamesNonUser } from "../services/apiCalls";
 import CardGamesUser from "../../components/CardGamesUser";
 
@@ -9,9 +9,13 @@ export const GetAllGamesDefault = () => {
 
     const [games, setGames] = useState([]);
     //   const navigate = useNavigate();
+    const renderTooltip = (props) => (
+        <Tooltip id="ButtonRegister-tooltip" {...props}>
+            You Need To Login First
+        </Tooltip>
+    )
 
     useEffect(() => {
-        // console.log("console log de users", users)      // Este saca los el array con los usuarios
         if (games.length === 0) {
             getAllGamesNonUser()
                 .then(
@@ -24,12 +28,6 @@ export const GetAllGamesDefault = () => {
         }
     }, [games])
     console.log(games);
-
-    const selected = (juego) => {
-        // setTimeout(() => {
-        //     navigate("/login");
-        //   }, 1500);
-    }
 
     return (
         <>
@@ -66,9 +64,15 @@ export const GetAllGamesDefault = () => {
                                             </li>
                                         </ul>
                                         <div className="ButtonDivNonUserFavouriteGame">
-                                            <Button className="buttonFavoriteFalse" onClick={() => handleFavouriteYesClick(games)} key={games.id}>
-                                                Favourite?
-                                            </Button>
+                                            <OverlayTrigger
+                                                placement="bottom"
+                                                delay={{ show: 100, hide: 300 }}
+                                                overlay={renderTooltip}
+                                            >
+                                                <Button className="buttonFavoriteFalse" onClick={() => handleFavouriteYesClick(games)} key={games.id}>
+                                                    Favourite?
+                                                </Button>
+                                            </OverlayTrigger>
                                         </div>
                                     </Card.Body>
                                 </Card>
