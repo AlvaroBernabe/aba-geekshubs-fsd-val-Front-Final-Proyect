@@ -43,7 +43,7 @@ export const GetAllMyReviews = () => {
       <Container fluid>
         <Row className="bodyGetFavourites">
           {reviews.map((gamesData) => {
-                        console.log(gamesData, "hola soy test");
+            console.log(gamesData, "hola soy test");
             return (
               <Col onClick={() => gameSelect(gamesData)} key={gamesData.id}>
                 <CardMyReviews reviewUpdate={gamesData} />

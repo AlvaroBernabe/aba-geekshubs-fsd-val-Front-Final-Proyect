@@ -32,22 +32,23 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.CardGames, .CardGamesUser, .CardGamesReview {
+.CardGames,
+.CardGamesUser,
+.CardGamesReview {
   /* background-color: rgb(209, 206, 206); */
   margin-top: 2rem;
   margin-bottom: 2rem;
   width: 20rem;
   border-radius: 2rem;
   border-color: #0069d9;
-  border-style:groove;
+  border-style: groove;
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 
-.bodyGetFavourites, .ContainerAllGamesAdmin {
+.bodyGetFavourites,
+.ContainerAllGamesAdmin {
   background-color: rgb(182, 206, 214);
 }
-
-
 
 .ButtonModalGames,
 .ButtonModalProfile {
@@ -83,7 +84,7 @@ body {
   display: flex;
   background-color: rgb(182, 206, 214) !important;
   justify-content: center;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
   margin-top: 2rem;
 }
@@ -127,7 +128,7 @@ body {
 }
 
 .AllRegisterForm,
-.AllLoginForm, 
+.AllLoginForm,
 .NewReview {
   display: flex;
   flex-direction: column;
@@ -183,7 +184,7 @@ body {
 
 .text1 {
   font-weight: bold;
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   color: rgb(142, 91, 91);
 }
 
@@ -258,7 +259,8 @@ body {
 }
 
 /* Estilos para el botón */
-.botonModificar, .botonNewReview {
+.botonModificar,
+.botonNewReview {
   text-align: center;
   margin-top: 20px;
 }
@@ -278,14 +280,12 @@ body {
   border-color: #0062cc;
 }
 
-
-.inputtest{
+.inputtest {
   color: red;
   height: 20rem;
 }
 
 /* Get ALl Games User Layout ....................................................*/
-
 
 .ButtonDivFavouriteGame {
   display: flex;
@@ -304,7 +304,6 @@ body {
 .ButtonDivNonUserFavouriteGame {
   display: flex;
   justify-content: center;
-
 }
 
 .buttonFavoriteFalse {
@@ -314,11 +313,6 @@ body {
   font-style: italic;
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
-
-
-
-
-
 
 /* Get ALl Reviews User Layout ....................................................*/
 
@@ -331,33 +325,31 @@ body {
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 
-
-
-  .review-card {
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  .icon {
-    margin-right: 10px;
-  }
-  .label {
-    margin-right: 5px;
-    font-weight: bold;
-  }
-  .value {
-    font-size: 18px;
-  }
+.review-card {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+.icon {
+  margin-right: 10px;
+}
+.label {
+  margin-right: 5px;
+  font-weight: bold;
+}
+.value {
+  font-size: 18px;
+}
 
 .CardAllReviews {
   border: 1px solid #ccc;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   border-radius: 40px;
   border-color: #0069d9;
-  border-style:groove;
+  border-style: groove;
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
   margin-bottom: 1rem;
   margin-top: 2rem;
@@ -374,11 +366,11 @@ body {
 
 .CardNewGame {
   border: 1px solid #ccc;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   border-radius: 15px;
   border-color: #0069d9;
-  border-style:groove;
+  border-style: groove;
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
   margin-bottom: 2rem;
   margin-top: 2rem;

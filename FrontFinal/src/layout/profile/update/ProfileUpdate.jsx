@@ -245,7 +245,8 @@ export const ProfileUpdate = () => {
                       >
                         {" "}
                         Update User
-                      </Button></div>
+                      </Button>
+                    </div>
                   </Form>
                 </Col>
               </Row>

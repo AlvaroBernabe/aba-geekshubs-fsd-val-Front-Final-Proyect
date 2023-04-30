@@ -39,51 +39,51 @@ export const Home = () => {
           </b>
         </p>
         <div className="row">
-  <h3>LATEST REVIEWS</h3>
-  <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-    <ul className="list-unstyled mb-0">
-      <li><h6><em>Tarzan</em> </h6></li>
-      <li><img src={img1} alt="" className="img-fluid" /></li>
-    </ul>
-  </div>
-  <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-    <ul className="list-unstyled mb-0">
-      <li><h6><em>Commandos: Behind Enemy Lines</em> </h6></li>
-      <li><img src={img2} alt="" className="img-fluid" /></li>
-    </ul>
-  </div>
-  <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-    <ul className="list-unstyled mb-0">
-      <li><h6><em>Contra</em> </h6></li>
-      <li><img src={img3} alt="" className="img-fluid" /></li>
-    </ul>
-  </div>
-  <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-    <ul className="list-unstyled mb-0">
-      <li><h6><em>Sid Meier's Civilization II</em> </h6></li>
-      <li><img src={img4} alt="" className="img-fluid" /></li>
-    </ul>
-  </div>
-</div>
+          <h3>LATEST REVIEWS</h3>
+          <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <ul className="list-unstyled mb-0">
+              <li><h6><em>Tarzan</em> </h6></li>
+              <li><img src={img1} alt="" className="img-fluid" /></li>
+            </ul>
+          </div>
+          <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <ul className="list-unstyled mb-0">
+              <li><h6><em>Commandos: Behind Enemy Lines</em> </h6></li>
+              <li><img src={img2} alt="" className="img-fluid" /></li>
+            </ul>
+          </div>
+          <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <ul className="list-unstyled mb-0">
+              <li><h6><em>Contra</em> </h6></li>
+              <li><img src={img3} alt="" className="img-fluid" /></li>
+            </ul>
+          </div>
+          <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <ul className="list-unstyled mb-0">
+              <li><h6><em>Sid Meier's Civilization II</em> </h6></li>
+              <li><img src={img4} alt="" className="img-fluid" /></li>
+            </ul>
+          </div>
+        </div>
         <p>You can find more in the News Section</p>
         <h3>LATEST GAMES ADDED</h3>
         <div className="row">
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
             <ul className="list-unstyled mb-0">
               <li><h6><em>Doom</em> </h6></li>
-              <li><img src={img5} alt=""  className="img-fluid"  /></li>
+              <li><img src={img5} alt="" className="img-fluid" /></li>
             </ul>
           </div>
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
             <ul className="list-unstyled mb-0">
               <li><h6><em>Wolfenstein 3D</em> </h6></li>
-              <li><img src={img6} alt="" className="img-fluid"/></li>
+              <li><img src={img6} alt="" className="img-fluid" /></li>
             </ul>
           </div>
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
             <ul className="list-unstyled mb-0">
               <li><h6><em>System Shock</em> </h6></li>
-              <li><img src={img7} alt=""  className="img-fluid" /></li>
+              <li><img src={img7} alt="" className="img-fluid" /></li>
             </ul>
           </div>
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">

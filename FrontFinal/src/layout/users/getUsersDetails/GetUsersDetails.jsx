@@ -44,7 +44,7 @@ export const GetUsersDetails = () => {
             <span className="text1"> Birth Date:</span>
             <span className="text2"> {detailRedux?.choosenObject?.perfil?.birth_date}</span>
           </ListGroup.Item>
-          
+
           <div className="ButtonModalGames">
             <Button variant="danger" onClick={handleShowRemove}>
               Delete User

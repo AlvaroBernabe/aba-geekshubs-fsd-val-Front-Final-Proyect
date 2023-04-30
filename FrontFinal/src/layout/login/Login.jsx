@@ -112,7 +112,9 @@ export const Login = () => {
                           onClick={() => logMe()}
                         >
                           Login User
-                        </Button></OverlayTrigger></div>
+                        </Button>
+                      </OverlayTrigger>
+                    </div>
                   </Form>
                 </Col>
               </Row>

@@ -9,10 +9,10 @@ export const App = () => {
   return (
     <div className="App">
       <Header />
-      <NavBar/>
+      <NavBar />
       {/* <hr /> */}
-      <Router/>
-      <FooterBottom/>
+      <Router />
+      <FooterBottom />
     </div>
   )
 };

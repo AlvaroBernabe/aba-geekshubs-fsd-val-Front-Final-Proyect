@@ -1,28 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 export const userSlice = createSlice({
-    name: 'user',
-    initialState: {
-        credentials: {}
+  name: "user",
+  initialState: {
+    credentials: {},
+  },
+  reducers: {
+    login: (state, action) => {
+      return {
+        ...state,
+        ...action.payload,
+      };
     },
-    reducers: {
-        login: (state, action) => {
-        return {
-            ...state,
-            ...action.payload
-        }
+    userout: (state, action) => {
+      return {
+        ...state,
+        ...action.payload,
+      };
     },
-        userout: (state, action) => {
-        return {
-            ...state,
-            ...action.payload
-            }
-        },
-        token: (state, action) => {
-            return {}
-        }      
-    } 
+    token: (state, action) => {
+      return {};
+    },
+  },
 });
 
 //exporto las ACCIONES.....

@@ -9,16 +9,16 @@ import { InputText } from "../../components/InputText/InputText";
 import { reviewData } from "../reviewSlice";
 
 export const NewReview = () => {
-  
+
   const ReduxUserData = useSelector(userData);
   const isFavourite = useSelector(reviewData);
-  console.log( isFavourite?.choosenReview, "esto es is favourite en teoria");
-  
+  console.log(isFavourite?.choosenReview, "esto es is favourite en teoria");
+
   const navigate = useNavigate();
   const [welcome, setWelcome] = useState("");
   const [games, setGames] = useState([]);
 
-  
+
 
   const [review, setReview] = useState({
     player_score: "",
@@ -45,12 +45,13 @@ export const NewReview = () => {
   }
 
   useEffect(() => {
-    if (isFavourite?.choosenReview?.id === "") { 
-    setReview((prevState) => ({
-      ...prevState,
-      game_id: isFavourite.choosenReview.id, 
-    }));
-  }}, [review])
+    if (isFavourite?.choosenReview?.id === "") {
+      setReview((prevState) => ({
+        ...prevState,
+        game_id: isFavourite.choosenReview.id,
+      }));
+    }
+  }, [review])
 
   useEffect(() => {
     if (games.length === 0) {
@@ -69,14 +70,14 @@ export const NewReview = () => {
 
   const reviewNew = () => {
     newReview(review, ReduxUserData?.credentials?.token)
-    .then((resultado) => {
+      .then((resultado) => {
         // console.log(ReduxUserData.credentials.token);
         // console.log(resultado);
         setReview(resultado?.data)
         setWelcome(`Review Created Correctly`);
-        setTimeout(()=>{
-            navigate('/games/favourites');
-        },1500);
+        setTimeout(() => {
+          navigate('/games/favourites');
+        }, 1500);
       })
       .catch(error => {
         setReview(error.message);
@@ -95,68 +96,68 @@ export const NewReview = () => {
             </Card>
           </div>
         ) : (
-            <div>
-              <Container>
-                <Row className="NewReview">
-                  <Col lg={6}>
-                    <Form>
-                      <Form.Group>
-                        <Form.Label>Select Game:</Form.Label>
-                        <Form.Select
-                          name="game_id"
-                          value={review?.game_id}
-                          onChange={(e) => inputHandler(e)}
-                          onBlur={(e) => checkError(e)}
-                        >
-                          <option value="">-- Select a game --</option>
-                          {games.map((game) => (
-                            <option key={game.id} value={game.id}>
-                              {game.name}
-                            </option>
-                          ))}
-                        </Form.Select>
-                      </Form.Group>
-                      <Form.Label>Score: {review?.player_score}</Form.Label>
-                      <Form.Range
-                        min={0}
-                        max={10}
-                        step={0.05}
-                        name={"player_score"}
+          <div>
+            <Container>
+              <Row className="NewReview">
+                <Col lg={6}>
+                  <Form>
+                    <Form.Group>
+                      <Form.Label>Select Game:</Form.Label>
+                      <Form.Select
+                        name="game_id"
+                        value={review?.game_id}
                         onChange={(e) => inputHandler(e)}
+                        onBlur={(e) => checkError(e)}
+                      >
+                        <option value="">-- Select a game --</option>
+                        {games.map((game) => (
+                          <option key={game.id} value={game.id}>
+                            {game.name}
+                          </option>
+                        ))}
+                      </Form.Select>
+                    </Form.Group>
+                    <Form.Label>Score: {review?.player_score}</Form.Label>
+                    <Form.Range
+                      min={0}
+                      max={10}
+                      step={0.05}
+                      name={"player_score"}
+                      onChange={(e) => inputHandler(e)}
+                    />
+                    {/* <div>{reviewError.nameError}</div> */}
+                    <Form.Group>
+                      <Form.Label>Enter Your Review:</Form.Label>
+                      <Form.Control
+                        className={"inputLogin"}
+                        as={"textarea"}
+                        rows={3}
+                        name={"player_review"}
+                        maxLength={300}
+                        placeholder={"Enter Review"}
+                        value={review?.player_review}
+                        onChange={inputHandler}
                       />
-                      {/* <div>{reviewError.nameError}</div> */}
-                      <Form.Group>
-                        <Form.Label>Enter Your Review:</Form.Label>
-                        <Form.Control
-                          className={"inputLogin"}
-                          as={"textarea"}
-                          rows={3}
-                          name={"player_review"}
-                          maxLength={300}
-                          placeholder={"Enter Review"}
-                          value={review?.player_review}
-                          onChange={inputHandler}
-                        />
-                      </Form.Group>
-                      {/* <div>{reviewError.surnameError}</div> */}
-                      <Form.Group>
-                        <Form.Label>Is Favourite?</Form.Label>
-                        <Form.Select
-                          className={"inputLogin"}
-                          name={"favourite"}
-                          value={review?.favourite}
-                          onChange={inputHandler}
-                        >
-                          {favouriteOptions.map((option) => (
-                            <option key={option.value} value={option.value}>
-                              {option.label}
-                            </option>
-                          ))}
-                        </Form.Select>
-                      </Form.Group>
-                      {/* <div>{reviewError.directionError}</div> */}
-                      <br />
-                      <div className='botonNewReview'>
+                    </Form.Group>
+                    {/* <div>{reviewError.surnameError}</div> */}
+                    <Form.Group>
+                      <Form.Label>Is Favourite?</Form.Label>
+                      <Form.Select
+                        className={"inputLogin"}
+                        name={"favourite"}
+                        value={review?.favourite}
+                        onChange={inputHandler}
+                      >
+                        {favouriteOptions.map((option) => (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
+                      </Form.Select>
+                    </Form.Group>
+                    {/* <div>{reviewError.directionError}</div> */}
+                    <br />
+                    <div className='botonNewReview'>
                       <Button
                         className="botonLog"
                         variant="primary"
@@ -164,14 +165,15 @@ export const NewReview = () => {
                       >
                         {" "}
                         New Review
-                      </Button></div>
-                    </Form>
-                  </Col>
-                </Row>
-              </Container>
-            </div>
-          )}
-        </div>
+                      </Button>
+                    </div>
+                  </Form>
+                </Col>
+              </Row>
+            </Container>
+          </div>
+        )}
+      </div>
     </>
   );
 };
