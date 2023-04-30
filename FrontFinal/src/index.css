@@ -76,11 +76,11 @@ body {
 
 .getAllUsers {
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
 }
 
 .CardUserDetails {
@@ -308,3 +308,37 @@ body {
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 
+
+
+  .review-card {
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .icon {
+    margin-right: 10px;
+  }
+  .label {
+    margin-right: 5px;
+    font-weight: bold;
+  }
+  .value {
+    font-size: 18px;
+  }
+
+.CardAllReviews {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  background-color: #fff;
+  border-radius: 5px;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.ejemplo2 {
+  background-color: rgb(182, 206, 214);
+
+}

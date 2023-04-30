@@ -1,10 +1,11 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, ListGroup } from "react-bootstrap";
 
 function CardAllReviews({ appo }) {
     return (
-        <Card style={{ width: "18rem" }}>
-            <Card.Body>
+        <ListGroup className="CardAllReviews">
+        {/* <Card style={{ width: "18rem" }}>
+            <Card.Body> */}
                 {/* <Card.Title >
                     {appo.game_image}
                 </Card.Title> */}
@@ -16,8 +17,9 @@ function CardAllReviews({ appo }) {
                     <li><span className="textColor">Review: </span>{appo.Reviews.player_review}</li>
                     <li><span className="textColor">Player Score: </span>{appo.Reviews.player_score}</li>
                 </ul>
-            </Card.Body>
-        </Card>
+            {/* </Card.Body>
+        </Card> */}
+        </ListGroup>
     );
 }
 
