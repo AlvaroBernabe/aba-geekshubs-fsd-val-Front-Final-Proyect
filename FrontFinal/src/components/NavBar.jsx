@@ -33,6 +33,9 @@ function NavBar() {
                   <Nav.Link as={Link} to="/login">
                     Login
                   </Nav.Link>
+                  <Nav.Link as={Link} to="/gamesnonUser/all">
+                    All Games
+                  </Nav.Link>
                 </>
               ) : credencialesRedux?.credentials?.usuario?.role_id === 2 ? (
                 <>

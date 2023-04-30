@@ -188,3 +188,8 @@ export const userDelete = async (id, token) => {
     }}
   return await axios.delete(`${root}/users/all/destroy/${id}`, config);
 }
+
+
+export const getAllGamesNonUser = async () => {
+    return await axios.get(`${root}/games/all/nonuser`, )
+}

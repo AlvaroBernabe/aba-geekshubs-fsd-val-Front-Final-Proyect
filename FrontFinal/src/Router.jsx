@@ -18,6 +18,7 @@ import { NewGame } from "./layout/games/NewGame";
 import { UpdateGame } from "./layout/games/UpdateGame";
 import { GetAllGamesUser } from "./layout/games/getAllGamesUser/GetAllGamesUser";
 import { ChangeRole } from "./layout/users/getAllUsers/ChangeRole";
+import { GetAllGamesDefault } from "./layout/games/GetAllGamesDefault";
 
 export const Router = () => {
     return (
@@ -34,7 +35,8 @@ export const Router = () => {
             <Route path="/users/all" element={<GetAllUsers />} />
             <Route path="/users/all/details" element={<GetUsersDetails />} />
             <Route path="/games/all" element={<GetAllGames />} />
-            <Route path="/gamesUser/all" element={<GetAllGamesUser />} />            
+            <Route path="/gamesUser/all" element={<GetAllGamesUser />} />          
+            <Route path="/gamesnonUser/all" element={<GetAllGamesDefault />} />         
             <Route path="/games/update" element={<UpdateGame />} />
             <Route path="/games/favourites" element={<GetMyFavourites />} />
             <Route path="/games/new" element={<NewGame />} />

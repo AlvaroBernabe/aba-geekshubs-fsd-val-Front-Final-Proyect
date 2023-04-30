@@ -301,6 +301,21 @@ body {
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
 }
 
+.ButtonDivNonUserFavouriteGame {
+  display: flex;
+  justify-content: center;
+
+}
+
+.buttonFavoriteFalse {
+  cursor: not-allowed !important;
+  border-radius: 25px;
+  background-color: rgb(174, 78, 9);
+  font-style: italic;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+}
+
+
 
 
 
