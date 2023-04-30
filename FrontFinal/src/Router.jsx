@@ -15,9 +15,9 @@ import { NewReview } from "./layout/users/NewReview";
 import { GetAllMyReviews } from "./layout/users/GetMyReviews";
 import { GetAllAdminReviews } from "./layout/Reviews/GetAllAdminReviews";
 import { NewGame } from "./layout/games/NewGame";
-import { ChangeRole } from "./layout/profile/ChangeRole";
 import { UpdateGame } from "./layout/games/UpdateGame";
 import { GetAllGamesUser } from "./layout/games/getAllGamesUser/GetAllGamesUser";
+import { ChangeRole } from "./layout/users/getAllUsers/ChangeRole";
 
 export const Router = () => {
     return (

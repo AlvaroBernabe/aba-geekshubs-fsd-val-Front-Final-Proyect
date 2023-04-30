@@ -4,10 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { detailData } from "../../detailSlice";
 import { Button, Card, ListGroup, Modal } from "react-bootstrap";
 import { DeleteUser } from "../getAllUsers/DeleteUser";
+import { ChangeRole } from "../getAllUsers/ChangeRole";
 
 export const GetUsersDetails = () => {
   const detailRedux = useSelector(detailData);
-  
+
   const [remove, setRemove] = useState(false);
   const handleCloseRemove = () => setRemove(false);
   const handleShowRemove = () => setRemove(true);
@@ -57,7 +58,22 @@ export const GetUsersDetails = () => {
                   Nope
                 </Button>
               </Modal.Footer>
-            </Modal> 
+            </Modal>
+
+            <Button variant="warning" onClick={handleShowRemove}>
+              Change Role
+            </Button>
+            <Modal show={remove} onHide={handleCloseRemove}>
+              <Modal.Header closeButton>
+                <Modal.Title>Make User an Admin</Modal.Title>
+              </Modal.Header>
+              <Modal.Body><ChangeRole></ChangeRole></Modal.Body>
+              <Modal.Footer>
+                <Button variant="primary" onClick={handleCloseRemove}>
+                  Nope
+                </Button>
+              </Modal.Footer>
+            </Modal>
           </div>
         </ListGroup>
       </Card>
