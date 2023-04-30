@@ -14,9 +14,6 @@ export const GetAllUsers = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [remove, setRemove] = useState(false);
-  const handleCloseRemove = () => setRemove(false);
-  const handleShowRemove = () => setRemove(true);
 
 
 
@@ -67,21 +64,6 @@ export const GetAllUsers = () => {
                               <span className="text1"> Email:</span>
                               <span className="text2"> {persona.email}</span>
                             </ListGroup.Item>
-                            <div className="ButtonModalGames">
-                              <Button variant="danger" onClick={handleShowRemove}>
-                                Delete User
-                              </Button>
-                              <Modal show={remove} onHide={handleCloseRemove}>
-                                <Modal.Header closeButton>
-                                  <Modal.Title>You Sure?</Modal.Title>
-                                </Modal.Header>
-                                <Modal.Body><DeleteUser></DeleteUser></Modal.Body>
-                                <Modal.Footer>
-                                  <Button variant="primary" onClick={handleCloseRemove}>
-                                    Nope
-                                  </Button>
-                                </Modal.Footer>
-                              </Modal> </div>
                           </ListGroup>
                         </Card>
                       </Row>
