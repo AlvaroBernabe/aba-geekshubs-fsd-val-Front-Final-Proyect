@@ -332,7 +332,9 @@ body {
   border: 1px solid #ccc;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
   background-color: #fff;
-  border-radius: 5px;
+  border-radius: 40px;
+  border-color: #0069d9;
+  border-style:groove;
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
   margin-bottom: 1rem;
   margin-top: 2rem;

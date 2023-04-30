@@ -9,12 +9,11 @@ import { addChoosenReview } from "../reviewSlice";
 export const GetAllAdminReviews = () => {
     const ReduxUserData = useSelector(userData);
     const [reviews, setReviews] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [searchUserId, setSearchUserId] = useState('');
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
-    const [searchName, setSearchName] = useState('');
-
-
 
     useEffect(() => {
         if (reviews.length === 0) {
@@ -30,7 +29,6 @@ export const GetAllAdminReviews = () => {
     }, [reviews]);
     console.log(reviews);
 
-
     const gameSelect = (review) => {
         console.log(review.Reviews.id)
         dispatch(addChoosenReview({ choosenReview: review }));
@@ -39,18 +37,20 @@ export const GetAllAdminReviews = () => {
         // }, 1000);
     };
 
-    const filterReviewGameName = reviews.filter((game) => {
-        return game.game_name.toLowerCase().includes(searchName.toLowerCase());
+    const findReviews = reviews.filter((game) => {
+        return game.game_name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+            game.Reviews.user_id.toString().toLowerCase().includes(searchUserId.toLowerCase());
     });
 
     return (
         <>
             <Container>
                 <div className="search-bar">
-                    <input type="text" placeholder="Search By Game Name" onChange={(e) => setSearchName(e.target.value)} />
+                    <input type="text" placeholder="Search by game name" onChange={(e) => setSearchTerm(e.target.value)} />
+                    <input type="text" placeholder="Search by user ID" onChange={(e) => setSearchUserId(e.target.value)} />
                 </div>
                 <div className="ejemplo2">
-                    {filterReviewGameName.map((game) => {
+                    {findReviews.map((game) => {
                         return (
                             <Col onClick={() => gameSelect(game)} key={game.Reviews.id}>
                                 <ListGroup className="CardAllReviews">
@@ -58,10 +58,10 @@ export const GetAllAdminReviews = () => {
                                         <li><span className="textColor">ID: </span>{game.Reviews.id}</li>
                                         <li><span className="textColor">Game Name: </span>{game.game_name}</li>
                                         <li><span className="textColor">Game ID: </span>{game.Reviews.game_id}</li>
+                                        <li><span className="textColor">User ID: </span>{game.Reviews.user_id}</li>
                                         <li><span className="textColor">Favorito: </span>{game.Reviews.favourite}</li>
                                         <li><span className="textColor">Review: </span>{game.Reviews.player_review}</li>
                                         <li><span className="textColor">Player Score: </span>{game.Reviews.player_score}</li>
-                                        <li><span className="textColor">Player Id: </span>{game.Reviews.user_id}</li>
                                     </ul>
                                 </ListGroup>
                             </Col>
