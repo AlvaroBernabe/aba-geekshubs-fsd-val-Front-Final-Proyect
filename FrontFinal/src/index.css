@@ -340,5 +340,9 @@ body {
 
 .ejemplo2 {
   background-color: rgb(182, 206, 214);
-
+}
+.textColor {
+  font-family: fantasy;
+  color: rgb(142, 91, 91);
+  margin-right: 0.5rem;
 }

@@ -3,16 +3,18 @@ import { getAllReviewsAdmin } from "../services/apiCalls";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { userData } from "../userSlice";
-import { Col, Container, Form, Row } from "react-bootstrap";
+import { Col, Container, Form, ListGroup, Row } from "react-bootstrap";
 import { addChoosenReview } from "../reviewSlice";
-import CardAllReviews from "../../components/CardAllReviews";
 
 export const GetAllAdminReviews = () => {
     const ReduxUserData = useSelector(userData);
     const [reviews, setReviews] = useState([]);
-    
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const [searchName, setSearchName] = useState('');
+
+
 
     useEffect(() => {
         if (reviews.length === 0) {
@@ -37,35 +39,36 @@ export const GetAllAdminReviews = () => {
         // }, 1000);
     };
 
+    const filterReviewGameName = reviews.filter((game) => {
+        return game.game_name.toLowerCase().includes(searchName.toLowerCase());
+    });
+
     return (
         <>
             <Container>
-                {/* <Row> */}
+                <div className="search-bar">
+                    <input type="text" placeholder="Search By Game Name" onChange={(e) => setSearchName(e.target.value)} />
+                </div>
                 <div className="ejemplo2">
-                    {reviews.map((game) => {
+                    {filterReviewGameName.map((game) => {
                         return (
-                            <Col  onClick={() => gameSelect(game)} key={game.Reviews.id}>
-                                <CardAllReviews  appo={game} />
+                            <Col onClick={() => gameSelect(game)} key={game.Reviews.id}>
+                                <ListGroup className="CardAllReviews">
+                                    <ul>
+                                        <li><span className="textColor">ID: </span>{game.Reviews.id}</li>
+                                        <li><span className="textColor">Game Name: </span>{game.game_name}</li>
+                                        <li><span className="textColor">Game ID: </span>{game.Reviews.game_id}</li>
+                                        <li><span className="textColor">Favorito: </span>{game.Reviews.favourite}</li>
+                                        <li><span className="textColor">Review: </span>{game.Reviews.player_review}</li>
+                                        <li><span className="textColor">Player Score: </span>{game.Reviews.player_score}</li>
+                                        <li><span className="textColor">Player Id: </span>{game.Reviews.user_id}</li>
+                                    </ul>
+                                </ListGroup>
                             </Col>
                         );
                     })}
-                {/* </Row> */}</div>
+                </div>
             </Container>
         </>
     );
 };
-
-    //Mapeo en forma de select del game.name
-
-// return (
-//     <>
-//       <Container fluid>
-//         <Form.Select  onClick={gameSelect}>
-//             {reviews.map(game =>
-//             <option key={game.Reviews.id} value={game.Reviews.id}>{game.game_name}</option>
-//             )};
-//         </Form.Select >
-//       </Container>
-//     </>
-//   );
-// };
