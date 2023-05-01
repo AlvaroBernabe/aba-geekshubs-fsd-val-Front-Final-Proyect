@@ -3,14 +3,24 @@ import { getAllReviewsAdmin } from "../services/apiCalls";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { userData } from "../userSlice";
-import { Col, Container, Form, ListGroup, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, ListGroup, Modal, Row } from "react-bootstrap";
 import { addChoosenReview } from "../reviewSlice";
+import { DeleteReview } from "./DeleteReview";
 
 export const GetAllAdminReviews = () => {
   const ReduxUserData = useSelector(userData);
   const [reviews, setReviews] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchUserId, setSearchUserId] = useState('');
+
+  const [remove, setRemove] = useState(false);
+  const handleCloseRemove = () => setRemove(false);
+  const handleShowRemove = () => setRemove(true);
+  //   const hola = "hola"
+
+  const [update, setUpdate] = useState(false);
+  const handleCloseUpdate = () => setUpdate(false);
+  const handleShowUpdate = () => setUpdate(true);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -63,6 +73,36 @@ export const GetAllAdminReviews = () => {
                     <li><span className="textColor">Review: </span>{game.Reviews.player_review}</li>
                     <li><span className="textColor">Player Score: </span>{game.Reviews.player_score}</li>
                   </ul>
+                <div className="ButtonModalReviews">
+                  <Button variant="danger" onClick={handleShowRemove}>
+                    Delete Review
+                  </Button>
+                  <Modal show={remove} onHide={handleCloseRemove}>
+                    <Modal.Header closeButton>
+                      <Modal.Title>You Sure?</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body><DeleteReview></DeleteReview></Modal.Body>
+                    <Modal.Footer>
+                      <Button variant="primary" onClick={handleCloseRemove}>
+                        Nope
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                  <Button variant="primary" onClick={handleShowUpdate}>
+                    Update Review
+                  </Button>
+                  <Modal show={update} onHide={handleCloseUpdate}>
+                    <Modal.Header closeButton>
+                      <Modal.Title>Update Review</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body></Modal.Body>
+                    <Modal.Footer>
+                      <Button variant="secondary" onClick={handleCloseUpdate}>
+                        Close
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                </div>
                 </ListGroup>
               </Col>
             );

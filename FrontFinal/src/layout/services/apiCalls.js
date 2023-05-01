@@ -181,3 +181,13 @@ export const userDelete = async (id, token) => {
 export const getAllGamesNonUser = async () => {
   return await axios.get(`${root}/games/alls/nonuser`);
 };
+
+
+export const ReviewsDeleteAdmin = async (id, token) => {
+  const config = {
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  };
+  return await axios.delete(`${root}/review/all/${id}`, config);
+};

@@ -41,7 +41,7 @@ export const GetAllGamesUser = () => {
     //   }, 500);
   }
   console.log(games, "esto es games");
-  const findReviews = games.filter((game) => {
+  const findGames = games.filter((game) => {
     return game.name.toLowerCase().includes(searchName.toLowerCase()) &&
       game.genre.toString().toLowerCase().includes(searchGenre.toLowerCase()) &&
       game.publisher.toString().toLowerCase().includes(searchPublisher.toLowerCase()) &&
@@ -58,7 +58,7 @@ export const GetAllGamesUser = () => {
           <input type="number" placeholder=" Minimum Score" onChange={(e) => setSearchScore(e.target.value)} />
         </div>
         <Row className="bodyGetFavourites">
-          {findReviews.map((game) => {
+          {findGames.map((game) => {
             console.log(game, "hola soy game");
             return (
               <Col onClick={() => selected(game)} key={game.id}>

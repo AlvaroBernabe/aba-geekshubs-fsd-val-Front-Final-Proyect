@@ -44,15 +44,15 @@ export const GetAllGamesAdmin = () => {
 
   const findGames = games.filter((game) => {
     return game.name.toLowerCase().includes(searchName.toLowerCase()) &&
-        game.genre.toString().toLowerCase().includes(searchGenre.toLowerCase())&&
-        game.publisher.toString().toLowerCase().includes(searchPublisher.toLowerCase())&&
-        game.score >= searchScore;
-});
+      game.genre.toString().toLowerCase().includes(searchGenre.toLowerCase()) &&
+      game.publisher.toString().toLowerCase().includes(searchPublisher.toLowerCase()) &&
+      game.score >= searchScore;
+  });
 
   return (
     <>
       <Container fluid>
-      <div className="search-bar">
+        <div className="search-bar">
           <input type="text" placeholder="Search By Name" onChange={(e) => setSearchName(e.target.value)} />
           <input type="text" placeholder="Search By Genre" onChange={(e) => setSearchGenre(e.target.value)} />
           <input type="text" placeholder="Search By Publisher" onChange={(e) => setSearchPublisher(e.target.value)} />

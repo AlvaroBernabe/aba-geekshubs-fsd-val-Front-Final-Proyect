@@ -55,6 +55,13 @@ body {
   justify-content: space-between;
   display: flex;
   margin-top: 1em;
+  margin-bottom: 0.6em;
+}
+
+.ButtonModalReviews {
+  justify-content: space-around;
+  display: flex;
+  margin-bottom: 0.6em;
 }
 
 .textoHeader {
@@ -389,4 +396,8 @@ body {
 
 img, .img-fluid {
   pointer-events: none !important;
+}
+
+.search-bar {
+  background-color: rgb(182, 206, 214);
 }
