@@ -85,9 +85,6 @@ function NavBar() {
                   </Nav.Link>
                 </>
               )}
-              <Nav.Link as={Link} to="/about">
-                About Me
-              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

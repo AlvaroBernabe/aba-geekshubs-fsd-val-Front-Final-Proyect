@@ -123,8 +123,8 @@ body {
 }
 
 .errorDiv {
-  color: rgb(231, 62, 0);
-  font-family: "Times New Roman", Times, serif;
+  color: rgb(197, 57, 6);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .AllRegisterForm,
@@ -140,10 +140,9 @@ body {
 
 .FormRegister,
 .FormLogin {
-  justify-content: center;
   width: 20em auto;
   /* padding: 2em; */
-  color: rgb(4, 4, 225);
+  color: rgb(97, 97, 110);
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   display: flex;
   flex-direction: column;
@@ -386,4 +385,8 @@ body {
 
 .FormNewGame {
   color: rgb(142, 91, 91);
+}
+
+img, .img-fluid {
+  pointer-events: none !important;
 }

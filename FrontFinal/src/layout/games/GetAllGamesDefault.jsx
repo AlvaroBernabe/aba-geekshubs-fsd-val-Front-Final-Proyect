@@ -27,7 +27,7 @@ export const GetAllGamesDefault = () => {
         .catch(error => console.log(error));
     }
   }, [games])
-  console.log(games);
+  // console.log(games);
 
   return (
     <>

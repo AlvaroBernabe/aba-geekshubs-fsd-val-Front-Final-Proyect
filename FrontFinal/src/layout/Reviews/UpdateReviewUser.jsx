@@ -11,7 +11,7 @@ export const UpdateReviewUser = () => {
   const ReduxUserData = useSelector(userData);
   const gameDataUpdate = useSelector(detailData);
 
-  console.log(gameDataUpdate.choosenObject.player_score, "esto es gameDataUpdate en teoria");
+  console.log(gameDataUpdate.choosenObject, "esto es gameDataUpdate en teoria");
 
   const navigate = useNavigate();
   const [welcome, setWelcome] = useState("");
@@ -19,10 +19,9 @@ export const UpdateReviewUser = () => {
 
   const [review, setReview] = useState({
     player_score: gameDataUpdate.choosenObject.player_score,
-    player_review: "",
-    favourite: "",
-    game_id: gameDataUpdate?.choosenObject?.id,
-    user_id: ReduxUserData?.credentials?.usuario?.id,
+    player_review: gameDataUpdate.choosenObject.player_review,
+    favourite: gameDataUpdate.choosenObject.favourite,
+    game_id: gameDataUpdate?.choosenObject?.game_id,
   });
 
   const [favouriteOptions, setFavouriteOptions] = useState([
@@ -37,9 +36,6 @@ export const UpdateReviewUser = () => {
       [e.target.name]: e.target.value,
     }));
   };
-
-  const checkError = (e) => {
-  }
 
 
   useEffect(() => {
@@ -60,11 +56,11 @@ export const UpdateReviewUser = () => {
     newReview(review, ReduxUserData?.credentials?.token)
       .then((resultado) => {
         // console.log(ReduxUserData.credentials.token);
-        // console.log(resultado);
+        console.log(resultado);
         setReview(resultado?.data)
         setWelcome(`Review Updated Correctly`);
         setTimeout(() => {
-          navigate('/games/favourites');
+          window.location.reload(true);
         }, 1500);
       })
       .catch(error => {
@@ -72,7 +68,7 @@ export const UpdateReviewUser = () => {
       });
   }
 
-  // console.log(review, "hola es review Update");
+  console.log(review, "hola es review Update");
 
   return (
     <>

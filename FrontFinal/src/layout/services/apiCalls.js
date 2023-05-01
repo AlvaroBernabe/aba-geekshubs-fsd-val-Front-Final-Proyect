@@ -169,15 +169,6 @@ export const getAllGamesWithoutReviewUser = async (token) => {
   return await axios.get(`${root}/games/all/user`, config);
 };
 
-export const reviewUpdate = async (body, token) => {
-  const config = {
-    headers: {
-      Authorization: "Bearer " + token,
-    },
-  };
-  return await axios.put(`${root}/review/new`, body, config);
-};
-
 export const userDelete = async (id, token) => {
   const config = {
     headers: {
@@ -188,5 +179,5 @@ export const userDelete = async (id, token) => {
 };
 
 export const getAllGamesNonUser = async () => {
-  return await axios.get(`${root}/games/all/nonuser`);
+  return await axios.get(`${root}/games/alls/nonuser`);
 };

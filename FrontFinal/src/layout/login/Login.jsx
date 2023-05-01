@@ -73,6 +73,7 @@ export const Login = () => {
             <Container>
               <Row className="AllLoginForm">
                 <Col lg={6}>
+                <Card className="cardRegister">
                   <Form className="FormLogin">
                     <Form.Group>
                       <Form.Label>Enter your email account:</Form.Label>
@@ -116,6 +117,7 @@ export const Login = () => {
                       </OverlayTrigger>
                     </div>
                   </Form>
+                  </Card>
                 </Col>
               </Row>
             </Container>

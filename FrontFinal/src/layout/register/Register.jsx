@@ -36,6 +36,8 @@ export function Register() {
 
   const [registerAct, setRegisterAct] = useState(false);
 
+  const [allValidated, setAllValidated] = useState(false);
+
   const inputHandler = (e) => {
     setCredenciales((prevState) => ({
       ...prevState,
@@ -79,6 +81,14 @@ export function Register() {
       ...prevState,
       [e.target.name + "Error"]: error,
     }));
+    setAllValidated(
+      credenciales.email !== "" &&
+      credenciales.password !== "" &&
+      credencialesError.emailError === "" &&
+      credencialesError.passwordError === "" &&
+      valiUser.emailVali &&
+      valiUser.passwordVali
+    );
   };
 
   const newUser = () => {
@@ -105,68 +115,65 @@ export function Register() {
           <Container>
             <Row className="AllRegisterForm">
               <Col lg={6}>
-                <Form className="FormRegister">
-                  <Form.Group>
-                    <Form.Label>Enter email address:</Form.Label>
-                    <InputText
-                      className={
-                        credencialesError.emailError === ""
-                          ? "inputBasicDesign"
-                          : "inputBasicDesign inputErrorDesign"
-                      }
-                      type={"email"}
-                      name={"email"}
-                      maxLength={70}
-                      placeholder={"Enter a valid email"}
-                      required={true}
-                      changeFunction={(e) => inputHandler(e)}
-                      blurFunction={(e) => checkError(e)}
-                    />
-                  </Form.Group>
-                  <div className="errorDiv">{credencialesError.emailError}</div>
-                  <Form.Group>
-                    <Form.Label>Enter password:</Form.Label>
-                    <InputText
-                      className={
-                        credencialesError.passwordError === ""
-                          ? "inputBasicDesign"
-                          : "inputBasicDesign inputErrorDesign"
-                      }
-                      type={"password"}
-                      name={"password"}
-                      maxLength={64}
-                      placeholder={"Enter a valid password"}
-                      required={true}
-                      changeFunction={(e) => inputHandler(e)}
-                      blurFunction={(e) => checkError(e)}
-                    />
-                  </Form.Group>
-                  <div className="errorDiv">
-                    {credencialesError.passwordError}
-                  </div>
-                  <br />
-                  <div className="ButtonRegister">
-                    <OverlayTrigger
-                      placement="right"
-                      delay={{ show: 100, hide: 300 }}
-                      overlay={renderTooltip}
-                    >
-                      <Button
+                <Card className="cardRegister">
+                  <Form className="FormRegister">
+                    <Form.Group>
+                      <Form.Label>Enter email address:</Form.Label>
+                      <InputText
                         className={
-                          registerAct ? "registerSendAct" : "registerSendDeac"
+                          credencialesError.emailError === ""
+                            ? "inputBasicDesign"
+                            : "inputBasicDesign inputErrorDesign"
                         }
-                        onClick={newUser}
-                      >
-                        Register
-                      </Button>
-                    </OverlayTrigger>
-                  </div>
-                  {/* <div className="AcceptCondition">
-                    <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                      <Form.Check type="checkbox" label="By Creating an account, you agree to our User Agreement and acknowledge reading our User Privacy Notice ." />
+                        type={"email"}
+                        name={"email"}
+                        maxLength={70}
+                        placeholder={"Enter a valid email"}
+                        required={true}
+                        changeFunction={(e) => inputHandler(e)}
+                        blurFunction={(e) => checkError(e)}
+                      />
                     </Form.Group>
-                  </div> */}
-                </Form>
+                    <div className="errorDiv">{credencialesError.emailError}</div>
+                    <Form.Group>
+                      <Form.Label>Enter password:</Form.Label>
+                      <InputText
+                        className={
+                          credencialesError.passwordError === ""
+                            ? "inputBasicDesign"
+                            : "inputBasicDesign inputErrorDesign"
+                        }
+                        type={"password"}
+                        name={"password"}
+                        maxLength={64}
+                        placeholder={"Enter a valid password"}
+                        required={true}
+                        changeFunction={(e) => inputHandler(e)}
+                        blurFunction={(e) => checkError(e)}
+                      />
+                    </Form.Group>
+                    <div className="errorDiv">
+                      {credencialesError.passwordError}
+                    </div>
+                    <br />
+                    <div className="ButtonRegister">
+                      <OverlayTrigger
+                        placement="right"
+                        delay={{ show: 100, hide: 300 }}
+                        overlay={renderTooltip}
+                      >
+                        <Button
+                          className={
+                            registerAct ? "registerSendAct" : "registerSendDeac"
+                          }
+                          onClick={newUser}
+                        >
+                          Register
+                        </Button>
+                      </OverlayTrigger>
+                    </div>
+                  </Form>
+                </Card>
               </Col>
             </Row>
           </Container>
