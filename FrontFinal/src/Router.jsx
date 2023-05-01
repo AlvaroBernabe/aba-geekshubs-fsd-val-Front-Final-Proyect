@@ -6,7 +6,6 @@ import { Login } from "./layout/login/Login";
 import { Profile } from "./layout/profile/Profile";
 import { GetAllUsers } from "./layout/users/getAllUsers/GetAllUsers";
 import { GetUsersDetails } from "./layout/users/getUsersDetails/GetUsersDetails";
-import { GetAllGames } from "./layout/games/getAllGames/GetAllGames";
 import { ChangeLogin } from "./layout/users/changeLogin/ChangeLogin";
 import { ProfileUpdate } from "./layout/profile/update/ProfileUpdate";
 import { GetMyFavourites } from "./layout/users/GetMyFavourites";
@@ -18,6 +17,7 @@ import { UpdateGame } from "./layout/games/UpdateGame";
 import { GetAllGamesUser } from "./layout/games/getAllGamesUser/GetAllGamesUser";
 import { ChangeRole } from "./layout/users/getAllUsers/ChangeRole";
 import { GetAllGamesDefault } from "./layout/games/GetAllGamesDefault";
+import { GetAllGamesAdmin } from "./layout/games/getAllGamesAdmin/GetAllGamesAdmin";
 
 export const Router = () => {
   return (
@@ -32,7 +32,7 @@ export const Router = () => {
         <Route path="/profile/update/rol" element={<ChangeRole />} />
         <Route path="/users/all" element={<GetAllUsers />} />
         <Route path="/users/all/details" element={<GetUsersDetails />} />
-        <Route path="/games/all" element={<GetAllGames />} />
+        <Route path="/games/all" element={<GetAllGamesAdmin />} />
         <Route path="/gamesUser/all" element={<GetAllGamesUser />} />
         <Route path="/gamesnonUser/all" element={<GetAllGamesDefault />} />
         <Route path="/games/update" element={<UpdateGame />} />

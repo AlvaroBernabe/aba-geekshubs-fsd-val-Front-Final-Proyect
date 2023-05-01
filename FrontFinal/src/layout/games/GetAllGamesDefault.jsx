@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Button, Card, Col, Container, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
 import { getAllGamesNonUser } from "../services/apiCalls";
-import CardGamesUser from "../../components/CardGamesUser";
 
 export const GetAllGamesDefault = () => {
 

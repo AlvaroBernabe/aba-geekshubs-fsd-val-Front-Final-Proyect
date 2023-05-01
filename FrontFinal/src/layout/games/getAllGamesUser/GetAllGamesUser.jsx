@@ -40,24 +40,24 @@ export const GetAllGamesUser = () => {
     //     navigate("/users/all/details");
     //   }, 500);
   }
-console.log(games, "esto es games");
+  console.log(games, "esto es games");
   const findReviews = games.filter((game) => {
     return game.name.toLowerCase().includes(searchName.toLowerCase()) &&
-        game.genre.toString().toLowerCase().includes(searchGenre.toLowerCase())&&
-        game.publisher.toString().toLowerCase().includes(searchPublisher.toLowerCase())&&
-        game.score >= searchScore;
-});
+      game.genre.toString().toLowerCase().includes(searchGenre.toLowerCase()) &&
+      game.publisher.toString().toLowerCase().includes(searchPublisher.toLowerCase()) &&
+      game.score >= searchScore;
+  });
 
   return (
     <>
       <Container fluid>
-      <div className="search-bar">
-                    <input type="text" placeholder="Search By Name" onChange={(e) => setSearchName(e.target.value)} />
-                    <input type="text" placeholder="Search By Genre" onChange={(e) => setSearchGenre(e.target.value)} />
-                    <input type="text" placeholder="Search By Publisher" onChange={(e) => setSearchPublisher(e.target.value)} />
-                    <input type="number" placeholder=" Minimum Score" onChange={(e) => setSearchScore(e.target.value)} />
-                </div>
-        <Row  className="bodyGetFavourites">
+        <div className="search-bar">
+          <input type="text" placeholder="Search By Name" onChange={(e) => setSearchName(e.target.value)} />
+          <input type="text" placeholder="Search By Genre" onChange={(e) => setSearchGenre(e.target.value)} />
+          <input type="text" placeholder="Search By Publisher" onChange={(e) => setSearchPublisher(e.target.value)} />
+          <input type="number" placeholder=" Minimum Score" onChange={(e) => setSearchScore(e.target.value)} />
+        </div>
+        <Row className="bodyGetFavourites">
           {findReviews.map((game) => {
             console.log(game, "hola soy game");
             return (
