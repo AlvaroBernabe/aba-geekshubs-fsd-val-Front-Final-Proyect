@@ -6,6 +6,7 @@ import { userData } from "../userSlice";
 import { Col, Container, Row } from "react-bootstrap";
 import CardMyReviews from "../../components/CardMyReviews";
 import { detailGame } from "../detailSlice";
+import { addChoosenReview } from "../reviewSlice";
 
 export const GetAllMyReviews = () => {
   const ReduxUserData = useSelector(userData);
@@ -30,13 +31,10 @@ export const GetAllMyReviews = () => {
   console.log(reviews, "hola soy reviews");
 
 
-  const gameSelect = (review) => {
-    console.log(review)
-    dispatch(detailGame({ choosenObject: review }));
-    // setTimeout(() => {
-    //   navigate("/appointment/update");
-    // }, 1000);
-  };
+  const selected = (ejemplo) => {
+    // console.log(ejemplo, "esto es game en teoria");
+    dispatch(addChoosenReview({ choosenReview: ejemplo }))
+}
 
   return (
     <>
@@ -45,7 +43,7 @@ export const GetAllMyReviews = () => {
           {reviews.map((gamesData) => {
             console.log(gamesData, "hola soy test");
             return (
-              <Col onClick={() => gameSelect(gamesData)} key={gamesData.id}>
+              <Col onClick={() => selected(gamesData)} key={gamesData.id}>
                 <CardMyReviews reviewUpdate={gamesData} />
               </Col>
             );

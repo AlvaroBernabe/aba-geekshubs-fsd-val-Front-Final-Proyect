@@ -363,6 +363,7 @@ body {
 
 .ejemplo2 {
   background-color: rgb(182, 206, 214);
+  justify-content: center;
 }
 .textColor {
   font-family: fantasy;

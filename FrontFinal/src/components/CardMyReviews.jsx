@@ -3,6 +3,7 @@ import { Button, Card, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { UpdateReviewUser } from "../layout/Reviews/UpdateReviewUser";
 import { detailData } from "../layout/detailSlice";
+import { DeleteReviewsUser } from "./DeleteReviewsUser";
 
 function CardMyReviews({ reviewUpdate }) {
 
@@ -20,10 +21,10 @@ function CardMyReviews({ reviewUpdate }) {
   const handleCloseUpdate = () => setUpdate(false);
   const handleShowUpdate = () => setUpdate(true);
 
-//   const selected = (ejemplo) => {
-//     // console.log(ejemplo, "esto es game en teoria");
-//     dispatch(addChoosenReview({ choosenReview: ejemplo }))
-// }
+  const [remove, setRemove] = useState(false);
+  const handleCloseRemove = () => setRemove(false);
+  const handleShowRemove = () => setRemove(true);
+
 
 
   return (
@@ -48,6 +49,21 @@ function CardMyReviews({ reviewUpdate }) {
             <Modal.Body><UpdateReviewUser /> </Modal.Body>
             <Modal.Footer>
               <Button variant="info" onClick={handleCloseUpdate}>
+                Nope
+              </Button>
+            </Modal.Footer>
+          </Modal>
+
+          <Button variant="danger" onClick={handleShowRemove}>
+            Delete Review
+          </Button>
+          <Modal show={remove} onHide={handleCloseRemove}>
+            <Modal.Header closeButton>
+              <Modal.Title>You Sure?</Modal.Title>
+            </Modal.Header>
+            <Modal.Body><DeleteReviewsUser></DeleteReviewsUser></Modal.Body>
+            <Modal.Footer>
+              <Button variant="primary" onClick={handleCloseRemove}>
                 Nope
               </Button>
             </Modal.Footer>

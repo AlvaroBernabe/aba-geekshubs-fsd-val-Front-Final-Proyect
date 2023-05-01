@@ -18,10 +18,6 @@ export const GetAllAdminReviews = () => {
   const handleShowRemove = () => setRemove(true);
   //   const hola = "hola"
 
-  const [update, setUpdate] = useState(false);
-  const handleCloseUpdate = () => setUpdate(false);
-  const handleShowUpdate = () => setUpdate(true);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -85,20 +81,6 @@ export const GetAllAdminReviews = () => {
                     <Modal.Footer>
                       <Button variant="primary" onClick={handleCloseRemove}>
                         Nope
-                      </Button>
-                    </Modal.Footer>
-                  </Modal>
-                  <Button variant="primary" onClick={handleShowUpdate}>
-                    Update Review
-                  </Button>
-                  <Modal show={update} onHide={handleCloseUpdate}>
-                    <Modal.Header closeButton>
-                      <Modal.Title>Update Review</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body></Modal.Body>
-                    <Modal.Footer>
-                      <Button variant="secondary" onClick={handleCloseUpdate}>
-                        Close
                       </Button>
                     </Modal.Footer>
                   </Modal>

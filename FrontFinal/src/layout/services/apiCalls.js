@@ -191,3 +191,15 @@ export const ReviewsDeleteAdmin = async (id, token) => {
   };
   return await axios.delete(`${root}/review/all/${id}`, config);
 };
+
+
+export const ReviewsDeleteUser = async (id, token) => {
+    console.log("esto vale id", id)
+  console.log("Esto vale tokensss:",token)
+  const config = {
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  };
+  return await axios.delete(`${root}/review/${id}`, config);
+};
