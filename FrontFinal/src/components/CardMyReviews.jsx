@@ -4,12 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { UpdateReviewUser } from "../layout/Reviews/UpdateReviewUser";
 import { detailData } from "../layout/detailSlice";
 import { DeleteReviewsUser } from "./DeleteReviewsUser";
+import { Trash3Fill } from "react-bootstrap-icons";
 
 function CardMyReviews({ reviewUpdate }) {
 
   const dispatch = useDispatch();
-//   const gameDataUpdate = useSelector(detailData);
-// console.log(gameDataUpdate, "esto es detail data");
+  //   const gameDataUpdate = useSelector(detailData);
+  // console.log(gameDataUpdate, "esto es detail data");
 
   console.log(reviewUpdate, "soy appo")
   const isFavorite = (favorite) => {
@@ -36,7 +37,12 @@ function CardMyReviews({ reviewUpdate }) {
           <li><span className="textColor"> Favorite: </span> {isFavorite(reviewUpdate?.favourite)}</li>
           <li><span className="textColor"> Your Review: </span>{reviewUpdate?.player_review}</li>
           <li><span className="textColor"> Your Score: </span>{reviewUpdate?.player_score}</li>
-          <li><span className="textColor"> Score: </span>{reviewUpdate?.game_score}</li>
+          <div className="buttonDeleteReviewModal">
+            <li><span className="textColor"> Score: </span>{reviewUpdate?.game_score}</li>
+            <Button className="trashBin" onClick={handleShowRemove}>
+              <Trash3Fill  />
+            </Button>
+          </div>
         </ul>
         <div className="ButtonDivFavouriteGame">
           <Button variant="info" onClick={handleShowUpdate}>
@@ -54,9 +60,6 @@ function CardMyReviews({ reviewUpdate }) {
             </Modal.Footer>
           </Modal>
 
-          <Button variant="danger" onClick={handleShowRemove}>
-            Delete Review
-          </Button>
           <Modal show={remove} onHide={handleCloseRemove}>
             <Modal.Header closeButton>
               <Modal.Title>You Sure?</Modal.Title>
