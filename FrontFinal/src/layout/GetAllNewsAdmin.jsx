@@ -4,6 +4,7 @@ import { Button, Card, Col, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { detailData, detailGame } from "./detailSlice";
 import { userData } from "./userSlice";
+import { useNavigate } from "react-router-dom";
 
 export const GetAllNewsAdmin = () => {
 
@@ -12,6 +13,8 @@ export const GetAllNewsAdmin = () => {
     const [news, setNews] = useState([]);
     const dispatch = useDispatch();
     const params = NewsData?.choosenObject?.news?.id
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         if (news.length === 0) {
@@ -40,12 +43,24 @@ export const GetAllNewsAdmin = () => {
 
     const newsDelete = async () => {
         newsDestroy(params, userRedux?.credentials?.token)
-          .then(() => {
-            // setWelcome(`Correctly Deleted ${NewsData?.choosenObject?.news?.title} Review`);
+            .then(() => {
+                // setWelcome(`Correctly Deleted ${NewsData?.choosenObject?.news?.title} Review`);
 
-          })
-          .catch((error) => console.log(error));
-      };
+            })
+            .catch((error) => console.log(error));
+    };
+
+    const newsUpdate = async () => {
+        try {
+            setTimeout(() => {
+                navigate("/news/all/update");
+            }, 1000);
+        } catch (error) {
+        }
+
+    }
+
+
 
     return (
         <>
@@ -73,18 +88,18 @@ export const GetAllNewsAdmin = () => {
                                         </li>
                                     </ul>
                                 </Card.Body>
-                                    <div className="ButtonModalProfile">
-                                <Button variant="info" >
-                                    Update News
-                                </Button>
-                                <Button variant="warning" onClick={newsDelete} >
-                                    Delete News
-                                </Button></div>
-                        </Card>
+                                <div className="ButtonModalProfile">
+                                    <Button variant="info" onClick={newsUpdate}>
+                                        Update News
+                                    </Button>
+                                    <Button variant="warning" onClick={newsDelete} >
+                                        Delete News
+                                    </Button></div>
+                            </Card>
                         </Col>
-            );
+                    );
                 })}
-        </Container >
+            </Container >
         </>
     );
 }

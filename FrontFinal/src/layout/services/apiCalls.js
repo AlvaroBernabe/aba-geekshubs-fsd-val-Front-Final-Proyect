@@ -232,3 +232,15 @@ const config = {
 };
 return await axios.delete(`${root}/news/all/destroy/${id}`, config);
 };
+
+export const newsUpdate = async (id, body, token) => {
+  console.log("esto vale id", id)
+  console.log("Esto vale tokensss:",token)
+  console.log("esto vale body", body)
+  const config = {
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  };
+  return await axios.put(`${root}/news/update/${id}`, body, config);
+};

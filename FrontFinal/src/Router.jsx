@@ -24,6 +24,7 @@ import { Header } from "./components/Header";
 import NavBar from "./components/NavBar";
 import { FooterBottom } from "./components/FooterBottom";
 import { GetAllNewsAdmin } from "./layout/GetAllNewsAdmin";
+import { UpdateNews } from "./layout/UpdateNews";
 
 export const Router = () => {
   return (
@@ -52,6 +53,7 @@ export const Router = () => {
         <Route path="/news/all" element={<GetAllNews />} />
         <Route path="/news/all/admin" element={<GetAllNewsAdmin />} />
         <Route path="/news/new" element={<NewNews />} />
+        <Route path="/news/all/update" element={<UpdateNews />} />
       </Routes>
       <FooterBottom />
     </>
