@@ -6,6 +6,7 @@ export const GetAllNews = () => {
 
   const [news, setNews] = useState([]);
   //   const navigate = useNavigate();
+  const [selectedNews, setSelectedNews] = useState(null);
 
   useEffect(() => {
     if (news.length === 0) {
@@ -21,37 +22,53 @@ export const GetAllNews = () => {
   }, [news])
   // console.log(games);
 
+  const handleNewsSelect = (e) => {
+    const selectedNewsId = parseInt(e.target.value);
+    const selectedNews = news.find((news) => news.news.id === selectedNewsId);
+    setSelectedNews(selectedNews);
+  };
+
   return (
     <>
-      <Container fluid>
-          {news.map((neww) => {
-            console.log(neww, "hola soy game");
-            return (
-              <Col className="ContainerAllGamesAdmin" onClick={() => selected(neww)} key={neww.id}>
-                <Card className="CardNews">
-                  <Card.Img  className="imgNews" variant="top" src={neww.news.news_image} />
-                  <Card.Body>
-                    <ul>
-                      <span className="gameTitle">{neww.name}</span>
-                      <li>
-                        <span className="textColor">Title: </span>
-                        {neww.news.title}
-                      </li>
-                      <li>
-                        <span className="textColor">Game Name: </span>
-                        {neww.game_name}
-                      </li>
-                      <li>
-                        <span className="textColor">Summary: </span>
-                        {neww.news.summary}
-                      </li>
-                    </ul>
-                  </Card.Body>
-                </Card>
-              </Col>
-            );
-          })}
-      </Container>
+      <select onChange={handleNewsSelect}>
+        <option value="">Select News</option>
+        {news.map((neww) => (
+          console.log(neww),
+          <option key={neww.news.id} value={neww.news.id}>
+            {neww.news.title}
+          </option>
+        ))}
+      </select>
+      {selectedNews ? (
+        <Col>
+          <Card className="CardNews">
+            <Card.Img
+              className="imgNews"
+              variant="top"
+              src={selectedNews.news.news_image}
+            />
+            <Card.Body>
+              <ul>
+                <span className="gameTitle">{selectedNews.name}</span>
+                <li>
+                  <span className="textColor">Title: </span>
+                  {selectedNews.news.title}
+                </li>
+                <li>
+                  <span className="textColor">Game Name: </span>
+                  {selectedNews.game_name}
+                </li>
+                <li>
+                  <span className="textColor">Summary: </span>
+                  {selectedNews.news.summary}
+                </li>
+              </ul>
+            </Card.Body>
+          </Card>
+        </Col>
+      ) : (
+        <div> Select News To See Details</div>
+      )}
     </>
   );
 }

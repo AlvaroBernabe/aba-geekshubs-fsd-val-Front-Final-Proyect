@@ -53,11 +53,17 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background-color: rgb(182, 206, 214);
+
+  
 }
 
 .imgNews {
-  height: 20rem;
-  width: 25rem;
+  height: 20rem auto;
+  width: 20rem auto;
+  max-width: 50rem;
 }
 
 .bodyGetFavourites,
