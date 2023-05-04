@@ -23,6 +23,7 @@ import { NewNews } from "./layout/NewNews";
 import { Header } from "./components/Header";
 import NavBar from "./components/NavBar";
 import { FooterBottom } from "./components/FooterBottom";
+import { GetAllNewsAdmin } from "./layout/GetAllNewsAdmin";
 
 export const Router = () => {
   return (
@@ -49,6 +50,7 @@ export const Router = () => {
         <Route path="/review/all" element={<GetAllMyReviews />} />
         <Route path="/reviews/all" element={<GetAllAdminReviews />} />
         <Route path="/news/all" element={<GetAllNews />} />
+        <Route path="/news/all/admin" element={<GetAllNewsAdmin />} />
         <Route path="/news/new" element={<NewNews />} />
       </Routes>
       <FooterBottom />

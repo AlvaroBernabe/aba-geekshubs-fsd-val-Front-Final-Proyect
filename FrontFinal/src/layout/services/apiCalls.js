@@ -220,3 +220,15 @@ export const createNewNews = async (body, token) => {
   };
   return await axios.post(`${root}/news/new`, body, config);
 };
+
+
+export const newsDestroy = async (id, token) => {
+  console.log("esto vale id", id)
+console.log("Esto vale tokensss:",token)
+const config = {
+  headers: {
+    Authorization: "Bearer " + token,
+  },
+};
+return await axios.delete(`${root}/news/all/destroy/${id}`, config);
+};

@@ -75,6 +75,8 @@ function NavBar() {
                       Get All Reviews</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/games/all">
                       Get All Games</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/news/all/admin">
+                      Get All News</NavDropdown.Item>
                   </NavDropdown>
                   <Nav.Link as={Link} to="/games/new">
                     New Game
