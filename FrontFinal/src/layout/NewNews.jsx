@@ -1,266 +1,128 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { userData } from "./userSlice";
+import { useSelector } from "react-redux";
+import { createNewNews } from "./services/apiCalls";
+import { InputText } from "../components/InputText/InputText";
+import { Button, Card, Col, Form, Row } from "react-bootstrap";
 
 export const NewNews = () => {
-    const ReduxUserData = useSelector(userData);
+    const userRedux = useSelector(userData);
 
     const navigate = useNavigate();
     const [welcome, setWelcome] = useState("");
-  
-  
-    const [credenciales, setCredenciales] = useState({
-      name: "",
-      description: "",
-      score: "",
-      genre: "",
-      publisher: "",
-      release_date: "",
-      game_image: ""
+
+
+    const [news, setNews] = useState({
+        news_image: "",
+        title: "",
+        summary: "",
+        game_id: "",
     });
-  
-    const [credencialesError, setCredencialesError] = useState({
-      nameError: "",
-      descriptionError: "",
-      scoreError: "",
-      genreError: "",
-      publisherError: "",
-      release_dateError: "",
-    });
-  
-    const [valiCredenciales, setValiCredenciales] = useState({
-      nameVali: false,
-      descriptionVali: false,
-      scoreVali: false,
-      genreVali: false,
-      publisherVali: false,
-      release_dateVali: false,
-    });
-  
-    const [registerAct, setRegisterAct] = useState(false);
-  
+
+
     const inputHandler = (e) => {
-      setCredenciales((prevState) => ({
-        ...prevState,
-        [e.target.name]: e.target.value,
-      }));
+        setNews((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value,
+        }));
     };
-  
-    useEffect(() => {
-      // console.log(credenciales);
-      // console.log(valiUser);
-      for (let error in credencialesError) {
-        if (credencialesError[error] !== "") {
-          setRegisterAct(false);
-          return;
-        }
-      }
-      for (let vacio in credenciales) {
-        if (credenciales[vacio] === "") {
-          setRegisterAct(false);
-          return;
-        }
-      }
-      for (let validated in valiCredenciales) {
-        if (valiCredenciales[validated] === false) {
-          setRegisterAct(false);
-          return;
-        }
-      }
-      setRegisterAct(true);
-    });
-  
-    const checkError = (e) => {
-      let error = "";
-      const checked = validate(e.target.name, e.target.value, e.target.required);
-      error = checked.message;
-      setValiCredenciales((prevState) => ({
-        ...prevState,
-        [e.target.name + "Vali"]: checked.validated,
-      }));
-      setCredencialesError((prevState) => ({
-        ...prevState,
-        [e.target.name + "Error"]: error,
-      }));
+
+
+    const checkError = (e) => { e };
+
+    const newNews = () => {
+        createNewNews(news, userRedux.credentials.token)
+            .then((resultado) => {
+                setNews(resultado.data);
+                setWelcome(`Correctly Created Review ${news.title}`);
+                setTimeout(() => {
+                    navigate("/news/all");
+                }, 2500);
+            })
+            .catch((error) => console.log(error));
     };
-  
-    const newJuego = () => {
-      postNewGame(credenciales, ReduxUserData.credentials.token)
-        .then((resultado) => {
-          setCredenciales(resultado.data);
-          setWelcome(`Correctly registered ${credenciales.name}`);
-          setTimeout(() => {
-            navigate("/games/all");
-          }, 2500);
-        })
-        .catch((error) => console.log(error));
-    };
-  
-    console.log(credenciales, "esto es credenciales");
-    console.log(valiCredenciales, "esto es Valicredenciales");
-  
+
+    console.log(news, "esto es news");
+
     return (
-      <>
-        {/* <div className="divPrincipal">
+        <>
+            {/* <div className="divPrincipal">
               <div className="loginDesign">
                   {welcome !== "" ? (
               <div>{welcome}</div>
           ) : ( */}
-        <div className="NewGameDiv">
-          <Card className="CardNewGame">
-            <Row >
-              <Col>
-                <Form className="FormNewGame">
-                  <Form.Group>
-                    <Form.Label>Game Name:</Form.Label>
-                    <InputText
-                      className={
-                        credencialesError.emailError === ""
-                          ? "inputBasicDesign"
-                          : "inputBasicDesign inputErrorDesign"
-                      }
-                      type={"text"}
-                      name={"name"}
-                      maxLength={50}
-                      placeholder={"Enter game name"}
-                      required={true}
-                      changeFunction={(e) => inputHandler(e)}
-                      blurFunction={(e) => checkError(e)}
-                    />
-                  </Form.Group>
-                  {/* <div className="errorDiv">{credencialesError.emailError}</div> */}
-                  <Form.Group>
-                    <Form.Label>Game Description:</Form.Label>
-                    <InputText
-                      className={
-                        credencialesError.passwordError === ""
-                          ? "inputBasicDesign"
-                          : "inputBasicDesign inputErrorDesign"
-                      }
-                      type={"text"}
-                      name={"description"}
-                      maxLength={400}
-                      placeholder={"Enter description"}
-                      required={true}
-                      changeFunction={(e) => inputHandler(e)}
-                      blurFunction={(e) => checkError(e)}
-                    />
-                  </Form.Group>
-                  {/* <div className="errorDiv">
-                                  {credencialesError.passwordError}
-                                  </div> */}
-                  <Form.Group>
-                    <Form.Label>Game Score:</Form.Label>
-                    <InputText
-                      className={
-                        credencialesError.emailError === ""
-                          ? "inputBasicDesign"
-                          : "inputBasicDesign inputErrorDesign"
-                      }
-                      type={"float"}
-                      name={"score"}
-                      maxLength={50}
-                      placeholder={"Enter score game"}
-                      required={true}
-                      changeFunction={(e) => inputHandler(e)}
-                      blurFunction={(e) => checkError(e)}
-                    />
-                  </Form.Group>
-                  {/* <div className="errorDiv">{credencialesError.emailError}</div> */}
-                  <Form.Group>
-                    <Form.Label>Game Genre:</Form.Label>
-                    <InputText
-                      className={
-                        credencialesError.passwordError === ""
-                          ? "inputBasicDesign"
-                          : "inputBasicDesign inputErrorDesign"
-                      }
-                      type={"text"}
-                      name={"genre"}
-                      maxLength={64}
-                      placeholder={"Enter genre"}
-                      required={true}
-                      changeFunction={(e) => inputHandler(e)}
-                      blurFunction={(e) => checkError(e)}
-                    />
-                  </Form.Group>
-                  {/* <div className="errorDiv">
-                                  {credencialesError.passwordError}
-                                  </div> */}
-                  <Form.Group>
-                    <Form.Label>Game Publisher:</Form.Label>
-                    <InputText
-                      className={
-                        credencialesError.emailError === ""
-                          ? "inputBasicDesign"
-                          : "inputBasicDesign inputErrorDesign"
-                      }
-                      type={"text"}
-                      name={"publisher"}
-                      maxLength={50}
-                      placeholder={"Enter game publisher"}
-                      required={true}
-                      changeFunction={(e) => inputHandler(e)}
-                      blurFunction={(e) => checkError(e)}
-                    />
-                  </Form.Group>
-                  {/* <div className="errorDiv">{credencialesError.emailError}</div> */}
-                  <Form.Group>
-                    <Form.Label>Game Release Date:</Form.Label>
-                    <InputText
-                      className={
-                        credencialesError.passwordError === ""
-                          ? "inputBasicDesign"
-                          : "inputBasicDesign inputErrorDesign"
-                      }
-                      type={"date"}
-                      name={"release_date"}
-                      maxLength={64}
-                      placeholder={"Enter release_date"}
-                      required={true}
-                      changeFunction={(e) => inputHandler(e)}
-                      blurFunction={(e) => checkError(e)}
-                    />
-                  </Form.Group>
-                  {/* <Form.Group controlId="formFileSm" className="mb-3"> */}
-                  {/* <div className="errorDiv">
-                                  {credencialesError.passwordError}
-                                </div> */}
-                  {/* <Form.Label>Enter Game Image</Form.Label>
-                                <Form.Control type="file" size="sm" />
-                              </Form.Group> */}
-                  <Form.Group>
-                    <Form.Label>Game Image URL:</Form.Label>
-                    <InputText
-                      className={
-                        credencialesError.passwordError === ""
-                          ? "inputBasicDesign"
-                          : "inputBasicDesign inputErrorDesign"
-                      }
-                      type={"text"}
-                      name={"game_image"}
-                      placeholder={"Enter image URL"}
-                      required={true}
-                      changeFunction={(e) => inputHandler(e)}
-                      blurFunction={(e) => checkError(e)}
-                    />
-                  </Form.Group>
-                  <br />
-                  <div className="buttonRegisterGame">
-                    <Button
-                      className=""
-                      variant="primary"
-                      onClick={newJuego}
-                    >
-                      New Game
-                    </Button></div>
-                </Form>
-              </Col>
-            </Row>
-          </Card>
-        </div>
-        {/* )} */}
-        {/* </div> */}
-        {/* </div> */}
-      </>
+            <div className="NewGameDiv">
+                <Card className="CardNewGame">
+                    <Row >
+                        <Col>
+                            <Form className="FormNewGame">
+                                <Form.Group>
+                                    <Form.Label>News Image:</Form.Label>
+                                    <InputText
+                                        className="inputBasicDesign"
+                                        type={"text"}
+                                        name={"news_image"}
+                                        maxLength={50}
+                                        placeholder={"Enter News Image"}
+                                        required={true}
+                                        changeFunction={(e) => inputHandler(e)}
+                                        blurFunction={(e) => checkError(e)}
+                                    />
+                                </Form.Group>
+                                <Form.Group>
+                                    <Form.Label>News Title:</Form.Label>
+                                    <InputText
+                                        className="inputBasicDesign"
+                                        type={"text"}
+                                        name={"title"}
+                                        maxLength={50}
+                                        placeholder={"Enter title"}
+                                        required={true}
+                                        changeFunction={(e) => inputHandler(e)}
+                                        blurFunction={(e) => checkError(e)}
+                                    />
+                                </Form.Group>
+                                <Form.Group>
+                                    <Form.Label>News Summary:</Form.Label>
+                                    <InputText
+                                        className="inputBasicDesign"
+                                        type={"float"}
+                                        name={"summary"}
+                                        maxLength={500}
+                                        placeholder={"Enter summary"}
+                                        required={true}
+                                        changeFunction={(e) => inputHandler(e)}
+                                        blurFunction={(e) => checkError(e)}
+                                    />
+                                </Form.Group>
+                                <Form.Group>
+                                    <Form.Label>Game Id:</Form.Label>
+                                    <InputText
+                                        className="inputBasicDesign"
+                                        type={"integer"}
+                                        name={"game_id"}
+                                        maxLength={999}
+                                        placeholder={"Enter genre"}
+                                        required={true}
+                                        changeFunction={(e) => inputHandler(e)}
+                                        blurFunction={(e) => checkError(e)}
+                                    />
+                                </Form.Group>
+                                <br />
+                                <div className="buttonRegisterGame">
+                                    <Button
+                                        className=""
+                                        variant="primary"
+                                        onClick={newNews}
+                                    >
+                                        New Game
+                                    </Button></div>
+                            </Form>
+                        </Col>
+                    </Row>
+                </Card>
+            </div>
+        </>
     );
-  };
-  
+};

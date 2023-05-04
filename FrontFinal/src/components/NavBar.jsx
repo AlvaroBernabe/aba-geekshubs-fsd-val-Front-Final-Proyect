@@ -79,6 +79,9 @@ function NavBar() {
                   <Nav.Link as={Link} to="/games/new">
                     New Game
                   </Nav.Link>
+                  <Nav.Link as={Link} to="/news/new">
+                    New News
+                  </Nav.Link>
                 </>
               ) : (
                 <>

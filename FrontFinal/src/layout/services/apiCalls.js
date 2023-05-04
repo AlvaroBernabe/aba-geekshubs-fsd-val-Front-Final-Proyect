@@ -207,3 +207,16 @@ export const ReviewsDeleteUser = async (id, token) => {
 export const getAllNewsNonUser = async () => {
   return await axios.get(`${root}/news/all/`);
 };
+
+
+export const createNewNews = async (body, token) => {
+  // console.log("----------------------------------------------",)
+  // console.log("esto vale body", body)
+  // console.log("Esto vale tokensss:",token)
+  let config = {
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  };
+  return await axios.post(`${root}/news/new`, body, config);
+};
