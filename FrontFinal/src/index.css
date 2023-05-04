@@ -1,18 +1,22 @@
 body {
   background-color: rgb(182, 206, 214);
   font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
+  height: auto;
+  min-height: 100vh;
 }
 
 .navbarstyle {
   font-size: large;
-  display: flex;
-  justify-content: center;
-  background-color: rgb(59, 59, 87);
+  color: rgb(102, 88, 151);
+  background-color: #848c94;
   font-family: "Gill Sans", "Gill Sans MT", "Trebuchet MS", sans-serif;
-  /* border-bottom: 5px solid #839294; */
+  border-bottom: 5px solid (145, 165, 172);
   top: 0;
   position: sticky;
   z-index: 1;
+}
+.test123 {
+  color: rgb(147, 38, 131);
 }
 
 .footerBottom {
@@ -43,6 +47,17 @@ body {
   border-color: #0069d9;
   border-style: groove;
   font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+}
+
+.CardNews{  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.imgNews {
+  height: 20rem;
+  width: 25rem;
 }
 
 .bodyGetFavourites,
@@ -143,6 +158,12 @@ body {
   align-items: center;
   margin-top: 3rem;
   margin-bottom: 3rem;
+  height: auto;
+  min-height: 49vh;
+}
+
+h5 {
+  color: rgb(150, 123, 246);
 }
 
 .FormRegister,
@@ -283,7 +304,7 @@ body {
 }
 
 .trashBin{
-  background-color: red;
+  background-color: rgb(110, 103, 103);
   width: 3em;
   height: 3em;
   display: flex;
@@ -292,7 +313,7 @@ body {
   border-radius: 25px;
 }
 
-.textColor2 {
+.HeartFill {
 
 }
 

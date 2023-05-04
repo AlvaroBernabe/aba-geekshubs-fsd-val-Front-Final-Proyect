@@ -85,6 +85,9 @@ function NavBar() {
                   </Nav.Link>
                 </>
               )}
+              <Nav.Link as={Link} to="/news/all">
+                News
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

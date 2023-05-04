@@ -203,3 +203,7 @@ export const ReviewsDeleteUser = async (id, token) => {
   };
   return await axios.delete(`${root}/review/${id}`, config);
 };
+
+export const getAllNewsNonUser = async () => {
+  return await axios.get(`${root}/news/all/`);
+};

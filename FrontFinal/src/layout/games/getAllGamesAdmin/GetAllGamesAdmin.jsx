@@ -51,14 +51,17 @@ export const GetAllGamesAdmin = () => {
 
   return (
     <>
+        
       <Container fluid>
         <div className="search-bar">
           <input type="text" placeholder="Search By Name" onChange={(e) => setSearchName(e.target.value)} />
           <input type="text" placeholder="Search By Genre" onChange={(e) => setSearchGenre(e.target.value)} />
           <input type="text" placeholder="Search By Publisher" onChange={(e) => setSearchPublisher(e.target.value)} />
           <input type="number" placeholder=" Minimum Score" onChange={(e) => setSearchScore(e.target.value)} />
+
         </div>
         <Row>
+        <link rel="stylesheet" href="/login" />
           {findGames.map((game) => {
             console.log(game, "hola soy game");
             return (

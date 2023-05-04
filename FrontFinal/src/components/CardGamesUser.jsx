@@ -3,24 +3,16 @@ import { Button, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { isFavouriteReview } from "../layout/reviewSlice";
 import { useDispatch } from "react-redux";
+import { Heart } from "react-bootstrap-icons";
 
 function CardGamesUser({ games }) {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  function getStarScore(score) {
-    // console.log(score)
-    const maxScore = 10.00;
-    const fullStars = "⭐️".repeat(Math.floor(score));
-    const halfStar = score % 1 >= 0.5 ? "✮" : "";
-    const emptyStars = "✰".repeat(Math.floor(maxScore - score));
-    return `${fullStars}${halfStar}${emptyStars}`;
-  }
 
-  const scoreStar = getStarScore(games.score);
 
-  // console.log("esto es score", scoreStar);
+
 
 
 
@@ -44,7 +36,7 @@ function CardGamesUser({ games }) {
           </li>
           <li>
             <span className="textColor">Score: </span>
-            {games.score} {scoreStar}
+            {games.score}
           </li>
           <li>
             <span className="textColor">Description: </span>
@@ -61,7 +53,7 @@ function CardGamesUser({ games }) {
         </ul>
         <div className="ButtonDivFavouriteGame">
           <Button className="buttonFavorite" onClick={() => handleFavouriteYesClick(games)} key={games.id}>
-            Favourite?
+            Favourite? <Heart />
           </Button>
         </div>
       </Card.Body>

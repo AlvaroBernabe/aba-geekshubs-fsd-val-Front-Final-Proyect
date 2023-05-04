@@ -18,6 +18,7 @@ import { GetAllGamesUser } from "./layout/games/getAllGamesUser/GetAllGamesUser"
 import { ChangeRole } from "./layout/users/getAllUsers/ChangeRole";
 import { GetAllGamesDefault } from "./layout/games/GetAllGamesDefault";
 import { GetAllGamesAdmin } from "./layout/games/getAllGamesAdmin/GetAllGamesAdmin";
+import { GetAllNews } from "./layout/GetAllNews";
 
 export const Router = () => {
   return (
@@ -41,6 +42,7 @@ export const Router = () => {
         <Route path="/review/new" element={<NewReview />} />
         <Route path="/review/all" element={<GetAllMyReviews />} />
         <Route path="/reviews/all" element={<GetAllAdminReviews />} />
+        <Route path="/news/all" element={<GetAllNews />} />
       </Routes>
     </>
   )
