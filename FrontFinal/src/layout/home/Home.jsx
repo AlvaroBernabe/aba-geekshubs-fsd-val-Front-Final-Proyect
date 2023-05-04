@@ -1,5 +1,4 @@
 import React from "react";
-import "./Home.css";
 import img1 from "../../assets/images/tarzanreview.png";
 import img2 from "../../assets/images/commandos.png";
 import img3 from "../../assets/images/contra.png";
@@ -11,14 +10,13 @@ import img8 from "../../assets/images/ultima.jpg";
 
 export const Home = () => {
 
-  
+
   return (
     <>
       <div className="container p-4">
         <h4>
           <b>Wellcome to my First Serious Proyect in life called GAMES&OLD</b>
         </h4>
-        {/* <p style={{ backgroundColor: "lightblue" }}> */}
         <p>
           GAMES&OLD, is an abandonware games information archive for Amiga, Atari
           8-bit, Atari ST, Commodore C64, PC (DOS / Windows), Macintosh, SEGA

@@ -19,10 +19,16 @@ import { ChangeRole } from "./layout/users/getAllUsers/ChangeRole";
 import { GetAllGamesDefault } from "./layout/games/GetAllGamesDefault";
 import { GetAllGamesAdmin } from "./layout/games/getAllGamesAdmin/GetAllGamesAdmin";
 import { GetAllNews } from "./layout/GetAllNews";
+import { NewNews } from "./layout/NewNews";
+import { Header } from "./components/Header";
+import NavBar from "./components/NavBar";
+import { FooterBottom } from "./components/FooterBottom";
 
 export const Router = () => {
   return (
     <>
+      <Header />
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
@@ -43,7 +49,9 @@ export const Router = () => {
         <Route path="/review/all" element={<GetAllMyReviews />} />
         <Route path="/reviews/all" element={<GetAllAdminReviews />} />
         <Route path="/news/all" element={<GetAllNews />} />
+        <Route path="/news/new" element={<NewNews />} />
       </Routes>
+      <FooterBottom />
     </>
   )
 }

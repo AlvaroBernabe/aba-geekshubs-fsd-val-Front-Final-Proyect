@@ -5,6 +5,8 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userData, userout } from "../layout/userSlice";
+import { BoxArrowLeft, Trash3Fill } from "react-bootstrap-icons";
+
 
 function NavBar() {
   const credencialesRedux = useSelector(userData);
@@ -40,7 +42,7 @@ function NavBar() {
               ) : credencialesRedux?.credentials?.usuario?.role_id === 2 ? (
                 <>
                   <Nav.Link as={Link} to="/" onClick={() => logout()}>
-                    Eres user Logout
+                    <BoxArrowLeft />
                   </Nav.Link>
                   <Nav.Link as={Link} to="/profile">
                     Get My Profile
