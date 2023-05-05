@@ -9,7 +9,7 @@ import { BoxArrowLeft, Trash3Fill } from "react-bootstrap-icons";
 
 
 function NavBar() {
-  const credencialesRedux = useSelector(userData);
+  const userRedux = useSelector(userData);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const logout = () => {
@@ -27,7 +27,7 @@ function NavBar() {
               <Nav.Link as={Link} to="/">
                 Home
               </Nav.Link>
-              {!credencialesRedux.credentials?.usuario?.role_id ? (
+              {!userRedux.credentials?.usuario?.role_id ? (
                 <>
                   <Nav.Link as={Link} to="/register">
                     Register
@@ -39,17 +39,14 @@ function NavBar() {
                     All Games
                   </Nav.Link>
                 </>
-              ) : credencialesRedux?.credentials?.usuario?.role_id === 2 ? (
+              ) : userRedux?.credentials?.usuario?.role_id === 2 ? (
                 <>
-                  <Nav.Link as={Link} to="/" onClick={() => logout()}>
-                    <BoxArrowLeft />
-                  </Nav.Link>
                   <Nav.Link as={Link} to="/profile">
                     Get My Profile
                   </Nav.Link>
                   <NavDropdown title="Get All" id="basic-nav-dropdown">
                     <NavDropdown.Item as={Link} to="/review/all">
-                      Get All Reviews</NavDropdown.Item>
+                      Get Your Reviews</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to="/gamesUser/all">
                       Get All Games</NavDropdown.Item>
                   </NavDropdown>
@@ -60,11 +57,8 @@ function NavBar() {
                     New Review
                   </Nav.Link>
                 </>
-              ) : credencialesRedux?.credentials?.usuario?.role_id === 1 ? (
+              ) : userRedux?.credentials?.usuario?.role_id === 1 ? (
                 <>
-                  <Nav.Link as={Link} to="/" onClick={() => logout()}>
-                    Eres Admin Logout
-                  </Nav.Link>
                   <Nav.Link as={Link} to="/profile">
                     Get My Profile
                   </Nav.Link>
@@ -78,12 +72,12 @@ function NavBar() {
                     <NavDropdown.Item as={Link} to="/news/all/admin">
                       Get All News</NavDropdown.Item>
                   </NavDropdown>
-                  <Nav.Link as={Link} to="/games/new">
-                    New Game
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/news/new">
-                    New News
-                  </Nav.Link>
+                  <NavDropdown title="New" id="basic-nav-dropdown">
+                    <NavDropdown.Item as={Link} to="/games/new">
+                      New Game</NavDropdown.Item>
+                    <NavDropdown.Item as={Link} to="/news/new">
+                      New News</NavDropdown.Item>
+                  </NavDropdown>
                 </>
               ) : (
                 <>
@@ -95,6 +89,11 @@ function NavBar() {
               <Nav.Link as={Link} to="/news/all">
                 News
               </Nav.Link>
+              {userRedux?.credentials && userRedux?.credentials?.usuario?.role_id > 0 && (
+                <Nav.Link as={Link} to="/" onClick={() => logout()}>
+                  <BoxArrowLeft />
+                </Nav.Link>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

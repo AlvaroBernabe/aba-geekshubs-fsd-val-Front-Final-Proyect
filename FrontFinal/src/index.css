@@ -141,6 +141,9 @@ h3 {
   font-size: 24px;
   text-align: center;
   margin-top: 30px;
+  font-family: 'Courier New', Courier, monospace;
+  font-style: oblique;
+  color: rgb(18, 50, 88);
 }
 
 h4 {

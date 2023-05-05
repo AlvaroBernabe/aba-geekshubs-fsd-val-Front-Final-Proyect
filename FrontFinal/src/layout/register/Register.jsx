@@ -127,6 +127,7 @@ export function Register() {
                         }
                         type={"email"}
                         name={"email"}
+                        autoComplete="on"
                         maxLength={70}
                         placeholder={"Enter a valid email"}
                         required={true}
@@ -145,6 +146,7 @@ export function Register() {
                         }
                         type={"password"}
                         name={"password"}
+                        autoComplete="on"
                         maxLength={64}
                         placeholder={"Enter a valid password"}
                         required={true}

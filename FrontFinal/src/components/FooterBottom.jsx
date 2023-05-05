@@ -17,17 +17,17 @@ export const FooterBottom = () => {
             <ul className="list-unstyled mb-0">
               <li>
                 <a href="#" className="text-dark">
-                  FAQs
+                  <b>FAQs</b>
                 </a>
               </li>
               <li>
                 <a href="#" className="text-dark">
-                  Privacy & Data Policy
+                <b>Privacy & Data Policy</b>
                 </a>
               </li>
               <li>
                 <a href="#" className="text-dark">
-                  Vulnerability Disclosure Policy
+                <b>Vulnerability Disclosure Policy</b>
                 </a>
               </li>
             </ul>

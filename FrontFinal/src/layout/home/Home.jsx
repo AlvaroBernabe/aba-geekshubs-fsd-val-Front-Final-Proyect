@@ -39,7 +39,7 @@ export const Home = () => {
           </b>
         </p>
         <div className="row">
-          <h3>LATEST REVIEWS</h3>
+          <h3><b>LATEST REVIEWS</b></h3>
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
             <ul className="list-unstyled mb-0">
               <li><h6><em>Tarzan</em> </h6></li>
@@ -66,7 +66,7 @@ export const Home = () => {
           </div>
         </div>
         <p>You can find more in the News Section</p>
-        <h3>LATEST GAMES ADDED</h3>
+        <h3><b>LATEST GAMES ADDED</b></h3>
         <div className="row">
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
             <ul className="list-unstyled mb-0">
