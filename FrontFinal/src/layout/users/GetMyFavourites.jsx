@@ -1,26 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { userData } from "../userSlice";
-// import { reviewData } from "../reviewSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { getMyFavourites } from "../services/apiCalls";
 import { Card, Col, Container, Row } from "react-bootstrap";
-import CardMyReviews from "../../components/CardMyReviews";
 
 export const GetMyFavourites = () => {
 
-  const ReduxUserData = useSelector(userData);
-  // const ReduxReviewData = useSelector(reviewData);
+  const userRedux = useSelector(userData);
   const [favourites, setFavourites] = useState([]);
-
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (favourites.length === 0) {
-      getMyFavourites(ReduxUserData?.credentials?.token)
+      getMyFavourites(userRedux?.credentials?.token)
         .then((result) => {
-          console.log(result, "esto es result");
           setFavourites(result.data.data);
         })
         .catch((error) => {
@@ -28,16 +20,6 @@ export const GetMyFavourites = () => {
         });
     }
   }, [favourites]);
-  console.log(favourites, "esto son favourites");
-
-
-  const gameSelect = (favourite) => {
-    console.log(favourite)
-    // dispatch(addChoosenAppointment({ choosenAppointment: favourite }));
-    // setTimeout(() => {
-    //   navigate("/appointment/update");
-    // }, 1000);
-  };
 
   return (
     <>
@@ -46,7 +28,7 @@ export const GetMyFavourites = () => {
           {favourites.map((game) => {
             return (
               <Col onClick={() => gameSelect(game)} key={game.id}>
-                <Card className="CardGamesReview" >
+                <Card className="CardGames" >
                   <Card.Body>
                     <Card.Img variant="top" src={game?.game_image} />
                     <ul>
