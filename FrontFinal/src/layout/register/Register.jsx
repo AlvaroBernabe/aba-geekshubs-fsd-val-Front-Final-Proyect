@@ -19,17 +19,17 @@ export function Register() {
     </Tooltip>
   )
 
-  const [credenciales, setCredenciales] = useState({
+  const [credentials, setCredentials] = useState({
     email: "",
     password: "",
   });
 
-  const [credencialesError, setCredencialesError] = useState({
+  const [credentialsError, setCredentialsError] = useState({
     emailError: "",
     passwordError: "",
   });
 
-  const [valiUser, setValiUser] = useState({
+  const [valiCredentials, setValiCredentials] = useState({
     emailVali: false,
     passwordVali: false,
   });
@@ -39,29 +39,27 @@ export function Register() {
   const [allValidated, setAllValidated] = useState(false);
 
   const inputHandler = (e) => {
-    setCredenciales((prevState) => ({
+    setCredentials((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
 
   useEffect(() => {
-    console.log(credenciales);
-    console.log(valiUser);
-    for (let error in credencialesError) {
-      if (credencialesError[error] !== "") {
+    for (let error in credentialsError) {
+      if (credentialsError[error] !== "") {
         setRegisterAct(false);
         return;
       }
     }
-    for (let vacio in credenciales) {
-      if (credenciales[vacio] === "") {
+    for (let vacio in credentials) {
+      if (credentials[vacio] === "") {
         setRegisterAct(false);
         return;
       }
     }
-    for (let validated in valiUser) {
-      if (valiUser[validated] === false) {
+    for (let validated in valiCredentials) {
+      if (valiCredentials[validated] === false) {
         setRegisterAct(false);
         return;
       }
@@ -73,28 +71,28 @@ export function Register() {
     let error = "";
     const checked = validate(e.target.name, e.target.value, e.target.required);
     error = checked.message;
-    setValiUser((prevState) => ({
+    setValiCredentials((prevState) => ({
       ...prevState,
       [e.target.name + "Vali"]: checked.validated,
     }));
-    setCredencialesError((prevState) => ({
+    setCredentialsError((prevState) => ({
       ...prevState,
       [e.target.name + "Error"]: error,
     }));
     setAllValidated(
-      credenciales.email !== "" &&
-      credenciales.password !== "" &&
-      credencialesError.emailError === "" &&
-      credencialesError.passwordError === "" &&
-      valiUser.emailVali &&
-      valiUser.passwordVali
+      credentials.email !== "" &&
+      credentials.password !== "" &&
+      credentialsError.emailError === "" &&
+      credentialsError.passwordError === "" &&
+      valiCredentials.emailVali &&
+      valiCredentials.passwordVali
     );
   };
 
   const newUser = () => {
-    registerUser(credenciales)
+    registerUser(credentials)
       .then(() => {
-        setWelcome(`Correctly registered ${credenciales.email}`);
+        setWelcome(`Correctly registered ${credentials.email}`);
         setTimeout(() => {
           navigate("/login");
         }, 2500);
@@ -118,10 +116,10 @@ export function Register() {
                 <Card className="cardRegister">
                   <Form className="FormRegister">
                     <Form.Group>
-                      <Form.Label>Enter email address:</Form.Label>
+                      <Form.Label><b>Enter email address:</b></Form.Label>
                       <InputText
                         className={
-                          credencialesError.emailError === ""
+                          credentialsError.emailError === ""
                             ? "inputBasicDesign"
                             : "inputBasicDesign inputErrorDesign"
                         }
@@ -135,12 +133,12 @@ export function Register() {
                         blurFunction={(e) => checkError(e)}
                       />
                     </Form.Group>
-                    <div className="errorDiv">{credencialesError.emailError}</div>
+                    <div className="errorDiv">{credentialsError.emailError}</div>
                     <Form.Group>
-                      <Form.Label>Enter password:</Form.Label>
+                      <Form.Label><b>Enter password:</b></Form.Label>
                       <InputText
                         className={
-                          credencialesError.passwordError === ""
+                          credentialsError.passwordError === ""
                             ? "inputBasicDesign"
                             : "inputBasicDesign inputErrorDesign"
                         }
@@ -155,7 +153,7 @@ export function Register() {
                       />
                     </Form.Group>
                     <div className="errorDiv">
-                      {credencialesError.passwordError}
+                      {credentialsError.passwordError}
                     </div>
                     <br />
                     <div className="ButtonRegister">
