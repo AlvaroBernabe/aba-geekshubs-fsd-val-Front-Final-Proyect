@@ -23,31 +23,31 @@ function CardGames({ games }) {
       <Card.Body>
         <ul>
           <li>
-            <span className="textColor">Game ID: </span>
+            <span className="textColor"><b>Game ID: </b></span>
             {games.id}
           </li>
           <li>
-            <span className="textColor">Name: </span>
+            <span className="textColor"><b>Name: </b></span>
             {games.name}
           </li>
           <li>
-            <span className="textColor">Genre: </span>
+            <span className="textColor"><b>Genre: </b></span>
             {games.genre}
           </li>
           <li>
-            <span className="textColor">Score: </span>
+            <span className="textColor"><b>Score: </b></span>
             {games.score}
           </li>
           <li>
-            <span className="textColor">Description: </span>
+            <span className="textColor"><b>Description: </b></span>
             {games.description}
           </li>
           <li>
-            <span className="textColor">Publisher: </span>
+            <span className="textColor"><b>Publisher: </b></span>
             {games.publisher}
           </li>
           <li>
-            <span className="textColor">Release Date: </span>
+            <span className="textColor"><b>Release Date: </b></span>
             {games.release_date}
           </li>
         </ul>

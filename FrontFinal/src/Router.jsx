@@ -29,8 +29,8 @@ import { UpdateNews } from "./layout/UpdateNews";
 export const Router = () => {
   return (
     <>
-      <Header />
       <NavBar />
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />

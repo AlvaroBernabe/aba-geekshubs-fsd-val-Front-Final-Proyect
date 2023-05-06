@@ -24,7 +24,7 @@ export const GetAllAdminReviews = () => {
   useEffect(() => {
     if (reviews.length === 0) {
       getAllReviewsAdmin(ReduxUserData?.credentials?.token)
-        .then((result) => {
+        .then(( ) => {
           console.log(result);
           setReviews(result.data.data);
         })

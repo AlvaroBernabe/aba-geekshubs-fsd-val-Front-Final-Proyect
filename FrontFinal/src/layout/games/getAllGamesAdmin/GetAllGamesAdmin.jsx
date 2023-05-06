@@ -20,7 +20,7 @@ export const GetAllGamesAdmin = () => {
   const [searchScore, setSearchScore] = useState('');
 
   useEffect(() => {
-    // console.log("console log de users", users)      // Este saca los el array con los usuarios
+    // console.log("console log de users", users)    
     if (games.length === 0) {
       getAllGames(ReduxCredentials.credentials?.token)
         .then(

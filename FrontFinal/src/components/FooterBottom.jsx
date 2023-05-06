@@ -16,17 +16,17 @@ export const FooterBottom = () => {
             <h5 className="text-uppercase">QUICK LINKS</h5>
             <ul className="list-unstyled mb-0">
               <li>
-                <a href="#" className="text-dark">
+                <a href="#" className="text-light">
                   <b>FAQs</b>
                 </a>
               </li>
               <li>
-                <a href="#" className="text-dark">
+                <a href="#" className="text-light">
                 <b>Privacy & Data Policy</b>
                 </a>
               </li>
               <li>
-                <a href="#" className="text-dark">
+                <a href="#" className="text-light">
                 <b>Vulnerability Disclosure Policy</b>
                 </a>
               </li>

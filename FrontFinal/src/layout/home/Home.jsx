@@ -13,7 +13,7 @@ export const Home = () => {
 
   return (
     <>
-      <div className="container p-4">
+      <div className="container">
         <h4>
           <b>Wellcome to my First Serious Proyect in life called GAMES&OLD</b>
         </h4>
@@ -39,56 +39,56 @@ export const Home = () => {
           </b>
         </p>
         <div className="row">
-          <h3><b>LATEST REVIEWS</b></h3>
+          <div className="BannerHome"><h3><b>LATEST REVIEWS</b></h3></div>
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
             <ul className="list-unstyled mb-0">
-              <li><h6><em>Tarzan</em> </h6></li>
+              <li><h6>Tarzan</h6></li>
               <li><img src={img1} alt="" className="img-fluid" /></li>
             </ul>
           </div>
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
             <ul className="list-unstyled mb-0">
-              <li><h6><em>Commandos: Behind Enemy Lines</em> </h6></li>
+              <li><h6>Commandos: Behind Enemy Lines</h6></li>
               <li><img src={img2} alt="" className="img-fluid" /></li>
             </ul>
           </div>
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
             <ul className="list-unstyled mb-0">
-              <li><h6><em>Contra</em> </h6></li>
+              <li><h6>Contra</h6></li>
               <li><img src={img3} alt="" className="img-fluid" /></li>
             </ul>
           </div>
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
             <ul className="list-unstyled mb-0">
-              <li><h6><em>Sid Meier's Civilization II</em> </h6></li>
+              <li><h6>Sid Meier's Civilization II </h6></li>
               <li><img src={img4} alt="" className="img-fluid" /></li>
             </ul>
           </div>
         </div>
         <p>You can find more in the News Section</p>
-        <h3><b>LATEST GAMES ADDED</b></h3>
+        <div className="BannerHome"><h3><b>LATEST GAMES ADDED</b></h3></div>
         <div className="row">
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
             <ul className="list-unstyled mb-0">
-              <li><h6><em>Doom</em> </h6></li>
+              <li><h6>Doom</h6></li>
               <li><img src={img5} alt="" className="img-fluid" /></li>
             </ul>
           </div>
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
             <ul className="list-unstyled mb-0">
-              <li><h6><em>Wolfenstein 3D</em> </h6></li>
+              <li><h6>Wolfenstein 3D</h6></li>
               <li><img src={img6} alt="" className="img-fluid" /></li>
             </ul>
           </div>
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
             <ul className="list-unstyled mb-0">
-              <li><h6><em>System Shock</em> </h6></li>
+              <li><h6>System Shock</h6></li>
               <li><img src={img7} alt="" className="img-fluid" /></li>
             </ul>
           </div>
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
             <ul className="list-unstyled mb-0">
-              <li><h6><em>Ultima</em> </h6></li>
+              <li><h6>Ultima </h6></li>
               <li><img src={img8} alt="" className="img-fluid" /></li>
             </ul>
           </div>
