@@ -8,7 +8,7 @@ import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { InputText } from "../../../components/InputText/InputText";
 
 export const ProfileUpdate = ({ onProfileUpdate }) => {
-  const credentialsRdx = useSelector(userData);
+  const userRedux = useSelector(userData);
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
@@ -92,10 +92,8 @@ export const ProfileUpdate = ({ onProfileUpdate }) => {
 
   useEffect(() => {
     if (user.name === "") {
-      getMyProfile(credentialsRdx.credentials.token)
+      getMyProfile(userRedux.credentials.token)
         .then((result) => {
-          console.log(result);
-          // console.log("esto es name", result.data.data[1][0].name);
           setUser({
             name: result.data.data[1][0].name,
             surname: result.data.data[1][0].surname,
@@ -112,7 +110,7 @@ export const ProfileUpdate = ({ onProfileUpdate }) => {
 
   const updateUser = () => {
     try {
-      profileUpdate(user, credentialsRdx.credentials.token);
+      profileUpdate(user, userRedux.credentials.token);
       setWelcome(`Correctly Updated Profile`);
       setTimeout(() => {
         onProfileUpdate();
@@ -120,12 +118,27 @@ export const ProfileUpdate = ({ onProfileUpdate }) => {
     } catch (error) {
       setWelcome(`Updated Profile Error`);
       setTimeout(() => {
-        window.location.reload(true);
-      }, 2000);
+        onProfileUpdate();
+      }, 1500);
     }
   };
-  console.log(user, "hola soy user");
-  console.log(valiuser, "hola soy vali user");
+
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    const validation = validate(user);
+
+    if (Object.values(validation).every((v) => v)) {
+      profileUpdate(userRedux.credentials.token, user)
+        .then(() => {
+          onProfileUpdate();
+        })
+        .catch((error) => console.log(error));
+    } else {
+      setValiuser(validation);
+    }
+  };
 
   return (
     <>

@@ -17,7 +17,8 @@ export const Profile = () => {
   const handleShowUpdate = () => setUpdate(true);
 
   const handleProfileUpdate = () => {
-    setPassword(false);
+    setUpdate(false);
+    reloadProfile();
   };
 
   const handlePasswordUpdate = () => {
@@ -49,6 +50,25 @@ export const Profile = () => {
         .catch((error) => console.log(error));
     }
   }, [users]);
+
+
+  
+const reloadProfile = () => {
+  getMyProfile(userRedux.credentials.token)
+    .then((result) => {
+      setUsers({
+        name: result.data.data[1][0].name,
+        surname: result.data.data[1][0].surname,
+        phone_number: result.data.data[1][0].phone_number,
+        email: result.data.data[0],
+        direction: result.data.data[1][0].direction,
+        birth_date: result.data.data[1][0].birth_date,
+      });
+    })
+    .catch((error) => console.log(error));
+};
+
+
 
   return (
     <>

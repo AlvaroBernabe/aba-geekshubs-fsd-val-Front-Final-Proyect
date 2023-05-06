@@ -52,8 +52,8 @@ export const loginUpdate = async (body, token) => {
 };
 
 export const profileUpdate = async (body, token) => {
-  // console.log(body, "esto es body");
-  // console.log(token, "esto es token");
+  console.log(body, "esto es body");
+  console.log(token, "esto es token");
   let config = {
     headers: {
       Authorization: `Bearer ${token}`,
