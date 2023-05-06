@@ -73,34 +73,34 @@ const reloadProfile = () => {
   return (
     <>
       <div className="divProfile">
-        <Card style={{ width: "21rem" }}>
+        <Card style={{ width: "21rem" }} className="cardPofile">
           <ListGroup variant="flush">
             <ListGroup.Item>
-              <span className="text1"> Name:</span>
-              <span className="text2"> {users.name}</span>
+              <span className="profileTextTitle"> Name:</span>
+              <span className="profileTextChild"> {users.name}</span>
             </ListGroup.Item>
             <ListGroup.Item>
-              <span className="text1"> Email: </span>
-              <span className="text2"> {users.email}</span>
+              <span className="profileTextTitle"> Email: </span>
+              <span className="profileTextChild"> {users.email}</span>
             </ListGroup.Item>
             <ListGroup.Item>
-              <span className="text1"> Surname: </span>
-              <span className="text2"> {users.surname}</span>
+              <span className="profileTextTitle"> Surname: </span>
+              <span className="profileTextChild"> {users.surname}</span>
             </ListGroup.Item>
             <ListGroup.Item>
-              <span className="text1"> Phone Number: </span>
-              <span className="text2"> {users.phone_number}</span>
+              <span className="profileTextTitle"> Phone Number: </span>
+              <span className="profileTextChild"> {users.phone_number}</span>
             </ListGroup.Item>
             <ListGroup.Item>
-              <span className="text1"> Direction: </span>
-              <span className="text2"> {users.direction}</span>
+              <span className="profileTextTitle"> Direction: </span>
+              <span className="profileTextChild"> {users.direction}</span>
             </ListGroup.Item>
             <ListGroup.Item>
-              <span className="text1"> Birth Date: </span>
-              <span className="text2"> {users.birth_date}</span>
+              <span className="profileTextTitle"> Birth Date: </span>
+              <span className="profileTextChild"> {users.birth_date}</span>
             </ListGroup.Item>
           </ListGroup>
-          <div className="ButtonModalProfile">
+          <div className="buttonModalProfile">
             <Button variant="primary" onClick={handleShowUpdate}>
               Update Profile
             </Button>

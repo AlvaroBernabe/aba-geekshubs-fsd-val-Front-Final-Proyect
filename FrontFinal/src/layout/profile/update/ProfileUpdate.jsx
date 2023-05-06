@@ -157,7 +157,7 @@ export const ProfileUpdate = ({ onProfileUpdate }) => {
                   <Form>
                     <Form.Group>
                       <Form.Label>
-                        Enter your name:
+                        Name:
                       </Form.Label>
                       <InputText
                         className={"inputLogin"}
@@ -176,7 +176,7 @@ export const ProfileUpdate = ({ onProfileUpdate }) => {
                     <div>{userError.nameError}</div>
                     <Form.Group>
                       <Form.Label>
-                        Enter your surname:
+                        Surname:
                       </Form.Label>
                       <InputText
                         className={"inputLogin"}
@@ -195,7 +195,7 @@ export const ProfileUpdate = ({ onProfileUpdate }) => {
                     <div>{userError.surnameError}</div>
                     <Form.Group>
                       <Form.Label>
-                        Enter your phone_number:
+                        Phone Number:
                       </Form.Label>
                       <InputText
                         className={"inputLogin"}
@@ -214,7 +214,7 @@ export const ProfileUpdate = ({ onProfileUpdate }) => {
                     <div>{userError.phone_numberError}</div>
                     <Form.Group>
                       <Form.Label>
-                        Enter your direction:
+                        Direction:
                       </Form.Label>
                       <InputText
                         className={"inputLogin"}
@@ -233,7 +233,7 @@ export const ProfileUpdate = ({ onProfileUpdate }) => {
                     <div>{userError.directionError}</div>
                     <Form.Group>
                       <Form.Label>
-                        Enter your birth_date:
+                        Birth Date:
                       </Form.Label>
                       <InputText
                         className={"inputLogin"}
@@ -249,6 +249,7 @@ export const ProfileUpdate = ({ onProfileUpdate }) => {
                         }
                       />
                     </Form.Group>
+                    <div>{userError.birth_dateError}</div>
                     <br />
                     <div className="buttonUpdate">
                       <Button

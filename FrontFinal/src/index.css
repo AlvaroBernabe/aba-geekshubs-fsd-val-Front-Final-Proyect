@@ -129,7 +129,7 @@ body {
 }
 
 .ButtonModalGames,
-.ButtonModalProfile {
+.buttonModalProfile {
   justify-content: space-between;
   display: flex;
   margin-top: 1em;
@@ -309,12 +309,16 @@ h5 {
   padding: 20px;
 }
 
-.text1 {
+.profileTextTitle {
   font-weight: bold;
-  color: rgb(142, 91, 91);
+
 }
 
-.text2 {
+.cardPofile{
+  background-color: #9AE66E;
+}
+
+.profileTextChild {
   margin-left: 10px;
 }
 /* Profile Modal Password Layout ....................................................*/
