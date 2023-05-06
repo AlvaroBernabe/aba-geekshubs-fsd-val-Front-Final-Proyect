@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { Button, Card, Col, Container, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
 import { getAllGamesNonUser } from "../services/apiCalls";
 
 export const GetAllGamesDefault = () => {
 
   const [games, setGames] = useState([]);
-  //   const navigate = useNavigate();
   const renderTooltip = (props) => (
     <Tooltip id="ButtonRegister-tooltip" {...props}>
       You Need To Login First
@@ -26,21 +23,19 @@ export const GetAllGamesDefault = () => {
         .catch(error => console.log(error));
     }
   }, [games])
-  // console.log(games);
 
   return (
     <>
       <Container fluid>
         <Row>
           {games.map((game) => {
-            console.log(game, "hola soy game");
             return (
               <Col className="ContainerAllGamesAdmin" onClick={() => selected(game)} key={game.id}>
                 <Card className="CardGames">
                   <Card.Img variant="top" src={game.game_image} />
                   <Card.Body>
                     <ul>
-                      <span className="gameTitle">{game.name}</span>
+                      <span className="gameTitle"><b>{game.name}</b></span>
                       <li>
                         <span className="textColor">Genre: </span>
                         {game.genre}

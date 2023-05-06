@@ -35,7 +35,6 @@ export function Register() {
   });
 
   const [registerAct, setRegisterAct] = useState(false);
-
   const [allValidated, setAllValidated] = useState(false);
 
   const inputHandler = (e) => {
