@@ -7,16 +7,20 @@ import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { InputText } from "../../../components/InputText/InputText";
 import { validate } from "../../../helpers/useful";
 
-export const ChangeLogin = () => {
-  const credentialsRdx = useSelector(userData);
-  let email = credentialsRdx?.credentials?.usuario?.email;
+export const ChangeLogin = ({ onPasswordUpdate }) => {
+  const userRedux = useSelector(userData);
+  let email = userRedux?.credentials?.usuario?.email;
   const navigate = useNavigate();
   const [welcome, setWelcome] = useState("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState("");
+
 
   const [user, setUser] = useState({
     email: email,
     password: "",
+    confirmPassword: "",
   });
+
 
   const inputHandler = (e) => {
     setUser((prevState) => ({
@@ -36,6 +40,7 @@ export const ChangeLogin = () => {
   });
 
   const [registerAct, setRegisterAct] = useState(false);
+  
 
   useEffect(() => {
     for (let error in userError) {
@@ -81,13 +86,28 @@ export const ChangeLogin = () => {
     }));
   };
 
+  const checkConfirmPassword = (e) => {
+    let error = "";
+    if (e.target.value !== user.password) {
+      error = "Passwords do not match";
+    }
+    setConfirmPasswordError(error);
+  };
+
   const updateLogin = () => {
-    try {
-      loginUpdate(user, credentialsRdx.credentials?.token);
-      setWelcome(`Correctly Updated Password`);
+    if (user.password !== user.confirmPassword) {
+      setWelcome(`Passwords do not match`);
       setTimeout(() => {
         window.location.reload(true);
-      }, 1500);
+      }, 2000);
+      return;
+    }
+    try {
+      loginUpdate( { password: user.password }, userRedux.credentials?.token);
+      setWelcome(`Correctly Updated Password`);
+      setTimeout(() => {
+        onPasswordUpdate();
+      }, 2000);
     } catch (error) {
       setWelcome(`Password Error`);
       setTimeout(() => {
@@ -131,6 +151,24 @@ export const ChangeLogin = () => {
                     </Form.Group>
                     <div>{userError.passwordError}</div>
                     <br />
+                    <Form.Group>
+                      <Form.Label>Confirm your new password:</Form.Label>
+                      <InputText
+                        className={"inputLogin"}
+                        type={"password"}
+                        name={"confirmPassword"}
+                        maxLength={70}
+                        placeholder={""}
+                        changeFunction={(e) => inputHandler(e)}
+                        blurFunction={(e) => {
+                          checkConfirmPassword(e);
+                          checkError(e);
+                        }}
+                      />
+
+                    </Form.Group>
+                    <div>{userError.confirmPasswordError}</div>
+                    <br />
                     <Button
                       className="botonLog"
                       variant="warning"
@@ -149,4 +187,3 @@ export const ChangeLogin = () => {
     </>
   );
 };
-

@@ -7,7 +7,7 @@ import { ChangeLogin } from "../users/changeLogin/ChangeLogin";
 import { ProfileUpdate } from "./update/ProfileUpdate";
 
 export const Profile = () => {
-  const ReduxCredentials = useSelector(userData);
+  const userRedux = useSelector(userData);
   const [password, setPassword] = useState(false);
   const handleClosePassword = () => setPassword(false);
   const handleShowPassword = () => setPassword(true);
@@ -15,6 +15,14 @@ export const Profile = () => {
   const [update, setUpdate] = useState(false);
   const handleCloseUpdate = () => setUpdate(false);
   const handleShowUpdate = () => setUpdate(true);
+
+  const handleProfileUpdate = () => {
+    setPassword(false);
+  };
+
+  const handlePasswordUpdate = () => {
+    setPassword(false);
+  };
 
 
   const [users, setUsers] = useState({
@@ -27,10 +35,8 @@ export const Profile = () => {
 
   useEffect(() => {
     if (users.name === "") {
-      getMyProfile(ReduxCredentials.credentials.token)
+      getMyProfile(userRedux.credentials.token)
         .then((result) => {
-          console.log(result.data.data);
-          console.log("esto es name", result.data.data[1][0].name);
           setUsers({
             name: result.data.data[1][0].name,
             surname: result.data.data[1][0].surname,
@@ -82,7 +88,7 @@ export const Profile = () => {
               <Modal.Header closeButton>
                 <Modal.Title>Update Profile</Modal.Title>
               </Modal.Header>
-              <Modal.Body><ProfileUpdate /></Modal.Body>
+              <Modal.Body><ProfileUpdate  onProfileUpdate={handleProfileUpdate} /></Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={handleCloseUpdate}>
                   Close
@@ -96,7 +102,7 @@ export const Profile = () => {
               <Modal.Header closeButton>
                 <Modal.Title>You Sure?</Modal.Title>
               </Modal.Header>
-              <Modal.Body><ChangeLogin /></Modal.Body>
+              <Modal.Body><ChangeLogin onPasswordUpdate={handlePasswordUpdate} /></Modal.Body>
               <Modal.Footer>
                 <Button variant="primary" onClick={handleClosePassword}>
                   Nope

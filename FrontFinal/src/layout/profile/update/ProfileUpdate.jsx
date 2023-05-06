@@ -7,7 +7,7 @@ import { getMyProfile, profileUpdate } from "../../services/apiCalls";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { InputText } from "../../../components/InputText/InputText";
 
-export const ProfileUpdate = () => {
+export const ProfileUpdate = ({ onProfileUpdate }) => {
   const credentialsRdx = useSelector(userData);
   const navigate = useNavigate();
 
@@ -115,7 +115,7 @@ export const ProfileUpdate = () => {
       profileUpdate(user, credentialsRdx.credentials.token);
       setWelcome(`Correctly Updated Profile`);
       setTimeout(() => {
-        window.location.reload(true);
+        onProfileUpdate();
       }, 1500);
     } catch (error) {
       setWelcome(`Updated Profile Error`);
