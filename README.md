@@ -6,9 +6,9 @@
     <li><a href="#objective">Objective</a></li>
     <li><a href="#about-the-project">About the project</a></li>
     <li><a href="#stack">Stack</a></li>
-    <li><a href="#diagram">Diagram</a></li>
     <li><a href="#installation">Installation</a></li>
     <li><a href="#known-bugs">known bugs</a></li>
+    <li><a href="#future-features">Future Features</a></li>
     <li><a href="#licence">Licence</a></li>
     <li><a href="#development">Development</a></li>
     <li><a href="#thanks">Thanks</a></li>
@@ -122,8 +122,18 @@ For The Front
 
 ## Known bugs:
 
-<p>There are a few GIFs in the readme with improvements that can be made.</p>
+<p>There are some names that need change for consistency.</p>
+<p>There are a few function that need to change the way they reload the parent function.</p>
+<p>The CSS need some Cleaning.</p>
+<p>There are some .catch without a responde.</p>
 
+## Future Features:
+<p>Wellcome Message To Everything.</p>
+<p>Improve Style of Button,Form,Card, etc.</p>
+<p>Better Validation for input.</p>
+<p>Improve Change Rol, so Admin can Delete Other Admin.</p>
+<p>Add SuperAdmin to Database to manage Admin.</p>
+<p>Add comment for Future Proofing the Code.</p>
 
 ## Licence
 
