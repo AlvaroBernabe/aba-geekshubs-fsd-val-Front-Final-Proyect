@@ -10,9 +10,6 @@ export const UpdateReviewUser = ({ onReviewUpdate }) => {
 
   const userRedux = useSelector(userData);
   const gameDataUpdate = useSelector(reviewData);
-
-  console.log(gameDataUpdate, "esto es gameDataUpdate en teoria");
-
   const navigate = useNavigate();
   const [welcome, setWelcome] = useState("");
   const [reviews, setReviews] = useState([]);
@@ -42,7 +39,6 @@ export const UpdateReviewUser = ({ onReviewUpdate }) => {
     if (reviews.length === 0) {
       getMyReviews(userRedux?.credentials?.token)
         .then((result) => {
-          // console.log(result, "hola soy result");
           setReviews(result?.data?.data?.Reviews);
         })
         .catch((error) => {
@@ -50,13 +46,10 @@ export const UpdateReviewUser = ({ onReviewUpdate }) => {
         });
     }
   }, [reviews]);
-  // console.log(games, "soy GAmes");
 
   const updateReview = () => {
     newReview(review, userRedux?.credentials?.token)
       .then((resultado) => {
-        // console.log(ReduxUserData.credentials.token);
-        console.log(resultado);
         setReview(resultado?.data)
         setWelcome(`Review Updated Correctly`);
         setTimeout(() => {
@@ -84,8 +77,6 @@ export const UpdateReviewUser = ({ onReviewUpdate }) => {
       return
     }
   };
-
-  console.log(review, "hola es review Update");
 
   return (
     <>

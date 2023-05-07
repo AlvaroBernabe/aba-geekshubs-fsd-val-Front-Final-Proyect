@@ -13,9 +13,8 @@ export const GetAllMyReviews = () => {
   const [reviews, setReviews] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const [welcome, setWelcome] = useState("");
   const ReviewsData = useSelector(reviewData);
-
 
   let params = ReviewsData?.choosenReview?.id;
   let gameName = ReviewsData?.choosenReview?.game_title;
@@ -27,8 +26,6 @@ export const GetAllMyReviews = () => {
   const [remove, setRemove] = useState(false);
   const handleCloseRemove = () => setRemove(false);
   const handleShowRemove = () => setRemove(true);
-
-  const [welcome, setWelcome] = useState("");
 
   const handleReviewUpdate = () => {
     setUpdate(false);
@@ -82,7 +79,6 @@ export const GetAllMyReviews = () => {
       })
       .catch((error) => console.log(error));
   };
-
 
   return (
     <>

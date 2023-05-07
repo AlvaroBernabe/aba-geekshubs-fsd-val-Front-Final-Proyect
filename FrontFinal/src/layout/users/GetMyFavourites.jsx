@@ -27,7 +27,7 @@ export const GetMyFavourites = () => {
         <Row className="bodyGetFavourites">
           {favourites.map((game) => {
             return (
-              <Col onClick={() => gameSelect(game)} key={game.id}>
+              <Col key={game.id}>
                 <Card className="CardGames" >
                   <Card.Body>
                     <Card.Img variant="top" src={game?.game_image} />

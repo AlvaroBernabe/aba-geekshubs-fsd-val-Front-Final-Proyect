@@ -117,11 +117,6 @@ body {
   max-width: 50rem;
 }
 
-.bodyGetFavourites,
-.ContainerAllGamesAdmin {
-
-}
-
 .CardGames {
   background-color: #753188;
   color: #e2dbdb;
@@ -519,15 +514,12 @@ h5 {
   width: 50rem;
   display: flex;
   justify-content: center;
+  background-color: #9AE66E ;
 }
 
 .NewGameDiv {
   display: flex;
   justify-content: center;
-}
-
-.FormNewGame {
-  color: rgb(142, 91, 91);
 }
 
 img,

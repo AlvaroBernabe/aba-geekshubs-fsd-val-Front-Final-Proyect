@@ -5,103 +5,119 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { useNavigate } from "react-router-dom";
 import { userData } from "../userSlice";
-import { detailData } from "../detailSlice";
+import { detailData, detailGame } from "../detailSlice";
 import { getAllNewsNonUser, newsDestroy } from "../services/apiCalls";
 
 export const GetAllNewsAdmin = () => {
 
-    const userRedux = useSelector(userData);
-    const NewsData = useSelector(detailData)
-    const [news, setNews] = useState([]);
-    const dispatch = useDispatch();
-    const params = NewsData?.choosenObject?.news?.id
-    const navigate = useNavigate();
+  const userRedux = useSelector(userData);
+  const NewsData = useSelector(detailData)
+  const [news, setNews] = useState([]);
+  const dispatch = useDispatch();
+  const params = NewsData?.choosenObject?.news?.id
+  const [welcome, setWelcome] = useState("");
+  const navigate = useNavigate();
 
 
-    useEffect(() => {
-        if (news.length === 0) {
-            getAllNewsNonUser()
-                .then(
-                    result => {
-                        setNews(result.data.data)
-                        console.log(result.data.data, "esto es result.data")
-                    }
-                )
-                .catch(error => console.log(error));
-        }
-    }, [news])
-    // console.log(games);
+  useEffect(() => {
+    if (news.length === 0) {
+      getAllNewsNonUser()
+        .then(
+          result => {
+            setNews(result.data.data)
+          }
+        )
+        .catch(error => console.log(error));
+    }
+  }, [news])
 
-    const selected = (newws) => {
-        console.log(newws)
-        dispatch(detailGame({ choosenObject: newws }));
-        // setTimeout(() => {
-        //   navigate("/appointment/update");
-        // }, 1000);
-    };
+  const selected = (newws) => {
+    dispatch(detailGame({ choosenObject: newws }));
+  };
 
 
 
 
-    const newsDelete = async () => {
-        newsDestroy(params, userRedux?.credentials?.token)
-            .then(() => {
-                // setWelcome(`Correctly Deleted ${NewsData?.choosenObject?.news?.title} Review`);
+  const newsDelete = async () => {
+    newsDestroy(params, userRedux?.credentials?.token)
+      .then(() => {
+        setWelcome(`Correctly Deleted Review`);
+        setTimeout(() => {
+          setWelcome(``);
+          getAllNewsNonUser()
+            .then(
+              result => {
+                setNews(result.data.data)
+              }
+            )
+            .catch(error => console.log(error));
+        }, 1000);
+      })
+      .catch((error) => console.log(error));
+  };
 
-            })
-            .catch((error) => console.log(error));
-    };
-
-    const newsUpdate = async () => {
-        try {
-            setTimeout(() => {
-                navigate("/news/all/update");
-            }, 1000);
-        } catch (error) {
-        }
-
+  const newsUpdate = async () => {
+    try {
+      setTimeout(() => {
+        navigate("/news/all/update");
+      }, 1000);
+    } catch (error) {
     }
 
+  }
 
 
-    return (
-        <>
+
+  return (
+    <>
+      <div>
+        {welcome !== "" ? (
+          <div className="divWellcome">
+            <Card>
+              <Card.Header>{welcome}</Card.Header>
+            </Card>
+          </div>
+        ) : (
+          <div>
             <Container fluid>
-                {news.map((neww) => {
-                    console.log(neww, "hola soy game");
-                    return (
-                        <Col className="ContainerAllGamesAdmin" onClick={() => selected(neww)} key={neww.id}>
-                            <Card className="CardNews">
-                                <Card.Img className="imgNews" variant="top" src={neww.news.news_image} />
-                                <Card.Body>
-                                    <ul>
-                                        <span className="gameTitle">{neww.name}</span>
-                                        <li>
-                                            <span className="textColor">Title: </span>
-                                            {neww.news.title}
-                                        </li>
-                                        <li>
-                                            <span className="textColor">Game Name: </span>
-                                            {neww.game_name}
-                                        </li>
-                                        <li>
-                                            <span className="textColor">Summary: </span>
-                                            {neww.news.summary}
-                                        </li>
-                                    </ul>
-                                </Card.Body>
-                                <div className="ButtonModalProfile">
-                                    <Button variant="info" onClick={newsUpdate}>
-                                        Update News
-                                    </Button>
-                                    <Button variant="warning" onClick={newsDelete} >
-                                        Delete News
-                                    </Button></div>
-                            </Card>
-                        </Col>
-                    );
-                })}
+              {news.map((neww) => {
+                return (
+                  <Col className="ContainerAllGamesAdmin" onClick={() => selected(neww)} key={neww.id}>
+                    <Card className="CardNews">
+                      <Card.Img className="imgNews" variant="top" src={neww.news.news_image} />
+                      <Card.Body>
+                        <ul>
+                          <span className="gameTitle">{neww.name}</span>
+                          <li>
+                            <span className=""><b>Title: </b></span>
+                            {neww.news.title}
+                          </li>
+                          <li>
+                            <span className=""><b>Game Name: </b></span>
+                            {neww.game_name}
+                          </li>
+                          <li>
+                            <span className=""><b>Summary: </b></span>
+                            {neww.news.summary}
+                          </li>
+                        </ul>
+                      </Card.Body>
+                      <div className="ButtonModalProfile">
+                        <Button variant="info" onClick={newsUpdate}>
+                          Update News
+                        </Button>
+                        <Button variant="warning" onClick={newsDelete} >
+                          Delete News
+                        </Button></div>
+                    </Card>
+                  </Col>
+                );
+              })}
             </Container >
-        </>
-    );
+          </div>
+        )}
+      </div>
+    </>
+
+  );
 }
