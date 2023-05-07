@@ -34,7 +34,6 @@ export const UpdateReviewUser = ({ onReviewUpdate }) => {
     }));
   };
 
-
   useEffect(() => {
     if (reviews.length === 0) {
       getMyReviews(userRedux?.credentials?.token)

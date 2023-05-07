@@ -1,3 +1,4 @@
+
 body {
   background-color: rgb(234, 234, 234);
   font-family: Arial, Helvetica, sans-serif;
@@ -47,7 +48,7 @@ body {
 }
 
 .dropdown-menu a:hover {
-  background-color: #601175 !important; /* Cambia el color de fondo al pasar el cursor según tus necesidades */
+  background-color: #601175 !important;
 }
 
 .NavbarLogo {
@@ -93,7 +94,6 @@ body {
 .CardGames,
 .CardGamesUser,
 .CardGamesReview {
-  /* background-color: rgb(209, 206, 206); */
   margin-top: 2rem;
   margin-bottom: 2rem;
   width: 20rem;
@@ -120,7 +120,6 @@ body {
 .CardGames {
   background-color: #753188;
   color: #e2dbdb;
-
 }
 
 .ButtonModalGames,
@@ -148,7 +147,6 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
-  /* gap: 20rem; */
   margin-bottom: 2rem;
   color: rgb(5, 5, 196);
 }
@@ -177,7 +175,6 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /* background-color: #E59934; */
 }
 .CardUserDetailsList{
   background-color: #E59934;
@@ -208,8 +205,6 @@ h3 {
 }
 
 h4 {
-  /* background-color: blue; */
-
   font-variant: small-caps;
   color: #2c272e;
   font-size: xx-large;
@@ -229,9 +224,6 @@ img {
 /* Register and Login Layout ....................................................*/
 .registerSendAct {
   background-color: rgb(0, 106, 125);
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 
 .registerSendDeac {
@@ -239,9 +231,6 @@ img {
   background-color: rgb(143, 7, 7);
   border-radius: 0.2em;
   color: white;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 
 .registerSendDeac:hover {
@@ -278,7 +267,6 @@ h5 {
 .FormRegister,
 .FormLogin {
   width: 20em auto;
-  /* padding: 2em; */
   color: rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
@@ -334,13 +322,6 @@ h5 {
 }
 /* Profile Modal Password Layout ....................................................*/
 
-/* .buttonChangePassword, .buttonProfileUpdate {
-  border-radius: 25px 25px 25px 25px;
-}
-.buttonChangePassword {
-  background-color: rgb(118, 2, 2);
-} */
-
 .ChangePassword {
   justify-content: center;
 }
@@ -365,13 +346,11 @@ h5 {
 
 /* Get ALl Games Admin Modal Update Layout ....................................................*/
 
-/* Estilos para el formulario */
 .form {
   max-width: 500px;
   margin: 0 auto;
 }
 
-/* Estilos para los campos de formulario */
 .form-group {
   margin-bottom: 20px;
 }
@@ -397,7 +376,6 @@ h5 {
   border-color: #007bff;
 }
 
-/* Estilos para el botón */
 .botonModificar,
 .botonNewReview,
 .buttonDeleteReviewUser {

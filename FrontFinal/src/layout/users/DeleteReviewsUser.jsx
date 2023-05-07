@@ -14,8 +14,6 @@ export const DeleteReviewsUser = ({ onReviewDelete }) => {
   let params = ReviewsData?.choosenReview?.id;
   let gameName = ReviewsData?.choosenReview?.game_title;
 
-
-
   const ReviewDelete = async () => {
     ReviewsDeleteUser(params, userRedux?.credentials?.token)
       .then(() => {

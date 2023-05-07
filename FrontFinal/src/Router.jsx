@@ -26,7 +26,6 @@ import { UpdateNews } from "./layout/admin/UpdateNews";
 import { FooterBottom } from "./components/FooterBottom";
 import { ChangeLogin } from "./layout/profile/ChangeLogin";
 
-
 export const Router = () => {
   return (
     <>
