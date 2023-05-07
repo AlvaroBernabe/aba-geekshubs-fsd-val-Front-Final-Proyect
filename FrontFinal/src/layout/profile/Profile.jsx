@@ -5,7 +5,8 @@ import { Button, Card, ListGroup, Modal } from "react-bootstrap";
 import { userData } from "../userSlice";
 import { getMyProfile } from "../services/apiCalls";
 import { ProfileUpdate } from "./ProfileUpdate";
-import { ChangeLogin } from "../users/ChangeLogin";
+import { ChangeLogin } from "./ChangeLogin";
+
 
 
 export const Profile = () => {

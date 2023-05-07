@@ -40,7 +40,7 @@ export const ChangeLogin = ({ onPasswordUpdate }) => {
   });
 
   const [registerAct, setRegisterAct] = useState(false);
-  
+
 
   useEffect(() => {
     for (let error in userError) {
@@ -103,7 +103,7 @@ export const ChangeLogin = ({ onPasswordUpdate }) => {
       return;
     }
     try {
-      loginUpdate( { password: user.password }, userRedux.credentials?.token);
+      loginUpdate({ password: user.password }, userRedux.credentials?.token);
       setWelcome(`Correctly Updated Password`);
       setTimeout(() => {
         onPasswordUpdate();
@@ -165,7 +165,6 @@ export const ChangeLogin = ({ onPasswordUpdate }) => {
                           checkError(e);
                         }}
                       />
-
                     </Form.Group>
                     <div>{userError.confirmPasswordError}</div>
                     <br />

@@ -535,5 +535,6 @@ img,
   pointer-events: none !important;
 }
 
-.search-bar {
+.modalReview{
+  background-color: transparent !important;
 }

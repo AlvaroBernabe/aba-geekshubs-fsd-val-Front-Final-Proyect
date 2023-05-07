@@ -1,47 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getMyReviews } from "../services/apiCalls";
+import { ReviewsDeleteUser, getMyReviews } from "../services/apiCalls";
 import { userData } from "../userSlice";
 import { Button, Card, Col, Container, Modal, Row } from "react-bootstrap";
-import { addChoosenReview } from "../reviewSlice";
+import { addChoosenReview, reviewData } from "../reviewSlice";
 import { UpdateReviewUser } from "../Reviews/UpdateReviewUser";
-import { DeleteReviewsUser } from "./DeleteReviewsUser";
 import { Trash3Fill } from "react-bootstrap-icons";
 
 export const GetAllMyReviews = () => {
   const userRedux = useSelector(userData);
-  // const ReduxReviewData = useSelector(reviewData);
   const [reviews, setReviews] = useState([]);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (reviews.length === 0) {
-      getMyReviews(userRedux?.credentials?.token)
-        .then((result) => {
-          // console.log(result, "hola soy result");
-          setReviews(result.data.data.Reviews);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
-  }, [reviews]);
-  console.log(reviews, "hola soy reviews");
+  const ReviewsData = useSelector(reviewData);
 
 
-  const selected = (ejemplo) => {
-    // console.log(ejemplo, "esto es game en teoria");
-    dispatch(addChoosenReview({ choosenReview: ejemplo }))
-  }
-
-
-  const isFavorite = (favorite) => {
-    return favorite ? "Yes" : "No";
-  };
-
+  let params = ReviewsData?.choosenReview?.id;
+  let gameName = ReviewsData?.choosenReview?.game_title;
 
   const [update, setUpdate] = useState(false);
   const handleCloseUpdate = () => setUpdate(false);
@@ -51,13 +28,59 @@ export const GetAllMyReviews = () => {
   const handleCloseRemove = () => setRemove(false);
   const handleShowRemove = () => setRemove(true);
 
+  const [welcome, setWelcome] = useState("");
 
-  const handlePasswordUpdate = () => {
-    setPassword(false);
+  const handleReviewUpdate = () => {
+    setUpdate(false);
+    reloadReviews();
   };
 
   const handleReviewDelete = () => {
-    setPassword(false);
+    setRemove(false);
+    reloadReviews();
+  };
+
+  useEffect(() => {
+    if (reviews.length === 0) {
+      getMyReviews(userRedux?.credentials?.token)
+        .then((result) => {
+          setReviews(result.data.data.Reviews);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [reviews]);
+
+
+  const reloadReviews = () => {
+    getMyReviews(userRedux?.credentials?.token)
+      .then((result) => {
+        setReviews(result.data.data.Reviews);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  const selected = (ejemplo) => {
+    dispatch(addChoosenReview({ choosenReview: ejemplo }))
+  }
+
+  const isFavorite = (favorite) => {
+    return favorite ? "Yes" : "No";
+  };
+
+  const ReviewDelete = async () => {
+    ReviewsDeleteUser(params, userRedux?.credentials?.token)
+      .then(() => {
+        setWelcome(`Correctly Deleted ${gameName} Review`);
+        setTimeout(() => {
+          handleReviewDelete();
+          setWelcome(``)
+        }, 1500);
+      })
+      .catch((error) => console.log(error));
   };
 
 
@@ -66,7 +89,6 @@ export const GetAllMyReviews = () => {
       <Container fluid>
         <Row className="bodyGetFavourites">
           {reviews.map((gamesData) => {
-            console.log(gamesData, "hola soy test");
             return (
               <Col onClick={() => selected(gamesData)} key={gamesData.id}>
                 <Card className="CardGames"  >
@@ -88,11 +110,11 @@ export const GetAllMyReviews = () => {
                       <Button variant="info" onClick={handleShowUpdate}>
                         Update Review
                       </Button>
-                      <Modal show={update} onHide={handleCloseUpdate}>
+                      <Modal className="modalReview" show={update} onHide={handleCloseUpdate}>
                         <Modal.Header closeButton>
                           <Modal.Title>{gamesData?.game_title}</Modal.Title>
                         </Modal.Header>
-                        <Modal.Body><UpdateReviewUser /> </Modal.Body>
+                        <Modal.Body><UpdateReviewUser onReviewUpdate={handleReviewUpdate} /> </Modal.Body>
                         <Modal.Footer>
                           <Button variant="info" onClick={handleCloseUpdate}>
                             Nope
@@ -100,11 +122,27 @@ export const GetAllMyReviews = () => {
                         </Modal.Footer>
                       </Modal>
 
-                      <Modal show={remove} onHide={handleCloseRemove}>
+                      <Modal className="modalReview" show={remove} onHide={handleCloseRemove}>
                         <Modal.Header closeButton>
                           <Modal.Title>You Sure?</Modal.Title>
                         </Modal.Header>
-                        <Modal.Body><DeleteReviewsUser /></Modal.Body>
+                        <Modal.Body>
+                          <div>
+                            {welcome !== "" ? (
+                              <div className="divWellcome">
+                                <Card>
+                                  <Card.Header>{welcome}</Card.Header>
+                                </Card>
+                              </div>
+                            ) : (
+                              <div className="buttonDeleteReviewUser">
+                                <Button variant="warning " onClick={ReviewDelete}>
+                                  Delete Review Forever
+                                </Button>
+                              </div>
+                            )}
+                          </div>
+                        </Modal.Body>
                         <Modal.Footer>
                           <Button variant="primary" onClick={handleCloseRemove}>
                             Nope

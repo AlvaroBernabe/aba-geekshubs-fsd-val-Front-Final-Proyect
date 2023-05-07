@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { ReviewsDeleteUser } from "../services/apiCalls";
 
-export const DeleteReviewsUser = () => {
+export const DeleteReviewsUser = ({ onReviewDelete }) => {
   const userRedux = useSelector(userData);
   const ReviewsData = useSelector(reviewData);
   const [welcome, setWelcome] = useState("");
@@ -16,13 +16,12 @@ export const DeleteReviewsUser = () => {
 
 
 
-
   const ReviewDelete = async () => {
     ReviewsDeleteUser(params, userRedux?.credentials?.token)
       .then(() => {
         setWelcome(`Correctly Deleted ${gameName} Review`);
         setTimeout(() => {
-          window.location.reload(true);
+          onReviewDelete();
         }, 1500);
       })
       .catch((error) => console.log(error));

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { detailData } from "../detailSlice";
 
-export const UpdateReviewUser = () => {
+export const UpdateReviewUser = ({ onReviewUpdate }) => {
 
   const userRedux = useSelector(userData);
   const gameDataUpdate = useSelector(detailData);
@@ -60,13 +60,30 @@ export const UpdateReviewUser = () => {
         setReview(resultado?.data)
         setWelcome(`Review Updated Correctly`);
         setTimeout(() => {
-          window.location.reload(true);
+          onReviewUpdate()
         }, 1500);
       })
       .catch(error => {
-        setReview(error.message);
+        setWelcome(`Updated Review Error`);
+        setTimeout(() => {
+          onReviewUpdate();
+        }, 1500);
       });
   }
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const validation = validate(user);
+    if (Object.values(validation).every((v) => v)) {
+      newReview(userRedux.credentials.token, user)
+        .then(() => {
+          onReviewUpdate();
+        })
+        .catch((error) => console.log(error));
+    } else {
+     return
+    }
+  };
 
   console.log(review, "hola es review Update");
 

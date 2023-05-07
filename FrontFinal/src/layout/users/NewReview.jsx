@@ -6,7 +6,6 @@ import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { userData } from "../userSlice";
 import { reviewData } from "../reviewSlice";
 
-
 export const NewReview = () => {
 
   const userRedux = useSelector(userData);
