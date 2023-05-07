@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
-import { Button, Card, Col, ListGroup, Modal, Row } from "react-bootstrap";
+import { Card, ListGroup, Row } from "react-bootstrap";
 import { userData } from "../userSlice";
 import { getAllUsers } from "../services/apiCalls";
 import { addChoosen } from "../detailSlice";
-
 
 export const GetAllUsers = () => {
 
@@ -16,16 +13,12 @@ export const GetAllUsers = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-
-
-
   useEffect(() => {
     if (users.length === 0) {
       getAllUsers(userRedux.credentials?.token)
         .then(
           result => {
             setUsers(result.data.data.resultado)
-            console.log(result.data.data.resultado)
           }
         )
         .catch(error => console.log(error));
@@ -38,8 +31,6 @@ export const GetAllUsers = () => {
       navigate("/users/all/details");
     }, 500);
   }
-
-  console.log(users)
 
   return (
     <>
@@ -54,16 +45,16 @@ export const GetAllUsers = () => {
                       onClick={() => selected(persona)}
                       key={persona.id}>
                       <Row >
-                        <Card>
+                        <Card className='getAllUsersCard'>
                           <ListGroup className="ListGroupAllUsers" variant="flush">
                             <ListGroup.Item>
-                              <span className="text1"> Id:</span>
+                              <span className="text1"> <b>Id:</b></span>
                               <span className="text2"> {persona.id}</span>
-                              <span className="text1"> Role Id:</span>
+                              <span className="text1"><b> Role Id:</b></span>
                               <span className="text2"> {persona.role_id}</span>
                             </ListGroup.Item>
                             <ListGroup.Item>
-                              <span className="text1"> Email:</span>
+                              <span className="text1"> <b>Email:</b></span>
                               <span className="text2"> {persona.email}</span>
                             </ListGroup.Item>
                           </ListGroup>
@@ -76,7 +67,7 @@ export const GetAllUsers = () => {
             }
           </div>)
           :
-          (<div>ESTAN VINIENDO</div>)
+          (<div>Users are Coming</div>)
         }
       </div>
     </>

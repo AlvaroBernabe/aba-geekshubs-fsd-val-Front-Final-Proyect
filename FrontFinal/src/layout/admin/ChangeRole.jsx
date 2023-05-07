@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Button, Card, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -25,19 +25,7 @@ export const ChangeRole = () => {
     }));
   };
 
-
-
-
-  // useEffect(()=>{
-  //     if (userData.name === ""){
-  //       getUserData(ReduxCredentials.credentials.token).then(
-  //         resultado => {console.log(resultado)}
-  //       ).catch(error => (console.log(error)))
-  //     }
-  // }, [userData]);
-
   const checkError = (e) => {
-
   }
 
   const changeRol = () => {
@@ -50,9 +38,8 @@ export const ChangeRole = () => {
         }, 1500);
       })
       .catch((error) => console.log(error));
+      setWelcome(`You Can´t Update the Role of an Admin`);
   };
-  console.log(credenciales, "esto son datos user a cambiar");
-  console.log(ReduxAppointment.choosenObject.id, "esto es reduxAppointment");
 
   return (
     <>

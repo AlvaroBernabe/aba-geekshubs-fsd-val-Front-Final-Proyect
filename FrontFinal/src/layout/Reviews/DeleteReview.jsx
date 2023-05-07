@@ -10,14 +10,8 @@ export const DeleteReview = ({ onReviewDelete }) => {
   const userRedux = useSelector(userData);
   const ReviewsData = useSelector(reviewData);
   const [welcome, setWelcome] = useState("");
-  const navigate = useNavigate();
 
   let params = ReviewsData?.choosenReview?.Reviews.id;
-  console.log(ReviewsData);
-
-  const [user, setUser] = useState({
-    id: params,
-  });
 
   const ReviewDelete = async () => {
     ReviewsDeleteAdmin(params, userRedux?.credentials?.token)
@@ -32,7 +26,7 @@ export const DeleteReview = ({ onReviewDelete }) => {
 
   return (
     <>
-      <div>
+      <div className="modalReview">
         {welcome !== "" ? (
           <div className="divWellcome">
             <Card>
