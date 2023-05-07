@@ -10,7 +10,7 @@ import { detailData } from "../detailSlice";
 import { gameUpdate } from "../services/apiCalls";
 import { InputText } from "../../components/InputText";
 
-export const UpdateGame = () => {
+export const UpdateGame = ({ onCardUpdate }) => {
 
   const userRedux = useSelector(userData);
   const ReduxAppointment = useSelector(detailData)

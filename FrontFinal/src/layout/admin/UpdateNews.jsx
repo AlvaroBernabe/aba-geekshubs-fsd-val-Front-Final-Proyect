@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-
-
 import { useNavigate } from "react-router-dom";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { userData } from "../userSlice";
@@ -15,7 +13,6 @@ export const UpdateNews = () => {
   const userRedux = useSelector(userData);
   const NewsData = useSelector(detailData)
   const params = NewsData?.choosenObject?.news?.id
-  console.log(params, "esto params")
 
   const navigate = useNavigate();
   const [welcome, setWelcome] = useState("");
@@ -49,8 +46,6 @@ export const UpdateNews = () => {
         setNews(error.message);
       });
   }
-
-  console.log(news, "hola es news Update");
 
   return (
     <>

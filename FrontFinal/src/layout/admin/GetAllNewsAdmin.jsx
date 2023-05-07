@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-
 import { Button, Card, Col, Container } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom";
 import { userData } from "../userSlice";
 import { detailData, detailGame } from "../detailSlice";
@@ -17,7 +15,6 @@ export const GetAllNewsAdmin = () => {
   const params = NewsData?.choosenObject?.news?.id
   const [welcome, setWelcome] = useState("");
   const navigate = useNavigate();
-
 
   useEffect(() => {
     if (news.length === 0) {
@@ -35,9 +32,6 @@ export const GetAllNewsAdmin = () => {
     dispatch(detailGame({ choosenObject: newws }));
   };
 
-
-
-
   const newsDelete = async () => {
     newsDestroy(params, userRedux?.credentials?.token)
       .then(() => {
@@ -51,7 +45,7 @@ export const GetAllNewsAdmin = () => {
               }
             )
             .catch(error => console.log(error));
-        }, 1000);
+        }, 1500);
       })
       .catch((error) => console.log(error));
   };
@@ -63,10 +57,7 @@ export const GetAllNewsAdmin = () => {
       }, 1000);
     } catch (error) {
     }
-
   }
-
-
 
   return (
     <>
