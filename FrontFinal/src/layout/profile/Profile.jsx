@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+
+import { Button, Card, ListGroup, Modal } from "react-bootstrap";
 import { userData } from "../userSlice";
 import { getMyProfile } from "../services/apiCalls";
-import { Button, Card, ListGroup, Modal } from "react-bootstrap";
-import { ChangeLogin } from "../users/changeLogin/ChangeLogin";
-import { ProfileUpdate } from "./update/ProfileUpdate";
+import { ProfileUpdate } from "./ProfileUpdate";
+import { ChangeLogin } from "../users/ChangeLogin";
+
 
 export const Profile = () => {
   const userRedux = useSelector(userData);

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { login } from "../userSlice";
-import { InputText } from "../../components/InputText/InputText";
-import { loginUser } from "../services/apiCalls";
+
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Button, Card, Col, Container, Form, ListGroup, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
+import { login } from "../userSlice";
+import { loginUser } from "../services/apiCalls";
+import { InputText } from "../../components/InputText";
 
 export const Login = () => {
   const navigate = useNavigate();

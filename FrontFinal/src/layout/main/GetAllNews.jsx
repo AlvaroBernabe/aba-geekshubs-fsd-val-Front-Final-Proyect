@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { getAllNewsNonUser } from "./services/apiCalls";
+
 import { Card, Col } from "react-bootstrap";
+import { getAllNewsNonUser } from "../services/apiCalls";
 
 export const GetAllNews = () => {
 

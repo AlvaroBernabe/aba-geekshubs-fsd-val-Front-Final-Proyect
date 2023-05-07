@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { getAllUsers } from "../../services/apiCalls";
-import { userData } from "../../userSlice";
+
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addChoosen } from "../../detailSlice";
+
 import { Button, Card, Col, ListGroup, Modal, Row } from "react-bootstrap";
-import { DeleteUser } from "./DeleteUser";
+import { userData } from "../userSlice";
+import { getAllUsers } from "../services/apiCalls";
+import { addChoosen } from "../detailSlice";
+
 
 export const GetAllUsers = () => {
 

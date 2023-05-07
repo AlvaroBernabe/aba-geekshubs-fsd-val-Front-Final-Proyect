@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Button, Card } from "react-bootstrap";
 import Modal from "react-bootstrap/Modal";
-import { UpdateGame } from "../layout/games/UpdateGame";
 import { DeleteGames } from "../layout/games/DeleteGames";
+import { UpdateGame } from "../layout/games/UpdateGame";
+
 
 function CardGames({ games }) {
   const [remove, setRemove] = useState(false);

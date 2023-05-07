@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { userData } from "./userSlice";
-import { detailData } from "./detailSlice";
-import { newsUpdate } from "./services/apiCalls";
+
+
 import { useNavigate } from "react-router-dom";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
-import { InputText } from "../components/InputText/InputText";
+import { userData } from "../userSlice";
+import { detailData } from "../detailSlice";
+import { newsUpdate } from "../services/apiCalls";
+import { InputText } from "../../components/InputText";
+
 
 export const UpdateNews = () => {
 

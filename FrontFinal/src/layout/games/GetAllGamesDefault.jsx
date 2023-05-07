@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Container, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
 import { getAllGamesNonUser } from "../services/apiCalls";
 
+
 export const GetAllGamesDefault = () => {
 
   const [games, setGames] = useState([]);

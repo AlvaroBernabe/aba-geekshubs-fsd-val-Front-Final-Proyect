@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { userData } from "../userSlice";
+
 import { useSelector } from "react-redux";
-import { gameUpdate } from "../services/apiCalls";
+
 import { Button, Form } from "react-bootstrap";
-import { InputText } from "../../components/InputText/InputText";
-import { detailData } from "../detailSlice";
+
 import { useNavigate } from "react-router-dom";
+import { userData } from "../userSlice";
+import { detailData } from "../detailSlice";
+import { gameUpdate } from "../services/apiCalls";
+import { InputText } from "../../components/InputText";
 
 export const UpdateGame = () => {
 

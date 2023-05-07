@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { userDelete } from "../../services/apiCalls";
+
 import { Button, Card } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { detailData } from "../../detailSlice";
-import { userData } from "../../userSlice";
+
 import { useNavigate } from "react-router-dom";
+import { userData } from "../userSlice";
+import { detailData } from "../detailSlice";
+import { userDelete } from "../services/apiCalls";
 
 export const DeleteUser = () => {
   const ReduxCredentials = useSelector(userData);

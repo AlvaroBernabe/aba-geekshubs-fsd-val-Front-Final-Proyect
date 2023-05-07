@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Card, Container, Form, OverlayTrigger, Tooltip } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import { validate } from "../../helpers/useful";
+
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useNavigate } from "react-router-dom";
-import { InputText } from "../../components/InputText/InputText";
-import { registerUser } from "../services/apiCalls";
+import { validate } from "../../helpers/useful";
 
 
 export function Register() {

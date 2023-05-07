@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { gameDelete } from "../services/apiCalls";
+
 import { useSelector } from "react-redux";
+
+
+import { Button } from "react-bootstrap";
 import { userData } from "../userSlice";
 import { detailData } from "../detailSlice";
-import { Button } from "react-bootstrap";
+import { gameDelete } from "../services/apiCalls";
 
 export const DeleteGames = () => {
   const ReduxCredentials = useSelector(userData);

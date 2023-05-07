@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { userData } from "./userSlice";
+
 import { useSelector } from "react-redux";
-import { createNewNews } from "./services/apiCalls";
-import { InputText } from "../components/InputText/InputText";
+
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
+import { userData } from "../userSlice";
+import { createNewNews } from "../services/apiCalls";
+import { InputText } from "../../components/InputText";
 
 export const NewNews = () => {
     const userRedux = useSelector(userData);

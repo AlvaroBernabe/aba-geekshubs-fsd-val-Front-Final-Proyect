@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { userData } from "../userSlice";
+import { getAllGamesWithoutReviewUser } from "../services/apiCalls";
+import { addChoosen } from "../detailSlice";
+import CardGamesUser from "../../components/CardGamesUser";
 
-import { userData } from "../../userSlice";
-import { Col, Container, Row } from "react-bootstrap";
-import { addChoosen } from "../../detailSlice";
-import { getAllGamesWithoutReviewUser } from "../../services/apiCalls";
-import CardGamesUser from "../../../components/CardGamesUser";
 
 export const GetAllGamesUser = () => {
 

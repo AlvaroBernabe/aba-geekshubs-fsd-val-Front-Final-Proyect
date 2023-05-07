@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { userData } from "../../userSlice";
 import { useSelector } from "react-redux";
-import { changeRole } from "../../services/apiCalls";
 import { Button, Card, Form } from "react-bootstrap";
-import { InputText } from "../../../components/InputText/InputText";
-import { detailData } from "../../detailSlice";
 import { useNavigate } from "react-router-dom";
+import { userData } from "../userSlice";
+import { detailData } from "../detailSlice";
+import { changeRole } from "../services/apiCalls";
 
 export const ChangeRole = () => {
 

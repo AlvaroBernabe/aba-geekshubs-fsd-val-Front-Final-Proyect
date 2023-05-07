@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { detailData } from "../../detailSlice";
+
 import { Button, Card, ListGroup, Modal } from "react-bootstrap";
-import { DeleteUser } from "../getAllUsers/DeleteUser";
-import { ChangeRole } from "../getAllUsers/ChangeRole";
+import { detailData } from "../detailSlice";
+import { DeleteUser } from "./DeleteUser";
+import { ChangeRole } from "./ChangeRole";
+
 
 export const GetUsersDetails = () => {
   const detailRedux = useSelector(detailData);

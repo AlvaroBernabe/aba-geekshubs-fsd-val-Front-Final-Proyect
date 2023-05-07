@@ -13,7 +13,7 @@ export const DeleteReviewsUser = () => {
 
   let params = ReviewsData?.choosenReview?.id;
   let gameName = ReviewsData?.choosenReview?.game_title;
-  // console.log(ReviewsData?.choosenReview?.id, "esto es paramss");
+
 
 
 
@@ -27,7 +27,7 @@ export const DeleteReviewsUser = () => {
       })
       .catch((error) => console.log(error));
   };
-  // console.log(ReduxAppointment.choosenObject.email, "esto deberia ser id de user a borrar");
+
   return (
     <>
       <div>

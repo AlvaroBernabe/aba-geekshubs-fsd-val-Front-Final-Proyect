@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { getAllNewsNonUser, newsDestroy } from "./services/apiCalls";
+
 import { Button, Card, Col, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { detailData, detailGame } from "./detailSlice";
-import { userData } from "./userSlice";
+
 import { useNavigate } from "react-router-dom";
+import { userData } from "../userSlice";
+import { detailData } from "../detailSlice";
+import { getAllNewsNonUser, newsDestroy } from "../services/apiCalls";
 
 export const GetAllNewsAdmin = () => {
 

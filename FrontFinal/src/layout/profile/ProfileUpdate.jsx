@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { userData } from "../../userSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { validate } from "../../../helpers/useful";
-import { getMyProfile, profileUpdate } from "../../services/apiCalls";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
-import { InputText } from "../../../components/InputText/InputText";
+import { userData } from "../userSlice";
+import { validate } from "../../helpers/useful";
+import { getMyProfile, profileUpdate } from "../services/apiCalls";
+import { InputText } from "../../components/InputText";
+
 
 export const ProfileUpdate = ({ onProfileUpdate }) => {
   const userRedux = useSelector(userData);

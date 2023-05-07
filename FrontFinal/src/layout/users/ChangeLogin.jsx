@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { userData } from "../../userSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { loginUpdate } from "../../services/apiCalls";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
-import { InputText } from "../../../components/InputText/InputText";
-import { validate } from "../../../helpers/useful";
+import { userData } from "../userSlice";
+import { validate } from "../../helpers/useful";
+import { loginUpdate } from "../services/apiCalls";
+import { InputText } from "../../components/InputText";
 
 export const ChangeLogin = ({ onPasswordUpdate }) => {
   const userRedux = useSelector(userData);

@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getAllGames } from "../../services/apiCalls";
-import { userData } from "../../userSlice";
+
+
 import { Col, Container, Row } from "react-bootstrap";
-import CardGames from "../../../components/CardGames";
-import { addChoosen } from "../../detailSlice";
+import { userData } from "../userSlice";
+import { getAllGames } from "../services/apiCalls";
+import { addChoosen } from "../detailSlice";
+import CardGames from "../../components/CardGames";
+
+
 
 export const GetAllGamesAdmin = () => {
 

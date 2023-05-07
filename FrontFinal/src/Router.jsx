@@ -1,30 +1,31 @@
 import React from "react";
-import { Route, Routes } from 'react-router-dom';
-import { Home } from "./layout/home/Home";
-import { Register } from "./layout/register/Register";
-import { Login } from "./layout/login/Login";
+import { Route, Routes } from "react-router-dom";
+import { Home } from "./layout/main/Home";
+import { Register } from "./layout/main/Register";
+import { Login } from "./layout/main/Login";
+import { ChangeLogin } from "./layout/users/ChangeLogin";
+import NavBar from "./components/NavBar";
+import { Header } from "./components/Header";
 import { Profile } from "./layout/profile/Profile";
-import { GetAllUsers } from "./layout/users/getAllUsers/GetAllUsers";
-import { GetUsersDetails } from "./layout/users/getUsersDetails/GetUsersDetails";
-import { ChangeLogin } from "./layout/users/changeLogin/ChangeLogin";
-import { ProfileUpdate } from "./layout/profile/update/ProfileUpdate";
+import { ProfileUpdate } from "./layout/profile/ProfileUpdate";
+import { ChangeRole } from "./layout/admin/ChangeRole";
+import { GetAllUsers } from "./layout/admin/GetAllUsers";
+import { GetUsersDetails } from "./layout/admin/GetUsersDetails";
+import { GetAllGamesAdmin } from "./layout/games/GetAllGamesAdmin";
+import { GetAllGamesUser } from "./layout/games/GetAllGamesUser";
+import { GetAllGamesDefault } from "./layout/games/GetAllGamesDefault";
+import { UpdateGame } from "./layout/games/UpdateGame";
 import { GetMyFavourites } from "./layout/users/GetMyFavourites";
+import { NewGame } from "./layout/games/NewGame";
 import { NewReview } from "./layout/users/NewReview";
 import { GetAllMyReviews } from "./layout/users/GetMyReviews";
 import { GetAllAdminReviews } from "./layout/Reviews/GetAllAdminReviews";
-import { NewGame } from "./layout/games/NewGame";
-import { UpdateGame } from "./layout/games/UpdateGame";
-import { GetAllGamesUser } from "./layout/games/getAllGamesUser/GetAllGamesUser";
-import { ChangeRole } from "./layout/users/getAllUsers/ChangeRole";
-import { GetAllGamesDefault } from "./layout/games/GetAllGamesDefault";
-import { GetAllGamesAdmin } from "./layout/games/getAllGamesAdmin/GetAllGamesAdmin";
-import { GetAllNews } from "./layout/GetAllNews";
-import { NewNews } from "./layout/NewNews";
-import { Header } from "./components/Header";
-import NavBar from "./components/NavBar";
+import { GetAllNews } from "./layout/main/GetAllNews";
+import { GetAllNewsAdmin } from "./layout/admin/GetAllNewsAdmin";
+import { NewNews } from "./layout/admin/NewNews";
+import { UpdateNews } from "./layout/admin/UpdateNews";
 import { FooterBottom } from "./components/FooterBottom";
-import { GetAllNewsAdmin } from "./layout/GetAllNewsAdmin";
-import { UpdateNews } from "./layout/UpdateNews";
+
 
 export const Router = () => {
   return (

@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { validate } from "../../helpers/useful";
-import { postNewGame } from "../services/apiCalls";
+
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
-import { InputText } from "../../components/InputText/InputText";
+
 import { useSelector } from "react-redux";
-import { userData } from "../userSlice";
+
 import { useNavigate } from "react-router-dom";
+import { postNewGame } from "../services/apiCalls";
+import { userData } from "../userSlice";
+import { validate } from "../../helpers/useful";
+import { InputText } from "../../components/InputText";
 
 export const NewGame = () => {
   const ReduxUserData = useSelector(userData);
