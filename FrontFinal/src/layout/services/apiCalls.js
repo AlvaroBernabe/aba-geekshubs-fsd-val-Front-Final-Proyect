@@ -1,6 +1,4 @@
 import axios from "axios";
-// import { useSelector } from 'react-redux';
-// import { userData } from '../userSlice';
 import api from "./api";
 
 const root = "http://localhost:8000/api";
@@ -41,8 +39,6 @@ export const getAllGames = async (token) => {
 };
 
 export const loginUpdate = async (body, token) => {
-  // console.log(body, "esto es body");
-  // console.log(token, "esto es token");
   let config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -52,8 +48,6 @@ export const loginUpdate = async (body, token) => {
 };
 
 export const profileUpdate = async (body, token) => {
-  console.log(body, "esto es body");
-  console.log(token, "esto es token");
   let config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -72,9 +66,6 @@ export const getMyFavourites = async (token) => {
 };
 
 export const newReview = async (body, token) => {
-  console.log(body,"----------------------------------------------",)
-  console.log("esto vale body", body)
-  console.log("Esto vale tokensss:",token)
   let config = {
     headers: {
       Authorization: "Bearer " + token,
@@ -102,9 +93,6 @@ export const getAllReviewsAdmin = async (token) => {
 };
 
 export const postNewGame = async (body, token) => {
-  // console.log("----------------------------------------------",)
-  // console.log("esto vale body", body)
-  // console.log("Esto vale tokensss:",token)
   let config = {
     headers: {
       Authorization: "Bearer " + token,
@@ -115,15 +103,10 @@ export const postNewGame = async (body, token) => {
 
 export const changeRole = async (body, token) => {
   const { id, role_id } = body;
-  // const userId = req.params.id
   const bodyParameters = {
     id: id,
     role_id: role_id,
-    //       where: {
-    // id: userId
-    // }
   };
-
   const config = {
     headers: {
       Authorization: "Bearer " + token,
@@ -151,7 +134,6 @@ export const gameDelete = async (id, token) => {
 };
 
 export const logoutUser = async (token) => {
-  // console.log(token, "soy apicalls token");
   let config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -182,7 +164,6 @@ export const getAllGamesNonUser = async () => {
   return await axios.get(`${root}/games/alls/nonuser`);
 };
 
-
 export const ReviewsDeleteAdmin = async (id, token) => {
   const config = {
     headers: {
@@ -192,10 +173,7 @@ export const ReviewsDeleteAdmin = async (id, token) => {
   return await axios.delete(`${root}/review/all/${id}`, config);
 };
 
-
 export const ReviewsDeleteUser = async (id, token) => {
-    console.log("esto vale id", id)
-  console.log("Esto vale tokensss:",token)
   const config = {
     headers: {
       Authorization: "Bearer " + token,
@@ -208,11 +186,7 @@ export const getAllNewsNonUser = async () => {
   return await axios.get(`${root}/news/all/`);
 };
 
-
 export const createNewNews = async (body, token) => {
-  // console.log("----------------------------------------------",)
-  // console.log("esto vale body", body)
-  // console.log("Esto vale tokensss:",token)
   let config = {
     headers: {
       Authorization: "Bearer " + token,
@@ -221,22 +195,16 @@ export const createNewNews = async (body, token) => {
   return await axios.post(`${root}/news/new`, body, config);
 };
 
-
 export const newsDestroy = async (id, token) => {
-  console.log("esto vale id", id)
-console.log("Esto vale tokensss:",token)
-const config = {
-  headers: {
-    Authorization: "Bearer " + token,
-  },
-};
-return await axios.delete(`${root}/news/all/destroy/${id}`, config);
+  const config = {
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  };
+  return await axios.delete(`${root}/news/all/destroy/${id}`, config);
 };
 
 export const newsUpdate = async (id, body, token) => {
-  console.log("esto vale id", id)
-  console.log("Esto vale tokensss:",token)
-  console.log("esto vale body", body)
   const config = {
     headers: {
       Authorization: "Bearer " + token,

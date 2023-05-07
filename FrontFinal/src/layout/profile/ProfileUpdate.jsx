@@ -7,8 +7,8 @@ import { validate } from "../../helpers/useful";
 import { getMyProfile, profileUpdate } from "../services/apiCalls";
 import { InputText } from "../../components/InputText";
 
-
 export const ProfileUpdate = ({ onProfileUpdate }) => {
+
   const userRedux = useSelector(userData);
   const navigate = useNavigate();
 
@@ -90,7 +90,6 @@ export const ProfileUpdate = ({ onProfileUpdate }) => {
     }));
   };
 
-
   useEffect(() => {
     if (user.name === "") {
       getMyProfile(userRedux.credentials.token)
@@ -108,7 +107,6 @@ export const ProfileUpdate = ({ onProfileUpdate }) => {
     }
   }, []);
 
-
   const updateUser = () => {
     try {
       profileUpdate(user, userRedux.credentials.token);
@@ -123,7 +121,6 @@ export const ProfileUpdate = ({ onProfileUpdate }) => {
       }, 1500);
     }
   };
-
 
   const handleFormSubmit = (e) => {
     e.preventDefault();

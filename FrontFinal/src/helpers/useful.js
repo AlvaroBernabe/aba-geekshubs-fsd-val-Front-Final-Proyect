@@ -102,8 +102,6 @@ export const validate = (name, data, required) => {
     case "direction":
       if (data === "" && required === true) {
         return { message: "Please fill the field", validated: false };
-        // } else if (!/[a-z]/gi.test(data)) {
-        //     return {message: "Please fill with a valid text", validated: false};
       } else if (data.length > 70) {
         return {
           message: "The input cannot be more than 90 characters long",

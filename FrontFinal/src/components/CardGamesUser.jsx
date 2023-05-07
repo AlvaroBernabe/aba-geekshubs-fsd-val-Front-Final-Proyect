@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { isFavouriteReview } from "../layout/reviewSlice";
@@ -10,15 +10,8 @@ function CardGamesUser({ games }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-
-
-
-
-
-
   const handleFavouriteYesClick = (games) => {
     dispatch(isFavouriteReview({ choosenReview: games }))
-    console.log(games, "esto es review en teoria");
     setTimeout(() => {
       navigate('/review/new');
     }, 500);

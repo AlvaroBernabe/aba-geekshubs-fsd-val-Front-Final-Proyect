@@ -10,7 +10,6 @@ export const DeleteReview = ({ onReviewDelete }) => {
   const userRedux = useSelector(userData);
   const ReviewsData = useSelector(reviewData);
   const [welcome, setWelcome] = useState("");
-
   let params = ReviewsData?.choosenReview?.Reviews.id;
 
   const ReviewDelete = async () => {

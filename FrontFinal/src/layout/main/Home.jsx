@@ -9,8 +9,6 @@ import img7 from "../../assets/images/systemSchock.png";
 import img8 from "../../assets/images/ultima.jpg";
 
 export const Home = () => {
-
-
   return (
     <>
       <div className="container-fluid">

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Card, Container, Form, OverlayTrigger, Tooltip } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useNavigate } from "react-router-dom";
 import { validate } from "../../helpers/useful";
 import { InputText } from "../../components/InputText";
-
+import { registerUser } from "../services/apiCalls";
 
 export function Register() {
   const navigate = useNavigate();

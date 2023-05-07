@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-
 import { Button, Card, ListGroup, Modal } from "react-bootstrap";
 import { userData } from "../userSlice";
 import { getMyProfile } from "../services/apiCalls";
 import { ProfileUpdate } from "./ProfileUpdate";
 import { ChangeLogin } from "./ChangeLogin";
-
-
 
 export const Profile = () => {
   const userRedux = useSelector(userData);
@@ -27,7 +24,6 @@ export const Profile = () => {
   const handlePasswordUpdate = () => {
     setPassword(false);
   };
-
 
   const [users, setUsers] = useState({
     name: "",
@@ -54,24 +50,20 @@ export const Profile = () => {
     }
   }, [users]);
 
-
-  
-const reloadProfile = () => {
-  getMyProfile(userRedux.credentials.token)
-    .then((result) => {
-      setUsers({
-        name: result.data.data[1][0].name,
-        surname: result.data.data[1][0].surname,
-        phone_number: result.data.data[1][0].phone_number,
-        email: result.data.data[0],
-        direction: result.data.data[1][0].direction,
-        birth_date: result.data.data[1][0].birth_date,
-      });
-    })
-    .catch((error) => console.log(error));
-};
-
-
+  const reloadProfile = () => {
+    getMyProfile(userRedux.credentials.token)
+      .then((result) => {
+        setUsers({
+          name: result.data.data[1][0].name,
+          surname: result.data.data[1][0].surname,
+          phone_number: result.data.data[1][0].phone_number,
+          email: result.data.data[0],
+          direction: result.data.data[1][0].direction,
+          birth_date: result.data.data[1][0].birth_date,
+        });
+      })
+      .catch((error) => console.log(error));
+  };
 
   return (
     <>
@@ -111,7 +103,7 @@ const reloadProfile = () => {
               <Modal.Header closeButton>
                 <Modal.Title>Update Profile</Modal.Title>
               </Modal.Header>
-              <Modal.Body><ProfileUpdate  onProfileUpdate={handleProfileUpdate} /></Modal.Body>
+              <Modal.Body><ProfileUpdate onProfileUpdate={handleProfileUpdate} /></Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={handleCloseUpdate}>
                   Close

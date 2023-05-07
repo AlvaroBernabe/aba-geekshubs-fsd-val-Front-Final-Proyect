@@ -45,7 +45,6 @@ export const UpdateNews = () => {
       });
   }
 
-  console.log(news, "esto news");
   return (
     <>
       <div>

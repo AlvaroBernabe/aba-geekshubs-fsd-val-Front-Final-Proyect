@@ -14,13 +14,11 @@ export const ChangeLogin = ({ onPasswordUpdate }) => {
   const [welcome, setWelcome] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
-
   const [user, setUser] = useState({
     email: email,
     password: "",
     confirmPassword: "",
   });
-
 
   const inputHandler = (e) => {
     setUser((prevState) => ({
@@ -40,7 +38,6 @@ export const ChangeLogin = ({ onPasswordUpdate }) => {
   });
 
   const [registerAct, setRegisterAct] = useState(false);
-
 
   useEffect(() => {
     for (let error in userError) {

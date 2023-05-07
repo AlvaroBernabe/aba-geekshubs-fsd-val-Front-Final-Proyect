@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Button, Card, Col, Container, Form, ListGroup, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
@@ -29,6 +28,7 @@ export const Login = () => {
       [e.target.name]: e.target.value,
     }));
   };
+
   const [registerAct, setRegisterAct] = useState(false);
   const checkError = (e) => { };
 

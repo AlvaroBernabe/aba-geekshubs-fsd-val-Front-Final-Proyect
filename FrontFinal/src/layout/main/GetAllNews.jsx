@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import { Card, Col } from "react-bootstrap";
 import { getAllNewsNonUser } from "../services/apiCalls";
 

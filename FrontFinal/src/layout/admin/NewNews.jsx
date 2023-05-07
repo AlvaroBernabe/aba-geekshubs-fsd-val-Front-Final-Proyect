@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { useSelector } from "react-redux";
-
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
 import { userData } from "../userSlice";
 import { createNewNews } from "../services/apiCalls";
