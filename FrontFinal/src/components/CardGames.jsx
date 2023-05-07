@@ -7,8 +7,12 @@ import { gameDelete } from "../layout/services/apiCalls";
 import { useSelector } from "react-redux";
 import { userData } from "../layout/userSlice";
 
-
 function CardGames({ games }) {
+  const userRedux = useSelector(userData);
+  const ReduxAppointment = useSelector(detailData);
+  const [welcome, setWelcome] = useState("");
+  let params = ReduxAppointment.choosenObject.id;
+
   const [remove, setRemove] = useState(false);
   const handleCloseRemove = () => setRemove(false);
   const handleShowRemove = () => setRemove(true);
@@ -19,33 +23,18 @@ function CardGames({ games }) {
 
   const handleGamesUpdate = () => {
     setUpdate(false);
-    // reloadGames();
   };
-
-  const handleGamesDelete = () => {
-    setRemove(false);
-    // reloadGames();
-  };
-
-  const userRedux = useSelector(userData);
-
-  const ReduxAppointment = useSelector(detailData);
-  const [welcome, setWelcome] = useState("");
-
-  let params = ReduxAppointment.choosenObject.id;
 
   const GamesDelete = async () => {
     gameDelete(params, userRedux.credentials.token)
       .then(() => {
         setWelcome(`Correctly Deleted Game`);
         setTimeout(() => {
-          setRemove(false);
-          setWelcome(``);
+          window.location.reload(true);
         }, 1500);
       })
       .catch((error) => console.log(error));
   };
-
 
   return (
     <Card className="CardGames">
@@ -85,7 +74,6 @@ function CardGames({ games }) {
           <Button variant="danger" onClick={handleShowRemove}>
             Delete Game
           </Button>
-
           <Modal show={remove} onHide={handleCloseRemove}>
             <Modal.Header closeButton>
               <Modal.Title>You Sure?</Modal.Title>
@@ -117,7 +105,6 @@ function CardGames({ games }) {
           <Button variant="primary" onClick={handleShowUpdate}>
             Update Game
           </Button>
-
           <Modal show={update} onHide={handleCloseUpdate}>
             <Modal.Header closeButton>
               <Modal.Title>Update Game</Modal.Title>

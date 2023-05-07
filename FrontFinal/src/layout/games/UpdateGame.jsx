@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-
 import { useSelector } from "react-redux";
-
 import { Button, Form } from "react-bootstrap";
-
 import { useNavigate } from "react-router-dom";
 import { userData } from "../userSlice";
 import { detailData } from "../detailSlice";
@@ -14,22 +11,17 @@ export const UpdateGame = ({ onCardUpdate }) => {
 
   const userRedux = useSelector(userData);
   const ReduxAppointment = useSelector(detailData)
-  // console.log(ReduxAppointment.choosenObject.id);
-
-  const navigate = useNavigate();
   const [welcome, setWelcome] = useState("");
-
   let params = ReduxAppointment.choosenObject.id;
-
 
   const [games, setGames] = useState({
     id: params,
-    name: '',
-    description: '',
-    score: '',
-    genre: '',
-    publisher: '',
-    release_date: ''
+    name: ReduxAppointment?.choosenObject?.name,
+    description: ReduxAppointment?.choosenObject?.description,
+    score: ReduxAppointment?.choosenObject?.score,
+    genre: ReduxAppointment?.choosenObject?.genre,
+    publisher: ReduxAppointment?.choosenObject?.publisher,
+    release_date: ReduxAppointment?.choosenObject?.release_date,
   });
 
   const inputHandler = (e) => {
@@ -39,19 +31,7 @@ export const UpdateGame = ({ onCardUpdate }) => {
     }));
   };
 
-
-
-
-  // useEffect(()=>{
-  //     if (userData.name === ""){
-  //       getUserData(ReduxCredentials.credentials.token).then(
-  //         resultado => {console.log(resultado)}
-  //       ).catch(error => (console.log(error)))
-  //     }
-  // }, [userData]);
-
   const checkError = (e) => {
-
   }
 
   const updateGames = () => {
@@ -65,7 +45,6 @@ export const UpdateGame = ({ onCardUpdate }) => {
       })
       .catch((error) => console.log(error));
   };
-  console.log(games, "esto vale juegos");
 
   return (
     <Form>

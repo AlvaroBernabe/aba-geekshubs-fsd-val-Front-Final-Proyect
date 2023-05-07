@@ -73,7 +73,7 @@ export const GetAllNewsAdmin = () => {
             <Container fluid>
               {news.map((neww) => {
                 return (
-                  <Col className="ContainerAllGamesAdmin" onClick={() => selected(neww)} key={neww.id}>
+                  <Col className="ContainerAllGamesAdmin" onClick={() => selected(neww)} key={neww.news.id}>
                     <Card className="CardNews">
                       <Card.Img className="imgNews" variant="top" src={neww.news.news_image} />
                       <Card.Body>

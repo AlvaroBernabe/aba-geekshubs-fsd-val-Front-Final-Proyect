@@ -7,7 +7,6 @@ import { detailData } from "../detailSlice";
 import { newsUpdate } from "../services/apiCalls";
 import { InputText } from "../../components/InputText";
 
-
 export const UpdateNews = () => {
 
   const userRedux = useSelector(userData);
@@ -18,7 +17,6 @@ export const UpdateNews = () => {
   const [welcome, setWelcome] = useState("");
 
   const [news, setNews] = useState({
-    id: NewsData.choosenObject.news.id,
     title: NewsData.choosenObject.news.title,
     summary: NewsData.choosenObject.news.summary,
     game_id: NewsData?.choosenObject?.news.game_id,
@@ -47,6 +45,7 @@ export const UpdateNews = () => {
       });
   }
 
+  console.log(news, "esto news");
   return (
     <>
       <div>

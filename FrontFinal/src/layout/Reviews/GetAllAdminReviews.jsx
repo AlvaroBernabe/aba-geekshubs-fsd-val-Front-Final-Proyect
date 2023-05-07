@@ -8,6 +8,7 @@ import { addChoosenReview } from "../reviewSlice";
 import { DeleteReview } from "./DeleteReview";
 
 export const GetAllAdminReviews = () => {
+
   const userRedux = useSelector(userData);
   const [reviews, setReviews] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -16,7 +17,6 @@ export const GetAllAdminReviews = () => {
   const [remove, setRemove] = useState(false);
   const handleCloseRemove = () => setRemove(false);
   const handleShowRemove = () => setRemove(true);
-  //   const hola = "hola"
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,8 +24,7 @@ export const GetAllAdminReviews = () => {
   useEffect(() => {
     if (reviews.length === 0) {
       getAllReviewsAdmin(userRedux?.credentials?.token)
-        .then(( ) => {
-          console.log(result);
+        .then((result) => {
           setReviews(result.data.data);
         })
         .catch((error) => {
@@ -33,14 +32,20 @@ export const GetAllAdminReviews = () => {
         });
     }
   }, [reviews]);
-  console.log(reviews);
 
   const gameSelect = (review) => {
-    console.log(review.Reviews.id)
     dispatch(addChoosenReview({ choosenReview: review }));
-    // setTimeout(() => {
-    //   navigate("/appointment/update");
-    // }, 1000);
+  };
+
+  const handleReviewDelete = () => {
+    setRemove(false);
+    getAllReviewsAdmin(userRedux?.credentials?.token)
+    .then((result) => {
+      setReviews(result.data.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
   };
 
   const findReviews = reviews.filter((game) => {
@@ -61,30 +66,30 @@ export const GetAllAdminReviews = () => {
               <Col onClick={() => gameSelect(game)} key={game.Reviews.id}>
                 <ListGroup className="CardAllReviews">
                   <ul>
-                    <li><span className="textColor">ID: </span>{game.Reviews.id}</li>
-                    <li><span className="textColor">Game Name: </span>{game.game_name}</li>
-                    <li><span className="textColor">Game ID: </span>{game.Reviews.game_id}</li>
-                    <li><span className="textColor">User ID: </span>{game.Reviews.user_id}</li>
-                    <li><span className="textColor">Favorito: </span>{game.Reviews.favourite}</li>
-                    <li><span className="textColor">Review: </span>{game.Reviews.player_review}</li>
-                    <li><span className="textColor">Player Score: </span>{game.Reviews.player_score}</li>
+                    <li><span className=""><b>ID: </b></span>{game.Reviews.id}</li>
+                    <li><span className=""><b>Game Name:</b> </span>{game.game_name}</li>
+                    <li><span className=""><b>Game ID: </b></span>{game.Reviews.game_id}</li>
+                    <li><span className=""><b>User ID: </b></span>{game.Reviews.user_id}</li>
+                    <li><span className=""><b>Favorito: </b></span>{game.Reviews.favourite}</li>
+                    <li><span className=""><b>Review: </b></span>{game.Reviews.player_review}</li>
+                    <li><span className=""><b>Player Score:</b> </span>{game.Reviews.player_score}</li>
                   </ul>
-                <div className="ButtonModalReviews">
-                  <Button variant="danger" onClick={handleShowRemove}>
-                    Delete Review
-                  </Button>
-                  <Modal show={remove} onHide={handleCloseRemove}>
-                    <Modal.Header closeButton>
-                      <Modal.Title>You Sure?</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body><DeleteReview></DeleteReview></Modal.Body>
-                    <Modal.Footer>
-                      <Button variant="primary" onClick={handleCloseRemove}>
-                        Nope
-                      </Button>
-                    </Modal.Footer>
-                  </Modal>
-                </div>
+                  <div className="ButtonModalReviews">
+                    <Button variant="danger" onClick={handleShowRemove}>
+                      Delete Review
+                    </Button>
+                    <Modal show={remove} onHide={handleCloseRemove}>
+                      <Modal.Header closeButton>
+                        <Modal.Title>You Sure?</Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body><DeleteReview onReviewDelete={handleReviewDelete} /></Modal.Body>
+                      <Modal.Footer>
+                        <Button variant="primary" onClick={handleCloseRemove}>
+                          Nope
+                        </Button>
+                      </Modal.Footer>
+                    </Modal>
+                  </div>
                 </ListGroup>
               </Col>
             );
