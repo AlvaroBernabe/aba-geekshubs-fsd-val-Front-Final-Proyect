@@ -37,45 +37,45 @@ View Nexus 5
 
 You can manage the following features:
 
-Whitout Login you can:
--See All Games
--See All News
--Register
--See Home
+Without logging in, you can:
+- See all games
+- See all news
+- Register
+- View the homepage
 
 As a User You Can :
-- Get Your Profile
-- Change Password
-- Update or Create Your Profile
-- Get All Games Without Review
-- Get Your Favourites Games
-- Get All Your Reviews
-- New Review of Game
-- Search Games By Filter (Name, Genre, Publisher, Score)
-- Update Your Reviews 
-- Delete Your Reviews
+- Access your profile
+- Change your password
+- Update or create your profile
+- View all games without reviews
+- Access your favorite games
+- View all your reviews
+- Write a new game review
+- Search games by filters (name, genre, publisher, score)
+- Update your reviews
+- Delete your reviews
 
-As Admin You Can :
-- Get Your Profile
-- Change Password
-- Update or Create Your Profile
-- Get All Games
-- Update Games
-- Delete Games
-- Get Your Favourites Games
-- Get All Your Reviews
-- New Review of Game
-- Search Games By Filter (Name, Genre, Publisher, Score)
-- Get All Users
-- Delete Users (Can´t Delete Admin)
-- Change Role Users
-- Delete Reviews
-- Search Reviews by Filter ( Game Name and User ID)
-- Get All News
-- Update News
-- Delete News
-- New Game
-- New News
+As an admin, you can:
+- Access your profile
+- Change your password
+- Update or create your profile
+- View all games
+- Update games
+- Delete games
+- Access your favorite games
+- View all user reviews
+- Write a new game review
+- Search games by filters (name, genre, publisher, score)
+- View all users
+- Delete users (except admins)
+- Change user roles
+- Delete reviews
+- Search reviews by filters (game name and user ID)
+- View all news
+- Update news
+- Delete news
+- Add a new game
+- Add a new news item
 
 ## Stack
 Used tech:
@@ -122,18 +122,19 @@ For The Front
 
 ## Known bugs:
 
-<p>There are some names that need change for consistency.</p>
+<p>Some names need to be changed for consistency..</p>
 <p>There are a few function that need to change the way they reload the parent function.</p>
 <p>The CSS need some Cleaning.</p>
-<p>There are some .catch without a responde.</p>
+<p>There are some ".catch" statements without a response.</p>
+<p>There are a few functions that require all fields to be updated, but there is no message to indicate this.</p>
 
 ## Future Features:
 <p>Wellcome Message To Everything.</p>
-<p>Improve Style of Button,Form,Card, etc.</p>
-<p>Better Validation for input.</p>
-<p>Improve Change Rol, so Admin can Delete Other Admin.</p>
-<p>Add SuperAdmin to Database to manage Admin.</p>
-<p>Add comment for Future Proofing the Code.</p>
+<p>Improve the style of buttons, forms, cards, etc.</p>
+<p>Implement better input validation.</p>
+<p>Enhance the "Change Role" feature to allow admins to delete other admins.</p>
+<p>Include a SuperAdmin in the database to manage admins.</p>
+<p>Add comments to future-proof the code.</p>
 
 ## Licence
 
