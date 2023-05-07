@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import { Home } from "./layout/main/Home";
 import { Register } from "./layout/main/Register";
 import { Login } from "./layout/main/Login";
-import { ChangeLogin } from "./layout/users/ChangeLogin";
 import NavBar from "./components/NavBar";
 import { Header } from "./components/Header";
 import { Profile } from "./layout/profile/Profile";
@@ -25,6 +24,7 @@ import { GetAllNewsAdmin } from "./layout/admin/GetAllNewsAdmin";
 import { NewNews } from "./layout/admin/NewNews";
 import { UpdateNews } from "./layout/admin/UpdateNews";
 import { FooterBottom } from "./components/FooterBottom";
+import { ChangeLogin } from "./layout/profile/ChangeLogin";
 
 
 export const Router = () => {

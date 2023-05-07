@@ -11,7 +11,7 @@ import { validate } from "../../helpers/useful";
 import { InputText } from "../../components/InputText";
 
 export const NewGame = () => {
-  const ReduxUserData = useSelector(userData);
+  const userRedux = useSelector(userData);
 
   const navigate = useNavigate();
   const [welcome, setWelcome] = useState("");
@@ -93,7 +93,7 @@ export const NewGame = () => {
   };
 
   const newJuego = () => {
-    postNewGame(credenciales, ReduxUserData.credentials.token)
+    postNewGame(credenciales, userRedux.credentials.token)
       .then((resultado) => {
         setCredenciales(resultado.data);
         setWelcome(`Correctly registered ${credenciales.name}`);

@@ -9,7 +9,7 @@ import { detailData } from "../detailSlice";
 import { userDelete } from "../services/apiCalls";
 
 export const DeleteUser = () => {
-  const ReduxCredentials = useSelector(userData);
+  const userRedux = useSelector(userData);
   const ReduxAppointment = useSelector(detailData);
   const [welcome, setWelcome] = useState("");
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ export const DeleteUser = () => {
   });
 
   const UserDelete = async () => {
-    userDelete(params, ReduxCredentials.credentials.token)
+    userDelete(params, userRedux.credentials.token)
       .then(() => {
         setWelcome(`Correctly Deleted ${ReduxAppointment.choosenObject.email}`);
         setTimeout(() => {

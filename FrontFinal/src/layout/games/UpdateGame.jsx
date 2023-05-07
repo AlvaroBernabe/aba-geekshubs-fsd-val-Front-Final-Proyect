@@ -12,7 +12,7 @@ import { InputText } from "../../components/InputText";
 
 export const UpdateGame = () => {
 
-  const ReduxCredentials = useSelector(userData);
+  const userRedux = useSelector(userData);
   const ReduxAppointment = useSelector(detailData)
   // console.log(ReduxAppointment.choosenObject.id);
 
@@ -55,7 +55,7 @@ export const UpdateGame = () => {
   }
 
   const updateGames = () => {
-    gameUpdate(params, games, ReduxCredentials.credentials.token)
+    gameUpdate(params, games, userRedux.credentials.token)
       .then((resultado) => {
         setGames(resultado.data);
         setWelcome(`Correctly updated ${games.name}`);

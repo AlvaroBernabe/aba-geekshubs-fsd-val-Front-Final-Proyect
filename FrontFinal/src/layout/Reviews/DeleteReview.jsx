@@ -7,7 +7,7 @@ import { reviewData } from "../reviewSlice";
 import { ReviewsDeleteAdmin } from "../services/apiCalls";
 
 export const DeleteReview = () => {
-    const ReduxCredentials = useSelector(userData);
+    const userRedux = useSelector(userData);
     const ReviewsData = useSelector(reviewData);
     const [welcome, setWelcome] = useState("");
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ export const DeleteReview = () => {
     });
 
     const ReviewDelete = async () => {
-        ReviewsDeleteAdmin(params, ReduxCredentials?.credentials?.token)
+        ReviewsDeleteAdmin(params, userRedux?.credentials?.token)
             .then(() => {
                 setWelcome(`Correctly Deleted Review ID: ${params}`);
                 setTimeout(() => {

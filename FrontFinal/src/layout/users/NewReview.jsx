@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
 import { getAllGamesWithoutReviewUser, newReview } from "../services/apiCalls";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { userData } from "../userSlice";
@@ -11,22 +9,18 @@ import { reviewData } from "../reviewSlice";
 
 export const NewReview = () => {
 
-  const ReduxUserData = useSelector(userData);
-  const isFavourite = useSelector(reviewData);
-  console.log(isFavourite?.choosenReview, "esto es is favourite en teoria");
-
+  const userRedux = useSelector(userData);
+  const gameId = useSelector(reviewData);
   const navigate = useNavigate();
   const [welcome, setWelcome] = useState("");
   const [games, setGames] = useState([]);
-
-
 
   const [review, setReview] = useState({
     player_score: "",
     player_review: "",
     favourite: "",
-    game_id: isFavourite?.choosenReview?.id,
-    user_id: ReduxUserData?.credentials?.usuario?.id,
+    game_id: gameId?.choosenReview?.id,
+    user_id: userRedux?.credentials?.usuario?.id,
   });
 
   const [favouriteOptions, setFavouriteOptions] = useState([
@@ -46,34 +40,30 @@ export const NewReview = () => {
   }
 
   useEffect(() => {
-    if (isFavourite?.choosenReview?.id === "") {
+    if (gameId?.choosenReview?.id === "") {
       setReview((prevState) => ({
         ...prevState,
-        game_id: isFavourite.choosenReview.id,
+        game_id: gameId.choosenReview.id,
       }));
     }
   }, [review])
 
   useEffect(() => {
     if (games.length === 0) {
-      getAllGamesWithoutReviewUser(ReduxUserData?.credentials?.token)
+      getAllGamesWithoutReviewUser(userRedux?.credentials?.token)
         .then(
           result => {
             const sortedGames = result?.data?.data?.sort((a, b) => a.name.localeCompare(b.name));
             setGames(sortedGames)
-            // console.log(sortedGames, "soy ShortedGames")
           }
         )
         .catch(error => console.log(error));
     }
   }, [games])
-  // console.log(games, "soy GAmes");
 
   const reviewNew = () => {
-    newReview(review, ReduxUserData?.credentials?.token)
+    newReview(review, userRedux?.credentials?.token)
       .then((resultado) => {
-        // console.log(ReduxUserData.credentials.token);
-        // console.log(resultado);
         setReview(resultado?.data)
         setWelcome(`Review Created Correctly`);
         setTimeout(() => {
@@ -84,8 +74,6 @@ export const NewReview = () => {
         setReview(error.message);
       });
   }
-
-  console.log(review, "hola soy review");
 
   return (
     <>
@@ -126,7 +114,6 @@ export const NewReview = () => {
                       name={"player_score"}
                       onChange={(e) => inputHandler(e)}
                     />
-                    {/* <div>{reviewError.nameError}</div> */}
                     <Form.Group>
                       <Form.Label>Enter Your Review:</Form.Label>
                       <Form.Control
@@ -140,7 +127,6 @@ export const NewReview = () => {
                         onChange={inputHandler}
                       />
                     </Form.Group>
-                    {/* <div>{reviewError.surnameError}</div> */}
                     <Form.Group>
                       <Form.Label>Is Favourite?</Form.Label>
                       <Form.Select
@@ -156,7 +142,6 @@ export const NewReview = () => {
                         ))}
                       </Form.Select>
                     </Form.Group>
-                    {/* <div>{reviewError.directionError}</div> */}
                     <br />
                     <div className='botonNewReview'>
                       <Button

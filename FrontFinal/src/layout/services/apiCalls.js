@@ -72,9 +72,9 @@ export const getMyFavourites = async (token) => {
 };
 
 export const newReview = async (body, token) => {
-  // console.log("----------------------------------------------",)
-  // console.log("esto vale body", body)
-  // console.log("Esto vale tokensss:",token)
+  console.log(body,"----------------------------------------------",)
+  console.log("esto vale body", body)
+  console.log("Esto vale tokensss:",token)
   let config = {
     headers: {
       Authorization: "Bearer " + token,

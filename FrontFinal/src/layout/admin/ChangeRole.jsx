@@ -8,7 +8,7 @@ import { changeRole } from "../services/apiCalls";
 
 export const ChangeRole = () => {
 
-  const ReduxCredentials = useSelector(userData);
+  const userRedux = useSelector(userData);
   const ReduxAppointment = useSelector(detailData);
   const [welcome, setWelcome] = useState("");
   const navigate = useNavigate();
@@ -41,7 +41,7 @@ export const ChangeRole = () => {
   }
 
   const changeRol = () => {
-    changeRole(credenciales, ReduxCredentials.credentials.token)
+    changeRole(credenciales, userRedux.credentials.token)
       .then((resultado) => {
         setCredenciales(resultado.data)
         setWelcome(`${ReduxAppointment.choosenObject.email} is an Admin now`);

@@ -8,7 +8,7 @@ import { addChoosenReview } from "../reviewSlice";
 import { DeleteReview } from "./DeleteReview";
 
 export const GetAllAdminReviews = () => {
-  const ReduxUserData = useSelector(userData);
+  const userRedux = useSelector(userData);
   const [reviews, setReviews] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchUserId, setSearchUserId] = useState('');
@@ -23,7 +23,7 @@ export const GetAllAdminReviews = () => {
 
   useEffect(() => {
     if (reviews.length === 0) {
-      getAllReviewsAdmin(ReduxUserData?.credentials?.token)
+      getAllReviewsAdmin(userRedux?.credentials?.token)
         .then(( ) => {
           console.log(result);
           setReviews(result.data.data);

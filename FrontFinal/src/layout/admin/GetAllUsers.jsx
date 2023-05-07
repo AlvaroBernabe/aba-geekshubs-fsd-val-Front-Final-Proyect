@@ -12,7 +12,7 @@ import { addChoosen } from "../detailSlice";
 export const GetAllUsers = () => {
 
   const [users, setUsers] = useState([]);
-  const ReduxCredentials = useSelector(userData);
+  const userRedux = useSelector(userData);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -21,7 +21,7 @@ export const GetAllUsers = () => {
 
   useEffect(() => {
     if (users.length === 0) {
-      getAllUsers(ReduxCredentials.credentials?.token)
+      getAllUsers(userRedux.credentials?.token)
         .then(
           result => {
             setUsers(result.data.data.resultado)

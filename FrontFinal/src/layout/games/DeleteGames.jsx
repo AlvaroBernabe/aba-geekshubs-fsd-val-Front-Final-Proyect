@@ -9,7 +9,7 @@ import { detailData } from "../detailSlice";
 import { gameDelete } from "../services/apiCalls";
 
 export const DeleteGames = () => {
-  const ReduxCredentials = useSelector(userData);
+  const userRedux = useSelector(userData);
   const ReduxAppointment = useSelector(detailData);
   const [welcome, setWelcome] = useState("");
 
@@ -20,7 +20,7 @@ export const DeleteGames = () => {
   });
 
   const GamesDelete = async () => {
-    gameDelete(params, ReduxCredentials.credentials.token)
+    gameDelete(params, userRedux.credentials.token)
       .then(() => {
         setTimeout(() => {
           window.location.reload(true);

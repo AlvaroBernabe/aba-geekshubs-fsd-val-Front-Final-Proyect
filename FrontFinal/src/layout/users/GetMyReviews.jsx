@@ -6,11 +6,11 @@ import { userData } from "../userSlice";
 import { Button, Card, Col, Container, Modal, Row } from "react-bootstrap";
 import { addChoosenReview } from "../reviewSlice";
 import { UpdateReviewUser } from "../Reviews/UpdateReviewUser";
-import { DeleteReviewsUser } from "../../components/DeleteReviewsUser";
+import { DeleteReviewsUser } from "./DeleteReviewsUser";
 import { Trash3Fill } from "react-bootstrap-icons";
 
 export const GetAllMyReviews = () => {
-  const ReduxUserData = useSelector(userData);
+  const userRedux = useSelector(userData);
   // const ReduxReviewData = useSelector(reviewData);
   const [reviews, setReviews] = useState([]);
 
@@ -19,7 +19,7 @@ export const GetAllMyReviews = () => {
 
   useEffect(() => {
     if (reviews.length === 0) {
-      getMyReviews(ReduxUserData?.credentials?.token)
+      getMyReviews(userRedux?.credentials?.token)
         .then((result) => {
           // console.log(result, "hola soy result");
           setReviews(result.data.data.Reviews);
@@ -50,6 +50,15 @@ export const GetAllMyReviews = () => {
   const [remove, setRemove] = useState(false);
   const handleCloseRemove = () => setRemove(false);
   const handleShowRemove = () => setRemove(true);
+
+
+  const handlePasswordUpdate = () => {
+    setPassword(false);
+  };
+
+  const handleReviewDelete = () => {
+    setPassword(false);
+  };
 
 
   return (
@@ -95,7 +104,7 @@ export const GetAllMyReviews = () => {
                         <Modal.Header closeButton>
                           <Modal.Title>You Sure?</Modal.Title>
                         </Modal.Header>
-                        <Modal.Body><DeleteReviewsUser></DeleteReviewsUser></Modal.Body>
+                        <Modal.Body><DeleteReviewsUser /></Modal.Body>
                         <Modal.Footer>
                           <Button variant="primary" onClick={handleCloseRemove}>
                             Nope

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Button, Card } from "react-bootstrap";
-import { reviewData } from "../layout/reviewSlice";
-import { userData } from "../layout/userSlice";
+import { reviewData } from "../reviewSlice";
+import { userData } from "../userSlice";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { ReviewsDeleteUser } from "../layout/services/apiCalls";
+import { ReviewsDeleteUser } from "../services/apiCalls";
 
 export const DeleteReviewsUser = () => {
-  const ReduxCredentials = useSelector(userData);
+  const userRedux = useSelector(userData);
   const ReviewsData = useSelector(reviewData);
   const [welcome, setWelcome] = useState("");
 
@@ -18,7 +18,7 @@ export const DeleteReviewsUser = () => {
 
 
   const ReviewDelete = async () => {
-    ReviewsDeleteUser(params, ReduxCredentials?.credentials?.token)
+    ReviewsDeleteUser(params, userRedux?.credentials?.token)
       .then(() => {
         setWelcome(`Correctly Deleted ${gameName} Review`);
         setTimeout(() => {

@@ -8,7 +8,7 @@ import { detailData } from "../detailSlice";
 
 export const UpdateReviewUser = () => {
 
-  const ReduxUserData = useSelector(userData);
+  const userRedux = useSelector(userData);
   const gameDataUpdate = useSelector(detailData);
 
   console.log(gameDataUpdate.choosenObject, "esto es gameDataUpdate en teoria");
@@ -40,7 +40,7 @@ export const UpdateReviewUser = () => {
 
   useEffect(() => {
     if (reviews.length === 0) {
-      getMyReviews(ReduxUserData?.credentials?.token)
+      getMyReviews(userRedux?.credentials?.token)
         .then((result) => {
           // console.log(result, "hola soy result");
           setReviews(result?.data?.data?.Reviews);
@@ -53,7 +53,7 @@ export const UpdateReviewUser = () => {
   // console.log(games, "soy GAmes");
 
   const updateReview = () => {
-    newReview(review, ReduxUserData?.credentials?.token)
+    newReview(review, userRedux?.credentials?.token)
       .then((resultado) => {
         // console.log(ReduxUserData.credentials.token);
         console.log(resultado);

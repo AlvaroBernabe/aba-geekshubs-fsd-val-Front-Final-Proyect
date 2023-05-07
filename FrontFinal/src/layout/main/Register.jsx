@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useNavigate } from "react-router-dom";
 import { validate } from "../../helpers/useful";
+import { InputText } from "../../components/InputText";
 
 
 export function Register() {

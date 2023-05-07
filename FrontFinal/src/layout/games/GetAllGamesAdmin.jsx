@@ -14,7 +14,7 @@ import CardGames from "../../components/CardGames";
 export const GetAllGamesAdmin = () => {
 
   const [games, setGames] = useState([]);
-  const ReduxCredentials = useSelector(userData);
+  const userRedux = useSelector(userData);
   const dispatch = useDispatch();
   //   const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ export const GetAllGamesAdmin = () => {
   useEffect(() => {
     // console.log("console log de users", users)    
     if (games.length === 0) {
-      getAllGames(ReduxCredentials.credentials?.token)
+      getAllGames(userRedux.credentials?.token)
         .then(
           result => {
             setGames(result.data.data)

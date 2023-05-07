@@ -5,12 +5,13 @@ import { userData } from "../userSlice";
 import { getAllGamesWithoutReviewUser } from "../services/apiCalls";
 import { addChoosen } from "../detailSlice";
 import CardGamesUser from "../../components/CardGamesUser";
+import { Col, Container, Row } from "react-bootstrap";
 
 
 export const GetAllGamesUser = () => {
 
   const [games, setGames] = useState([]);
-  const ReduxCredentials = useSelector(userData);
+  const userRedux = useSelector(userData);
   const dispatch = useDispatch();
   //   const navigate = useNavigate();
   const [searchName, setSearchName] = useState('');
@@ -21,7 +22,7 @@ export const GetAllGamesUser = () => {
   useEffect(() => {
     // console.log("console log de users", users)      // Este saca los el array con los usuarios
     if (games.length === 0) {
-      getAllGamesWithoutReviewUser(ReduxCredentials.credentials?.token)
+      getAllGamesWithoutReviewUser(userRedux.credentials?.token)
         .then(
           result => {
             setGames(result.data.data)
