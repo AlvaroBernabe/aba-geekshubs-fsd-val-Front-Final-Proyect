@@ -109,6 +109,5 @@ export const GetAllNewsAdmin = () => {
         )}
       </div>
     </>
-
   );
 }

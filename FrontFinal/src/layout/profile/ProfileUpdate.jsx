@@ -122,6 +122,7 @@ export const ProfileUpdate = ({ onProfileUpdate }) => {
     }
   };
 
+  //There is no way that i made this without help
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const validation = validate(user);

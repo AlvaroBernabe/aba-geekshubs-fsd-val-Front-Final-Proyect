@@ -18,16 +18,6 @@ export const ChangeRole = () => {
     role_id: 1
   });
 
-  const inputHandler = (e) => {
-    setCredenciales((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const checkError = (e) => {
-  }
-
   const changeRol = () => {
     changeRole(credenciales, userRedux.credentials.token)
       .then((resultado) => {
