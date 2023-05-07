@@ -4,24 +4,24 @@ import { userData } from "../userSlice";
 import { getMyReviews, newReview } from "../services/apiCalls";
 import { useNavigate } from "react-router-dom";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
-import { detailData } from "../detailSlice";
+import { reviewData } from "../reviewSlice";
 
 export const UpdateReviewUser = ({ onReviewUpdate }) => {
 
   const userRedux = useSelector(userData);
-  const gameDataUpdate = useSelector(detailData);
+  const gameDataUpdate = useSelector(reviewData);
 
-  console.log(gameDataUpdate.choosenObject, "esto es gameDataUpdate en teoria");
+  console.log(gameDataUpdate, "esto es gameDataUpdate en teoria");
 
   const navigate = useNavigate();
   const [welcome, setWelcome] = useState("");
   const [reviews, setReviews] = useState([]);
 
   const [review, setReview] = useState({
-    player_score: gameDataUpdate.choosenObject.player_score,
-    player_review: gameDataUpdate.choosenObject.player_review,
-    favourite: gameDataUpdate.choosenObject.favourite,
-    game_id: gameDataUpdate?.choosenObject?.game_id,
+    player_score: gameDataUpdate?.choosenReview?.player_score,
+    player_review: gameDataUpdate?.choosenReview?.player_review,
+    favourite: gameDataUpdate?.choosenReview?.favourite,
+    game_id: gameDataUpdate?.choosenReview?.game_id,
   });
 
   const [favouriteOptions, setFavouriteOptions] = useState([
@@ -81,7 +81,7 @@ export const UpdateReviewUser = ({ onReviewUpdate }) => {
         })
         .catch((error) => console.log(error));
     } else {
-     return
+      return
     }
   };
 
@@ -118,7 +118,7 @@ export const UpdateReviewUser = ({ onReviewUpdate }) => {
                         rows={3}
                         name={"player_review"}
                         maxLength={300}
-                        placeholder={gameDataUpdate.choosenObject.player_review}
+                        placeholder={gameDataUpdate?.choosenReview?.player_review}
                         value={review?.player_review}
                         onChange={inputHandler}
                       />
