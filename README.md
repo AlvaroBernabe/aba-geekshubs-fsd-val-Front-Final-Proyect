@@ -1,4 +1,4 @@
-# Welcome to my Final Proyect Backend for the Bootcamp FSD
+# Welcome to my Final Proyect Front for the Bootcamp FSD
 
 <details>
   <summary>Content 📝</summary>
@@ -20,11 +20,11 @@
 The objective of the project is to build both a back and a Front of it, complying with self-imposed minimums, but validated by the teachers.
 
 ## About the project
-<p>The objective of the project is to develop a backend and frontend for a library of Abandonware and Freeware games. The project will comply with self-imposed minimum requirements and be validated by teachers.</p>
+<p>The project consist of a library of Abandonware and Freeware games.</p>
 <p>The library will allow users to search for games, add favorites, and view detailed information about each game. The library will focus on games that are no longer sold by companies.</p>
 <p>The backend will be developed using PHP with Laravel, and the frontend will use HTML, CSS, React Vite, Bootstrap, and Redux.</p>
 
-View Destop
+Destop Mode
 ![giffullhd](https://user-images.githubusercontent.com/122753448/236694161-c599b3f3-7e45-43a2-bcbd-eb0d0ea397ff.gif)
 
 View Nexus 5
