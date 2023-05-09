@@ -122,8 +122,8 @@ For The Front
 
 ## Known bugs:
 
-<p>Some names need to be changed for consistency..</p>
-<p>There are a few function that need to change the way they reload the parent function.</p>
+<p>Some names need to be changed for consistency.. - This is Fixed Already</p>
+<p>There are a few function that need to change the way they reload the parent function. - This is Fixed Already</p>
 <p>The CSS need some Cleaning.</p>
 <p>There are some ".catch" statements without a response.</p>
 <p>There are a few functions that require all fields to be updated, but there is no message to indicate this.</p>
