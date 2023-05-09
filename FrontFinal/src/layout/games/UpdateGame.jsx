@@ -40,10 +40,11 @@ export const UpdateGame = ({ onCardUpdate }) => {
         setGames(resultado.data);
         setWelcome(`Correctly updated ${games.name}`);
         setTimeout(() => {
-          window.location.reload(true);
+          onCardUpdate();
         }, 1500);
       })
       .catch((error) => console.log(error));
+      setWelcome(`${games.name} is already in use.....probably`);
   };
 
   return (

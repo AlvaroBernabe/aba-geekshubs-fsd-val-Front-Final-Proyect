@@ -23,6 +23,7 @@ export const Profile = () => {
 
   const handlePasswordUpdate = () => {
     setPassword(false);
+    reloadProfile();
   };
 
   const [users, setUsers] = useState({

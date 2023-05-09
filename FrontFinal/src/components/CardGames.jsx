@@ -23,7 +23,7 @@ function CardGames({ games, onReloadGames }) {
 
   const handleGamesUpdate = () => {
     setUpdate(false);
-
+    onReloadGames();
   };
 
   const GamesDelete = async () => {

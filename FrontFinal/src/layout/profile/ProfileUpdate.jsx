@@ -122,21 +122,6 @@ export const ProfileUpdate = ({ onProfileUpdate }) => {
     }
   };
 
-  //There is no way that i made this without help
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    const validation = validate(user);
-    if (Object.values(validation).every((v) => v)) {
-      profileUpdate(userRedux.credentials.token, user)
-        .then(() => {
-          onProfileUpdate();
-        })
-        .catch((error) => console.log(error));
-    } else {
-      setValiuser(validation);
-    }
-  };
-
   return (
     <>
       <div>

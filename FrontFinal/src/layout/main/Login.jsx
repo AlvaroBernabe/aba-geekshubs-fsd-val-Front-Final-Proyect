@@ -49,8 +49,9 @@ export const Login = () => {
       .catch((error) => {
         setWelcome(`Email or Password incorrect`);
         setTimeout(() => {
-          window.location.reload(true);
-        }, 2000);
+          setWelcome(``);
+          navigate("/login");
+        }, 1500);
       })
   };
   return (

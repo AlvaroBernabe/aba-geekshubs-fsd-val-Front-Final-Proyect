@@ -95,7 +95,7 @@ export const ChangeLogin = ({ onPasswordUpdate }) => {
     if (user.password !== user.confirmPassword) {
       setWelcome(`Passwords do not match`);
       setTimeout(() => {
-        window.location.reload(true);
+        onPasswordUpdate();
       }, 2000);
       return;
     }
@@ -108,7 +108,7 @@ export const ChangeLogin = ({ onPasswordUpdate }) => {
     } catch (error) {
       setWelcome(`Password Error`);
       setTimeout(() => {
-        window.location.reload(true);
+        onPasswordUpdate();
       }, 2000);
     }
   };
