@@ -40,6 +40,16 @@ export const GetAllGamesAdmin = () => {
       game.score >= searchScore;
   });
 
+  const reloadGames = () => {
+    getAllGames(userRedux.credentials?.token)
+        .then(
+          result => {
+            setGames(result.data.data)
+          }
+        )
+        .catch(error => console.log(error));
+  }
+
   return (
     <>
       <Container fluid>
@@ -54,7 +64,7 @@ export const GetAllGamesAdmin = () => {
           {findGames.map((game) => {
             return (
               <Col className="ContainerAllGamesAdmin" onClick={() => selected(game)} key={game.id}>
-                <CardGames games={game} />
+                <CardGames games={game} onReloadGames={reloadGames}/>
               </Col>
             );
           })}

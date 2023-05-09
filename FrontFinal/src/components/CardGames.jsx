@@ -7,7 +7,7 @@ import { gameDelete } from "../layout/services/apiCalls";
 import { useSelector } from "react-redux";
 import { userData } from "../layout/userSlice";
 
-function CardGames({ games }) {
+function CardGames({ games, onReloadGames }) {
   const userRedux = useSelector(userData);
   const ReduxAppointment = useSelector(detailData);
   const [welcome, setWelcome] = useState("");
@@ -23,6 +23,7 @@ function CardGames({ games }) {
 
   const handleGamesUpdate = () => {
     setUpdate(false);
+
   };
 
   const GamesDelete = async () => {
@@ -30,7 +31,8 @@ function CardGames({ games }) {
       .then(() => {
         setWelcome(`Correctly Deleted Game`);
         setTimeout(() => {
-          window.location.reload(true);
+          setUpdate(false);
+          onReloadGames();
         }, 1500);
       })
       .catch((error) => console.log(error));

@@ -63,20 +63,6 @@ export const UpdateReviewUser = ({ onReviewUpdate }) => {
       });
   }
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    const validation = validate(user);
-    if (Object.values(validation).every((v) => v)) {
-      newReview(userRedux.credentials.token, user)
-        .then(() => {
-          onReviewUpdate();
-        })
-        .catch((error) => console.log(error));
-    } else {
-      return
-    }
-  };
-
   return (
     <>
       <div>

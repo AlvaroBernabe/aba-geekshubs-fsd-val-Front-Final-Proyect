@@ -113,7 +113,7 @@ export const NewNews = () => {
                         variant="primary"
                         onClick={newNews}
                       >
-                        New Game
+                        New News
                       </Button></div>
                   </Form>
                 </Col>

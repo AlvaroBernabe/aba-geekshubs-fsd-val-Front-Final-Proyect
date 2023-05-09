@@ -31,7 +31,7 @@ export const UpdateNews = () => {
 
   const checkError = (e) => { e };
 
-  const updateReview = () => {
+  const updateNews = () => {
     newsUpdate(params, news, userRedux?.credentials?.token)
       .then((resultado) => {
         setNews(resultado?.data)
@@ -104,9 +104,9 @@ export const UpdateNews = () => {
                       <Button
                         className="botonLog"
                         variant="primary"
-                        onClick={() => updateReview()}
+                        onClick={() => updateNews()}
                       >
-                        Update Review
+                        Update News
                       </Button></div>
                   </Form>
                 </Col>
