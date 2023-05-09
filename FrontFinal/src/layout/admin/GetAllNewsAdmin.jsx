@@ -7,15 +7,16 @@ import { detailData, detailGame } from "../detailSlice";
 import { getAllNewsNonUser, newsDestroy } from "../services/apiCalls";
 
 export const GetAllNewsAdmin = () => {
-
+  //REDUX USER DATA && NEWS DETAILS
   const userRedux = useSelector(userData);
-  const NewsData = useSelector(detailData)
+  const newsData = useSelector(detailData)
+  const [welcome, setWelcome] = useState("");
   const [news, setNews] = useState([]);
   const dispatch = useDispatch();
-  const params = NewsData?.choosenObject?.news?.id
-  const [welcome, setWelcome] = useState("");
   const navigate = useNavigate();
+  const params = newsData?.choosenObject?.news?.id
 
+  //GET ALL NEWS
   useEffect(() => {
     if (news.length === 0) {
       getAllNewsNonUser()
@@ -28,10 +29,12 @@ export const GetAllNewsAdmin = () => {
     }
   }, [news])
 
+  //SAVE IN REDUX SELECTED NEWS FOR THE UPDATE
   const selected = (newws) => {
     dispatch(detailGame({ choosenObject: newws }));
   };
 
+  //DELETE NEWS CONST
   const newsDelete = async () => {
     newsDestroy(params, userRedux?.credentials?.token)
       .then(() => {
@@ -50,6 +53,7 @@ export const GetAllNewsAdmin = () => {
       .catch((error) => console.log(error));
   };
 
+  //CONST UPDATE NEWS TO UpdateNews.jsx
   const newsUpdate = async () => {
     try {
       setTimeout(() => {

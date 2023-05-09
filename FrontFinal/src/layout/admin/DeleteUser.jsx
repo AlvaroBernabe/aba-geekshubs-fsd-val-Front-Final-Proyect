@@ -7,17 +7,18 @@ import { detailData } from "../detailSlice";
 import { userDelete } from "../services/apiCalls";
 
 export const DeleteUser = () => {
-
+  //REDUX USER DATA && USER DETAILS
   const userRedux = useSelector(userData);
-  const ReduxAppointment = useSelector(detailData);
+  const userDetails = useSelector(detailData);
   const [welcome, setWelcome] = useState("");
   const navigate = useNavigate();
-  let params = ReduxAppointment.choosenObject.id;
+  let params = userDetails.choosenObject.id;
 
+  //DELETE USER CONST AND REDIRECT TO GetAllUsers.jsx
   const UserDelete = async () => {
     userDelete(params, userRedux.credentials.token)
       .then(() => {
-        setWelcome(`Correctly Deleted ${ReduxAppointment.choosenObject.email}`);
+        setWelcome(`Correctly Deleted ${userDetails.choosenObject.email}`);
         setTimeout(() => {
           navigate("/users/all/");
         }, 1500);
@@ -25,6 +26,10 @@ export const DeleteUser = () => {
       .catch((error) => {
         console.log(error);
         setWelcome(`You Can´t Delete an Admin`);
+        setTimeout(() => {
+          setWelcome(``);
+          navigate("/users/all/");
+        }, 1500);
       });
   };
 

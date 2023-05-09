@@ -7,12 +7,13 @@ import { getAllUsers } from "../services/apiCalls";
 import { addChoosen } from "../detailSlice";
 
 export const GetAllUsers = () => {
-
+  //REDUX USER DATA
   const [users, setUsers] = useState([]);
   const userRedux = useSelector(userData);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  //GET ALL USERS
   useEffect(() => {
     if (users.length === 0) {
       getAllUsers(userRedux.credentials?.token)
@@ -25,6 +26,7 @@ export const GetAllUsers = () => {
     }
   }, [users])
 
+  //SAVE IN REDUX DETAILSLICE SELECTED USER
   const selected = (persona) => {
     dispatch(addChoosen({ choosenObject: persona }))
     setTimeout(() => {

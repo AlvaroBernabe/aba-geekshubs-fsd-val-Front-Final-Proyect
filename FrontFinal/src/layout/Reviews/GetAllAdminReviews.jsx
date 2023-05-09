@@ -8,12 +8,15 @@ import { addChoosenReview } from "../reviewSlice";
 import { DeleteReview } from "./DeleteReview";
 
 export const GetAllAdminReviews = () => {
-
+  //REDUX USER DATA
   const userRedux = useSelector(userData);
   const [reviews, setReviews] = useState([]);
+
+  //FIND REVIEW BY USER ID OR GAME NAME USESTATE
   const [searchTerm, setSearchTerm] = useState('');
   const [searchUserId, setSearchUserId] = useState('');
 
+  //OPEN OR CLOSE DELETE REVIEW MODAL
   const [remove, setRemove] = useState(false);
   const handleCloseRemove = () => setRemove(false);
   const handleShowRemove = () => setRemove(true);
@@ -21,6 +24,7 @@ export const GetAllAdminReviews = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  //GET ALL REVIEWS
   useEffect(() => {
     if (reviews.length === 0) {
       getAllReviewsAdmin(userRedux?.credentials?.token)
@@ -33,10 +37,12 @@ export const GetAllAdminReviews = () => {
     }
   }, [reviews]);
 
+  //SAVE IN REDUX IN REVIEWSLICE SELECTED REVIEW
   const gameSelect = (review) => {
     dispatch(addChoosenReview({ choosenReview: review }));
   };
 
+  //CONST CLOSE DELETE REVIEW MODAL AND GET RELOAD FOR MODAL DeleteReview.jsx
   const handleReviewDelete = () => {
     setRemove(false);
     getAllReviewsAdmin(userRedux?.credentials?.token)
@@ -48,6 +54,7 @@ export const GetAllAdminReviews = () => {
     });
   };
 
+  //CONST FIND REVIEWS BY USER ID OR GAME NAME 
   const findReviews = reviews.filter((game) => {
     return game.game_name.toLowerCase().includes(searchTerm.toLowerCase()) &&
       game.Reviews.user_id.toString().toLowerCase().includes(searchUserId.toLowerCase());

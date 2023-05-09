@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Button, Form } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 import { userData } from "../userSlice";
 import { detailData } from "../detailSlice";
 import { gameUpdate } from "../services/apiCalls";
 import { InputText } from "../../components/InputText";
 
 export const UpdateGame = ({ onCardUpdate }) => {
-
+  //REDUX USER DATA
   const userRedux = useSelector(userData);
   const ReduxAppointment = useSelector(detailData)
   const [welcome, setWelcome] = useState("");
@@ -34,6 +33,7 @@ export const UpdateGame = ({ onCardUpdate }) => {
   const checkError = (e) => {
   }
 
+  //CONST UPDATE GAMES AND RELOAD LIST OF GAMES ON UPDATE
   const updateGames = () => {
     gameUpdate(params, games, userRedux.credentials.token)
       .then((resultado) => {

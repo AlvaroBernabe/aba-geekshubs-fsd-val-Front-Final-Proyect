@@ -7,11 +7,13 @@ import { reviewData } from "../reviewSlice";
 import { ReviewsDeleteAdmin } from "../services/apiCalls";
 
 export const DeleteReview = ({ onReviewDelete }) => {
+  //REDUX USER DATA && REVIEW DETAILS
   const userRedux = useSelector(userData);
   const ReviewsData = useSelector(reviewData);
   const [welcome, setWelcome] = useState("");
   let params = ReviewsData?.choosenReview?.Reviews.id;
 
+  //CONST DELETE REVIEWS AND RELOAD ALL REVIEWS
   const ReviewDelete = async () => {
     ReviewsDeleteAdmin(params, userRedux?.credentials?.token)
       .then(() => {

@@ -12,6 +12,7 @@ export function Register() {
   const navigate = useNavigate();
   const [welcome, setWelcome] = useState("");
 
+  //TOOLTIP FOR BUTTON
   const renderTooltip = (props) => (
     <Tooltip id="ButtonRegister-tooltip" {...props}>
       You must first fill the input
@@ -43,6 +44,7 @@ export function Register() {
     }));
   };
 
+  //VALIDATIONS && CHECKERROR
   useEffect(() => {
     for (let error in credentialsError) {
       if (credentialsError[error] !== "") {
@@ -87,13 +89,14 @@ export function Register() {
     );
   };
 
+  //CONST USER REGISTER AND REDIRECT TO Login.jsx
   const newUser = () => {
     registerUser(credentials)
       .then(() => {
         setWelcome(`Correctly registered ${credentials.email}`);
         setTimeout(() => {
           navigate("/login");
-        }, 2500);
+        }, 2000);
       })
       .catch((error) => console.log(error));
   };

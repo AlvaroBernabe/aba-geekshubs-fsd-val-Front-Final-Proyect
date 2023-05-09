@@ -8,24 +8,29 @@ import { useSelector } from "react-redux";
 import { userData } from "../layout/userSlice";
 
 function CardGames({ games, onReloadGames }) {
+  //REDUX USER DATA && GAME DETAILS
   const userRedux = useSelector(userData);
-  const ReduxAppointment = useSelector(detailData);
+  const reduxDetailGame = useSelector(detailData);
   const [welcome, setWelcome] = useState("");
-  let params = ReduxAppointment.choosenObject.id;
+  let params = reduxDetailGame.choosenObject.id;
 
+  //OPEN OR CLOSE DELETE MODAL
   const [remove, setRemove] = useState(false);
   const handleCloseRemove = () => setRemove(false);
   const handleShowRemove = () => setRemove(true);
 
+  //OPEN OR CLOSE UPDATE MODAL
   const [update, setUpdate] = useState(false);
   const handleCloseUpdate = () => setUpdate(false);
   const handleShowUpdate = () => setUpdate(true);
 
+  //CLOSE MODAL UPDATE  AND RELOAD GAMES
   const handleGamesUpdate = () => {
     setUpdate(false);
     onReloadGames();
   };
 
+  //DELETE GAMES AND RELOAD GAMES
   const GamesDelete = async () => {
     gameDelete(params, userRedux.credentials.token)
       .then(() => {

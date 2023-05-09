@@ -7,7 +7,7 @@ import { userData } from "../userSlice";
 import { reviewData } from "../reviewSlice";
 
 export const NewReview = () => {
-
+  //REDUX USER DATA && REVIEW DATA
   const userRedux = useSelector(userData);
   const gameId = useSelector(reviewData);
   const navigate = useNavigate();
@@ -22,6 +22,7 @@ export const NewReview = () => {
     user_id: userRedux?.credentials?.usuario?.id,
   });
 
+  //CONST IS FAVOURITE CHANGE 1 TO YES FOR VISIVILITY
   const [favouriteOptions, setFavouriteOptions] = useState([
     { value: "", label: "-- Choose an option --" },
     { value: "1", label: "Yes" },
@@ -47,6 +48,7 @@ export const NewReview = () => {
     }
   }, [review])
 
+  //GET ALL GAMES WITHOUT REVIEW FOR THE SELECT
   useEffect(() => {
     if (games.length === 0) {
       getAllGamesWithoutReviewUser(userRedux?.credentials?.token)
@@ -60,6 +62,7 @@ export const NewReview = () => {
     }
   }, [games])
 
+  //CONST NEW REVIEW AND REDIRECT TO GetMyFavourites.jsx
   const reviewNew = () => {
     newReview(review, userRedux?.credentials?.token)
       .then((resultado) => {

@@ -7,28 +7,33 @@ import { detailData } from "../detailSlice";
 import { changeRole } from "../services/apiCalls";
 
 export const ChangeRole = () => {
-
+  //REDUX USER DATA && USER DETAILS
   const userRedux = useSelector(userData);
-  const ReduxAppointment = useSelector(detailData);
+  const userDetails = useSelector(detailData);
   const [welcome, setWelcome] = useState("");
   const navigate = useNavigate();
 
-  const [credenciales, setCredenciales] = useState({
-    id: ReduxAppointment.choosenObject.id,
+  const [credentials, setCredentials] = useState({
+    id: userDetails.choosenObject.id,
     role_id: 1
   });
 
+  //CHANGE ROLE OF USERS CONST AND REDIRECT TO GetAllUsers.jsx
   const changeRol = () => {
-    changeRole(credenciales, userRedux.credentials.token)
-      .then((resultado) => {
-        setCredenciales(resultado.data)
-        setWelcome(`${ReduxAppointment.choosenObject.email} is an Admin now`);
+    changeRole(credentials, userRedux.credentials.token)
+      .then((result) => {
+        setCredentials(result.data)
+        setWelcome(`${userDetails.choosenObject.email} is an Admin now`);
         setTimeout(() => {
           navigate("/users/all/");
         }, 1500);
       })
       .catch((error) => console.log(error));
-      setWelcome(`You Can´t Update the Role of an Admin`);
+    setWelcome(`You Can´t Update the Role of an Admin`);
+    setTimeout(() => {
+      setWelcome(``);
+      navigate("/users/all/");
+    }, 1500);
   };
 
   return (

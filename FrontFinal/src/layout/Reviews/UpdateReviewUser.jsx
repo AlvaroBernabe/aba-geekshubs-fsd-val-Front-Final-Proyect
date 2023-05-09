@@ -2,15 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { userData } from "../userSlice";
 import { getMyReviews, newReview } from "../services/apiCalls";
-import { useNavigate } from "react-router-dom";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { reviewData } from "../reviewSlice";
 
 export const UpdateReviewUser = ({ onReviewUpdate }) => {
-
+  //REDUX USER DATA && REVIEW DETAILS
   const userRedux = useSelector(userData);
   const gameDataUpdate = useSelector(reviewData);
-  const navigate = useNavigate();
   const [welcome, setWelcome] = useState("");
   const [reviews, setReviews] = useState([]);
 
@@ -21,6 +19,7 @@ export const UpdateReviewUser = ({ onReviewUpdate }) => {
     game_id: gameDataUpdate?.choosenReview?.game_id,
   });
 
+  //CONST IF IS FAVOURITE CHANGE 1 TO YES FOR VISIVILITY
   const [favouriteOptions, setFavouriteOptions] = useState([
     { value: "", label: "-- Choose an option --" },
     { value: "1", label: "Yes" },
@@ -34,6 +33,7 @@ export const UpdateReviewUser = ({ onReviewUpdate }) => {
     }));
   };
 
+  //GET YOUR REVIEWS
   useEffect(() => {
     if (reviews.length === 0) {
       getMyReviews(userRedux?.credentials?.token)
@@ -46,6 +46,7 @@ export const UpdateReviewUser = ({ onReviewUpdate }) => {
     }
   }, [reviews]);
 
+  //UPDATE REVIEW AND RELOAD REVIEWS
   const updateReview = () => {
     newReview(review, userRedux?.credentials?.token)
       .then((resultado) => {

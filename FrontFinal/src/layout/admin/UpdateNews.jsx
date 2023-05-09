@@ -8,18 +8,17 @@ import { newsUpdate } from "../services/apiCalls";
 import { InputText } from "../../components/InputText";
 
 export const UpdateNews = () => {
-
+  //REDUX USER DATA && NEWS DATA
   const userRedux = useSelector(userData);
-  const NewsData = useSelector(detailData)
-  const params = NewsData?.choosenObject?.news?.id
-
+  const newsData = useSelector(detailData)
+  const params = newsData?.choosenObject?.news?.id
   const navigate = useNavigate();
   const [welcome, setWelcome] = useState("");
 
   const [news, setNews] = useState({
-    title: NewsData.choosenObject.news.title,
-    summary: NewsData.choosenObject.news.summary,
-    game_id: NewsData?.choosenObject?.news.game_id,
+    title: newsData.choosenObject.news.title,
+    summary: newsData.choosenObject.news.summary,
+    game_id: newsData?.choosenObject?.news.game_id,
   });
 
   const inputHandler = (e) => {
@@ -31,6 +30,7 @@ export const UpdateNews = () => {
 
   const checkError = (e) => { e };
 
+  //CONST UPDATE NEWS AND REDIRECT TO GetAllNewsAdmin.jsx
   const updateNews = () => {
     newsUpdate(params, news, userRedux?.credentials?.token)
       .then((resultado) => {

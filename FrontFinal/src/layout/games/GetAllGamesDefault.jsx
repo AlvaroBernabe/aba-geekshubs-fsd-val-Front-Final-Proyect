@@ -4,14 +4,16 @@ import { getAllGamesNonUser } from "../services/apiCalls";
 
 
 export const GetAllGamesDefault = () => {
-
   const [games, setGames] = useState([]);
+
+  //MESSAGE FOR BUTTON
   const renderTooltip = (props) => (
     <Tooltip id="ButtonRegister-tooltip" {...props}>
       You Need To Login First
     </Tooltip>
   )
 
+  //GET ALL GAMES
   useEffect(() => {
     if (games.length === 0) {
       getAllGamesNonUser()

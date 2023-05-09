@@ -8,7 +8,7 @@ import { getMyProfile, profileUpdate } from "../services/apiCalls";
 import { InputText } from "../../components/InputText";
 
 export const ProfileUpdate = ({ onProfileUpdate }) => {
-
+  //REDUX USER DATA
   const userRedux = useSelector(userData);
   const navigate = useNavigate();
 
@@ -46,6 +46,7 @@ export const ProfileUpdate = ({ onProfileUpdate }) => {
   const [registerAct, setRegisterAct] = useState(false);
   const [welcome, setWelcome] = useState("");
 
+  //VALIDATION && CHECKERROR
   useEffect(() => {
     for (let error in userError) {
       if (userError[error] != "") {
@@ -90,6 +91,7 @@ export const ProfileUpdate = ({ onProfileUpdate }) => {
     }));
   };
 
+  //GET YOUR PROFILE FOR INPUT UPDATE
   useEffect(() => {
     if (user.name === "") {
       getMyProfile(userRedux.credentials.token)
@@ -107,6 +109,7 @@ export const ProfileUpdate = ({ onProfileUpdate }) => {
     }
   }, []);
 
+  //CONST UPDATE USER AND RELOAD PROFILE
   const updateUser = () => {
     try {
       profileUpdate(user, userRedux.credentials.token);

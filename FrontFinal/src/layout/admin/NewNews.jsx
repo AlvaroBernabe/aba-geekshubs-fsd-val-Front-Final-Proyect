@@ -7,6 +7,7 @@ import { createNewNews } from "../services/apiCalls";
 import { InputText } from "../../components/InputText";
 
 export const NewNews = () => {
+  //REDUX USER DATA
   const userRedux = useSelector(userData);
   const navigate = useNavigate();
   const [welcome, setWelcome] = useState("");
@@ -27,6 +28,7 @@ export const NewNews = () => {
 
   const checkError = (e) => { e };
 
+  //CONST POST NEW NEWS AND REDIRECT TO GetAllNews.jsx
   const newNews = () => {
     createNewNews(news, userRedux.credentials.token)
       .then((resultado) => {

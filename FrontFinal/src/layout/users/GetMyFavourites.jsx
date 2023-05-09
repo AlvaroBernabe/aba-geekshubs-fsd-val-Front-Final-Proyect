@@ -5,10 +5,11 @@ import { getMyFavourites } from "../services/apiCalls";
 import { Card, Col, Container, Row } from "react-bootstrap";
 
 export const GetMyFavourites = () => {
-
+  //REDUX USER DATA
   const userRedux = useSelector(userData);
   const [favourites, setFavourites] = useState([]);
 
+  //GET MY FAVOURITES GAMES
   useEffect(() => {
     if (favourites.length === 0) {
       getMyFavourites(userRedux?.credentials?.token)

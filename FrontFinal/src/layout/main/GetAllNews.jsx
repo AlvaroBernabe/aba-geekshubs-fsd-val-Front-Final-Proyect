@@ -3,10 +3,10 @@ import { Card, Col } from "react-bootstrap";
 import { getAllNewsNonUser } from "../services/apiCalls";
 
 export const GetAllNews = () => {
-
   const [news, setNews] = useState([]);
   const [selectedNews, setSelectedNews] = useState(null);
 
+  //GET ALL NEWS
   useEffect(() => {
     if (news.length === 0) {
       getAllNewsNonUser()
@@ -19,6 +19,7 @@ export const GetAllNews = () => {
     }
   }, [news])
 
+  //CONST FIND SELECTED NEWS
   const handleNewsSelect = (e) => {
     const selectedNewsId = parseInt(e.target.value);
     const selectedNews = news.find((news) => news.news.id === selectedNewsId);

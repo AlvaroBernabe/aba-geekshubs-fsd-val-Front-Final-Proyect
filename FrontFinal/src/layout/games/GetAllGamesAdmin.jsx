@@ -7,16 +7,18 @@ import { addChoosen } from "../detailSlice";
 import CardGames from "../../components/CardGames";
 
 export const GetAllGamesAdmin = () => {
-
-  const [games, setGames] = useState([]);
+  //REDUX USER DATA
   const userRedux = useSelector(userData);
   const dispatch = useDispatch();
+  const [games, setGames] = useState([]);
 
+  //USESTATE FOR THE SEARCH FILTER
   const [searchName, setSearchName] = useState('');
   const [searchGenre, setSearchGenre] = useState('');
   const [searchPublisher, setSearchPublisher] = useState('');
   const [searchScore, setSearchScore] = useState('');
 
+  //GET ALL GAMES
   useEffect(() => {
     if (games.length === 0) {
       getAllGames(userRedux.credentials?.token)
@@ -29,10 +31,12 @@ export const GetAllGamesAdmin = () => {
     }
   }, [games])
 
+  //SAVE IN REDUX IN DETAILSLICE SELECTED GAME
   const selected = (juego) => {
     dispatch(addChoosen({ choosenObject: juego }))
   }
 
+  //CONST FIND GAMES USING [games]
   const findGames = games.filter((game) => {
     return game.name.toLowerCase().includes(searchName.toLowerCase()) &&
       game.genre.toString().toLowerCase().includes(searchGenre.toLowerCase()) &&
@@ -40,6 +44,7 @@ export const GetAllGamesAdmin = () => {
       game.score >= searchScore;
   });
 
+  //CONST RELOAD GAMES FOR MODALS IN CardGames.jsx
   const reloadGames = () => {
     getAllGames(userRedux.credentials?.token)
         .then(

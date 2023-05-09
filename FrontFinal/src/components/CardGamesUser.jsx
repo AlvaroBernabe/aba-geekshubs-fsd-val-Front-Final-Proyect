@@ -6,10 +6,10 @@ import { useDispatch } from "react-redux";
 import { Heart } from "react-bootstrap-icons";
 
 function CardGamesUser({ games }) {
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  //SAVE IN REDUX IN REVIEWSLICE IF ISFAVOURITE IS CLICKED AND REDIRECT TO NewReview.jsx
   const handleFavouriteYesClick = (games) => {
     dispatch(isFavouriteReview({ choosenReview: games }))
     setTimeout(() => {

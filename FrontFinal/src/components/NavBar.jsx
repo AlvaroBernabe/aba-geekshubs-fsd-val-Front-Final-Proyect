@@ -12,6 +12,8 @@ function NavBar() {
   const userRedux = useSelector(userData);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  //USER LOGOUT
   const logout = () => {
     dispatch(userout({ credentials: {}, token: "" }));
     return navigate("/");

@@ -6,12 +6,15 @@ import { DeleteUser } from "./DeleteUser";
 import { ChangeRole } from "./ChangeRole";
 
 export const GetUsersDetails = () => {
+    //REDUX USERS DETAILS
   const detailRedux = useSelector(detailData);
 
+    //OPEN OR CLOSE DELETE MODAL
   const [remove, setRemove] = useState(false);
   const handleCloseRemove = () => setRemove(false);
   const handleShowRemove = () => setRemove(true);
 
+    //OPEN OR CLOSE UPDATE MODAL
   const [update, setUpdate] = useState(false);
   const handleCloseUpdate = () => setUpdate(false);
   const handleShowUpdate = () => setUpdate(true);

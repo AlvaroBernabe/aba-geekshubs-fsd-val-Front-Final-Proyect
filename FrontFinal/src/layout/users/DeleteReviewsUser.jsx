@@ -7,13 +7,15 @@ import { useNavigate } from "react-router-dom";
 import { ReviewsDeleteUser } from "../services/apiCalls";
 
 export const DeleteReviewsUser = ({ onReviewDelete }) => {
+  //REDUX USER DATA && REVIEWS DATA
   const userRedux = useSelector(userData);
-  const ReviewsData = useSelector(reviewData);
+  const reviewsData = useSelector(reviewData);
   const [welcome, setWelcome] = useState("");
 
-  let params = ReviewsData?.choosenReview?.id;
-  let gameName = ReviewsData?.choosenReview?.game_title;
+  let params = reviewsData?.choosenReview?.id;
+  let gameName = reviewsData?.choosenReview?.game_title;
 
+  //CONST DELETE REVIEWS AND RELOAD LIST OF REVIEWS
   const ReviewDelete = async () => {
     ReviewsDeleteUser(params, userRedux?.credentials?.token)
       .then(() => {

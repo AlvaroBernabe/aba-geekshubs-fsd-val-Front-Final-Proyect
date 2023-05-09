@@ -9,34 +9,40 @@ import { UpdateReviewUser } from "../Reviews/UpdateReviewUser";
 import { Trash3Fill } from "react-bootstrap-icons";
 
 export const GetAllMyReviews = () => {
+  //REDUX USER DATA AND REVIEWS DATA
   const userRedux = useSelector(userData);
-  const [reviews, setReviews] = useState([]);
+  const reviewsData = useSelector(reviewData);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [welcome, setWelcome] = useState("");
-  const ReviewsData = useSelector(reviewData);
+  const [reviews, setReviews] = useState([]);
 
-  let params = ReviewsData?.choosenReview?.id;
-  let gameName = ReviewsData?.choosenReview?.game_title;
+  let params = reviewsData?.choosenReview?.id;
+  let gameName = reviewsData?.choosenReview?.game_title;
 
+  //OPEN OR CLOSE UPDATE REVIEW MODAL
   const [update, setUpdate] = useState(false);
   const handleCloseUpdate = () => setUpdate(false);
   const handleShowUpdate = () => setUpdate(true);
 
+  //OPEN OR CLOSE DELETE REVIEW MODAL
   const [remove, setRemove] = useState(false);
   const handleCloseRemove = () => setRemove(false);
   const handleShowRemove = () => setRemove(true);
 
+  //CONST CLOSE UPDATE REVIEW MODAL AND RELOAD REVIEWS
   const handleReviewUpdate = () => {
     setUpdate(false);
     reloadReviews();
   };
 
+  //CONST CLOSE DELETE REVIEW MODAL AND RELOAD REVIEWS
   const handleReviewDelete = () => {
     setRemove(false);
     reloadReviews();
   };
 
+  //GET YOUR REVIEWS
   useEffect(() => {
     if (reviews.length === 0) {
       getMyReviews(userRedux?.credentials?.token)
@@ -50,6 +56,7 @@ export const GetAllMyReviews = () => {
   }, [reviews]);
 
 
+  //CONST RELOAD REVIEWS FOR MODALS
   const reloadReviews = () => {
     getMyReviews(userRedux?.credentials?.token)
       .then((result) => {
@@ -60,14 +67,16 @@ export const GetAllMyReviews = () => {
       });
   }
 
-  const selected = (ejemplo) => {
-    dispatch(addChoosenReview({ choosenReview: ejemplo }))
+    //SAVE IN REDUX IN REVIEWSLICE SELECTED GAME
+  const selected = (review) => {
+    dispatch(addChoosenReview({ choosenReview: review }))
   }
 
   const isFavorite = (favorite) => {
     return favorite ? "Yes" : "No";
   };
 
+  //CONST REVIEW DELETE
   const ReviewDelete = async () => {
     ReviewsDeleteUser(params, userRedux?.credentials?.token)
       .then(() => {

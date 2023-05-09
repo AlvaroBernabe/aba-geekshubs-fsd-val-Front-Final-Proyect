@@ -8,11 +8,12 @@ import { validate } from "../../helpers/useful";
 import { InputText } from "../../components/InputText";
 
 export const NewGame = () => {
+  //REDUX USER DATA
   const userRedux = useSelector(userData);
   const navigate = useNavigate();
   const [welcome, setWelcome] = useState("");
 
-  const [credenciales, setCredenciales] = useState({
+  const [games, setGames] = useState({
     name: "",
     description: "",
     score: "",
@@ -22,7 +23,7 @@ export const NewGame = () => {
     game_image: ""
   });
 
-  const [credencialesError, setCredencialesError] = useState({
+  const [gamesError, setGamesError] = useState({
     nameError: "",
     descriptionError: "",
     scoreError: "",
@@ -31,7 +32,7 @@ export const NewGame = () => {
     release_dateError: "",
   });
 
-  const [valiCredenciales, setValiCredenciales] = useState({
+  const [valiGames, setValiGames] = useState({
     nameVali: false,
     descriptionVali: false,
     scoreVali: false,
@@ -43,27 +44,28 @@ export const NewGame = () => {
   const [registerAct, setRegisterAct] = useState(false);
 
   const inputHandler = (e) => {
-    setCredenciales((prevState) => ({
+    setGames((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
 
+  //VALIDATION && CHECKERROR
   useEffect(() => {
-    for (let error in credencialesError) {
-      if (credencialesError[error] !== "") {
+    for (let error in gamesError) {
+      if (gamesError[error] !== "") {
         setRegisterAct(false);
         return;
       }
     }
-    for (let vacio in credenciales) {
-      if (credenciales[vacio] === "") {
+    for (let vacio in games) {
+      if (games[vacio] === "") {
         setRegisterAct(false);
         return;
       }
     }
-    for (let validated in valiCredenciales) {
-      if (valiCredenciales[validated] === false) {
+    for (let validated in valiGames) {
+      if (valiGames[validated] === false) {
         setRegisterAct(false);
         return;
       }
@@ -75,21 +77,22 @@ export const NewGame = () => {
     let error = "";
     const checked = validate(e.target.name, e.target.value, e.target.required);
     error = checked.message;
-    setValiCredenciales((prevState) => ({
+    setValiGames((prevState) => ({
       ...prevState,
       [e.target.name + "Vali"]: checked.validated,
     }));
-    setCredencialesError((prevState) => ({
+    setGamesError((prevState) => ({
       ...prevState,
       [e.target.name + "Error"]: error,
     }));
   };
 
-  const newJuego = () => {
-    postNewGame(credenciales, userRedux.credentials.token)
-      .then((resultado) => {
-        setCredenciales(resultado.data);
-        setWelcome(`Correctly registered ${credenciales.name}`);
+  //CONST NEWGAME AND REDIRECT TO GetAllGamesAdmin.jsx
+  const newGame = () => {
+    postNewGame(games, userRedux.credentials.token)
+      .then((result) => {
+        setGames(result.data);
+        setWelcome(`Correctly registered ${games.name}`);
         setTimeout(() => {
           navigate("/games/all");
         }, 2500);
@@ -113,7 +116,7 @@ export const NewGame = () => {
                         <Form.Label>Game Name:</Form.Label>
                         <InputText
                           className={
-                            credencialesError.emailError === ""
+                            gamesError.emailError === ""
                               ? "inputBasicDesign"
                               : "inputBasicDesign inputErrorDesign"
                           }
@@ -130,7 +133,7 @@ export const NewGame = () => {
                         <Form.Label>Game Description:</Form.Label>
                         <InputText
                           className={
-                            credencialesError.passwordError === ""
+                            gamesError.passwordError === ""
                               ? "inputBasicDesign"
                               : "inputBasicDesign inputErrorDesign"
                           }
@@ -147,7 +150,7 @@ export const NewGame = () => {
                         <Form.Label>Game Score:</Form.Label>
                         <InputText
                           className={
-                            credencialesError.emailError === ""
+                            gamesError.emailError === ""
                               ? "inputBasicDesign"
                               : "inputBasicDesign inputErrorDesign"
                           }
@@ -164,7 +167,7 @@ export const NewGame = () => {
                         <Form.Label>Game Genre:</Form.Label>
                         <InputText
                           className={
-                            credencialesError.passwordError === ""
+                            gamesError.passwordError === ""
                               ? "inputBasicDesign"
                               : "inputBasicDesign inputErrorDesign"
                           }
@@ -181,7 +184,7 @@ export const NewGame = () => {
                         <Form.Label>Game Publisher:</Form.Label>
                         <InputText
                           className={
-                            credencialesError.emailError === ""
+                            gamesError.emailError === ""
                               ? "inputBasicDesign"
                               : "inputBasicDesign inputErrorDesign"
                           }
@@ -198,7 +201,7 @@ export const NewGame = () => {
                         <Form.Label>Game Release Date:</Form.Label>
                         <InputText
                           className={
-                            credencialesError.passwordError === ""
+                            gamesError.passwordError === ""
                               ? "inputBasicDesign"
                               : "inputBasicDesign inputErrorDesign"
                           }
@@ -215,7 +218,7 @@ export const NewGame = () => {
                         <Form.Label>Game Image URL:</Form.Label>
                         <InputText
                           className={
-                            credencialesError.passwordError === ""
+                            gamesError.passwordError === ""
                               ? "inputBasicDesign"
                               : "inputBasicDesign inputErrorDesign"
                           }
@@ -232,7 +235,7 @@ export const NewGame = () => {
                         <Button
                           className=""
                           variant="primary"
-                          onClick={newJuego}
+                          onClick={newGame}
                         >
                           New Game
                         </Button></div>

@@ -8,11 +8,11 @@ import { loginUpdate } from "../services/apiCalls";
 import { InputText } from "../../components/InputText";
 
 export const ChangeLogin = ({ onPasswordUpdate }) => {
+  //REDUX USER DATA
   const userRedux = useSelector(userData);
   let email = userRedux?.credentials?.usuario?.email;
   const navigate = useNavigate();
   const [welcome, setWelcome] = useState("");
-  const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
   const [user, setUser] = useState({
     email: email,
@@ -39,6 +39,7 @@ export const ChangeLogin = ({ onPasswordUpdate }) => {
 
   const [registerAct, setRegisterAct] = useState(false);
 
+  //VALIDATION AND CHECKERROR
   useEffect(() => {
     for (let error in userError) {
       if (userError[error] != "") {
@@ -83,14 +84,7 @@ export const ChangeLogin = ({ onPasswordUpdate }) => {
     }));
   };
 
-  const checkConfirmPassword = (e) => {
-    let error = "";
-    if (e.target.value !== user.password) {
-      error = "Passwords do not match";
-    }
-    setConfirmPasswordError(error);
-  };
-
+  //CONST CHANGE PASSWORD AND VALIDATE password  = confirmPassword
   const updateLogin = () => {
     if (user.password !== user.confirmPassword) {
       setWelcome(`Passwords do not match`);

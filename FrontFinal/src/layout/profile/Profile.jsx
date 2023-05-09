@@ -7,20 +7,26 @@ import { ProfileUpdate } from "./ProfileUpdate";
 import { ChangeLogin } from "./ChangeLogin";
 
 export const Profile = () => {
+  //REDUX USER DATA
   const userRedux = useSelector(userData);
+
+  //OPEN OR CLOSE CHANGE PASSWORD MODAL
   const [password, setPassword] = useState(false);
   const handleClosePassword = () => setPassword(false);
   const handleShowPassword = () => setPassword(true);
 
+  //OPEN OR CLOSE UPDATE USER MODAL
   const [update, setUpdate] = useState(false);
   const handleCloseUpdate = () => setUpdate(false);
   const handleShowUpdate = () => setUpdate(true);
 
+  //CONST CLOSE UPDATE MODAL AND RELOAD PROFILE
   const handleProfileUpdate = () => {
     setUpdate(false);
     reloadProfile();
   };
 
+  //CONST CLOSE PASSWORD MODAL AND RELOAD PROFILE
   const handlePasswordUpdate = () => {
     setPassword(false);
     reloadProfile();
@@ -34,6 +40,7 @@ export const Profile = () => {
     birth_date: "",
   });
 
+  //GET YOUR PROFILE
   useEffect(() => {
     if (users.name === "") {
       getMyProfile(userRedux.credentials.token)
@@ -51,6 +58,7 @@ export const Profile = () => {
     }
   }, [users]);
 
+  //CONST RELOAD PROFILES FOR MODALS
   const reloadProfile = () => {
     getMyProfile(userRedux.credentials.token)
       .then((result) => {

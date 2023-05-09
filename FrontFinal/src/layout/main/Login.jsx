@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { Button, Card, Col, Container, Form, ListGroup, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
+import { Button, Card, Col, Container, Form, OverlayTrigger, Row, Tooltip } from "react-bootstrap";
 import { login } from "../userSlice";
 import { loginUser } from "../services/apiCalls";
 import { InputText } from "../../components/InputText";
@@ -11,6 +11,7 @@ export const Login = () => {
   const dispatch = useDispatch();
   const [welcome, setWelcome] = useState("");
 
+  //TOOLTIP FOR BUTTON
   const renderTooltip = (props) => (
     <Tooltip id="ButtonRegister-tooltip" {...props}>
       You must enter a Valid User First
@@ -32,6 +33,7 @@ export const Login = () => {
   const [registerAct, setRegisterAct] = useState(false);
   const checkError = (e) => { };
 
+  //CONST LOGIN USER
   const logMe = () => {
     loginUser(credenciales)
       .then((respuesta) => {
@@ -54,6 +56,7 @@ export const Login = () => {
         }, 1500);
       })
   };
+
   return (
     <>
       <div>
